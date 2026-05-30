@@ -9,19 +9,128 @@
   <link rel="icon" type="image/png" href="images/icon.png">
   <link rel="apple-touch-icon" href="images/icon.png">
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* Keeps styling consistent with the rest of your site */
     :root {
       --hero-image: url('images/hero-bg.jpg') !important;
+
+      --text-main: #222222;
+      --text-body: #333333;
+      --text-muted: #5A5A5A;
+      --heading-main: #111111;
+      --accent-gold: #b58b47;
+      --accent-green: #123f36;
+      --box-bg: #ffffff;
+      --soft-bg: #FAF8F4;
+      --soft-chip: #F1ECE4;
+      --soft-border: rgba(0, 0, 0, 0.10);
+      --box-radius: 10px;
+      --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.045);
     }
-    
-    /* Adds a bit of padding to the top so it isn't hidden under the nav */
+
     .page-header {
       padding-top: 120px;
       padding-bottom: 20px;
     }
+
+    .page-header p {
+      max-width: 930px;
+      margin: 0 0 28px 0;
+      color: var(--text-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .pub-card {
+      background: var(--box-bg);
+      border: 1px solid var(--soft-border);
+      border-radius: var(--box-radius);
+      box-shadow: var(--box-shadow);
+      padding: 24px;
+    }
+
+    .pub-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--heading-main);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 1.28rem;
+      line-height: 1.25;
+    }
+
+    .pub-card p {
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .pub-card .citation {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .pub-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      max-width: max-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--soft-chip);
+      color: #4a4038;
+      font-size: 0.82rem;
+      line-height: 1;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .pub-links {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: auto;
+    }
+
+    .pub-links a {
+      color: var(--accent-green);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .pub-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .pub-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pub-card h3 {
+        font-size: 1.18rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
 <main-nav active-page="publications"></main-nav>
@@ -30,7 +139,7 @@
   <section class="section block page-header" id="publications-header">
     <h1 class="section-title">Publications</h1>
     <div class="section-line"></div>
-    <p style="max-width:930px; margin: 0 0 28px 0; color:#3d4541;">
+    <p>
       Selected publications and working papers. Status labels are kept explicit to distinguish published and in-press work from manuscripts under review and working papers.
     </p>
   </section>
@@ -39,67 +148,91 @@
     <div class="pub-grid">
       
       <article class="pub-card">
-        <div class="status">In press</div>
         <h3>Contested Rule Formation under Institutional Mismatch</h3>
         <p class="citation">Jangjoo, S. (2026). Contested rule formation under institutional mismatch: A framework for early-phase governance of disruptive innovations. Policy Studies Journal.</p>
         <p>Develops CRF as an upstream framework for classification, jurisdiction, venue settlement, and procedural learning under institutional mismatch.</p>
-        <div class="pub-links"></div>
+        <div class="pub-meta">
+          <span class="status">In press</span>
+          <div class="pub-links"></div>
+        </div>
       </article>
 
       <article class="pub-card">
-        <div class="status">In press</div>
         <h3>Diagnosing Institutional Design–Implementation Gaps</h3>
         <p class="citation">Jangjoo, S., Tang, T., Arpan, L., Lapan, E., Little, J., &amp; Farid, A. (2026). Policy Studies Journal.</p>
         <p>Introduces a dual-layer systems modeling approach for tracing rules-in-form/rules-in-use gaps and visualizing institutional change mechanisms.</p>
-        <div class="pub-links"><a href="https://dx.doi.org/10.2139/ssrn.5277328" target="_blank">SSRN/DOI</a></div>
+        <div class="pub-meta">
+          <span class="status">In press</span>
+          <div class="pub-links">
+            <a href="https://dx.doi.org/10.2139/ssrn.5277328" target="_blank">SSRN/DOI</a>
+          </div>
+        </div>
       </article>
 
       <article class="pub-card">
-        <div class="status">Published</div>
         <h3>Renewable Energy Transitions from the Ground Up</h3>
         <p class="citation">Jangjoo, S., &amp; Tang, T. (2025). Cities, 158, 105737.</p>
         <p>Examines how local governments build clean-energy action despite limited state support through local institutionalization and collaboration.</p>
-        <div class="pub-links"><a href="https://doi.org/10.1016/j.cities.2025.105737" target="_blank">DOI</a></div>
+        <div class="pub-meta">
+          <span class="status">Published</span>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1016/j.cities.2025.105737" target="_blank">DOI</a>
+          </div>
+        </div>
       </article>
 
       <article class="pub-card">
-        <div class="status">Published</div>
         <h3>Women’s Perceptions of Built Environment and Community Wellbeing</h3>
         <p class="citation">Jangjoo, S., Askari, S., &amp; Doaee, A. (2026). Cities, 173, 106871.</p>
         <p>Studies satisfaction and sense of community in women’s perceptions of built environment and community wellbeing in residential apartment complexes.</p>
-        <div class="pub-links"><a href="https://doi.org/10.1016/j.cities.2026.106871" target="_blank">DOI</a></div>
+        <div class="pub-meta">
+          <span class="status">Published</span>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1016/j.cities.2026.106871" target="_blank">DOI</a>
+          </div>
+        </div>
       </article>
 
       <article class="pub-card">
-        <div class="status">Book review</div>
         <h3>Teaching the Procurement Life Cycle</h3>
         <p class="citation">Jangjoo, S. (2026). Journal of Public Affairs Education.</p>
         <p>A review of Introduction to Procurement in the Public Sector.</p>
-        <div class="pub-links"><a href="https://doi.org/10.1177/15236803261428019" target="_blank">DOI</a></div>
+        <div class="pub-meta">
+          <span class="status">Book review</span>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1177/15236803261428019" target="_blank">DOI</a>
+          </div>
+        </div>
       </article>
 
       <article class="pub-card">
-        <div class="status">R&amp;R</div>
         <h3>Institutional Voids and Public Opposition</h3>
         <p class="citation">Gao, X., &amp; Jangjoo, S. (2026). Policy Studies Journal.</p>
         <p>Examines how local wind-siting institutional voids shape organized public opposition to wind energy infrastructure.</p>
-        <div class="pub-links"></div>
+        <div class="pub-meta">
+          <span class="status">R&amp;R</span>
+          <div class="pub-links"></div>
+        </div>
       </article>
 
       <article class="pub-card">
-        <div class="status">Working paper</div>
         <h3>When Are Governments Institutionally Ready for Public-Sector AI?</h3>
         <p class="citation">Jangjoo, S. (Working paper).</p>
         <p>Reframes AI readiness as an upstream institutional threshold involving classification, venue settlement, and procedural templates.</p>
-        <div class="pub-links"></div>
+        <div class="pub-meta">
+          <span class="status">Working paper</span>
+          <div class="pub-links"></div>
+        </div>
       </article>
 
       <article class="pub-card">
-        <div class="status">Working paper</div>
         <h3>Visible Public Disruption and Accountability Lag</h3>
         <p class="citation">Jangjoo, S. (Working paper).</p>
         <p>Explains how public-facing autonomous systems become governable when visible disruption exposes accountability lag and procedural weakness.</p>
-        <div class="pub-links"></div>
+        <div class="pub-meta">
+          <span class="status">Working paper</span>
+          <div class="pub-links"></div>
+        </div>
       </article>
 
     </div>
