@@ -64,8 +64,7 @@
     }
 
     .eyebrow,
-    .media-card span,
-    .featured-card span {
+    .featured-card > span {
       color: var(--accent-green);
       font-size: 0.82rem;
       font-weight: 700;
@@ -98,7 +97,7 @@
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
     }
 
-    .featured-card span {
+    .featured-card > span {
       display: inline-block;
       color: var(--accent-gold);
       margin-bottom: 12px;
@@ -230,37 +229,40 @@
       align-items: center;
       width: fit-content;
       max-width: max-content;
-      padding: 7px 10px;
+      padding: 4px 8px;
       border-radius: 999px;
-      font-size: 0.82rem;
+      font-size: 0.7rem;
       line-height: 1;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       white-space: nowrap;
       border: 1px solid transparent;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.035);
     }
 
     .type-research-note {
-      background: rgba(18, 63, 54, 0.10);
+      background: linear-gradient(180deg, rgba(18, 63, 54, 0.11), rgba(18, 63, 54, 0.06));
       color: var(--accent-green);
-      border-color: rgba(18, 63, 54, 0.18);
+      border-color: rgba(18, 63, 54, 0.16);
     }
 
     .type-paper-summary {
-      background: rgba(181, 139, 71, 0.14);
+      background: linear-gradient(180deg, rgba(181, 139, 71, 0.16), rgba(181, 139, 71, 0.08));
       color: #806026;
-      border-color: rgba(181, 139, 71, 0.22);
+      border-color: rgba(181, 139, 71, 0.20);
     }
 
     .type-public-media {
-      background: rgba(120, 47, 64, 0.10);
+      background: linear-gradient(180deg, rgba(120, 47, 64, 0.11), rgba(120, 47, 64, 0.06));
       color: var(--accent-garnet);
-      border-color: rgba(120, 47, 64, 0.18);
+      border-color: rgba(120, 47, 64, 0.16);
     }
 
     .type-commentary {
-      background: rgba(74, 92, 97, 0.10);
+      background: linear-gradient(180deg, rgba(74, 92, 97, 0.11), rgba(74, 92, 97, 0.06));
       color: var(--accent-slate);
-      border-color: rgba(74, 92, 97, 0.18);
+      border-color: rgba(74, 92, 97, 0.16);
     }
 
     .media-links {
@@ -446,7 +448,6 @@
     <div class="media-grid" id="media-grid">
 
       <article class="media-card" id="note-crf" data-index="1" data-year="2026" data-type="research-note" data-primary-area="crf" data-areas="crf">
-        <span>Research Note</span>
         <h3>What Is Contested Rule Formation?</h3>
         <p class="summary">A short explanation of CRF as the politics of making an innovation governable before mature policy conflict fully exists.</p>
         <p>This entry introduces Contested Rule Formation as an upstream governance concept focused on classification, jurisdiction, venue settlement, and procedural rules under institutional mismatch.</p>
@@ -466,7 +467,6 @@
       </article>
 
       <article class="media-card" id="note-ai-readiness" data-index="2" data-year="2026" data-type="research-note" data-primary-area="ai" data-areas="ai crf">
-        <span>Research Note</span>
         <h3>Why AI Readiness Is Not the Same as AI Adoption</h3>
         <p class="summary">A public-administration explanation of institutional readiness, venue settlement, and procedural governance for public-sector AI.</p>
         <p>This entry distinguishes AI adoption from AI readiness by focusing on the institutional conditions needed for accountable public-sector AI: authority, review procedures, procurement templates, and learning routines.</p>
@@ -489,7 +489,6 @@
       </article>
 
       <article class="media-card" id="note-energy-justice" data-index="3" data-year="2026" data-type="commentary" data-primary-area="energy" data-areas="energy nonprofits crf">
-        <span>Commentary</span>
         <h3>Where Does Energy Justice Become a Rule?</h3>
         <p class="summary">A reflection on eligibility rules, documentation burdens, and downstream program templates as surfaces of energy-justice institutionalization.</p>
         <p>This entry explains why energy justice should be studied not only as a normative principle, but also as a question of rule location, administrative burden, documentation, eligibility, and program implementation.</p>
@@ -515,7 +514,6 @@
       </article>
 
       <article class="media-card" id="summary-renewable-energy-ground-up" data-index="4" data-year="2025" data-type="paper-summary" data-primary-area="energy" data-areas="energy methods">
-        <span>Paper Report</span>
         <h3>Renewable Energy Transitions from the Ground Up</h3>
         <p class="summary">A public-facing summary of my Cities article on local clean-energy action despite limited state support.</p>
         <p>This entry will summarize the article’s core argument: local governments can build clean-energy governance capacity through leadership, interdepartmental coordination, collaboration, financing tools, and local institutionalization even when state support is limited.</p>
@@ -539,7 +537,6 @@
       </article>
 
       <article class="media-card" id="summary-built-environment-wellbeing" data-index="5" data-year="2026" data-type="paper-summary" data-primary-area="urban" data-areas="urban methods">
-        <span>Paper Report</span>
         <h3>Women’s Perceptions of Built Environment and Community Wellbeing</h3>
         <p class="summary">A public-facing summary of my Cities article on satisfaction, sense of community, built environment, and community wellbeing.</p>
         <p>This entry will explain how built environment quality, satisfaction, and sense of community shape women’s perceptions of community wellbeing in residential apartment complexes.</p>
