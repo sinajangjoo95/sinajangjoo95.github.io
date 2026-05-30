@@ -10,12 +10,12 @@ class MainNav extends HTMLElement {
         </a>
         <nav aria-label="Main navigation" class="main-menu">
           <a id="nav-home" href="index.html">Home</a>
-          <a href="index.html#about">About</a>
+          <a id="nav-about" href="index.html#about">About</a>
           <a id="nav-research" href="research.html">Research</a>
-          <a href="index.html#publications">Publications</a>
+          <a id="nav-publications" href="publications.html">Publications</a>
           <a id="nav-teaching" href="teaching.html">Teaching</a>
-          <a href="index.html#Research Note">Research Note</a>
-          <a href="index.html#contact">Contact</a>
+          <a id="nav-notes" href="index.html#Research Note">Research Note</a>
+          <a id="nav-contact" href="index.html#contact">Contact</a>
         </nav>
       </div>
     </header>
