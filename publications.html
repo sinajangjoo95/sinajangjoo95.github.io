@@ -43,10 +43,51 @@
       line-height: 1.75;
     }
 
+    .publication-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 26px 0;
+    }
+
+    .control-btn {
+      border: 1px solid rgba(18, 63, 54, 0.18);
+      background: #ffffff;
+      color: var(--accent-green);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .control-btn:hover,
+    .control-btn.active {
+      background: var(--accent-green);
+      color: #ffffff;
+      border-color: var(--accent-green);
+    }
+
     .pub-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 22px;
+    }
+
+    .pub-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .pub-group-title {
+      margin: 8px 0 -2px 0;
+      color: var(--heading-main);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 1.18rem;
+      line-height: 1.25;
     }
 
     .pub-card {
@@ -270,9 +311,17 @@
   </section>
 
   <section class="section block" id="publications-list" style="padding-top: 0;">
-    <div class="pub-grid">
+
+    <div class="publication-controls" aria-label="Publication ordering controls">
+      <button type="button" class="control-btn active" data-view="default">Default</button>
+      <button type="button" class="control-btn" data-view="area">Research Area</button>
+      <button type="button" class="control-btn" data-view="year">Year</button>
+      <button type="button" class="control-btn" data-view="status">Status</button>
+    </div>
+
+    <div class="pub-grid" id="pub-grid">
       
-      <article class="pub-card">
+      <article class="pub-card" data-index="1" data-year="2026" data-status="inpress" data-primary-area="crf" data-areas="crf">
         <h3>Contested Rule Formation under Institutional Mismatch</h3>
         <p class="citation">Jangjoo, S. (2026). Contested rule formation under institutional mismatch: A framework for early-phase governance of disruptive innovations. Policy Studies Journal.</p>
         <p>Develops CRF as an upstream framework for classification, jurisdiction, venue settlement, and procedural learning under institutional mismatch.</p>
@@ -289,7 +338,7 @@
         </div>
       </article>
 
-      <article class="pub-card">
+      <article class="pub-card" data-index="2" data-year="2026" data-status="inpress" data-primary-area="methods" data-areas="methods">
         <h3>Diagnosing Institutional Design–Implementation Gaps</h3>
         <p class="citation">Jangjoo, S., Tang, T., Arpan, L., Lapan, E., Little, J., &amp; Farid, A. (2026). Policy Studies Journal.</p>
         <p>Introduces a dual-layer systems modeling approach for tracing rules-in-form/rules-in-use gaps and visualizing institutional change mechanisms.</p>
@@ -308,7 +357,7 @@
         </div>
       </article>
 
-      <article class="pub-card">
+      <article class="pub-card" data-index="3" data-year="2025" data-status="published" data-primary-area="energy" data-areas="energy methods">
         <h3>Renewable Energy Transitions from the Ground Up</h3>
         <p class="citation">Jangjoo, S., &amp; Tang, T. (2025). Cities, 158, 105737.</p>
         <p>Examines how local governments build clean-energy action despite limited state support through local institutionalization and collaboration.</p>
@@ -330,7 +379,7 @@
         </div>
       </article>
 
-      <article class="pub-card">
+      <article class="pub-card" data-index="4" data-year="2026" data-status="published" data-primary-area="urban" data-areas="urban">
         <h3>Women’s Perceptions of Built Environment and Community Wellbeing</h3>
         <p class="citation">Jangjoo, S., Askari, S., &amp; Doaee, A. (2026). Cities, 173, 106871.</p>
         <p>Studies satisfaction and sense of community in women’s perceptions of built environment and community wellbeing in residential apartment complexes.</p>
@@ -349,7 +398,7 @@
         </div>
       </article>
 
-      <article class="pub-card">
+      <article class="pub-card" data-index="5" data-year="2026" data-status="published" data-primary-area="none" data-areas="">
         <h3>Book Review: Teaching the Procurement Life Cycle</h3>
         <p class="citation">Jangjoo, S. (2026). Journal of Public Affairs Education.</p>
         <p>A review of Introduction to Procurement in the Public Sector.</p>
@@ -364,7 +413,7 @@
         </div>
       </article>
 
-      <article class="pub-card">
+      <article class="pub-card" data-index="6" data-year="2026" data-status="revision" data-primary-area="energy" data-areas="energy">
         <h3>Institutional Voids and Public Opposition</h3>
         <p class="citation">Gao, X., &amp; Jangjoo, S. (2026). Policy Studies Journal.</p>
         <p>Examines how local wind-siting institutional voids shape organized public opposition to wind energy infrastructure.</p>
@@ -381,7 +430,7 @@
         </div>
       </article>
 
-      <article class="pub-card">
+      <article class="pub-card" data-index="7" data-year="2026" data-status="working" data-primary-area="ai" data-areas="ai crf">
         <h3>When Are Governments Institutionally Ready for Public-Sector AI?</h3>
         <p class="citation">Jangjoo, S. (Working paper).</p>
         <p>Reframes AI readiness as an upstream institutional threshold involving classification, venue settlement, and procedural templates.</p>
@@ -401,7 +450,7 @@
         </div>
       </article>
 
-      <article class="pub-card">
+      <article class="pub-card" data-index="8" data-year="2026" data-status="working" data-primary-area="ai" data-areas="ai">
         <h3>Visible Public Disruption and Accountability Lag</h3>
         <p class="citation">Jangjoo, S. (Working paper).</p>
         <p>Explains how public-facing autonomous systems become governable when visible disruption exposes accountability lag and procedural weakness.</p>
@@ -425,6 +474,162 @@
 
 <site-footer></site-footer>
 <script src="site-footer.js"></script>
+
+<script>
+  const grid = document.getElementById("pub-grid");
+  const buttons = document.querySelectorAll(".control-btn");
+  const originalCards = Array.from(document.querySelectorAll(".pub-card"));
+
+  const areaMeta = {
+    crf: {
+      label: "01. Contested Rule Formation and Institutional Mismatch",
+      order: 1
+    },
+    ai: {
+      label: "02. AI and Emerging Technology Governance",
+      order: 2
+    },
+    energy: {
+      label: "03. Clean Energy, Rule Location, and Constrained Polycentricity",
+      order: 3
+    },
+    nonprofits: {
+      label: "04. Civil Society, Nonprofits, and Shadow Rule-Making",
+      order: 4
+    },
+    methods: {
+      label: "05. Collaborative Governance and Design Methods",
+      order: 5
+    },
+    urban: {
+      label: "06. Urban Planning, Public Space, and Community Wellbeing",
+      order: 6
+    },
+    none: {
+      label: "Other publications",
+      order: 99
+    }
+  };
+
+  const statusMeta = {
+    published: {
+      label: "Published",
+      order: 1
+    },
+    inpress: {
+      label: "In press",
+      order: 2
+    },
+    revision: {
+      label: "Under review / R&R",
+      order: 3
+    },
+    working: {
+      label: "Working papers",
+      order: 4
+    }
+  };
+
+  function getIndex(card) {
+    return Number(card.dataset.index || 0);
+  }
+
+  function getYear(card) {
+    return Number(card.dataset.year || 0);
+  }
+
+  function clearGrid() {
+    grid.innerHTML = "";
+  }
+
+  function addGroup(title, cards) {
+    if (!cards.length) return;
+
+    const group = document.createElement("div");
+    group.className = "pub-group";
+
+    if (title) {
+      const heading = document.createElement("h2");
+      heading.className = "pub-group-title";
+      heading.textContent = title;
+      group.appendChild(heading);
+    }
+
+    cards.forEach(card => group.appendChild(card));
+    grid.appendChild(group);
+  }
+
+  function renderDefault() {
+    clearGrid();
+    const cards = originalCards.slice().sort((a, b) => getIndex(a) - getIndex(b));
+    addGroup("", cards);
+  }
+
+  function renderByYear() {
+    clearGrid();
+
+    const years = [...new Set(originalCards.map(card => card.dataset.year))]
+      .sort((a, b) => Number(b) - Number(a));
+
+    years.forEach(year => {
+      const cards = originalCards
+        .filter(card => card.dataset.year === year)
+        .sort((a, b) => getIndex(a) - getIndex(b));
+
+      addGroup(year, cards);
+    });
+  }
+
+  function renderByStatus() {
+    clearGrid();
+
+    const statuses = Object.keys(statusMeta)
+      .sort((a, b) => statusMeta[a].order - statusMeta[b].order);
+
+    statuses.forEach(status => {
+      const cards = originalCards
+        .filter(card => card.dataset.status === status)
+        .sort((a, b) => getYear(b) - getYear(a) || getIndex(a) - getIndex(b));
+
+      addGroup(statusMeta[status].label, cards);
+    });
+  }
+
+  function renderByArea() {
+    clearGrid();
+
+    const areas = Object.keys(areaMeta)
+      .sort((a, b) => areaMeta[a].order - areaMeta[b].order);
+
+    areas.forEach(area => {
+      const cards = originalCards
+        .filter(card => card.dataset.primaryArea === area)
+        .sort((a, b) => getYear(b) - getYear(a) || getIndex(a) - getIndex(b));
+
+      addGroup(areaMeta[area].label, cards);
+    });
+  }
+
+  function setActiveButton(view) {
+    buttons.forEach(button => {
+      button.classList.toggle("active", button.dataset.view === view);
+    });
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const view = button.dataset.view;
+      setActiveButton(view);
+
+      if (view === "area") renderByArea();
+      else if (view === "year") renderByYear();
+      else if (view === "status") renderByStatus();
+      else renderDefault();
+    });
+  });
+
+  renderDefault();
+</script>
 
 </body>
 </html>
