@@ -25,21 +25,27 @@
       margin-top: 0;
     }
 
-.research-top .research-intro {
-  max-width: 1350px;
-  margin: 34px 0 42px 0;
-  padding: 0;
-  text-align: left;
-  color: #333;
-  font-size: 1.05rem;
-  line-height: 1.75;
-}
+    .research-top .research-intro {
+      max-width: 1350px;
+      margin: 34px 0 42px 0;
+      padding: 0;
+      text-align: left;
+      color: #333;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
 
     .subtle-note {
       color: #5A5A5A;
       font-size: 0.95rem;
       line-height: 1.7;
       margin-top: 12px;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
     }
 
     .detail-grid {
@@ -139,6 +145,7 @@
     }
 
     @media (max-width: 900px) {
+      .research-grid,
       .detail-grid,
       .methods-list {
         grid-template-columns: 1fr;
