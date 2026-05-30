@@ -68,9 +68,9 @@ class SiteFooter extends HTMLElement {
 
     style.textContent = `
       .sj-footer {
-        background: #ffffff;
-        color: #1F2523;
-        border-top: 1px solid #e8e5dd;
+        background: #073B32;
+        color: #ffffff;
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
         margin-top: 56px;
         padding: 34px 0 26px;
       }
@@ -109,16 +109,16 @@ class SiteFooter extends HTMLElement {
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
         font-size: 19px;
-        font-weight: 600;
+        font-weight: 400;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #073B32;
+        color: #ffffff;
         line-height: 1.2;
       }
 
       .sj-footer-identity p {
         margin: 0;
-        color: #5B625F;
+        color: rgba(255, 255, 255, 0.72);
         font-size: 13.5px;
         line-height: 1.5;
       }
@@ -133,58 +133,58 @@ class SiteFooter extends HTMLElement {
       }
 
       .sj-footer-links a {
-        color: #1F2523;
+        color: rgba(255, 255, 255, 0.82);
         text-decoration: none;
         transition: color 0.2s ease;
       }
 
       .sj-footer-links a:hover {
-        color: #073B32;
+        color: #ffffff;
       }
 
       .sj-footer-bottom {
         margin-top: 24px;
         padding-top: 18px;
-        border-top: 1px solid #eeeae2;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 24px;
-        color: #6f7470;
+        color: rgba(255, 255, 255, 0.58);
         font-size: 12.5px;
       }
 
       .sj-footer-bottom a {
-        color: #6f7470;
+        color: rgba(255, 255, 255, 0.58);
         text-decoration: none;
       }
 
       .sj-footer-bottom a:hover {
-        color: #073B32;
+        color: #ffffff;
       }
 
       .sj-back-to-top {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 2000;
-  width: 24px;
-  height: 24px;
-  display: grid;
-  place-items: center;
-  background: #073B32;
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  font-size: 12px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 7px 16px rgba(6, 40, 32, 0.14);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
-}
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 2000;
+        width: 24px;
+        height: 24px;
+        display: grid;
+        place-items: center;
+        background: #062820;
+        color: #ffffff;
+        border: none;
+        border-radius: 50%;
+        font-size: 12px;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 7px 16px rgba(6, 40, 32, 0.18);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+      }
 
       .sj-back-to-top.visible {
         opacity: 1;
@@ -193,7 +193,7 @@ class SiteFooter extends HTMLElement {
       }
 
       .sj-back-to-top:hover {
-        background: #062820;
+        background: #B08A45;
       }
 
       @media (max-width: 1200px) {
@@ -224,6 +224,16 @@ class SiteFooter extends HTMLElement {
           height: 26px;
         }
 
+        .sj-footer-identity h2 {
+          font-size: 17px;
+          letter-spacing: 0.10em;
+        }
+
+        .sj-footer-identity p {
+          font-size: 13px;
+          line-height: 1.55;
+        }
+
         .sj-footer-links {
           justify-content: flex-start;
           gap: 16px;
@@ -236,11 +246,11 @@ class SiteFooter extends HTMLElement {
         }
 
         .sj-back-to-top {
-          right: 18px;
-          bottom: 18px;
-          width: 40px;
-          height: 40px;
-          font-size: 18px;
+          right: 16px;
+          bottom: 16px;
+          width: 24px;
+          height: 24px;
+          font-size: 12px;
         }
       }
     `;
