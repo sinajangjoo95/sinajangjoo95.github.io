@@ -164,27 +164,27 @@ class SiteFooter extends HTMLElement {
       }
 
       .sj-back-to-top {
-        position: fixed;
-        right: 28px;
-        bottom: 28px;
-        z-index: 2000;
-        width: 42px;
-        height: 42px;
-        display: grid;
-        place-items: center;
-        background: #073B32;
-        color: #ffffff;
-        border: none;
-        border-radius: 50%;
-        font-size: 20px;
-        line-height: 1;
-        cursor: pointer;
-        box-shadow: 0 10px 24px rgba(6, 40, 32, 0.16);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
-      }
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 2000;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  background: #073B32;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 7px 16px rgba(6, 40, 32, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
 
       .sj-back-to-top.visible {
         opacity: 1;
