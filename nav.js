@@ -4,42 +4,63 @@ class MainNav extends HTMLElement {
   }
 
   connectedCallback() {
-    const activePage = this.getAttribute("active-page") || "";
+    const manualActivePage = this.getAttribute("active-page") || "";
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    const currentHash = window.location.hash.replace("#", "");
+
+    const getActivePage = () => {
+      if (manualActivePage) return manualActivePage;
+
+      if (currentPath === "research.html") return "research";
+      if (currentPath === "publications.html") return "publications";
+      if (currentPath === "media.html") return "media";
+
+      if (currentHash === "about") return "about";
+      if (currentHash === "research") return "research";
+      if (currentHash === "teaching") return "teaching";
+      if (currentHash === "media") return "media";
+      if (currentHash === "contact") return "contact";
+
+      return "home";
+    };
+
+    const activePage = getActivePage();
     const isActive = (page) => (activePage === page ? "active" : "");
 
     this.innerHTML = `
-      <header class="site-header">
-        <div class="site-header-inner">
+      <header class="sj-site-header">
+        <div class="sj-header-inner">
 
-          <div class="header-brand">
-            <a href="index.html" class="logo-link" aria-label="Sina Jangjoo Home">
-              <img src="images/icon.png" alt="SJ Logo" class="logo">
+          <div class="sj-header-brand">
+            <a href="index.html" class="sj-logo-link" aria-label="Sina Jangjoo Home">
+              <img src="images/icon.png" alt="SJ Logo" class="sj-logo">
             </a>
 
-            <div class="vertical-divider"></div>
+            <div class="sj-vertical-divider"></div>
 
-            <a href="index.html" class="brand-text" aria-label="Sina Jangjoo Home">
-              <div class="brand-name">SINA JANGJOO</div>
-              <div class="brand-subtitle">SCHOLAR. RESEARCHER. TEACHER.</div>
+            <a href="index.html" class="sj-brand-text" aria-label="Sina Jangjoo Home">
+              <div class="sj-brand-name">SINA JANGJOO</div>
+              <div class="sj-brand-subtitle">SCHOLAR. RESEARCHER. TEACHER.</div>
             </a>
           </div>
 
-          <nav class="main-navigation" aria-label="Main navigation">
-            <a href="index.html" class="nav-link ${isActive("home")}">Home</a>
-            <a href="#about" class="nav-link ${isActive("about")}">About</a>
-            <a href="#research" class="nav-link ${isActive("research")}">Research</a>
-            <a href="publications.html" class="nav-link ${isActive("publications")}">Publications</a>
-            <a href="#teaching" class="nav-link ${isActive("teaching")}">Teaching</a>
-            <a href="#media" class="nav-link ${isActive("media")}">Media</a>
-            <a href="#contact" class="nav-link ${isActive("contact")}">Contact</a>
+          <nav class="sj-main-navigation" aria-label="Main navigation">
+            <a href="index.html" class="sj-nav-link ${isActive("home")}">Home</a>
+            <a href="index.html#about" class="sj-nav-link ${isActive("about")}">About</a>
+            <a href="research.html" class="sj-nav-link ${isActive("research")}">Research</a>
+            <a href="publications.html" class="sj-nav-link ${isActive("publications")}">Publications</a>
+            <a href="index.html#teaching" class="sj-nav-link ${isActive("teaching")}">Teaching</a>
+            <a href="media.html" class="sj-nav-link ${isActive("media")}">Media</a>
+            <a href="index.html#contact" class="sj-nav-link ${isActive("contact")}">Contact</a>
           </nav>
 
-          <div class="header-action">
+          <div class="sj-header-action">
             <a 
               href="https://drive.google.com/file/d/1wV699dgGML-Hoiu8SZBhyOzrS-e5cQ9B/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
-              class="cv-button"
+              class="sj-cv-button"
+              aria-label="Open CV"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                 <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
