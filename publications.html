@@ -83,13 +83,21 @@
       font-style: italic;
     }
 
+    .pub-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 16px;
+      margin-bottom: 0;
+    }
+
     .pub-meta {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
-      margin-bottom: 0;
+      margin: 0;
     }
 
     .status {
@@ -154,6 +162,69 @@
       text-decoration: underline;
     }
 
+    .area-tags {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-left: auto;
+    }
+
+    .area-tags:empty {
+      display: none;
+    }
+
+    .area-tag {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      cursor: help;
+    }
+
+    .area-tag img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      opacity: 0.95;
+      display: block;
+    }
+
+    .area-tag::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 8px);
+      background: var(--heading-main);
+      color: #ffffff;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      line-height: 1.2;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(4px);
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 20;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .area-tag:hover::after,
+    .area-tag:focus::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .pub-card > *:last-child {
       margin-bottom: 0;
     }
@@ -165,6 +236,21 @@
 
       .pub-card h3 {
         font-size: 1.18rem;
+      }
+
+      .pub-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .area-tags {
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+
+      .area-tag::after {
+        left: 0;
+        right: auto;
       }
     }
   </style>
@@ -190,9 +276,16 @@
         <h3>Contested Rule Formation under Institutional Mismatch</h3>
         <p class="citation">Jangjoo, S. (2026). Contested rule formation under institutional mismatch: A framework for early-phase governance of disruptive innovations. Policy Studies Journal.</p>
         <p>Develops CRF as an upstream framework for classification, jurisdiction, venue settlement, and procedural learning under institutional mismatch.</p>
-        <div class="pub-meta">
-          <span class="status status-inpress">In press</span>
-          <div class="pub-links"></div>
+        <div class="pub-footer">
+          <div class="pub-meta">
+            <span class="status status-inpress">In press</span>
+            <div class="pub-links"></div>
+          </div>
+          <div class="area-tags" aria-label="Research area tags">
+            <span class="area-tag" tabindex="0" title="Contested Rule Formation and Institutional Mismatch" data-label="Contested Rule Formation and Institutional Mismatch">
+              <img src="images/extracted_icon_2.png" alt="Contested Rule Formation and Institutional Mismatch">
+            </span>
+          </div>
         </div>
       </article>
 
@@ -200,10 +293,17 @@
         <h3>Diagnosing Institutional Design–Implementation Gaps</h3>
         <p class="citation">Jangjoo, S., Tang, T., Arpan, L., Lapan, E., Little, J., &amp; Farid, A. (2026). Policy Studies Journal.</p>
         <p>Introduces a dual-layer systems modeling approach for tracing rules-in-form/rules-in-use gaps and visualizing institutional change mechanisms.</p>
-        <div class="pub-meta">
-          <span class="status status-inpress">In press</span>
-          <div class="pub-links">
-            <a href="https://dx.doi.org/10.2139/ssrn.5277328" target="_blank" rel="noopener">SSRN/DOI</a>
+        <div class="pub-footer">
+          <div class="pub-meta">
+            <span class="status status-inpress">In press</span>
+            <div class="pub-links">
+              <a href="https://dx.doi.org/10.2139/ssrn.5277328" target="_blank" rel="noopener">SSRN/DOI</a>
+            </div>
+          </div>
+          <div class="area-tags" aria-label="Research area tags">
+            <span class="area-tag" tabindex="0" title="Collaborative Governance and Design Methods" data-label="Collaborative Governance and Design Methods">
+              <img src="images/extracted_icon_6.png" alt="Collaborative Governance and Design Methods">
+            </span>
           </div>
         </div>
       </article>
@@ -212,10 +312,20 @@
         <h3>Renewable Energy Transitions from the Ground Up</h3>
         <p class="citation">Jangjoo, S., &amp; Tang, T. (2025). Cities, 158, 105737.</p>
         <p>Examines how local governments build clean-energy action despite limited state support through local institutionalization and collaboration.</p>
-        <div class="pub-meta">
-          <span class="status status-published">Published</span>
-          <div class="pub-links">
-            <a href="https://doi.org/10.1016/j.cities.2025.105737" target="_blank" rel="noopener">DOI</a>
+        <div class="pub-footer">
+          <div class="pub-meta">
+            <span class="status status-published">Published</span>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.cities.2025.105737" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </div>
+          <div class="area-tags" aria-label="Research area tags">
+            <span class="area-tag" tabindex="0" title="Clean Energy, Rule Location, and Constrained Polycentricity" data-label="Clean Energy, Rule Location, and Constrained Polycentricity">
+              <img src="images/extracted_icon_4.png" alt="Clean Energy, Rule Location, and Constrained Polycentricity">
+            </span>
+            <span class="area-tag" tabindex="0" title="Collaborative Governance and Design Methods" data-label="Collaborative Governance and Design Methods">
+              <img src="images/extracted_icon_6.png" alt="Collaborative Governance and Design Methods">
+            </span>
           </div>
         </div>
       </article>
@@ -224,10 +334,17 @@
         <h3>Women’s Perceptions of Built Environment and Community Wellbeing</h3>
         <p class="citation">Jangjoo, S., Askari, S., &amp; Doaee, A. (2026). Cities, 173, 106871.</p>
         <p>Studies satisfaction and sense of community in women’s perceptions of built environment and community wellbeing in residential apartment complexes.</p>
-        <div class="pub-meta">
-          <span class="status status-published">Published</span>
-          <div class="pub-links">
-            <a href="https://doi.org/10.1016/j.cities.2026.106871" target="_blank" rel="noopener">DOI</a>
+        <div class="pub-footer">
+          <div class="pub-meta">
+            <span class="status status-published">Published</span>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.cities.2026.106871" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </div>
+          <div class="area-tags" aria-label="Research area tags">
+            <span class="area-tag" tabindex="0" title="Urban Planning, Public Space, and Community Wellbeing" data-label="Urban Planning, Public Space, and Community Wellbeing">
+              <img src="images/extracted_icon_8.png" alt="Urban Planning, Public Space, and Community Wellbeing">
+            </span>
           </div>
         </div>
       </article>
@@ -236,11 +353,14 @@
         <h3>Book Review: Teaching the Procurement Life Cycle</h3>
         <p class="citation">Jangjoo, S. (2026). Journal of Public Affairs Education.</p>
         <p>A review of Introduction to Procurement in the Public Sector.</p>
-        <div class="pub-meta">
-          <span class="status status-published">Published</span>
-          <div class="pub-links">
-            <a href="https://doi.org/10.1177/15236803261428019" target="_blank" rel="noopener">DOI</a>
+        <div class="pub-footer">
+          <div class="pub-meta">
+            <span class="status status-published">Published</span>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1177/15236803261428019" target="_blank" rel="noopener">DOI</a>
+            </div>
           </div>
+          <div class="area-tags" aria-label="Research area tags"></div>
         </div>
       </article>
 
@@ -248,9 +368,16 @@
         <h3>Institutional Voids and Public Opposition</h3>
         <p class="citation">Gao, X., &amp; Jangjoo, S. (2026). Policy Studies Journal.</p>
         <p>Examines how local wind-siting institutional voids shape organized public opposition to wind energy infrastructure.</p>
-        <div class="pub-meta">
-          <span class="status status-revision">R&amp;R</span>
-          <div class="pub-links"></div>
+        <div class="pub-footer">
+          <div class="pub-meta">
+            <span class="status status-revision">R&amp;R</span>
+            <div class="pub-links"></div>
+          </div>
+          <div class="area-tags" aria-label="Research area tags">
+            <span class="area-tag" tabindex="0" title="Clean Energy, Rule Location, and Constrained Polycentricity" data-label="Clean Energy, Rule Location, and Constrained Polycentricity">
+              <img src="images/extracted_icon_4.png" alt="Clean Energy, Rule Location, and Constrained Polycentricity">
+            </span>
+          </div>
         </div>
       </article>
 
@@ -258,9 +385,19 @@
         <h3>When Are Governments Institutionally Ready for Public-Sector AI?</h3>
         <p class="citation">Jangjoo, S. (Working paper).</p>
         <p>Reframes AI readiness as an upstream institutional threshold involving classification, venue settlement, and procedural templates.</p>
-        <div class="pub-meta">
-          <span class="status status-working">Working paper</span>
-          <div class="pub-links"></div>
+        <div class="pub-footer">
+          <div class="pub-meta">
+            <span class="status status-working">Working paper</span>
+            <div class="pub-links"></div>
+          </div>
+          <div class="area-tags" aria-label="Research area tags">
+            <span class="area-tag" tabindex="0" title="AI and Emerging Technology Governance" data-label="AI and Emerging Technology Governance">
+              <img src="images/extracted_icon_3.png" alt="AI and Emerging Technology Governance">
+            </span>
+            <span class="area-tag" tabindex="0" title="Contested Rule Formation and Institutional Mismatch" data-label="Contested Rule Formation and Institutional Mismatch">
+              <img src="images/extracted_icon_2.png" alt="Contested Rule Formation and Institutional Mismatch">
+            </span>
+          </div>
         </div>
       </article>
 
@@ -268,9 +405,16 @@
         <h3>Visible Public Disruption and Accountability Lag</h3>
         <p class="citation">Jangjoo, S. (Working paper).</p>
         <p>Explains how public-facing autonomous systems become governable when visible disruption exposes accountability lag and procedural weakness.</p>
-        <div class="pub-meta">
-          <span class="status status-working">Working paper</span>
-          <div class="pub-links"></div>
+        <div class="pub-footer">
+          <div class="pub-meta">
+            <span class="status status-working">Working paper</span>
+            <div class="pub-links"></div>
+          </div>
+          <div class="area-tags" aria-label="Research area tags">
+            <span class="area-tag" tabindex="0" title="AI and Emerging Technology Governance" data-label="AI and Emerging Technology Governance">
+              <img src="images/extracted_icon_3.png" alt="AI and Emerging Technology Governance">
+            </span>
+          </div>
         </div>
       </article>
 
