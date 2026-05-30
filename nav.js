@@ -16,6 +16,14 @@ class MainNav extends HTMLElement {
           <a id="nav-teaching" href="teaching.html">Teaching</a>
           <a id="nav-notes" href="index.html#Research Note">Research Note</a>
           <a id="nav-contact" href="index.html#contact">Contact</a>
+          
+          <a id="nav-cv" 
+             href="https://drive.google.com/file/d/1wV699dgGML-Hoiu8SZBhyOzrS-e5cQ9B/view?usp=sharing" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             style="background-color: #062820; color: #ffffff; padding: 8px 18px; border-radius: 4px; margin-left: 15px; text-decoration: none; font-weight: bold; display: inline-block;">
+             CV
+          </a>
         </nav>
       </div>
     </header>
