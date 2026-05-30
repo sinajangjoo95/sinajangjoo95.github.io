@@ -25,7 +25,6 @@
       --accent-slate: #4A5C61;
 
       --box-bg: #ffffff;
-      --soft-bg: #FAF8F4;
       --soft-border: rgba(0, 0, 0, 0.10);
       --box-radius: 10px;
       --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.045);
@@ -47,7 +46,7 @@
     .pub-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 22px;
     }
 
     .pub-card {
@@ -56,11 +55,14 @@
       border-radius: var(--box-radius);
       box-shadow: var(--box-shadow);
       padding: 24px;
+
+      min-height: auto !important;
+      height: auto !important;
+      display: block !important;
     }
 
     .pub-card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
+      margin: 0 0 12px 0;
       color: var(--heading-main);
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
       font-size: 1.28rem;
@@ -68,6 +70,7 @@
     }
 
     .pub-card p {
+      margin: 0 0 12px 0;
       color: var(--text-body);
       font-size: 1rem;
       line-height: 1.7;
@@ -77,6 +80,7 @@
       color: var(--text-muted);
       font-size: 0.96rem;
       line-height: 1.65;
+      font-style: italic;
     }
 
     .pub-meta {
@@ -84,7 +88,8 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 18px;
+      margin-top: 16px;
+      margin-bottom: 0;
     }
 
     .status {
@@ -149,7 +154,15 @@
       text-decoration: underline;
     }
 
+    .pub-card > *:last-child {
+      margin-bottom: 0;
+    }
+
     @media (max-width: 900px) {
+      .pub-card {
+        padding: 22px;
+      }
+
       .pub-card h3 {
         font-size: 1.18rem;
       }
@@ -220,7 +233,7 @@
       </article>
 
       <article class="pub-card">
-        <h3>Teaching the Procurement Life Cycle</h3>
+        <h3>Book Review: Teaching the Procurement Life Cycle</h3>
         <p class="citation">Jangjoo, S. (2026). Journal of Public Affairs Education.</p>
         <p>A review of Introduction to Procurement in the Public Sector.</p>
         <div class="pub-meta">
