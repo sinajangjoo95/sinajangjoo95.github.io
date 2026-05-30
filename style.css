@@ -243,3 +243,98 @@ main > section.section.block{
 .footer{
   background:var(--green-dark) !important;
 }
+
+/* --- Header Container --- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px; 
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0; /* Optional subtle border */
+}
+
+/* --- Left Side: Logo & Text --- */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 45px; /* Adjust based on your actual logo image size */
+  width: auto;
+}
+
+.vertical-divider {
+  height: 40px;
+  width: 1px;
+  background-color: #e0e0e0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0b3d2c; 
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  color: #888888;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+/* --- Middle: Navigation Links --- */
+.main-navigation {
+  display: flex;
+  gap: 25px; 
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333333;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+  color: #0b3d2c; 
+  font-weight: 500;
+}
+
+/* --- Right Side: CV Button --- */
+.header-action {
+  display: flex;
+}
+
+.cv-button {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  background-color: #0b3d2c; 
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px; 
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.cv-button:hover {
+  background-color: #082b1f; 
+}
+
+.cv-button svg {
+  fill: currentColor;
+}
