@@ -7,8 +7,17 @@
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 
-<link rel="stylesheet" href="style.css"></head>
-<body style="--hero-image:url('hero-bg.jpg');">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Force the hero background to load */
+  .hero, .hero-inner::before {
+    background-image: linear-gradient(90deg, rgba(255,255,255,.03), rgba(255,255,255,0)), url('./hero-bg.jpg') !important;
+    background-size: cover !important;
+    background-position: center top !important;
+  }
+</style>
+</head>
+<body>
 <header class="site-nav" id="top">
 <div class="nav-inner">
 <a aria-label="Sina Jangjoo home" class="brand" href="#top">
