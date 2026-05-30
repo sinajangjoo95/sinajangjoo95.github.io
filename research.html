@@ -4,252 +4,259 @@
   <script src="nav.js"></script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Publications | Sina Jangjoo</title>
-  <meta content="Selected publications, working papers, and manuscripts by Sina Jangjoo." name="description">
+  <title>Research | Sina Jangjoo</title>
+  <meta content="Research areas of Sina Jangjoo." name="description">
   <link rel="icon" type="image/png" href="images/icon.png">
   <link rel="apple-touch-icon" href="images/icon.png">
   <link rel="stylesheet" href="style.css">
 
   <style>
     :root {
-      --hero-image: url('images/hero-bg.jpg') !important;
-
       --text-main: #222222;
       --text-body: #333333;
       --text-muted: #5A5A5A;
       --heading-main: #111111;
-
-      --accent-green: #123f36;
       --accent-gold: #b58b47;
+      --accent-green: #123f36;
       --accent-garnet: #782F40;
-      --accent-slate: #4A5C61;
-
       --box-bg: #ffffff;
       --soft-bg: #FAF8F4;
-      --soft-chip: #F1ECE4;
       --soft-border: rgba(0, 0, 0, 0.10);
       --box-radius: 10px;
       --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.045);
     }
 
-    .page-header {
-      padding-top: 120px;
-      padding-bottom: 20px;
-    }
-
-    .page-header p {
-      max-width: 930px;
-      margin: 0 0 28px 0;
-      color: var(--text-body);
-      font-size: 1.05rem;
-      line-height: 1.75;
-    }
-
-    .pub-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-    }
-
-    .pub-card {
-      background: var(--box-bg);
-      border: 1px solid var(--soft-border);
-      border-radius: var(--box-radius);
-      box-shadow: var(--box-shadow);
-      padding: 24px;
-
-      min-height: auto !important;
-      height: auto !important;
-      display: block !important;
-    }
-
-    .pub-card h3 {
-      margin: 0 0 12px 0;
-      color: var(--heading-main);
+    .area-header .num,
+    .research-card .num {
+      color: var(--accent-gold);
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      font-size: 1.28rem;
-      line-height: 1.25;
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
+      font-weight: 600;
     }
 
-    .pub-card p {
-      margin: 0 0 12px 0;
+    .area-header h2 {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: var(--heading-main);
+      font-size: 1.85rem;
+      line-height: 1.2;
+    }
+
+    .area-header p {
       color: var(--text-body);
       font-size: 1rem;
       line-height: 1.7;
     }
 
-    .pub-card .citation {
+    .research-top .research-intro {
+      max-width: 1350px;
+      margin: 34px 0 42px 0;
+      padding: 0;
+      text-align: left;
+      color: var(--text-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .subtle-note {
       color: var(--text-muted);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-top: 12px;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .research-card,
+    .detail-card,
+    .copy-card,
+    .green-callout,
+    .methods-band,
+    .method-chip,
+    .research-question-box {
+      border-radius: var(--box-radius) !important;
+    }
+
+    .research-card {
+      background: var(--box-bg);
+      border: 1px solid var(--soft-border);
+      box-shadow: var(--box-shadow);
+    }
+
+    .research-card h3 {
+      color: var(--heading-main);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 1.28rem;
+      line-height: 1.2;
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    .research-card p {
+      color: var(--text-body);
+      font-size: 0.98rem;
       line-height: 1.65;
-      font-style: italic;
     }
 
-    .pub-footer {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 16px;
-      margin-bottom: 0;
-    }
-
-    .pub-meta {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 0;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      max-width: max-content;
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      line-height: 1;
-      font-weight: 600;
-      white-space: nowrap;
-      border: 1px solid transparent;
-    }
-
-    .status-published {
-      background: rgba(18, 63, 54, 0.10);
+    .research-card .learn,
+    .learn {
       color: var(--accent-green);
-      border-color: rgba(18, 63, 54, 0.18);
-    }
-
-    .status-working {
-      background: rgba(181, 139, 71, 0.14);
-      color: #806026;
-      border-color: rgba(181, 139, 71, 0.22);
-    }
-
-    .status-inpress {
-      background: rgba(120, 47, 64, 0.10);
-      color: var(--accent-garnet);
-      border-color: rgba(120, 47, 64, 0.18);
-    }
-
-    .status-revision {
-      background: rgba(74, 92, 97, 0.10);
-      color: var(--accent-slate);
-      border-color: rgba(74, 92, 97, 0.18);
-    }
-
-    .pub-links {
-      display: inline-flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      width: auto;
-    }
-
-    .pub-links:empty {
-      display: none;
-    }
-
-    .pub-links a {
-      color: var(--accent-green);
-      font-size: 0.92rem;
       font-weight: 700;
-      text-decoration: none;
-      line-height: 1;
     }
 
-    .pub-links a:hover {
-      text-decoration: underline;
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 28px;
     }
 
-    .area-tags {
-      display: inline-flex;
-      align-items: center;
-      justify-content: flex-end;
+    .detail-card,
+    .copy-card {
+      background: var(--box-bg);
+      padding: 24px;
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--soft-border);
+    }
+
+    .detail-card h3,
+    .copy-card h3,
+    .methods-band h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      color: var(--heading-main);
+      font-size: 1.28rem;
+      line-height: 1.25;
+    }
+
+    .detail-card p,
+    .copy-card p,
+    .methods-band p {
+      line-height: 1.7;
+      color: var(--text-body);
+      font-size: 1rem;
+    }
+
+    .detail-card ul,
+    .copy-card ul {
+      margin-top: 12px;
+      padding-left: 20px;
+      line-height: 1.8;
+      color: var(--text-body);
+      font-size: 1rem;
+    }
+
+    .green-callout {
+      background: var(--soft-bg);
+      border: 1px solid rgba(181, 139, 71, 0.28);
+      box-shadow: none;
+    }
+
+    .tag-row {
+      display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-left: auto;
+      margin-top: 16px;
     }
 
-    .area-tags:empty {
-      display: none;
-    }
-
-    .area-tag {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: var(--soft-chip);
-      border: 1px solid rgba(181, 139, 71, 0.22);
-      cursor: help;
-    }
-
-    .area-tag img {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-      opacity: 0.92;
-    }
-
-    .area-tag::after {
-      content: attr(data-label);
-      position: absolute;
-      right: 0;
-      bottom: calc(100% + 8px);
-      background: var(--heading-main);
-      color: #ffffff;
+    .tag-row span,
+    .concept-strip span {
+      display: inline-block;
       padding: 7px 10px;
+      border-radius: 999px;
+      background: #F1ECE4;
+      color: #4a4038;
+      font-size: 0.82rem;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .research-question-box {
+      margin-top: 24px;
+      padding: 22px;
+      border-left: 4px solid var(--accent-gold);
+      background: var(--soft-bg);
+      border-top: 1px solid rgba(181, 139, 71, 0.18);
+      border-right: 1px solid rgba(181, 139, 71, 0.18);
+      border-bottom: 1px solid rgba(181, 139, 71, 0.18);
+      box-shadow: none;
+    }
+
+    .research-question-box strong {
+      color: var(--accent-garnet);
+    }
+
+    .research-question-box p {
+      margin: 0;
+      line-height: 1.75;
+      color: var(--text-body);
+      font-size: 1rem;
+    }
+
+    .mini-title {
+      color: var(--accent-garnet);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .methods-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .method-chip {
+      background: var(--box-bg);
+      border: 1px solid var(--soft-border);
+      padding: 14px 16px;
+      color: var(--text-body);
+      font-size: 0.95rem;
+      box-shadow: var(--box-shadow);
+    }
+
+    .methods-band {
+      border: 1px solid var(--soft-border);
+      box-shadow: var(--box-shadow);
+    }
+
+    .btn {
+      background: var(--accent-green);
+      color: #ffffff;
       border-radius: 6px;
-      font-size: 0.78rem;
-      line-height: 1.2;
-      font-weight: 600;
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateY(4px);
-      pointer-events: none;
-      transition: opacity 0.18s ease, transform 0.18s ease;
-      z-index: 20;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
-    }
-
-    .area-tag:hover::after,
-    .area-tag:focus::after {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .pub-card > *:last-child {
-      margin-bottom: 0;
+      font-weight: 700;
     }
 
     @media (max-width: 900px) {
-      .pub-card {
-        padding: 22px;
+      .research-grid,
+      .detail-grid,
+      .methods-list {
+        grid-template-columns: 1fr;
       }
 
-      .pub-card h3 {
+      .research-intro {
+        text-align: left;
+      }
+
+      .area-header h2 {
+        font-size: 1.55rem;
+      }
+
+      .research-card h3,
+      .detail-card h3,
+      .copy-card h3,
+      .methods-band h3 {
         font-size: 1.18rem;
-      }
-
-      .pub-footer {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .area-tags {
-        margin-left: 0;
-        justify-content: flex-start;
-      }
-
-      .area-tag::after {
-        left: 0;
-        right: auto;
       }
     }
   </style>
@@ -257,166 +264,416 @@
 
 <body>
 
-<main-nav active-page="publications"></main-nav>
+<main-nav active-page="research"></main-nav>
 
 <main>
-  <section class="section block page-header" id="publications-header">
-    <h1 class="section-title">Publications</h1>
+
+  <section class="section research-top" style="padding-top: 120px;">
+    <h1 class="section-title">Research Areas</h1>
     <div class="section-line"></div>
-    <p>
-      Selected publications and working papers. Status labels are kept explicit to distinguish published and in-press work from manuscripts under review and working papers.
+
+    <p class="research-intro">
+      My research examines how emerging technologies and sustainability transitions become governable when inherited institutions do not fit new policy problems. Across AI governance, autonomous systems, data-center infrastructure, clean energy transitions, collaborative governance, nonprofit and civil society action, and urban governance, I study how actors classify new problems, settle authority, build venues, and create procedural rules before stable policy systems fully exist.
     </p>
+
+    <div class="research-grid">
+      
+      <article class="research-card">
+        <div class="icon-wrap">
+          <img alt="Contested rule formation icon" src="images/extracted_icon_2.png">
+        </div>
+        <div class="num">01</div>
+        <h3>Contested Rule Formation and Institutional Mismatch</h3>
+        <p>A framework for early-phase governance of disruptive innovations, focusing on classification, jurisdiction, venue settlement, and procedural rule formation.</p>
+        <a class="learn" href="#crf">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap">
+          <img alt="AI and technology governance icon" src="images/extracted_icon_3.png">
+        </div>
+        <div class="num">02</div>
+        <h3>AI and Emerging Technology Governance</h3>
+        <p>Institutional readiness, accountability lag, and procedural governance for AI, autonomous systems, and digital infrastructures.</p>
+        <a class="learn" href="#ai">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap">
+          <img alt="Clean energy governance icon" src="images/extracted_icon_4.png">
+        </div>
+        <div class="num">03</div>
+        <h3>Clean Energy, Rule Location, and Constrained Polycentricity</h3>
+        <p>Where governance actually lands in clean energy transitions under preemption, utility authority, and constrained polycentricity.</p>
+        <a class="learn" href="#energy">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap">
+          <img alt="Civil society and nonprofits icon" src="images/extracted_icon_5.png">
+        </div>
+        <div class="num">04</div>
+        <h3>Civil Society, Nonprofits, and Shadow Rule-Making</h3>
+        <p>How nonprofits and communities make emerging problems governable through intervention, venue activation, and rule-object production.</p>
+        <a class="learn" href="#nonprofits">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap">
+          <img alt="Collaborative governance icon" src="images/extracted_icon_6.png">
+        </div>
+        <div class="num">05</div>
+        <h3>Collaborative Governance and Design Methods</h3>
+        <p>Methods to study institutional change, attention reallocation, and design–implementation gaps in complex governance systems.</p>
+        <a class="learn" href="#methods-grid">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap">
+          <img alt="Urban public space and community wellbeing icon" src="images/extracted_icon_8.png">
+        </div>
+        <div class="num">06</div>
+        <h3>Urban Planning, Public Space, and Community Wellbeing</h3>
+        <p>A secondary research stream on women’s experiences in public spaces, age-friendly public realms, accessibility, safety, and community wellbeing.</p>
+        <a class="learn" href="#urban">Learn more <span>→</span></a>
+      </article>
+
+    </div>
+
+    <div class="methods-band" style="margin-top: 40px;">
+      <div class="icon-wrap">
+        <img alt="Methods and evidence compass icon" src="images/extracted_icon_7.png">
+      </div>
+      <div>
+        <h3>Methods and Evidence</h3>
+        <p>I use qualitative case analysis, process tracing, documentary analysis, structured comparison, mixed methods, text-as-data, and systems modeling to make governance empirically observable through rules, venues, routines, and accountability.</p>
+      </div>
+      <a class="btn" href="#approach">View Research Approach</a>
+    </div>
   </section>
 
-  <section class="section block" id="publications-list" style="padding-top: 0;">
-    <div class="pub-grid">
+  <!-- Area 01 -->
+  <section class="section block" id="crf">
+    <div class="two-col">
       
-      <article class="pub-card">
-        <h3>Contested Rule Formation under Institutional Mismatch</h3>
-        <p class="citation">Jangjoo, S. (2026). Contested rule formation under institutional mismatch: A framework for early-phase governance of disruptive innovations. Policy Studies Journal.</p>
-        <p>Develops CRF as an upstream framework for classification, jurisdiction, venue settlement, and procedural learning under institutional mismatch.</p>
-        <div class="pub-footer">
-          <div class="pub-meta">
-            <span class="status status-inpress">In press</span>
-            <div class="pub-links"></div>
-          </div>
-          <div class="area-tags" aria-label="Research area tags">
-            <span class="area-tag" tabindex="0" title="Contested Rule Formation and Institutional Mismatch" data-label="Contested Rule Formation and Institutional Mismatch">
-              <img src="images/extracted_icon_2.png" alt="Contested Rule Formation and Institutional Mismatch">
-            </span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pub-card">
-        <h3>Diagnosing Institutional Design–Implementation Gaps</h3>
-        <p class="citation">Jangjoo, S., Tang, T., Arpan, L., Lapan, E., Little, J., &amp; Farid, A. (2026). Policy Studies Journal.</p>
-        <p>Introduces a dual-layer systems modeling approach for tracing rules-in-form/rules-in-use gaps and visualizing institutional change mechanisms.</p>
-        <div class="pub-footer">
-          <div class="pub-meta">
-            <span class="status status-inpress">In press</span>
-            <div class="pub-links">
-              <a href="https://dx.doi.org/10.2139/ssrn.5277328" target="_blank" rel="noopener">SSRN/DOI</a>
-            </div>
-          </div>
-          <div class="area-tags" aria-label="Research area tags">
-            <span class="area-tag" tabindex="0" title="Collaborative Governance and Design Methods" data-label="Collaborative Governance and Design Methods">
-              <img src="images/extracted_icon_6.png" alt="Collaborative Governance and Design Methods">
-            </span>
+      <div class="green-callout area-header">
+        <span class="num">01</span>
+        <h2>Contested Rule Formation</h2>
+        <p>CRF explains early-phase governance under institutional mismatch: the upstream period in which actors are still deciding what the policy object is, who has authority, where decisions belong, and what procedural rules can make governance durable.</p>
+      </div>
+      
+      <div>
+        <div class="copy-card" style="margin-bottom: 24px;">
+          <h3>Core framework</h3>
+          <p>Contested Rule Formation is intentionally bounded. It complements established policy process theories by focusing on the constitutive phase before stable subsystems, settled venues, and durable substantive standards exist.</p>
+          <p>Its central question is not only what policy should be adopted, but how a new domain becomes governable in the first place.</p>
+          <div class="concept-strip">
+            <span>Incipient Recognition</span>
+            <span>Exploratory Tactics</span>
+            <span>Rule Crystallization</span>
+            <span>Consolidation / Backlash</span>
           </div>
         </div>
-      </article>
 
-      <article class="pub-card">
-        <h3>Renewable Energy Transitions from the Ground Up</h3>
-        <p class="citation">Jangjoo, S., &amp; Tang, T. (2025). Cities, 158, 105737.</p>
-        <p>Examines how local governments build clean-energy action despite limited state support through local institutionalization and collaboration.</p>
-        <div class="pub-footer">
-          <div class="pub-meta">
-            <span class="status status-published">Published</span>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1016/j.cities.2025.105737" target="_blank" rel="noopener">DOI</a>
-            </div>
-          </div>
-          <div class="area-tags" aria-label="Research area tags">
-            <span class="area-tag" tabindex="0" title="Clean Energy, Rule Location, and Constrained Polycentricity" data-label="Clean Energy, Rule Location, and Constrained Polycentricity">
-              <img src="images/extracted_icon_4.png" alt="Clean Energy, Rule Location, and Constrained Polycentricity">
-            </span>
-            <span class="area-tag" tabindex="0" title="Collaborative Governance and Design Methods" data-label="Collaborative Governance and Design Methods">
-              <img src="images/extracted_icon_6.png" alt="Collaborative Governance and Design Methods">
-            </span>
+        <div class="copy-card">
+          <h3>Institutional mismatch dimensions</h3>
+          <p>Institutional mismatch appears when emerging technologies or transitions do not fit existing rules, authority structures, venues, or interpretive frames.</p>
+          <div class="concept-strip">
+            <span>Recognition</span>
+            <span>Authority</span>
+            <span>Enforcement Capacity</span>
+            <span>Venue Clarity</span>
+            <span>Interpretive Frames</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="pub-card">
-        <h3>Women’s Perceptions of Built Environment and Community Wellbeing</h3>
-        <p class="citation">Jangjoo, S., Askari, S., &amp; Doaee, A. (2026). Cities, 173, 106871.</p>
-        <p>Studies satisfaction and sense of community in women’s perceptions of built environment and community wellbeing in residential apartment complexes.</p>
-        <div class="pub-footer">
-          <div class="pub-meta">
-            <span class="status status-published">Published</span>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1016/j.cities.2026.106871" target="_blank" rel="noopener">DOI</a>
-            </div>
-          </div>
-          <div class="area-tags" aria-label="Research area tags">
-            <span class="area-tag" tabindex="0" title="Urban Planning, Public Space, and Community Wellbeing" data-label="Urban Planning, Public Space, and Community Wellbeing">
-              <img src="images/extracted_icon_8.png" alt="Urban Planning, Public Space, and Community Wellbeing">
-            </span>
+    </div>
+
+    <div class="research-question-box">
+      <p><strong>Central research question:</strong> How do actors make emerging policy domains governable before stable classifications, venues, and procedural rules fully exist?</p>
+    </div>
+  </section>
+
+  <!-- Area 02 -->
+  <section class="light-block" id="ai">
+    <div class="section block">
+      <div class="two-col">
+        <div class="area-header">
+          <span class="num">02</span>
+          <h2>Upstream AI Governance</h2>
+          <p>My AI governance work asks when AI systems, autonomous technologies, and AI infrastructures become institutionally governable—not merely technically deployable.</p>
+          <p>This research focuses on institutional readiness, accountability lag, procedural templates, data-center infrastructure, and public accountability.</p>
+        </div>
+
+        <div class="copy-card">
+          <h3>AI governance pillars</h3>
+          <ul>
+            <li>Institutional readiness for public-sector AI</li>
+            <li>Accountability lag in embodied autonomous systems</li>
+            <li>AI infrastructure and data centers as material governance problems</li>
+            <li>Procedural governance, documentation, review, and correction</li>
+            <li>Civil society participation in AI rule formation</li>
+          </ul>
+          <div class="concept-strip">
+            <span>Classification</span>
+            <span>Venue Architecture</span>
+            <span>Procedural Templates</span>
+            <span>Accountability</span>
+            <span>Defensibility</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="pub-card">
-        <h3>Book Review: Teaching the Procurement Life Cycle</h3>
-        <p class="citation">Jangjoo, S. (2026). Journal of Public Affairs Education.</p>
-        <p>A review of Introduction to Procurement in the Public Sector.</p>
-        <div class="pub-footer">
-          <div class="pub-meta">
-            <span class="status status-published">Published</span>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1177/15236803261428019" target="_blank" rel="noopener">DOI</a>
-            </div>
-          </div>
-          <div class="area-tags" aria-label="Research area tags"></div>
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Institutional readiness</h3>
+          <p>AI readiness is not simply adoption capacity. A government may acquire AI tools without having the classifications, review procedures, documentation rules, procurement standards, or correction mechanisms needed to govern them.</p>
         </div>
-      </article>
 
-      <article class="pub-card">
-        <h3>Institutional Voids and Public Opposition</h3>
-        <p class="citation">Gao, X., &amp; Jangjoo, S. (2026). Policy Studies Journal.</p>
-        <p>Examines how local wind-siting institutional voids shape organized public opposition to wind energy infrastructure.</p>
-        <div class="pub-footer">
-          <div class="pub-meta">
-            <span class="status status-revision">R&amp;R</span>
-            <div class="pub-links"></div>
-          </div>
-          <div class="area-tags" aria-label="Research area tags">
-            <span class="area-tag" tabindex="0" title="Clean Energy, Rule Location, and Constrained Polycentricity" data-label="Clean Energy, Rule Location, and Constrained Polycentricity">
-              <img src="images/extracted_icon_4.png" alt="Clean Energy, Rule Location, and Constrained Polycentricity">
-            </span>
+        <div class="detail-card">
+          <h3>Accountability lag</h3>
+          <p>Autonomous systems can produce visible public disruptions before institutions have settled who is responsible, which venue should respond, what information firms must disclose, and how harms should be reviewed or corrected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Area 03 -->
+  <section class="section block" id="energy">
+    <div class="green-callout area-header">
+      <span class="num">03</span>
+      <h2>Clean Energy Governance</h2>
+      <p>My clean-energy research examines where governance actually lands when local governments pursue decarbonization under constrained authority, state preemption, and utility-centered regulatory systems.</p>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>Rule location</h3>
+        <p>Rather than treating climate commitments or sustainability plans as evidence of governance capacity by themselves, I trace where clean energy rules become operational: statutes, regulatory orders, municipal instruments, procurement rules, program manuals, partnership agreements, eligibility criteria, and rules-in-use.</p>
+        <div class="tag-row">
+          <span>Rule Location</span>
+          <span>Rules-in-Use</span>
+          <span>Implementation</span>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <h3>Constrained polycentricity</h3>
+        <p>This work examines how local governments, nonprofits, and intermediaries create governable pathways in program-facing and procurement domains even when core electricity authority remains concentrated in state-level or utility-centered venues.</p>
+        <div class="tag-row">
+          <span>Preemption</span>
+          <span>Utility Authority</span>
+          <span>Local Governance</span>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <h3>Energy justice as rule design</h3>
+        <p>My work treats energy justice not only as a goal or value, but as something that becomes administratively real through eligibility rules, documentation burdens, participation procedures, access criteria, and accountability mechanisms.</p>
+        <div class="tag-row">
+          <span>Energy Justice</span>
+          <span>Access</span>
+          <span>Procedural Equity</span>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <h3>Local implementation under constraint</h3>
+        <p>This research explains how clean energy governance can advance through local capacity, interdepartmental coordination, nonprofit support, technical assistance, regional collaboration, and practical rule-making even when higher-level authority is limited or politically constrained.</p>
+        <div class="tag-row">
+          <span>Local Capacity</span>
+          <span>Technical Assistance</span>
+          <span>Collaboration</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-question-box">
+      <p><strong>Central research question:</strong> Where does clean energy governance actually occur when formal authority over the core energy regime is constrained?</p>
+    </div>
+  </section>
+
+  <!-- Area 04 -->
+  <section class="light-block" id="nonprofits">
+    <div class="section block">
+      <div class="two-col">
+        <div class="area-header">
+          <span class="num">04</span>
+          <h2>Civil Society and Nonprofits</h2>
+          <p>A central question in my work is how civil society actors shape governance when formal venues are closed, constrained, or poorly matched to emerging policy problems.</p>
+        </div>
+
+        <div class="copy-card">
+          <h3>Beyond advocacy</h3>
+          <p>Nonprofits and community organizations often do more than advocate. They translate information, activate venues, produce templates, coordinate implementation, and create rule objects that shape how policy is experienced on the ground.</p>
+          <div class="concept-strip">
+            <span>Intermediation</span>
+            <span>Venue Activation</span>
+            <span>Rule Objects</span>
+            <span>Shadow Rule-Making</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="pub-card">
-        <h3>When Are Governments Institutionally Ready for Public-Sector AI?</h3>
-        <p class="citation">Jangjoo, S. (Working paper).</p>
-        <p>Reframes AI readiness as an upstream institutional threshold involving classification, venue settlement, and procedural templates.</p>
-        <div class="pub-footer">
-          <div class="pub-meta">
-            <span class="status status-working">Working paper</span>
-            <div class="pub-links"></div>
-          </div>
-          <div class="area-tags" aria-label="Research area tags">
-            <span class="area-tag" tabindex="0" title="AI and Emerging Technology Governance" data-label="AI and Emerging Technology Governance">
-              <img src="images/extracted_icon_3.png" alt="AI and Emerging Technology Governance">
-            </span>
-            <span class="area-tag" tabindex="0" title="Contested Rule Formation and Institutional Mismatch" data-label="Contested Rule Formation and Institutional Mismatch">
-              <img src="images/extracted_icon_2.png" alt="Contested Rule Formation and Institutional Mismatch">
-            </span>
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Shadow rule-making</h3>
+          <p>I study when nonprofit and civil society action becomes procedurally consequential: when it changes eligibility criteria, participation routines, documentation practices, accountability channels, or implementation rules.</p>
+        </div>
+
+        <div class="detail-card">
+          <h3>Community knowledge and legitimacy</h3>
+          <p>Civil society organizations can make institutional mismatch visible by documenting harms, translating community experience, producing public evidence, and pressing formal institutions to recognize problems they have not yet classified.</p>
+        </div>
+
+        <div class="detail-card">
+          <h3>AI infrastructure and data centers</h3>
+          <p>In the context of AI infrastructure, nonprofits and communities can shape governance by contesting data-center siting, energy demand, water use, tax incentives, environmental burdens, and procedural accountability.</p>
+        </div>
+
+        <div class="detail-card">
+          <h3>Governance under constrained venues</h3>
+          <p>This work examines how nonprofits operate when formal venues are insulated, fragmented, or inaccessible, and how they create alternative rule objects, implementation pathways, and accountability claims.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Area 05 -->
+  <section class="section block" id="methods-grid">
+    <div class="green-callout area-header">
+      <span class="num">05</span>
+      <h2>Collaborative Governance and Design Methods</h2>
+      <p>My methodological work examines how governance arrangements can be studied through rules, venues, implementation routines, institutional design, and systems-level relationships.</p>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>Design–implementation gaps</h3>
+        <p>I examine how formal institutional design differs from implementation practice. This includes studying drift, layering, conversion, displacement, and the ways rules-in-form diverge from rules-in-use.</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Collaborative governance regimes</h3>
+        <p>My work studies how collaborative governance systems allocate attention, coordinate across boundaries, and create institutional arrangements that shape policy implementation and accountability.</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Boundary infrastructure</h3>
+        <p>I examine how boundary organizations, shared tools, technical systems, and cross-sector venues help organize collaboration across agencies, nonprofits, experts, and communities.</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Governance diagnostics</h3>
+        <p>This research develops ways to diagnose institutional change by making rules, venues, routines, and implementation relationships visible and comparable across complex governance systems.</p>
+      </div>
+    </div>
+
+    <div class="tag-row">
+      <span>Collaborative Governance</span>
+      <span>Institutional Design</span>
+      <span>Boundary Infrastructure</span>
+      <span>Systems Modeling</span>
+      <span>Rules-in-Use</span>
+      <span>Implementation Gaps</span>
+    </div>
+  </section>
+
+  <!-- Area 06 -->
+  <section class="light-block" id="urban">
+    <div class="section block">
+      <div class="two-col">
+        <div class="area-header">
+          <span class="num">06</span>
+          <h2>Urban Planning, Public Space, and Community Wellbeing</h2>
+          <p>Rooted in my academic background in urban planning, this secondary research stream examines how built environments and public spaces shape inclusion, safety, participation, and community wellbeing.</p>
+        </div>
+
+        <div class="copy-card">
+          <h3>Women, public space, and lived urban experience</h3>
+          <p>My work in this area focuses especially on women’s experiences in urban public spaces, age-friendly public realms, accessibility, perceived safety, comfort, variety, socio-cultural interaction, environmental quality, and sense of community.</p>
+          <p>This stream complements my broader public administration and policy agenda by grounding questions of governance and institutional design in lived urban experience.</p>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Gender-sensitive public space</h3>
+          <p>This work examines how public spaces are experienced differently by women and how design, safety, access, comfort, and social interaction shape inclusion in urban public life.</p>
+          <div class="tag-row">
+            <span>Women</span>
+            <span>Public Space</span>
+            <span>Safety</span>
           </div>
         </div>
-      </article>
 
-      <article class="pub-card">
-        <h3>Visible Public Disruption and Accountability Lag</h3>
-        <p class="citation">Jangjoo, S. (Working paper).</p>
-        <p>Explains how public-facing autonomous systems become governable when visible disruption exposes accountability lag and procedural weakness.</p>
-        <div class="pub-footer">
-          <div class="pub-meta">
-            <span class="status status-working">Working paper</span>
-            <div class="pub-links"></div>
-          </div>
-          <div class="area-tags" aria-label="Research area tags">
-            <span class="area-tag" tabindex="0" title="AI and Emerging Technology Governance" data-label="AI and Emerging Technology Governance">
-              <img src="images/extracted_icon_3.png" alt="AI and Emerging Technology Governance">
-            </span>
+        <div class="detail-card">
+          <h3>Age-friendly public realms</h3>
+          <p>Research on older women’s public-space criteria examines how age, gender, accessibility, comfort, security, variety, and socio-cultural interaction shape public-realm quality.</p>
+          <div class="tag-row">
+            <span>Older Women</span>
+            <span>Age-Friendly Cities</span>
+            <span>Accessibility</span>
           </div>
         </div>
-      </article>
 
+        <div class="detail-card">
+          <h3>Built environment and community wellbeing</h3>
+          <p>This research connects built environment quality to satisfaction, sense of community, and perceived community wellbeing, especially in residential and neighborhood settings.</p>
+          <div class="tag-row">
+            <span>Built Environment</span>
+            <span>Sense of Community</span>
+            <span>Wellbeing</span>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <h3>Spatial equity and governance</h3>
+          <p>The urban-planning stream informs my broader attention to how institutional and design choices shape who can access, use, and benefit from public spaces and urban services.</p>
+          <div class="tag-row">
+            <span>Spatial Equity</span>
+            <span>Urban Governance</span>
+            <span>Inclusion</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="subtle-note">
+        This is intentionally presented as a secondary research stream. It reflects my urban planning background and equity-oriented scholarship, while my main research agenda centers on institutional mismatch, rule formation, technology governance, clean energy transitions, and civil society rule-making.
+      </p>
+    </div>
+  </section>
+
+  <!-- Methods and Evidence -->
+  <section class="section block" id="approach">
+    <div class="area-header">
+      <h2>Methods and Evidence Approach</h2>
+      <p>Across my research areas, I use methods that make governance empirically visible. I study rules, venues, documents, procedures, implementation routines, organizational relationships, and accountability mechanisms rather than relying only on policy rhetoric or formal commitments.</p>
+    </div>
+
+    <div class="methods-list">
+      <div class="method-chip">Qualitative case analysis</div>
+      <div class="method-chip">Process tracing</div>
+      <div class="method-chip">Documentary analysis</div>
+      <div class="method-chip">Structured comparison</div>
+      <div class="method-chip">Mixed methods</div>
+      <div class="method-chip">Text-as-data</div>
+      <div class="method-chip">Systems modeling</div>
+      <div class="method-chip">Rule-object tracing</div>
+      <div class="method-chip">Institutional diagnostics</div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>Governance as observable practice</h3>
+        <p>I examine governance through concrete institutional artifacts: ordinances, regulatory orders, procurement documents, program manuals, guidance, contracts, technical-assistance templates, participation procedures, and accountability routines.</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Theory-building across cases</h3>
+        <p>My research uses comparative and mechanism-oriented analysis to build concepts that travel across domains while remaining grounded in specific institutional settings.</p>
+      </div>
     </div>
   </section>
 
