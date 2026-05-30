@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Research | Sina Jangjoo</title>
+  <meta content="Research areas of Sina Jangjoo." name="description">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-nav" id="top">
+  <div class="nav-inner">
+    <a aria-label="Sina Jangjoo home" class="brand" href="index.html">
+      <span aria-hidden="true" class="logo-mark"><img alt="" src="images/extracted_icon_1.png"></span>
+      <span aria-hidden="true" class="brand-line"></span>
+      <span class="brand-text"><strong>SINA JANGJOO</strong><span>SCHOLAR. RESEARCHER. TEACHER.</span></span>
+    </a>
+    <nav aria-label="Main navigation" class="main-menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a class="active" href="#top">Research</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#teaching">Teaching</a>
+      <a href="index.html#Research Note">Research Note</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section research-top" style="padding-top: 120px;">
+    <h1 class="section-title">Research Areas</h1><div class="section-line"></div>
+    <div class="research-grid">
+      
+      <article class="research-card">
+        <div class="icon-wrap"><img alt="Contested rule formation icon" src="images/extracted_icon_2.png"></div>
+        <div class="num">01</div>
+        <h3>Contested Rule Formation and Institutional Mismatch</h3>
+        <p>A framework for early-phase governance of disruptive innovations, focusing on classification, jurisdiction, venue settlement, and procedural rule formation.</p>
+        <a class="learn" href="#crf">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap"><img alt="AI and technology governance icon" src="images/extracted_icon_3.png"></div>
+        <div class="num">02</div>
+        <h3>AI and Emerging Technology Governance</h3>
+        <p>Institutional readiness, accountability lag, and procedural governance for AI, autonomous systems, and digital infrastructures.</p>
+        <a class="learn" href="#ai">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap"><img alt="Clean energy governance icon" src="images/extracted_icon_4.png"></div>
+        <div class="num">03</div>
+        <h3>Clean Energy, Rule Location, and Constrained Polycentricity</h3>
+        <p>Where governance actually lands in clean energy transitions under preemption, utility authority, and constrained polycentricity.</p>
+        <a class="learn" href="#energy">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap"><img alt="Civil society and nonprofits icon" src="images/extracted_icon_5.png"></div>
+        <div class="num">04</div>
+        <h3>Civil Society, Nonprofits, and Shadow Rule-Making</h3>
+        <p>How nonprofits and communities make emerging problems governable through interResearch Notetion, venue activation, and rule-object production.</p>
+        <a class="learn" href="#nonprofits">Learn more <span>→</span></a>
+      </article>
+
+      <article class="research-card">
+        <div class="icon-wrap"><img alt="Collaborative governance icon" src="images/extracted_icon_6.png"></div>
+        <div class="num">05</div>
+        <h3>Collaborative Governance and Design Methods</h3>
+        <p>Methods to study institutional change, attention reallocation, and design–implementation gaps in complex governance systems.</p>
+        <a class="learn" href="#methods">Learn more <span>→</span></a>
+      </article>
+    </div>
+
+    <div class="methods-band" style="margin-top: 40px;">
+      <div class="icon-wrap"><img alt="Methods and evidence compass icon" src="images/extracted_icon_7.png"></div>
+      <div>
+        <h3>Methods and Evidence</h3>
+        <p>I use qualitative case analysis, process tracing, documentary analysis, structured comparison, mixed methods, text-as-data, and systems modeling to make governance empirically observable through rules, venues, routines, and accountability.</p>
+      </div>
+      <a class="btn" href="#approach">View Research Approach</a>
+    </div>
+  </section>
+
+  <section class="section block" id="crf">
+    <div class="green-callout">
+      <h2>01. Contested Rule Formation</h2>
+      <p>Details about Contested Rule formation go here. You can add your full text, images, or paragraphs that expand on this topic.</p>
+    </div>
+  </section>
+
+  <section class="light-block" id="ai">
+    <div class="section block">
+      <h2>02. AI and Emerging Technology Governance</h2>
+      <p>Details about AI and Technology Governance go here.</p>
+    </div>
+  </section>
+
+  <section class="section block" id="energy">
+    <div class="green-callout">
+      <h2>03. Clean Energy Governance</h2>
+      <p>Details about Clean energy, rule location, and constrained polycentricity go here.</p>
+    </div>
+  </section>
+
+  <section class="light-block" id="nonprofits">
+    <div class="section block">
+      <h2>04. Civil Society and Nonprofits</h2>
+      <p>Details about Civil Society, Nonprofits, and Shadow Rule-Making go here.</p>
+    </div>
+  </section>
+
+  <section class="section block" id="methods">
+    <div class="green-callout">
+      <h2>05. Collaborative Governance and Design Methods</h2>
+      <p>Details about Collaborative Governance and Design Methods go here.</p>
+    </div>
+  </section>
+
+  <section class="light-block" id="approach">
+    <div class="section block">
+      <h2>Methods and Evidence Approach</h2>
+      <p>Expanded details on your research approach go here.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><strong>Sina Jangjoo</strong><br><span style="color:#d8d3c8">Public Administration · Policy Process</span></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="#top">Research</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
