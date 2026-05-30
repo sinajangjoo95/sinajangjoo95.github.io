@@ -9,46 +9,359 @@
 <link rel="icon" type="image/png" href="images/icon.png">
 <link rel="apple-touch-icon" href="images/icon.png">
 <link rel="stylesheet" href="style.css">
+
 <style>
-  /* Feeds the image path into your stylesheet */
   :root {
     --hero-image: url('images/hero-bg.jpg') !important;
+
+    --text-main: #222222;
+    --text-body: #333333;
+    --text-muted: #5A5A5A;
+    --heading-main: #111111;
+
+    --accent-green: #123f36;
+    --accent-gold: #b58b47;
+    --accent-garnet: #782F40;
+    --accent-slate: #4A5C61;
+
+    --box-bg: #ffffff;
+    --soft-bg: #FAF8F4;
+    --soft-chip: #F1ECE4;
+    --soft-border: rgba(0, 0, 0, 0.10);
+    --box-radius: 10px;
+    --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.045);
+  }
+
+  body {
+    color: var(--text-body);
+  }
+
+  .hero-copy .eyebrow,
+  .copy-card .eyebrow,
+  .note-card span {
+    color: var(--accent-green);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .hero-copy h1 {
+    color: var(--accent-green);
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: clamp(2.15rem, 4vw, 3.2rem);
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    margin-top: 22px;
+    margin-bottom: 22px;
+  }
+
+  .hero-copy p {
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 820px;
+  }
+
+  .gold-line,
+  .section-line {
+    background: var(--accent-gold);
+  }
+
+  .quote-card {
+    background: var(--accent-green);
+    color: #ffffff;
+    border-radius: var(--box-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  .quote-card p {
+    color: #ffffff;
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
+  .quote-mark {
+    color: var(--accent-gold);
+  }
+
+  .section-title {
+    color: var(--heading-main);
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    letter-spacing: 0.18em;
+  }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .research-card,
+  .copy-card,
+  .note-card,
+  .methods-band,
+  .green-callout {
+    border-radius: var(--box-radius) !important;
+    border: 1px solid var(--soft-border);
+    background: var(--box-bg);
+    box-shadow: var(--box-shadow);
+  }
+
+  .research-card {
+    padding: 24px;
+  }
+
+  .research-card .num {
+    color: var(--accent-gold);
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+
+  .research-card h3,
+  .methods-band h3,
+  .copy-card h3,
+  .note-card h3 {
+    color: var(--heading-main);
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 1.28rem;
+    line-height: 1.25;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .research-card p,
+  .methods-band p,
+  .copy-card p,
+  .note-card p,
+  .green-callout p {
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .research-card .learn,
+  .learn {
+    color: var(--accent-green);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .research-card .learn:hover,
+  .learn:hover {
+    text-decoration: underline;
+  }
+
+  .icon-wrap {
+    background: rgba(18, 63, 54, 0.06);
+  }
+
+  .methods-band {
+    margin-top: 40px;
+    padding: 24px;
+  }
+
+  .btn {
+    background: var(--accent-green);
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .btn:hover {
+    background: #0d3029;
+  }
+
+  .copy-card {
+    padding: 24px;
+  }
+
+  .concept-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .concept-strip span {
+    display: inline-block;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: var(--soft-chip);
+    color: #4a4038;
+    font-size: 0.82rem;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .note-card {
+    padding: 24px;
+  }
+
+  .note-card span {
+    display: inline-block;
+    color: var(--accent-gold);
+    margin-bottom: 12px;
+  }
+
+  .green-callout {
+    background: var(--soft-bg);
+    border-left: 4px solid var(--accent-green);
+    padding: 28px;
+    box-shadow: none;
+  }
+
+  .green-callout h2 {
+    margin-top: 0;
+  }
+
+  .green-callout a {
+    color: var(--accent-green);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .green-callout a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1100px) {
+    .research-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .notes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .research-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-copy h1 {
+      font-size: 2rem;
+    }
+
+    .research-card h3,
+    .methods-band h3,
+    .copy-card h3,
+    .note-card h3 {
+      font-size: 1.18rem;
+    }
   }
 </style>
 </head>
+
 <body>
 
-<!-- The new JavaScript Navigation Component -->
 <main-nav active-page="home"></main-nav>
 
 <main>
+
 <section aria-label="Research hero" class="hero">
-<div class="hero-inner">
-<div class="hero-copy">
-<span class="eyebrow">Research</span>
-<h1>Upstream governance, institutional mismatch, and rule formation in emerging technology and sustainability transitions.</h1>
-<div class="gold-line"></div>
-<p style="font-size: 95%;">My research examines how emerging technologies and sustainability transitions become governable when inherited institutions do not yet fit new policy problems. I study the upstream phase of governance; when actors are still deciding what a new problem is, who has authority over it, where decisions should be made, and what procedural rules can make governance accountable, reviewable, and durable.</p>
-<p>Across AI governance, autonomous systems, AI infrastructure, clean energy transitions, collaborative governance, and nonprofit/civil society action, I analyze how rules, venues, administrative routines, and interResearch Noteries shape whether governance stabilizes, stalls, shifts venues, or consolidates without meaningful learning.</p>
-</div>
-<div class="quote-card"><span class="quote-mark">“</span><p>I focus on the politics of making an innovation governable before mature policy conflict fully exists.</p></div>
-</div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Research</span>
+      <h1>Upstream governance, institutional mismatch, and rule formation in emerging technology and sustainability transitions.</h1>
+      <div class="gold-line"></div>
+      <p style="font-size: 95%;">
+        My research examines how emerging technologies and sustainability transitions become governable when inherited institutions do not yet fit new policy problems. I study the upstream phase of governance; when actors are still deciding what a new problem is, who has authority over it, where decisions should be made, and what procedural rules can make governance accountable, reviewable, and durable.
+      </p>
+      <p>
+        Across AI governance, autonomous systems, AI infrastructure, clean energy transitions, collaborative governance, and nonprofit/civil society action, I analyze how rules, venues, administrative routines, and intermediaries shape whether governance stabilizes, stalls, shifts venues, or consolidates without meaningful learning.
+      </p>
+    </div>
+
+    <div class="quote-card">
+      <span class="quote-mark">“</span>
+      <p>I focus on the politics of making an innovation governable before mature policy conflict fully exists.</p>
+    </div>
+  </div>
 </section>
+
 <section class="section research-top" id="research">
-<h2 class="section-title">Research Areas</h2><div class="section-line"></div>
-<div class="research-grid">
-<article class="research-card"><div class="icon-wrap"><img alt="Contested rule formation icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_2.png"></div><div class="num">01</div><h3>Contested Rule Formation and Institutional Mismatch</h3><p>A framework for early-phase governance of disruptive innovations, focusing on classification, jurisdiction, venue settlement, and procedural rule formation.</p><a class="learn" href="research.html#crf">Learn more <span>→</span></a></article>
-<article class="research-card"><div class="icon-wrap"><img alt="AI and technology governance icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_3.png"></div><div class="num">02</div><h3>AI and Emerging Technology Governance</h3><p>Institutional readiness, accountability lag, and procedural governance for AI, autonomous systems, and digital infrastructures.</p><a class="learn" href="research.html#ai">Learn more <span>→</span></a></article>
-<article class="research-card"><div class="icon-wrap"><img alt="Clean energy governance icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_4.png"></div><div class="num">03</div><h3>Clean Energy, Rule Location, and Constrained Polycentricity</h3><p>Where governance actually lands in clean energy transitions under preemption, utility authority, and constrained polycentricity.</p><a class="learn" href="research.html#energy">Learn more <span>→</span></a></article>
-<article class="research-card"><div class="icon-wrap"><img alt="Civil society and nonprofits icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_5.png"></div><div class="num">04</div><h3>Civil Society, Nonprofits, and Shadow Rule-Making</h3><p>How nonprofits and communities make emerging problems governable through interResearch Notetion, venue activation, and rule-object production.</p><a class="learn" href="research.html#nonprofits">Learn more <span>→</span></a></article>
-<article class="research-card"><div class="icon-wrap"><img alt="Collaborative governance icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_6.png"></div><div class="num">05</div><h3>Collaborative Governance and Design Methods</h3><p>Methods to study institutional change, attention reallocation, and design–implementation gaps in complex governance systems.</p><a class="learn" href="research.html#methods-grid">Learn more <span>→</span></a></article>
-</div>
-<div class="methods-band" id="methods">
-<div class="icon-wrap"><img alt="Methods and evidence compass icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_7.png"></div>
-<div><h3>Methods and Evidence</h3><p>I use qualitative case analysis, process tracing, documentary analysis, structured comparison, mixed methods, text-as-data, and systems modeling to make governance empirically observable through rules, venues, routines, and accountability.</p></div>
-<a class="btn" href="research.html#approach">View Research Approach</a>
-</div>
+  <h2 class="section-title">Research Areas</h2>
+  <div class="section-line"></div>
+
+  <div class="research-grid">
+
+    <article class="research-card">
+      <div class="icon-wrap">
+        <img alt="Contested rule formation icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_2.png">
+      </div>
+      <div class="num">01</div>
+      <h3>Contested Rule Formation and Institutional Mismatch</h3>
+      <p>A framework for early-phase governance of disruptive innovations, focusing on classification, jurisdiction, venue settlement, and procedural rule formation.</p>
+      <a class="learn" href="research.html#crf">Learn more <span>→</span></a>
+    </article>
+
+    <article class="research-card">
+      <div class="icon-wrap">
+        <img alt="AI and technology governance icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_3.png">
+      </div>
+      <div class="num">02</div>
+      <h3>AI and Emerging Technology Governance</h3>
+      <p>Institutional readiness, accountability lag, and procedural governance for AI, autonomous systems, and digital infrastructures.</p>
+      <a class="learn" href="research.html#ai">Learn more <span>→</span></a>
+    </article>
+
+    <article class="research-card">
+      <div class="icon-wrap">
+        <img alt="Clean energy governance icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_4.png">
+      </div>
+      <div class="num">03</div>
+      <h3>Clean Energy, Rule Location, and Constrained Polycentricity</h3>
+      <p>Where governance actually lands in clean energy transitions under preemption, utility authority, and constrained polycentricity.</p>
+      <a class="learn" href="research.html#energy">Learn more <span>→</span></a>
+    </article>
+
+    <article class="research-card">
+      <div class="icon-wrap">
+        <img alt="Civil society and nonprofits icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_5.png">
+      </div>
+      <div class="num">04</div>
+      <h3>Civil Society, Nonprofits, and Shadow Rule-Making</h3>
+      <p>How nonprofits and communities make emerging problems governable through intervention, venue activation, and rule-object production.</p>
+      <a class="learn" href="research.html#nonprofits">Learn more <span>→</span></a>
+    </article>
+
+    <article class="research-card">
+      <div class="icon-wrap">
+        <img alt="Collaborative governance icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_6.png">
+      </div>
+      <div class="num">05</div>
+      <h3>Collaborative Governance and Design Methods</h3>
+      <p>Methods to study institutional change, attention reallocation, and design–implementation gaps in complex governance systems.</p>
+      <a class="learn" href="research.html#methods-grid">Learn more <span>→</span></a>
+    </article>
+
+  </div>
+
+  <div class="methods-band" id="methods">
+    <div class="icon-wrap">
+      <img alt="Methods and evidence compass icon" decoding="async" draggable="false" loading="eager" src="images/extracted_icon_7.png">
+    </div>
+    <div>
+      <h3>Methods and Evidence</h3>
+      <p>I use qualitative case analysis, process tracing, documentary analysis, structured comparison, mixed methods, text-as-data, and systems modeling to make governance empirically observable through rules, venues, routines, and accountability.</p>
+    </div>
+    <a class="btn" href="research.html#approach">View Research Approach</a>
+  </div>
 </section>
+
 <section class="light-block" id="about">
   <div class="section block two-col">
     
@@ -57,7 +370,6 @@
       <h3>Sina Jangjoo</h3>
       <p>I am an incoming tenure-track Assistant Professor of Public Administration at The University of Texas at Tyler, beginning Fall 2026, and a PhD candidate in Public Administration and Policy at Florida State University.</p>
       <p>My research sits at the intersection of public administration, policy process, science, technology, and environmental policy, urban governance, nonprofit studies, collaborative governance, and institutional design.</p>
-      
     </div>
 
     <div class="copy-card">
@@ -65,11 +377,14 @@
       <h3>How new problems become governable</h3>
       <p>My work develops Contested Rule Formation to explain how actors classify new problems, settle authority, build venues, and create procedural rules before stable policy systems fully exist.</p>
       <div class="concept-strip">
-        <span>Classification</span><span>Venue Settlement</span><span>Procedural Governance</span><span>Rules-in-Use</span>
+        <span>Classification</span>
+        <span>Venue Settlement</span>
+        <span>Procedural Governance</span>
+        <span>Rules-in-Use</span>
       </div>
     </div>
 
-    <div class="copy-card" id="methods">
+    <div class="copy-card">
       <h3>Research approach</h3>
       <p>Across projects, I focus on how governance becomes empirically visible: in rule objects, venue architectures, public records, procurement templates, program manuals, administrative routines, reporting obligations, and procedures for review and correction.</p>
     </div>
@@ -80,38 +395,58 @@
     </div>
 
   </div>
-
 </section>
 
 <section class="section block" id="Latest Research Note">
 
-<h2 class="section-title">Latest Research Notes</h2><div class="section-line"></div>
+  <h2 class="section-title">Latest Research Notes</h2>
+  <div class="section-line"></div>
 
-<div class="notes-grid">
+  <div class="notes-grid">
 
-<article class="note-card"><span>Research Note</span><h3>What Is Contested Rule Formation?</h3><p>A short explanation of CRF as the politics of making an innovation governable before mature policy conflict fully exists.</p></article>
+    <article class="note-card">
+      <span>Research Note</span>
+      <h3>What Is Contested Rule Formation?</h3>
+      <p>A short explanation of CRF as the politics of making an innovation governable before mature policy conflict fully exists.</p>
+    </article>
 
-<article class="note-card"><span>AI Governance</span><h3>Why AI Readiness Is Not the Same as AI Adoption</h3><p>A public-administration explanation of institutional readiness, venue settlement, and procedural governance for public-sector AI.</p></article>
+    <article class="note-card">
+      <span>AI Governance</span>
+      <h3>Why AI Readiness Is Not the Same as AI Adoption</h3>
+      <p>A public-administration explanation of institutional readiness, venue settlement, and procedural governance for public-sector AI.</p>
+    </article>
 
-<article class="note-card"><span>Energy Justice</span><h3>Where Does Energy Justice Become a Rule?</h3><p>A reflection on eligibility rules, documentation burdens, and downstream program templates as surfaces of energy-justice institutionalization.</p></article>
+    <article class="note-card">
+      <span>Energy Justice</span>
+      <h3>Where Does Energy Justice Become a Rule?</h3>
+      <p>A reflection on eligibility rules, documentation burdens, and downstream program templates as surfaces of energy-justice institutionalization.</p>
+    </article>
 
-</div>
+  </div>
 
 </section>
+
 <section class="light-block" id="contact">
   <div class="section block">
     <div class="green-callout">
       
-      <!-- Added the matching title class and the golden line div -->
       <h2 class="section-title">Contact</h2>
       <div class="section-line"></div>
       
       <p>I welcome conversations about research collaboration, public administration and policy scholarship, AI governance, clean energy transitions, nonprofit and civil society governance, and speaking or teaching opportunities.</p>
-      <p style="margin-top:18px"><strong>Email:</strong> <a href="mailto:sjangjoo@fsu.edu">sjangjoo@fsu.edu</a> &nbsp; · &nbsp; <a href="https://scholar.google.com/citations?user=rZ92vUkAAAAJ&amp;hl=en" target="_blank">Google Scholar</a> &nbsp; · &nbsp; <a href="https://drive.google.com/file/d/1wV699dgGML-Hoiu8SZBhyOzrS-e5cQ9B/view?usp=sharing" target="_blank">CV</a></p>
+      <p style="margin-top:18px">
+        <strong>Email:</strong> <a href="mailto:sjangjoo@fsu.edu">sjangjoo@fsu.edu</a> &nbsp; · &nbsp; 
+        <a href="https://scholar.google.com/citations?user=rZ92vUkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> &nbsp; · &nbsp; 
+        <a href="https://drive.google.com/file/d/1wV699dgGML-Hoiu8SZBhyOzrS-e5cQ9B/view?usp=sharing" target="_blank" rel="noopener">CV</a>
+      </p>
     </div>
   </div>
 </section>
+
 </main>
+
 <site-footer></site-footer>
 <script src="site-footer.js"></script>
-</body></html>
+
+</body>
+</html>
