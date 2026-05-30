@@ -222,6 +222,31 @@
       display: none;
     }
 
+    .pub-summary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(18, 63, 54, 0.18);
+      background: rgba(18, 63, 54, 0.07);
+      color: var(--accent-green);
+      font-size: 0.82rem;
+      line-height: 1;
+      font-weight: 700;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .pub-summary-btn:hover,
+    .pub-summary-btn:focus {
+      background: var(--accent-green);
+      color: #ffffff;
+      border-color: var(--accent-green);
+      text-decoration: none;
+    }
+
     .area-tag {
       position: relative;
       display: inline-flex;
@@ -325,7 +350,7 @@
 
     <div class="pub-grid" id="pub-grid">
 
-      <article class="pub-card" data-index="1" data-year="2026" data-status="inpress" data-primary-area="crf" data-areas="crf">
+      <article class="pub-card" data-index="1" data-year="2026" data-status="inpress" data-primary-area="crf" data-areas="crf" data-summary-url="research-note.html#note-crf" data-summary-label="Public note">
         <h3>Contested Rule Formation under Institutional Mismatch</h3>
         <p class="citation">Jangjoo, S. (2026). Contested rule formation under institutional mismatch: A framework for early-phase governance of disruptive innovations. Policy Studies Journal.</p>
         <p>Develops CRF as an upstream framework for classification, jurisdiction, venue settlement, and procedural learning under institutional mismatch.</p>
@@ -364,7 +389,7 @@
         </div>
       </article>
 
-      <article class="pub-card" data-index="3" data-year="2026" data-status="published" data-primary-area="urban" data-areas="urban">
+      <article class="pub-card" data-index="3" data-year="2026" data-status="published" data-primary-area="urban" data-areas="urban" data-summary-url="research-note.html#summary-built-environment-wellbeing" data-summary-label="Summary">
         <h3>Women’s Perceptions of Built Environment and Community Wellbeing</h3>
         <p class="citation">Jangjoo, S., Askari, S., &amp; Doaee, A. (2026). The role of satisfaction and sense of community in women’s perceptions of the built environment and community wellbeing in residential apartment complexes. Cities, 173, 106871.</p>
         <p>Studies satisfaction and sense of community in women’s perceptions of built environment and community wellbeing in residential apartment complexes.</p>
@@ -383,7 +408,7 @@
         </div>
       </article>
 
-      <article class="pub-card" data-index="4" data-year="2025" data-status="published" data-primary-area="energy" data-areas="energy methods">
+      <article class="pub-card" data-index="4" data-year="2025" data-status="published" data-primary-area="energy" data-areas="energy methods" data-summary-url="research-note.html#summary-renewable-energy-ground-up" data-summary-label="Summary">
         <h3>Renewable Energy Transitions from the Ground Up</h3>
         <p class="citation">Jangjoo, S., &amp; Tang, T. (2025). Renewable energy transitions from the ground up: Building a framework for local action despite limited state support. Cities, 158, 105737.</p>
         <p>Examines how local governments build clean-energy action despite limited state support through local institutionalization and collaboration.</p>
@@ -603,7 +628,7 @@
         </div>
       </article>
 
-      <article class="pub-card" data-index="15" data-year="2026" data-status="working" data-primary-area="ai" data-areas="ai crf">
+      <article class="pub-card" data-index="15" data-year="2026" data-status="working" data-primary-area="ai" data-areas="ai crf" data-summary-url="research-note.html#note-ai-readiness" data-summary-label="Public note">
         <h3>When Are Governments Institutionally Ready for Public-Sector AI?</h3>
         <p class="citation">Jangjoo, S. (Working paper).</p>
         <p>Reframes AI readiness as an upstream institutional threshold involving classification, venue settlement, and procedural templates.</p>
@@ -652,6 +677,24 @@
   const grid = document.getElementById("pub-grid");
   const buttons = document.querySelectorAll(".control-btn");
   const originalCards = Array.from(document.querySelectorAll(".pub-card"));
+
+  function addSummaryButtons() {
+    originalCards.forEach(card => {
+      const summaryUrl = card.dataset.summaryUrl;
+      if (!summaryUrl) return;
+
+      const tagArea = card.querySelector(".area-tags");
+      if (!tagArea || tagArea.querySelector(".pub-summary-btn")) return;
+
+      const link = document.createElement("a");
+      link.className = "pub-summary-btn";
+      link.href = summaryUrl;
+      link.textContent = card.dataset.summaryLabel || "Summary";
+      link.setAttribute("aria-label", "Open public summary or research note for this publication");
+
+      tagArea.prepend(link);
+    });
+  }
 
   const areaMeta = {
     crf: {
@@ -805,9 +848,9 @@
     });
   });
 
+  addSummaryButtons();
   renderDefault();
 </script>
 
 </body>
 </html>
-```
