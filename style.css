@@ -100,8 +100,8 @@ main > section.light-block + section.section.block{background:var(--paper);box-s
    so browser zoom will not make it drift away from the portrait.
    ========================================================== */
 .hero{
-  height:440px !important;
-  min-height:440px !important;
+  height:520px !important;
+  min-height:520px !important;
   position:relative !important;
   overflow:hidden !important;
   background:#fff !important;
@@ -110,7 +110,7 @@ main > section.light-block + section.section.block{background:var(--paper);box-s
 .hero-inner{
   width:1536px !important;
   max-width:none !important;
-  height:440px !important;
+  height:520px !important;
   margin:0 !important;
   position:absolute !important;
   left:50% !important;
