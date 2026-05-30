@@ -16,7 +16,7 @@ class SiteFooter extends HTMLElement {
           <div class="sj-footer-main">
             <div class="sj-footer-identity">
               <div class="sj-footer-brand-line">
-                <img src="images/icon.png" alt="SJ Logo" class="sj-footer-logo">
+                <img src="images/icon w.png" alt="SJ Logo" class="sj-footer-logo">
                 <h2>Sina Jangjoo</h2>
               </div>
 
