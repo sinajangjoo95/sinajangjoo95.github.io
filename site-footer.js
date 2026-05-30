@@ -25,6 +25,7 @@ class SiteFooter extends HTMLElement {
 
             <nav class="sj-footer-links" aria-label="Footer links">
               <a href="mailto:sjangjoo@fsu.edu">Email</a>
+              <a href="https://www.linkedin.com/in/sina-jangjoo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <a href="https://scholar.google.com/citations?user=rZ92vUkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
               <a href="https://drive.google.com/file/d/1wV699dgGML-Hoiu8SZBhyOzrS-e5cQ9B/view" target="_blank" rel="noopener noreferrer">CV</a>
               <a href="https://www.researchgate.net/profile/Sina-Jangjoo-2?ev=hdr_xprf" target="_blank" rel="noopener noreferrer">ResearchGate</a>
