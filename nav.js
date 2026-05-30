@@ -11,10 +11,11 @@ class MainNav extends HTMLElement {
     const getActivePage = () => {
       if (manualActivePage) return manualActivePage;
 
+      if (currentPath === "index.html") return "home";
       if (currentPath === "research.html") return "research";
       if (currentPath === "publications.html") return "publications";
       if (currentPath === "teaching.html") return "teaching";
-      if (currentPath === "research-note") return "research-note";
+      if (currentPath === "research-note.html") return "research-note";
       
       if (currentHash === "about") return "about";
       if (currentHash === "research") return "research";
@@ -51,7 +52,7 @@ class MainNav extends HTMLElement {
             <a href="research.html" class="sj-nav-link ${isActive("research")}">Research</a>
             <a href="publications.html" class="sj-nav-link ${isActive("publications")}">Publications</a>
             <a href="teaching.html" class="sj-nav-link ${isActive("teaching")}">Teaching</a>
-            <a href="research note.html" class="sj-nav-link ${isActive("research note")}">Research Note</a>
+            <a href="research-note.html" class="sj-nav-link ${isActive("research-note")}">Research Note</a>
             <a href="index.html#contact" class="sj-nav-link ${isActive("contact")}">Contact</a>
           </nav>
 
