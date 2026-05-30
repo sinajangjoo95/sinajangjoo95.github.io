@@ -15,7 +15,7 @@ class MainNav extends HTMLElement {
       <header class="site-header">
         <div class="header-brand">
           <a href="index.html" class="logo-link">
-            <img src="images/logo.png" alt="SJ Logo" class="logo">
+            <img src="images/icon.png" alt="SJ Logo" class="logo">
           </a>
           <div class="vertical-divider"></div>
           <div class="brand-text">
