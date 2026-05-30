@@ -1,52 +1,52 @@
 class MainNav extends HTMLElement {
+  constructor() {
+    super();
+  }
+
   connectedCallback() {
+    // This reads the 'active-page' attribute from your HTML tag
+    // e.g., <main-nav active-page="home"></main-nav>
+    const activePage = this.getAttribute('active-page') || '';
+
+    // A simple helper function to add the 'active' class to the correct link
+    const isActive = (page) => activePage === page ? 'active' : '';
+
     this.innerHTML = `
-    <header class="site-nav" id="top">
-      <div class="nav-inner">
-        <a aria-label="Sina Jangjoo home" class="brand" href="index.html">
-          <span aria-hidden="true" class="logo-mark"><img alt="" src="images/extracted_icon_1.png"></span>
-          <span aria-hidden="true" class="brand-line"></span>
-          <span class="brand-text"><strong>SINA JANGJOO</strong><span>SCHOLAR. RESEARCHER. TEACHER.</span></span>
-        </a>
-        <nav aria-label="Main navigation" class="main-menu" style="display: flex; align-items: center; width: 100%;">
-          <a id="nav-home" href="index.html">Home</a>
-          <a id="nav-about" href="index.html#about">About</a>
-          <a id="nav-research" href="research.html">Research</a>
-          <a id="nav-publications" href="publications.html">Publications</a>
-          <a id="nav-teaching" href="teaching.html">Teaching</a>
-          <a id="nav-notes" href="index.html#Research Note">Research Note</a>
-          <a id="nav-contact" href="index.html#contact">Contact</a>
-          
-          <a id="nav-cv" 
-             href="https://drive.google.com/file/d/1wV699dgGML-Hoiu8SZBhyOzrS-e5cQ9B/view?usp=sharing" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             style="background-color: #062820; color: #ffffff; padding: 10px 20px; border-radius: 6px; margin-left: auto; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
-             
-             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-               <polyline points="14 2 14 8 20 8"></polyline>
-               <line x1="16" y1="13" x2="8" y2="13"></line>
-               <line x1="16" y1="17" x2="8" y2="17"></line>
-               <polyline points="10 9 9 9 8 9"></polyline>
-             </svg>
-             CV
+      <header class="site-header">
+        <div class="header-brand">
+          <a href="index.html" class="logo-link">
+            <img src="images/logo.png" alt="SJ Logo" class="logo">
           </a>
+          <div class="vertical-divider"></div>
+          <div class="brand-text">
+            <h1 class="brand-name">SINA JANGJOO</h1>
+            <span class="brand-subtitle">SCHOLAR. RESEARCHER. TEACHER.</span>
+          </div>
+        </div>
+
+        <nav class="main-navigation">
+          <a href="index.html" class="nav-link ${isActive('home')}">Home</a>
+          <a href="#about" class="nav-link ${isActive('about')}">About</a>
+          <a href="#research" class="nav-link ${isActive('research')}">Research</a>
+          <a href="publications.html" class="nav-link ${isActive('publications')}">Publications</a>
+          <a href="#teaching" class="nav-link ${isActive('teaching')}">Teaching</a>
+          <a href="#research-note" class="nav-link ${isActive('research-note')}">Research Note</a>
+          <a href="#contact" class="nav-link ${isActive('contact')}">Contact</a>
         </nav>
-      </div>
-    </header>
+
+        <div class="header-action">
+          <a href="https://drive.google.com/file/d/1wV699dgGML-Hoiu8SZBhyOzrS-e5cQ9B/view?usp=sharing" target="_blank" class="cv-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+              <path d="M4.5 12.5A.5.5 0 0 1 5 12h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm1.639-3.708 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V8.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V8s1.54-1.274 1.639-1.208zM6.25 6a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5z"/>
+            </svg>
+            CV
+          </a>
+        </div>
+      </header>
     `;
-    
-    // Highlights the correct link depending on the page
-    const activePage = this.getAttribute('active-page');
-    if (activePage) {
-      const activeLink = this.querySelector('#nav-' + activePage);
-      if (activeLink) {
-        activeLink.classList.add('active');
-      }
-    }
   }
 }
 
-// Registers the custom HTML tag
+// Registers the custom <main-nav> tag with the browser
 customElements.define('main-nav', MainNav);
