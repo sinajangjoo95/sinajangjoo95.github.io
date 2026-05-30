@@ -34,7 +34,7 @@ img{max-width:100%;display:block}
 .cv-btn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7}
 
 main{background:var(--paper)}
-.hero{height:550px;position:relative;overflow:hidden;background:#fff;background-image:linear-gradient(90deg,rgba(255,255,255,.03),rgba(255,255,255,0)),var(--hero-image);background-size:cover;background-position:center top;border-bottom:1px solid #efede8}
+.hero{height:525px;position:relative;overflow:hidden;background:#fff;background-image:linear-gradient(90deg,rgba(255,255,255,.03),rgba(255,255,255,0)),var(--hero-image);background-size:cover;background-position:center top;border-bottom:1px solid #efede8}
 .hero-inner{width:var(--wrap);height:100%;margin:0 auto;position:relative}
 .hero-copy{position:absolute;left:34px;top:48px;width:745px;max-width:56vw}
 .eyebrow{display:inline-block;color:var(--green);font-size:14px;line-height:1;letter-spacing:.34em;font-weight:700;text-transform:uppercase;margin-bottom:19px}
@@ -81,7 +81,7 @@ main > section.light-block + section.section.block{background:var(--paper);box-s
 .research-grid .icon-wrap svg *{vector-effect:non-scaling-stroke}
 @media(max-width:1200px){
  :root{--wrap:min(100% - 50px,1100px)}
- .brand{min-width:260px}.brand-text span{display:none}.main-menu{gap:18px;font-size:13px}.hero{height:auto;min-height:550px;background-position:center top}.hero-copy{position:relative;left:0;top:0;max-width:100%;width:auto;padding:48px 0 420px}.quote-card{width:min(620px,84%)}.research-grid{grid-template-columns:repeat(2,1fr)}.methods-band{grid-template-columns:90px 1fr}.methods-band .btn{grid-column:2}.pub-grid,.notes-grid{grid-template-columns:1fr 1fr}
+ .brand{min-width:260px}.brand-text span{display:none}.main-menu{gap:18px;font-size:13px}.hero{height:auto;min-height:525px;background-position:center top}.hero-copy{position:relative;left:0;top:0;max-width:100%;width:auto;padding:48px 0 420px}.quote-card{width:min(620px,84%)}.research-grid{grid-template-columns:repeat(2,1fr)}.methods-band{grid-template-columns:90px 1fr}.methods-band .btn{grid-column:2}.pub-grid,.notes-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:760px){
  :root{--wrap:calc(100% - 28px)}
@@ -91,13 +91,13 @@ main > section.light-block + section.section.block{background:var(--paper);box-s
 /* ==========================================================
    ZOOM-SAFE HERO LOCK — TRUE COMPOSITE STAGE
    The portrait/background, green quote ribbon, and quote text are
-   now children of the same fixed 1536px × 550px hero-inner stage.
+   now children of the same fixed 1536px × 525px hero-inner stage.
    The quote is anchored to that stage, not to the browser viewport,
    so browser zoom will not make it drift away from the portrait.
    ========================================================== */
 .hero{
-  height:550px !important;
-  min-height:550px !important;
+  height:525px !important;
+  min-height:525px !important;
   position:relative !important;
   overflow:hidden !important;
   background:#fff !important;
@@ -106,7 +106,7 @@ main > section.light-block + section.section.block{background:var(--paper);box-s
 .hero-inner{
   width:1536px !important;
   max-width:none !important;
-  height:550px !important;
+  height:525px !important;
   margin:0 !important;
   position:absolute !important;
   left:50% !important;
