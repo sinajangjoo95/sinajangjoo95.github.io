@@ -114,6 +114,58 @@
     return `post.html?post=${encodeURIComponent(post.id)}`;
   }
 
+  function getAuthorName(post) {
+    return String(
+      post.authorName ||
+      (window.SJ_BLOG_DEFAULT_AUTHOR && window.SJ_BLOG_DEFAULT_AUTHOR.name) ||
+      "Sina Jangjoo"
+    ).trim();
+  }
+
+  function getAuthorImagePath(post) {
+    const image = String(
+      post.authorImage ||
+      (window.SJ_BLOG_DEFAULT_AUTHOR && window.SJ_BLOG_DEFAULT_AUTHOR.image) ||
+      ""
+    ).trim();
+
+    if (!image) return "";
+
+    return image.includes("/") ? image : `images/${image}`;
+  }
+
+  function authorHTML(post) {
+    const authorName = getAuthorName(post);
+    const authorImagePath = getAuthorImagePath(post);
+    const safeName = escapeHTML(authorName || "Author");
+
+    const avatar = authorImagePath
+      ? `
+        <span class="author-avatar-wrap">
+          <img
+            class="author-avatar author-avatar-img"
+            src="${escapeHTML(authorImagePath)}"
+            alt="${safeName}"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+          >
+          <span class="author-avatar author-avatar-fallback" aria-hidden="true" style="display:none;"></span>
+        </span>
+      `
+      : `
+        <span class="author-avatar-wrap">
+          <span class="author-avatar author-avatar-fallback" aria-hidden="true"></span>
+        </span>
+      `;
+
+    return `
+      <div class="post-author" aria-label="Author">
+        ${avatar}
+        <span class="author-name">${safeName}</span>
+      </div>
+    `;
+  }
+
   function areaTagsHTML(post) {
     return (post.areas || [])
       .map(areaKey => {
@@ -151,6 +203,8 @@
           </a>
         </h3>
 
+        ${authorHTML(post)}
+
         <p class="summary">${escapeHTML(post.summary)}</p>
         <p>${escapeHTML(post.excerpt)}</p>
 
@@ -177,6 +231,7 @@
       <a class="featured-card" href="${postAnchorUrl(post)}">
         <span>${escapeHTML(post.typeLabel || "Blog")}</span>
         <h3>${escapeHTML(post.title)}</h3>
+        ${authorHTML(post)}
         <p>${escapeHTML(post.summary)}</p>
         <strong class="jump-note">View in Blog ↓</strong>
       </a>
@@ -188,6 +243,7 @@
       <a class="note-card" href="${postAnchorUrl(post)}" aria-label="View ${escapeHTML(post.title)} in the Blog">
         <span>${escapeHTML(post.typeLabel || "Blog")}</span>
         <h3>${escapeHTML(post.title)}</h3>
+        ${authorHTML(post)}
         <p>${escapeHTML(post.summary)}</p>
         <strong class="learn">View in Blog <span>→</span></strong>
       </a>
@@ -362,6 +418,8 @@
         </div>
 
         <h1>${escapeHTML(post.title)}</h1>
+
+        ${authorHTML(post)}
 
         <p class="post-summary">${escapeHTML(post.summary)}</p>
 
