@@ -296,6 +296,84 @@ window.SJ_BLOG_POSTS = [
   `
 },
 
+  {
+  id: "summary-eventful-city-shiraz",
+  title: "Planning Shiraz as an Eventful City: Events, Tourism Competitiveness, and Urban Strategy",
+  date: "2021-01-01",
+  type: "paper-report",
+  typeLabel: "Research Note",
+  primaryArea: "urban",
+  areas: ["urban", "methods"],
+  summary: "A research note based on my Journal of Tourism and Development article with Khalil Hajipoor and Sahand Lotfi on eventful city planning, destination competitiveness, and strategic urban planning in Shiraz.",
+  excerpt: "This research note explains how Shiraz can use events not as isolated activities, but as part of a long-term urban strategy for tourism competitiveness, cultural identity, stakeholder coordination, and public value.",
+  doiUrl: "https://doi.org/10.22034/jtd.2020.239083.2079",
+  content: `
+    <p><strong>Research Note | Eventful Cities, Destination Competitiveness, and Strategic Urban Planning</strong></p>
+
+    <p>Cities increasingly compete not only through infrastructure, investment, and economic capacity, but also through culture, identity, experience, and visibility. In our article, <em>Providing Eventful City Planning Strategies Based on the Principles of Enhancement of Destination Competitiveness, Case Study: Shiraz, Iran</em>, Khalil Hajipoor, Sahand Lotfi, and I examine how a historically and culturally rich city such as Shiraz can use events more strategically to strengthen its position as a tourism destination. The central argument is straightforward: <strong>events should not be treated as isolated entertainment activities; they should be planned as part of a long-term urban development and destination competitiveness strategy.</strong></p>
+
+    <p>The article begins from the idea that cities today operate in an increasingly competitive environment. Cultural assets, festivals, public events, and symbolic urban experiences can help cities differentiate themselves, attract visitors, strengthen identity, stimulate local economies, and improve quality of life. But this only happens when events are planned strategically. A city does not become an “eventful city” simply by holding many events. It becomes eventful when events are connected to a broader urban vision, stakeholder coordination, event programming, marketing, resource management, sustainability, and public value.</p>
+
+    <h2>Why Shiraz matters</h2>
+
+    <p>Shiraz is a particularly important case because it has strong cultural, historical, literary, architectural, climatic, and social assets. These qualities give the city significant potential as a domestic and international tourism destination. At the same time, the article argues that Shiraz has faced strategic weaknesses in using events as tools for tourism competitiveness. The role of events in the city’s broader tourism and urban development plans has been limited, and previous event monitoring suggested inconsistency in the type, scale, and timing of events held in the city.</p>
+
+    <p>This creates a planning problem: Shiraz has meaningful event-related potential, but potential alone is not a strategy. Without institutional coordination, legal frameworks, stakeholder engagement, event calendars, marketing systems, resource inventories, and monitoring mechanisms, events may remain fragmented and underused. The paper therefore asks how Shiraz can move from scattered event activity toward an integrated eventful city strategy.</p>
+
+    <h2>What is an eventful city?</h2>
+
+    <p>The article builds on the concept of the <strong>eventful city</strong>, especially the work of Richards and Palmer. An eventful city is not simply a city full of festivals. It is a city that uses a strategic and sustainable event program to support long-term development goals and improve quality of life. In this sense, events are not ends in themselves; they are catalysts for place-making, urban regeneration, competitive identity, tourism development, and civic life.</p>
+
+    <p>The article identifies five major areas that must be addressed in eventful city planning: <strong>city vision</strong>, <strong>stakeholder relationships</strong>, <strong>event planning and event resources</strong>, <strong>marketing</strong>, and <strong>monitoring outcomes and sustainability</strong>. These areas are important because an eventful city requires more than event organization. It requires governance capacity, coordination, communication, evaluation, and alignment between individual events and long-term city goals.</p>
+
+    <h2>How we studied the issue</h2>
+
+    <p>Methodologically, the article is an applied and developmental planning study. It uses a descriptive-analytical approach and applies the <strong>AIDA technique</strong>, or <strong>Analysis of Interconnected Decision Areas</strong>, to identify strategic pathways for Shiraz. A focus group of nine experts in urban planning, tourism, and management helped identify the city’s major event-related problems, capacities, root causes, and possible solutions. The AIDA technique was then used to move from problems and objectives toward strategies, policy domains, authorities, and proposed projects.</p>
+
+    <p>This is important to state carefully: the paper does <strong>not</strong> claim to measure the economic impact of events in Shiraz, nor does it test whether the proposed strategies have already improved tourism performance. Its contribution is planning-oriented. It develops a structured strategic framework for how Shiraz could use eventful city planning to enhance destination competitiveness.</p>
+
+    <h2>Main diagnosis</h2>
+
+    <p>The study identifies several structural weaknesses in Shiraz’s event planning system. These include the absence of a clear legal and institutional framework for events, limited awareness among officials regarding the strategic value of events, weak coordination between city events and broader urban visions, limited private-sector participation beyond sponsorship, fragmented stakeholder relationships, unclear permitting processes, insufficient support for organizers, lack of a comprehensive event calendar, limited use of Shiraz’s full cultural and historical capacities, shortage of specialized event spaces, weak marketing, insufficient media strategy, and inadequate monitoring of event quality, audience satisfaction, competitors, and sustainability.</p>
+
+    <p>At the same time, the city has important assets: a rich historical and cultural background, multicultural identity, tourism recognition, educational and university capacity, information and communication infrastructure, interest among volunteer groups and NGOs, and opportunities to connect event planning to broader urban and tourism plans. The planning challenge is therefore not a lack of potential, but the absence of a coordinated system for converting potential into strategic urban value.</p>
+
+    <h2>Four strategic directions</h2>
+
+    <p>The article proposes four major strategies for planning Shiraz as an eventful city.</p>
+
+    <p>The first strategy is <strong>reforming the executive and managerial structures of events</strong>. This includes establishing an organizational structure for event affairs, managing the event supply chain, identifying stakeholders and their roles, monitoring events, and encouraging green practices. In practical terms, the paper proposes actions such as creating a permanent committee for Shiraz festivals, developing a four-season event calendar, building support systems for existing events, creating processes for new event proposals, and developing event evaluation metrics.</p>
+
+    <p>The second strategy is <strong>reforming the legal position and structure of events</strong>. The study argues that event planning should be incorporated into higher-level urban, tourism, and city development plans. Without legal recognition and standardized guidelines, events remain vulnerable to fragmentation, inconsistent implementation, unclear permitting, and weak accountability.</p>
+
+    <p>The third strategy is <strong>promoting public awareness and encouraging participation</strong>. Events should not be produced only by municipal or governmental bodies. The article emphasizes the need for broader stakeholder involvement, including residents, private-sector actors, public organizations, event organizers, NGOs, volunteers, and tourism stakeholders. Public participation matters not only for implementation, but also for legitimacy, social inclusion, and the long-term sustainability of event-based development.</p>
+
+    <p>The fourth strategy is <strong>developing and improving the city’s event-related resources</strong>. This includes identifying Shiraz’s specialized event resources, strengthening the city’s multicultural identity, increasing specialized event spaces, attracting financial resources, improving physical infrastructure, and training human resources for event management. In this framework, events depend on more than ideas; they require spaces, people, financing, technology, tourism infrastructure, cultural content, and institutional readiness.</p>
+
+    <h2>Why this matters for destination competitiveness</h2>
+
+    <p>The article connects eventful city planning to destination competitiveness. Events can help cities attract visitors, increase tourism expenditure, create memorable experiences, strengthen destination branding, support place-making, and integrate value-added tourism products. But these effects depend on whether events are strategically aligned with the destination’s identity, resources, stakeholder networks, and marketing systems.</p>
+
+    <p>For Shiraz, this means that events should be designed around the city’s actual strengths: literature, heritage, architecture, gardens, culture, history, education, religion, gastronomy, creative industries, and regional identity. A successful eventful city strategy should not imitate other cities mechanically. It should translate Shiraz’s own cultural and urban identity into a coherent portfolio of events that serves both residents and visitors.</p>
+
+    <h2>Practical implications</h2>
+
+    <p>For urban planners and tourism policymakers, the study offers a practical lesson: <strong>event planning is governance work</strong>. It requires legal authority, organizational capacity, stakeholder mapping, calendars, evaluation systems, marketing strategies, sustainability standards, and long-term investment. A fragmented event system may generate occasional visibility, but it is unlikely to produce durable competitiveness.</p>
+
+    <p>For Shiraz, the strongest recommendation is to move from event organization to event governance. This means treating events as part of the city’s strategic planning system, not as temporary programs. The city would need a permanent coordinating body, legal guidelines, transparent decision-making, public-private collaboration, a citywide event calendar, professional training, digital communication systems, and environmental standards for event sustainability.</p>
+
+    <h2>Limitations</h2>
+
+    <p>This paper should be read as a strategic planning study, not as an impact evaluation. It does not empirically measure whether the proposed strategies increased tourist arrivals, tourism revenue, resident satisfaction, or destination branding outcomes. It also relies on expert input and planning analysis rather than large-scale surveys of residents, tourists, or event participants. Future research could build on this work by testing the proposed strategies through implementation studies, visitor surveys, event impact analysis, GIS-based spatial analysis of event infrastructure, or comparative research with other cultural tourism cities.</p>
+
+    <p>The article’s main contribution is therefore conceptual and practical: it provides a structured planning framework for helping Shiraz use events as catalysts for destination competitiveness, urban identity, stakeholder coordination, and long-term development.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Jangjoo, S., Hajipoor, K., &amp; Lotfi, S. (2021). <em>Providing eventful city planning strategies based on the principles of enhancement of destination competitiveness, case study: Shiraz, Iran</em>. <strong>Journal of Tourism and Development, 10</strong>(3), 97–115. <a href="https://doi.org/10.22034/jtd.2020.239083.2079" target="_blank" rel="noopener noreferrer">https://doi.org/10.22034/jtd.2020.239083.2079</a></p>
+  `
+},
+
 
 
   
