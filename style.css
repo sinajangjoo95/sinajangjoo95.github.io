@@ -1068,3 +1068,147 @@ main > section.light-block {
     gap: 20px;
   }
 }
+
+/* ==========================================================
+   BLOG AUTHOR ROW
+   Applies globally to:
+   - Blog listing cards
+   - Latest from the Blog cards on index.html
+   - Individual post pages on post.html
+   ========================================================== */
+
+.post-author {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  margin: 0 0 14px 0 !important;
+  color: var(--muted) !important;
+  font-family: var(--sans) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.author-avatar-wrap {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  flex: 0 0 32px !important;
+}
+
+.author-avatar {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  border-radius: 50% !important;
+  border: 1px solid #d6d6d6 !important;
+  background: #555555 !important;
+  box-sizing: border-box !important;
+}
+
+.author-avatar-img {
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.author-avatar-fallback {
+  display: inline-block;
+  background: #555555 !important;
+}
+
+.author-name {
+  display: inline-block !important;
+  color: var(--gold) !important;
+  font-family: var(--sans) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.32em !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+}
+
+/* Home page: Latest from the Blog cards */
+.note-card .post-author {
+  margin-top: -2px !important;
+  margin-bottom: 16px !important;
+}
+
+.note-card .author-avatar,
+.note-card .author-avatar-img,
+.note-card .author-avatar-fallback {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+}
+
+/* Blog page: Latest cards and all-entry cards */
+.featured-card .post-author,
+.media-card .post-author {
+  margin-top: -2px !important;
+  margin-bottom: 14px !important;
+}
+
+.featured-card .author-avatar,
+.featured-card .author-avatar-img,
+.featured-card .author-avatar-fallback,
+.media-card .author-avatar,
+.media-card .author-avatar-img,
+.media-card .author-avatar-fallback {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+}
+
+/* Individual blog post page */
+.post-article .post-author {
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+}
+
+.post-article .author-avatar-wrap {
+  width: 36px !important;
+  height: 36px !important;
+  flex-basis: 36px !important;
+}
+
+.post-article .author-avatar,
+.post-article .author-avatar-img,
+.post-article .author-avatar-fallback {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  max-width: 36px !important;
+}
+
+.post-article .author-name {
+  color: var(--text) !important;
+  font-size: 14px !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+}
+
+/* Prevent global img rules from making author photos large */
+.post-author img {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.post-article .post-author img {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  max-width: 36px !important;
+}
