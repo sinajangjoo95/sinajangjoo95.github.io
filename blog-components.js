@@ -129,6 +129,9 @@
   function postCardHTML(post) {
     const type = typeMeta[post.type] || typeMeta["research-note"];
     const date = formatDate(post.date);
+    const doiLink = post.doiUrl
+      ? `<a href="${escapeHTML(post.doiUrl)}" target="_blank" rel="noopener">Article DOI</a>`
+      : "";
 
     return `
       <article
@@ -138,7 +141,12 @@
         data-type="${escapeHTML(post.type)}"
         data-primary-area="${escapeHTML(post.primaryArea || "none")}"
       >
-        <h3>${escapeHTML(post.title)}</h3>
+        <h3>
+          <a href="${postReadUrl(post)}" aria-label="Read ${escapeHTML(post.title)}">
+            ${escapeHTML(post.title)}
+          </a>
+        </h3>
+
         <p class="summary">${escapeHTML(post.summary)}</p>
         <p>${escapeHTML(post.excerpt)}</p>
 
@@ -148,8 +156,7 @@
             ${date ? `<span class="small">${escapeHTML(date)}</span>` : ""}
 
             <div class="media-links">
-              <a href="${postReadUrl(post)}">Read entry</a>
-              ${post.doiUrl ? `<a href="${escapeHTML(post.doiUrl)}" target="_blank" rel="noopener">Article DOI</a>` : ""}
+              ${doiLink}
             </div>
           </div>
 
@@ -176,9 +183,13 @@
     return `
       <article class="note-card">
         <span>${escapeHTML(post.typeLabel || "Blog")}</span>
-        <h3>${escapeHTML(post.title)}</h3>
+        <h3>
+          <a href="${postReadUrl(post)}" aria-label="Read ${escapeHTML(post.title)}">
+            ${escapeHTML(post.title)}
+          </a>
+        </h3>
         <p>${escapeHTML(post.summary)}</p>
-        <a class="learn" href="${postAnchorUrl(post)}">View full entry <span>→</span></a>
+        <a class="learn" href="${postAnchorUrl(post)}">View in Blog <span>→</span></a>
       </article>
     `;
   }
