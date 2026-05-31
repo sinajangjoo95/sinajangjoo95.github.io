@@ -8,7 +8,7 @@
     Real publishing control still happens through GitHub repository write access.
   */
 
-  const ADMIN_PASS_HASH = "REPLACE_THIS_WITH_YOUR_HASH";
+  const ADMIN_PASS_HASH = "a2ce97f22b3c70511a9542d6aea0f214e2e9ef37a9deb066e91bb3455040fadf";
   const SESSION_KEY = "sj_admin_composer_unlocked";
 
   function createGateStyles() {
