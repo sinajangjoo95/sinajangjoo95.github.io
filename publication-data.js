@@ -158,7 +158,7 @@ window.SJ_PUBLICATIONS = [
     links: [
       {
         label: "DOI",
-        url: "https://doi.org/10.22034/jtd.2020.239083.2079"
+        url: "https://www.researchgate.net/publication/376646309_Providing_Eventful_City_Planning_Strategies_Based_on_the_Principles_of_Enhancement_of_Destination_Competitiveness_Case_Study"
       }
     ],
     summaryUrl: "post.html?post=summary-eventful-city-shiraz",
