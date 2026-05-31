@@ -221,6 +221,62 @@
       font-style: italic;
     }
 
+    .post-author {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 12px 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .author-avatar-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+    }
+
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid #d6d6d6;
+      background: #555555;
+      box-sizing: border-box;
+    }
+
+    .author-avatar-img {
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .author-avatar-fallback {
+      display: inline-block;
+      background: #555555;
+    }
+
+    .author-name {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .featured-card .post-author {
+      margin-top: -2px;
+      margin-bottom: 12px;
+    }
+
+    .featured-card .author-name {
+      color: var(--text-muted);
+    }
+
     .media-footer {
       display: flex;
       align-items: flex-end;
