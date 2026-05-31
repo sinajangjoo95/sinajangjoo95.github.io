@@ -47,27 +47,36 @@ window.SJ_BLOG_POSTS = [
   `
 },
 
-  {
-    id: "note-energy-justice",
-    title: "Where Does Energy Justice Become a Rule?",
-    date: "2026-01-03",
-    type: "commentary",
-    typeLabel: "Commentary",
-    primaryArea: "energy",
-    areas: ["energy", "nonprofits", "crf"],
-    summary: "A reflection on eligibility rules, documentation burdens, and downstream program templates as surfaces of energy-justice institutionalization.",
-    excerpt: "This entry explains why energy justice should be studied not only as a normative principle, but also as a question of rule location and implementation.",
-    content: `
-      <p>Energy justice becomes administratively meaningful when it is translated into eligibility rules, documentation requirements, access procedures, participation routines, and accountability mechanisms.</p>
+{
+  id: "note-energy-justice",
+  title: "Where Does Energy Justice Become a Rule?",
+  date: "2026-01-03",
+  type: "commentary",
+  typeLabel: "Commentary",
+  primaryArea: "energy",
+  areas: ["energy", "nonprofits", "crf"],
+  summary: "A reflection on eligibility rules, documentation burdens, and downstream program templates as surfaces of energy-justice institutionalization.",
+  excerpt: "This entry explains why energy justice should be studied not only as a normative principle, but also as a question of rule location and implementation.",
+  content: `
+    <p>Energy justice becomes administratively meaningful when it is translated into rules that shape who can participate, what evidence they must provide, which benefits they can access, and how agencies or partners are held accountable.</p>
 
-      <h2>Justice as rule design</h2>
-      <p>Rather than treating energy justice only as a value or goal, this entry asks where energy justice becomes operational in actual governance systems.</p>
+    <h2>Justice as rule design</h2>
+    <p>Energy justice is often discussed as a value: fairness, recognition, participation, and distribution. But in practice, justice becomes real through design choices embedded in eligibility criteria, documentation requirements, outreach procedures, procurement templates, reporting rules, and appeal or correction mechanisms.</p>
 
-      <h2>Why rule location matters</h2>
-      <p>Energy justice may appear in policy rhetoric, but its real effects often depend on where rules are located: program manuals, grant templates, procurement documents, eligibility criteria, reporting requirements, and implementation routines.</p>
-    `
-  },
+    <h2>Why rule location matters</h2>
+    <p>A justice commitment located only in a climate plan is weaker than one embedded in a program manual, grant agreement, procurement document, or utility-facing procedure. Rule location determines whether equity is aspirational, administratively actionable, or enforceable.</p>
 
+    <h2>The downstream problem</h2>
+    <p>In constrained energy-governance settings, justice often appears downstream in local programs, nonprofit templates, and project-level participation rules rather than upstream in statutes, tariffs, or binding regulatory standards. This can still matter: downstream rules can target benefits, reduce burdens, and protect participants.</p>
+
+    <h2>The vulnerability</h2>
+    <p>The problem is durability. Program rules can be revised, narrowed, defunded, or inconsistently applied more easily than regime-level obligations. Energy justice may therefore become operational without becoming structurally secure.</p>
+
+    <h2>The public-administration question</h2>
+    <p>The key question is not only whether policymakers mention energy justice, but where justice is encoded in the governance system. To study energy justice seriously, we need to trace the rules-in-use that determine access, burden, accountability, and correction.</p>
+  `
+},
+  
   {
   id: "summary-built-environment-wellbeing",
   title: "Women, Apartment Complexes, and Community Wellbeing: Why Satisfaction and Sense of Community Matter",
