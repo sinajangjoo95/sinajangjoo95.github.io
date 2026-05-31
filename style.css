@@ -236,8 +236,8 @@ main {
 }
 
 .hero {
-  height: 550px !important;
-  min-height: 550px !important;
+  height: 525px !important;
+  min-height: 525px !important;
   position: relative !important;
   overflow: hidden !important;
   background-color: var(--hero-bg) !important;
@@ -251,7 +251,7 @@ main {
 .hero-inner {
   width: 1536px !important;
   max-width: none !important;
-  height: 550px !important;
+  height: 525px !important;
   margin: 0 !important;
   position: absolute !important;
   left: 50% !important;
