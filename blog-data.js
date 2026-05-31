@@ -69,7 +69,7 @@ window.SJ_BLOG_POSTS = [
   type: "paper-report",
   typeLabel: "Research Note",
   primaryArea: "urban",
-  areas: ["urban", "methods", "equity"],
+  areas: ["urban"],
   summary: "A research note based on my Cities article with Sajad Askari and Amirhossein Doaee on how women’s perceptions of apartment-complex environments shape satisfaction, sense of community, and community wellbeing.",
   excerpt: "This research note explains how security, comfort, cleanliness, and accessibility influence women’s residential satisfaction, which then strengthens sense of community and perceptions of collective wellbeing.",
   doiUrl: "https://doi.org/10.1016/j.cities.2026.106871",
