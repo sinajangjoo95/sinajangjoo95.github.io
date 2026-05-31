@@ -610,7 +610,6 @@ window.SJ_BLOG_POSTS = [
   `
 },
 
-  ```js
 {
   id: "summary-empowering-cities-eventful-planning",
   title: "Empowering Cities Through Eventful City Planning: A Toolkit for Destination Competitiveness",
@@ -704,7 +703,7 @@ window.SJ_BLOG_POSTS = [
     <p>Jangjoo, S., Hajipoor, K., &amp; Lotfi, S. (2024). <em>Empowering cities through eventful city planning: A toolkit for enhancing destination competitiveness</em>. <strong>Tourism Planning &amp; Development</strong>. <a href="https://doi.org/10.1080/21568316.2024.2371835" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/21568316.2024.2371835</a></p>
   `
 },
-```
+
 {
   id: "summary-institutional-design-implementation-gaps",
   title: "Diagnosing Institutional Design–Implementation Gaps: Making Institutional Change Visible",
