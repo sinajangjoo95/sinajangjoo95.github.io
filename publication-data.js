@@ -139,7 +139,7 @@ window.SJ_PUBLICATIONS = [
     links: [
       {
         label: "DOI",
-        url: "researchgate.net/publication/376645126_Event-led_Regeneration_to_Reconnect_the_Structure_of_Historic_Cities_Case_Study_Historical_Connected_Structure_of_Shiraz?_sg%5B0%5D=l29wJmR7FDXFgeeHhD77VESXH2jdmc8KqY8YYFYfaC-RLcC8LVuT3_u4KJ59kq1Krf_vl9yRj8DIbbNvjt-QZWwM3ksaNGk84nG-FqUp.cdWUxrhxdN0rzAPmsEzidIQXOdeuYvZoi_v6TFoZ9rrHcQkOBckQlxjKf0OKNmel4oKz3lAXWqgBr1cfLg6cyw&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6ImhvbWUiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19"
+        url: "https://www.researchgate.net/publication/376645126_Event-led_Regeneration_to_Reconnect_the_Structure_of_Historic_Cities_Case_Study_Historical_Connected_Structure_of_Shiraz"
       }
     ],
     summaryUrl: "post.html?post=summary-event-led-regeneration-shiraz",
