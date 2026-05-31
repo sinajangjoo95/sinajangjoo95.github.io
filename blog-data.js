@@ -1,3 +1,8 @@
+window.SJ_BLOG_DEFAULT_AUTHOR = {
+  name: "Sina Jangjoo",
+  image: "Jangjoo.png"
+};
+
 window.SJ_BLOG_POSTS = [
   {
     id: "note-crf",
@@ -805,3 +810,9 @@ window.SJ_BLOG_POSTS = [
 
   
 ];
+
+window.SJ_BLOG_POSTS = (window.SJ_BLOG_POSTS || []).map(post => ({
+  authorName: window.SJ_BLOG_DEFAULT_AUTHOR.name,
+  authorImage: window.SJ_BLOG_DEFAULT_AUTHOR.image,
+  ...post
+}));
