@@ -151,3 +151,4 @@ window.SJ_BLOG_POSTS = [
     <p>Jangjoo, S., &amp; Tang, T. (2025). <em>Renewable energy transitions from the ground up: Building a framework for local action despite limited state support</em>. <strong>Cities, 158</strong>, 105737. <a href="https://doi.org/10.1016/j.cities.2025.105737" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.cities.2025.105737</a></p>
   `
 }
+];
