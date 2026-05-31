@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTLJDKC5LB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTLJDKC5LB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
 
-  gtag('config', 'G-QTLJDKC5LB');
-</script>
+    gtag("config", "G-QTLJDKC5LB");
+  </script>
   
 <script src="nav.js"></script>
 <meta charset="utf-8">
@@ -287,7 +287,7 @@
 <h1>Upstream governance, institutional mismatch, and rule formation in emerging technology and sustainability transitions.</h1>
 <div class="gold-line"></div>
 <p style="font-size: 95%;">My research examines how emerging technologies and sustainability transitions become governable when inherited institutions do not yet fit new policy problems. I study the upstream phase of governance; when actors are still deciding what a new problem is, who has authority over it, where decisions should be made, and what procedural rules can make governance accountable, reviewable, and durable.</p>
-<p>Across AI governance, autonomous systems, AI infrastructure, clean energy transitions, collaborative governance, and nonprofit/civil society action, I analyze how rules, venues, administrative routines, and interResearch Noteries shape whether governance stabilizes, stalls, shifts venues, or consolidates without meaningful learning.</p>
+<p>Across AI governance, autonomous systems, AI infrastructure, clean energy transitions, collaborative governance, and nonprofit/civil society action, I analyze how rules, venues, administrative routines, and intermediaries shape whether governance stabilizes, stalls, shifts venues, or consolidates without meaningful learning.</p>
 </div>
 <div class="quote-card"><span class="quote-mark">“</span><p>I focus on the politics of making an innovation governable before mature policy conflict fully exists.</p></div>
 </div>
@@ -399,35 +399,12 @@
   </div>
 </section>
 
-<section class="section block" id="Latest Research Note">
+<section class="section block" id="latest-blog">
 
-  <h2 class="section-title">Latest Research Notes</h2>
+  <h2 class="section-title">Latest from the Blog</h2>
   <div class="section-line"></div>
 
-  <div class="notes-grid">
-
-    <article class="note-card">
-      <span>Research Note</span>
-      <h3>What Is Contested Rule Formation?</h3>
-      <p>A short explanation of CRF as the politics of making an innovation governable before mature policy conflict fully exists.</p>
-      <a class="learn" href="research-note.html#note-crf">View full entry <span>→</span></a>
-    </article>
-
-    <article class="note-card">
-      <span>AI Governance</span>
-      <h3>Why AI Readiness Is Not the Same as AI Adoption</h3>
-      <p>A public-administration explanation of institutional readiness, venue settlement, and procedural governance for public-sector AI.</p>
-      <a class="learn" href="research-note.html#note-ai-readiness">View full entry <span>→</span></a>
-    </article>
-
-    <article class="note-card">
-      <span>Energy Justice</span>
-      <h3>Where Does Energy Justice Become a Rule?</h3>
-      <p>A reflection on eligibility rules, documentation burdens, and downstream program templates as surfaces of energy-justice institutionalization.</p>
-      <a class="learn" href="research-note.html#note-energy-justice">View full entry <span>→</span></a>
-    </article>
-
-  </div>
+  <div class="notes-grid" id="home-latest-posts"></div>
 
 </section>
 
@@ -451,6 +428,11 @@
 
 <site-footer></site-footer>
 <script src="site-footer.js"></script>
+<script src="blog-data.js"></script>
+<script src="blog-components.js"></script>
+<script>
+  SJBlog.renderLatest("home-latest-posts", 3, "home");
+</script>
 
 </body>
 </html>
