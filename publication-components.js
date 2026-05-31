@@ -1,9 +1,11 @@
 (function () {
   function publications() {
-    return (window.SJ_PUBLICATIONS || []).map((publication, index) => ({
-      ...publication,
-      __index: index
-    }));
+    return (window.SJ_PUBLICATIONS || [])
+      .filter(publication => publication.published !== false)
+      .map((publication, index) => ({
+        ...publication,
+        __index: index
+      }));
   }
 
   const areaMeta = {
