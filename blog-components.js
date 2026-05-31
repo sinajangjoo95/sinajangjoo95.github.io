@@ -181,16 +181,12 @@
 
   function homeCardHTML(post) {
     return `
-      <article class="note-card">
+      <a class="note-card" href="${postAnchorUrl(post)}" aria-label="View ${escapeHTML(post.title)} in the Blog">
         <span>${escapeHTML(post.typeLabel || "Blog")}</span>
-        <h3>
-          <a href="${postReadUrl(post)}" aria-label="Read ${escapeHTML(post.title)}">
-            ${escapeHTML(post.title)}
-          </a>
-        </h3>
+        <h3>${escapeHTML(post.title)}</h3>
         <p>${escapeHTML(post.summary)}</p>
-        <a class="learn" href="${postAnchorUrl(post)}">View in Blog <span>→</span></a>
-      </article>
+        <strong class="learn">View in Blog <span>→</span></strong>
+      </a>
     `;
   }
 
