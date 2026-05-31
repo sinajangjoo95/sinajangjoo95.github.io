@@ -452,5 +452,341 @@ window.SJ_BLOG_POSTS = [
   `
 },
 
+{
+  id: "summary-human-built-environment-wellbeing",
+  title: "Human–Built Environment Interactions: How Neighborhood Environments Shape Subjective Well-Being",
+  date: "2022-12-01",
+  type: "paper-report",
+  typeLabel: "Research Note",
+  primaryArea: "urban",
+  areas: ["urban", "methods"],
+  summary: "A research note based on my Scientific Reports article with Ali Reza Sadeghi, Maryam Ebadi, and Fatemeh Shams on how perceived neighborhood environments relate to subjective well-being in historic Shiraz.",
+  excerpt: "This research note explains how walkability, neighborhood appreciation, and residential safety relate to social inclusion, life satisfaction, mental well-being, happiness, and health in the historic neighborhood of Sange Siah.",
+  doiUrl: "https://doi.org/10.1038/s41598-022-25414-9",
+  content: `
+    <p><strong>Research Note | Healthy Neighborhoods, Urban Design, Subjective Well-Being, and Historic Urban Fabrics</strong></p>
+
+    <p>What makes a neighborhood supportive of human well-being? In our article, <em>Human-built environment interactions: The relationship between subjective well-being and perceived neighborhood environment characteristics</em>, Ali Reza Sadeghi, Maryam Ebadi, Fatemeh Shams, and I examine how people’s perceptions of their neighborhood environment relate to their subjective well-being in the historical neighborhood of Sange Siah in Shiraz, Iran. The central argument is that <strong>neighborhood environments are not only physical settings; they are social, emotional, and psychological environments that can shape how people experience life, belonging, satisfaction, happiness, and health</strong>.</p>
+
+    <p>The study begins from a broader urban planning concern: rapid urbanization, daily stress, and deteriorating neighborhood environments have made the creation of healthy neighborhoods a major challenge. In this context, subjective well-being is not a secondary issue. It is closely connected to social sustainability, quality of life, and the everyday experience of urban space. The neighborhood is especially important because it operates as an intermediate scale between the city and the individual. It is where people walk, interact, access services, form attachments, and experience safety or insecurity.</p>
+
+    <h2>Why Sange Siah matters</h2>
+
+    <p>The case study focuses on <strong>Sange Siah</strong>, a historic neighborhood in Shiraz. The neighborhood was selected because it has a strong historical identity, distinctive physical structure, and an active neighborhood center. The paper describes Sange Siah as a historically meaningful area with more than 30 registered historic buildings and collections, including mosques, baths, bazaars, passages, and public spaces. Despite deterioration and social change, the neighborhood still preserves important traces of the traditional concept of “neighborhood” and “neighborhood center.”</p>
+
+    <p>This makes Sange Siah an important case for studying human–built environment interactions. Historic neighborhoods are not only heritage zones; they are living environments. Their physical qualities, social networks, walkability, accessibility, safety, and public spaces can directly shape how residents and users experience everyday life.</p>
+
+    <h2>What the study measures</h2>
+
+    <p>The article examines the relationship between two major concepts: <strong>perceived neighborhood environment characteristics</strong> and <strong>subjective well-being</strong>.</p>
+
+    <p>Perceived neighborhood environment characteristics were measured through three main components: <strong>walkability</strong>, <strong>neighborhood appreciation</strong>, and <strong>residential neighborhood safety</strong>. Walkability included diversity, accessibility, street connectivity, and safety infrastructure for walking. Neighborhood appreciation included aesthetics and social cohesion. Residential neighborhood safety included residential density and crime rate.</p>
+
+    <p>Subjective well-being was measured as a multidimensional concept rather than a single feeling. The study included six components: <strong>affective characteristics</strong>, <strong>satisfaction with life</strong>, <strong>mental well-being</strong>, <strong>feeling of happiness</strong>, <strong>social inclusion</strong>, and <strong>physical and mental health</strong>. This is one of the strengths of the paper: it avoids reducing subjective well-being only to happiness, satisfaction, or mental health. Instead, it treats well-being as a broader combination of emotional, cognitive, social, and health-related dimensions.</p>
+
+    <h2>How we studied the relationship</h2>
+
+    <p>The study used a survey research design. Data were collected through questionnaires from people who lived or worked in Sange Siah and used neighborhood spaces in their daily lives. The sample size was <strong>97</strong>, calculated using Cochran’s formula because the exact population size was unknown. Researchers were present in the neighborhood for 21 days, from July to August 2021, across working days, holidays, and different times of day and night. The questionnaire was based on a 5-point Likert scale and included demographic questions, perceived neighborhood environment items, and subjective well-being measures.</p>
+
+    <p>The data were analyzed in SPSS. Because the data were not normally distributed, the study used the nonparametric Spearman correlation coefficient. This is important: the paper identifies statistically meaningful relationships between perceived neighborhood environment characteristics and subjective well-being, but it does <strong>not</strong> claim direct causality.</p>
+
+    <h2>Main findings</h2>
+
+    <p>The overall finding is that perceived neighborhood environment characteristics had a <strong>moderate positive correlation</strong> with subjective well-being. The total correlation between perceived neighborhood environment characteristics and subjective well-being was <strong>r = 0.579</strong>. This means that people who evaluated their neighborhood environment more positively also tended to report higher levels of subjective well-being.</p>
+
+    <p>The strongest relationship was with <strong>social inclusion</strong>. Among the six subjective well-being components, social inclusion had the highest positive correlation with perceived neighborhood environment characteristics, with <strong>r = 0.712</strong>. This suggests that neighborhood environments may be especially important for people’s sense of belonging, social participation, and connection to others.</p>
+
+    <p>Other components also showed meaningful positive relationships. <strong>Satisfaction with life</strong> had a correlation of <strong>0.614</strong>, <strong>mental well-being</strong> had <strong>0.569</strong>, <strong>positive and negative affect</strong> had <strong>0.526</strong>, and <strong>feeling of happiness</strong> had approximately <strong>0.458–0.468</strong>. Physical and mental health had the weakest positive correlation, at <strong>0.230</strong>.</p>
+
+    <p>Among neighborhood environment characteristics, <strong>walkability</strong> showed the strongest relationship with total subjective well-being, with a correlation of <strong>0.619</strong>. Residential neighborhood safety followed with <strong>0.482</strong>, while neighborhood appreciation had <strong>0.385</strong>. This ranking matters for planning: in this case, improving walkability appears especially important for supporting well-being.</p>
+
+    <h2>What this means</h2>
+
+    <p>The study suggests that a healthy neighborhood is not created only through physical repair or beautification. It also requires attention to how people perceive access, diversity of activities, street connectivity, walking conditions, lighting, seating, open space, safety, aesthetics, and opportunities for social cohesion.</p>
+
+    <p>For Sange Siah, this matters because the neighborhood has both strong historical assets and serious contemporary challenges. Its historical passages, public spaces, religious and commercial buildings, and neighborhood center provide a foundation for social life. But migration, deterioration, social change, and physical problems can weaken people’s sense of belonging and well-being. The findings indicate that improving the built environment may be one pathway for strengthening social inclusion and subjective well-being in such historic fabrics.</p>
+
+    <h2>Contribution to urban planning and design</h2>
+
+    <p>The paper contributes to urban planning and built environment research in three main ways.</p>
+
+    <p>First, it treats subjective well-being as a <strong>multidimensional urban outcome</strong>. Rather than measuring only happiness or life satisfaction, the study includes emotional, cognitive, social, mental, and health-related dimensions. This gives a more complete picture of how neighborhood environments relate to well-being.</p>
+
+    <p>Second, it focuses on <strong>perceived neighborhood environment characteristics</strong>. What matters is not only the objective presence of streets, buildings, sidewalks, or public spaces, but also how people experience and evaluate them. Urban design is therefore not only about physical form; it is also about perception, use, meaning, safety, and social interaction.</p>
+
+    <p>Third, it studies a <strong>historic urban fabric</strong>. Many well-being and built environment studies focus on contemporary residential areas, suburban neighborhoods, or general urban settings. This article shows that historic neighborhoods require special attention because they combine heritage value, everyday life, social vulnerability, public space, and neighborhood identity.</p>
+
+    <h2>Practical implications</h2>
+
+    <p>For planners and urban designers, the strongest implication is that neighborhood improvement strategies should prioritize walkability and social inclusion. In practical terms, this can include improving sidewalks, lighting, seating, green and open spaces, accessibility to services, public transportation connections, street connectivity, and spaces that support social interaction.</p>
+
+    <p>For historic neighborhoods, conservation policies should not focus only on buildings. They should also protect and improve the everyday public realm. A historic neighborhood can have architectural value but still fail residents if it lacks safe, accessible, socially supportive, and well-maintained spaces.</p>
+
+    <h2>Limitations</h2>
+
+    <p>This study should be interpreted carefully. It is based on a sample of 97 respondents in one historical neighborhood in Shiraz. The findings show correlations, not causal effects. The study is also based on self-reported perceptions, which are valuable but may be shaped by individual expectations, social conditions, income, age, gender, and personal experiences. Future research could strengthen this work through larger samples, longitudinal data, comparative studies across multiple neighborhoods, spatial analysis, and mixed-method research combining surveys with observation and interviews.</p>
+
+    <p>The central contribution remains important: <strong>people’s well-being is connected to how they perceive and experience their neighborhood environment</strong>. Healthy neighborhoods require more than physical infrastructure; they require environments that support social inclusion, satisfaction, mental well-being, happiness, safety, and everyday dignity.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Sadeghi, A. R., Ebadi, M., Shams, F., &amp; Jangjoo, S. (2022). <em>Human-built environment interactions: The relationship between subjective well-being and perceived neighborhood environment characteristics</em>. <strong>Scientific Reports, 12</strong>, 21844. <a href="https://doi.org/10.1038/s41598-022-25414-9" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41598-022-25414-9</a></p>
+  `
+},
+
+  {
+  id: "summary-women-safe-healthy-urban-spaces",
+  title: "Women in Safe and Healthy Urban Public Spaces: What Environmental Factors Matter Most?",
+  date: "2023-04-01",
+  type: "paper-report",
+  typeLabel: "Research Note",
+  primaryArea: "urban",
+  areas: ["urban", "methods"],
+  summary: "A research note based on my BMC Women’s Health article with Ali Reza Sadeghi, Elahe Sadat Mousavi Sarvine Baghi, and Fatemeh Shams on environmental priorities for women’s presence in urban public spaces.",
+  excerpt: "This research note explains why safety and security are foundational for women’s presence in public spaces, while also showing how accessibility, behavioral compatibility, climate comfort, freedom of use, collective memory, and urban vitality matter.",
+  doiUrl: "https://doi.org/10.1186/s12905-023-02281-8",
+  content: `
+    <p><strong>Research Note | Gender, Urban Public Space, Safety, and Healthy Cities</strong></p>
+
+    <p>Urban public spaces are often described as spaces “for everyone,” but in practice, people do not experience them equally. Women’s ability and willingness to use streets, parks, plazas, and other public spaces are shaped by safety, accessibility, social norms, environmental quality, comfort, and the design of the built environment. In our article, <em>Women in a Safe and Healthy Urban Environment: Environmental Top Priorities for the Women’s Presence in Urban Public Spaces</em>, Ali Reza Sadeghi, Elahe Sadat Mousavi Sarvine Baghi, Fatemeh Shams, and I examine which environmental qualities matter most for women’s presence in urban public spaces in Shiraz, Iran.</p>
+
+    <p>The central argument of the study is that <strong>women’s presence in public space is not only a matter of individual preference; it is deeply shaped by environmental conditions and urban design choices</strong>. Public spaces that feel unsafe, inaccessible, uncomfortable, socially restrictive, or poorly maintained can limit women’s participation in everyday urban life. Conversely, spaces designed around safety, behavioral compatibility, accessibility, climate comfort, freedom of use, and social vitality can support women’s more active presence in the city.</p>
+
+    <h2>Why this study matters</h2>
+
+    <p>Women make up roughly half of urban populations, yet their experiences in public spaces have often been ignored or oversimplified in urban design and planning. The article argues that before gender-sensitive planning became more widely discussed, many urban spaces were implicitly designed around men’s needs and patterns of use. This has contributed to gendered urban spaces in which women’s access, comfort, mobility, and sense of safety are more constrained.</p>
+
+    <p>This issue is not only about access to space. It is about public health, social participation, citizenship, and urban justice. Women’s reduced presence in public spaces limits opportunities for everyday interaction, leisure, mobility, visibility, and participation in public life. A safer and healthier city therefore requires careful attention to the environmental conditions that encourage or discourage women’s use of public spaces.</p>
+
+    <h2>Case and method</h2>
+
+    <p>The study focused on <strong>Eram Street in Shiraz</strong>, one of the city’s well-known public streets, used for leisure, education, work, and everyday movement. The research used a descriptive-analytical survey design. First, the authors reviewed the literature and conducted in-depth interviews with urban designers, psychologists, and women over 18 to identify relevant criteria. A pilot phase with 50 women helped refine the criteria and questionnaire. The final questionnaire included 34 items organized around 10 environmental priorities.</p>
+
+    <p>The final survey was randomly distributed among <strong>256 women over 18</strong> who used urban public spaces in Shiraz. Researchers were present on Eram Street for 19 days, including working days, holidays, and different times of day and night, to reach a broader range of respondents. IBM SPSS was used for analysis. The study used T-tests to rank environmental priorities and correlation tests to examine relationships between personal characteristics and women’s environmental priorities. The questionnaire reliability was acceptable, with Cronbach’s alpha reported as <strong>0.81</strong>.</p>
+
+    <h2>What the study found</h2>
+
+    <p>The most important finding is that <strong>safety and security ranked as the top environmental priority for women’s presence in urban public spaces</strong>. In the study, security included individual, social, and psychological dimensions. This means that women’s use of public space depends not only on whether a space is objectively safe, but also on whether it feels safe, defensible, visible, and socially comfortable.</p>
+
+    <p>The full ranking of environmental priorities was as follows: <strong>safety and security</strong>, <strong>compatibility with behavioral patterns</strong>, <strong>eventuality</strong>, <strong>permeability</strong>, <strong>attention to climate</strong>, <strong>liberty</strong>, <strong>collective memory</strong>, <strong>variety</strong>, <strong>complexity</strong>, and <strong>identity</strong>.</p>
+
+    <p>This ranking is important because it shows that women’s presence in public space is shaped by a combination of practical, emotional, cultural, and spatial factors. Safety is first, but it is not the only concern. Women also value spaces that fit everyday behavioral patterns, support events and activity, allow movement and access, respond to climate conditions, enable freedom of action, carry collective memory, include diverse users and uses, provide visual richness, and reflect identity.</p>
+
+    <h2>Safety is necessary, but not sufficient</h2>
+
+    <p>The study’s strongest message is that safety is foundational. A public space cannot be genuinely inclusive if women do not feel secure using it. The paper emphasizes that perceived safety and actual safety are not identical. A space may have low recorded crime but still feel threatening because of poor lighting, limited visibility, social surveillance, lack of activity, weak maintenance, or gendered norms of use.</p>
+
+    <p>At the same time, the study does not reduce women’s needs only to safety. The second-ranked factor, <strong>compatibility with behavioral patterns</strong>, points to the importance of spaces that fit women’s everyday routines, social interactions, comfort needs, and preferred activities. The third-ranked factor, <strong>eventuality</strong>, highlights the importance of lively and active spaces where cultural, social, religious, or sporting events can occur. The fourth-ranked factor, <strong>permeability</strong>, emphasizes access, openness, and the ability to move through and reach public spaces.</p>
+
+    <h2>Personal characteristics also matter</h2>
+
+    <p>The study also examined whether women’s age, education, marital status, and employment status were associated with different environmental priorities. Among these characteristics, <strong>age had the strongest overall correlation</strong> with the environmental components. Collective memory had a strong positive correlation with age (<strong>r = 0.805</strong>), followed by identity (<strong>r = 0.784</strong>), liberty (<strong>r = 0.703</strong>), and safety and security (<strong>r = 0.644</strong>). In other words, older respondents placed stronger emphasis on collective memory, identity, freedom of action, and safety.</p>
+
+    <p>Education had the weakest overall correlation with the environmental components, but it showed a strong positive relationship with liberty (<strong>r = 0.589</strong>). Employment status was moderately associated with eventuality (<strong>r = 0.553</strong>) and safety and security (<strong>r = 0.485</strong>). Marital status had a weaker overall correlation, but it was more strongly associated with safety and security and liberty than with several other components.</p>
+
+    <p>These findings suggest that women are not a homogeneous group. Different groups of women may prioritize different qualities of public space depending on age, education, employment status, marital status, everyday responsibilities, and social expectations.</p>
+
+    <h2>Contribution to gender-sensitive urban planning</h2>
+
+    <p>The article contributes to urban planning and women’s health research by developing and testing a framework of environmental priorities for women’s presence in public space. It brings together urban design, public health, safety, gender, environmental psychology, and public space studies.</p>
+
+    <p>Its main contribution is practical: it provides a ranked set of environmental priorities that planners and designers can use when thinking about women’s everyday presence in public spaces. Rather than treating women’s presence as a vague social issue, the study identifies concrete environmental dimensions that can be assessed, improved, and monitored.</p>
+
+    <h2>Practical implications</h2>
+
+    <p>For planners, designers, and municipal officials, the findings suggest that gender-sensitive public space design should begin with safety, but move beyond it. A safer public space requires lighting, visibility, maintenance, defensible design, public oversight, and reduced fear of crime. But a healthier and more inclusive public space also requires comfort, accessible routes, active uses, public events, climatic protection, freedom of movement, social diversity, and places that carry memory and meaning.</p>
+
+    <p>For Shiraz, the study suggests that improving women’s presence in public space requires attention not only to physical design, but also to the social atmosphere of streets and public areas. Spaces should be designed so women can walk, sit, socialize, participate in events, access services, and feel that they belong.</p>
+
+    <h2>Limitations</h2>
+
+    <p>The findings should be interpreted carefully. The study is based on women over 18 in Shiraz and uses Eram Street as the case study context. It is a cross-sectional survey, so it identifies priorities and correlations rather than proving that specific design interventions will directly increase women’s presence. The data are also based on self-reported perceptions, which are valuable but shaped by personal experience, social norms, and local cultural context. Future research could expand this work through comparative studies across multiple cities, observational analysis of women’s actual use of public spaces, interviews with different age and income groups, and before-and-after evaluations of public-space interventions.</p>
+
+    <p>The main conclusion remains clear: <strong>women’s presence in urban public spaces depends strongly on the environmental quality of those spaces, and safety—understood physically, socially, and psychologically—is the first priority for creating healthier and more inclusive urban environments</strong>.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Sadeghi, A. R., Mousavi Sarvine Baghi, E. S., Shams, F., &amp; Jangjoo, S. (2023). <em>Women in a safe and healthy urban environment: Environmental top priorities for the women’s presence in urban public spaces</em>. <strong>BMC Women’s Health, 23</strong>, 163. <a href="https://doi.org/10.1186/s12905-023-02281-8" target="_blank" rel="noopener noreferrer">https://doi.org/10.1186/s12905-023-02281-8</a></p>
+  `
+},
+
+  ```js
+{
+  id: "summary-empowering-cities-eventful-planning",
+  title: "Empowering Cities Through Eventful City Planning: A Toolkit for Destination Competitiveness",
+  date: "2024-07-12",
+  type: "paper-report",
+  typeLabel: "Research Note",
+  primaryArea: "urban",
+  areas: ["urban", "methods"],
+  summary: "A research note based on my Tourism Planning & Development article with Khalil Hajipoor and Sahand Lotfi on eventful city planning, destination competitiveness, and strategic urban governance.",
+  excerpt: "This research note explains how cities can use events as part of a long-term planning process for destination competitiveness, cultural identity, stakeholder coordination, sustainability, and public value.",
+  doiUrl: "https://doi.org/10.1080/21568316.2024.2371835",
+  content: `
+    <p><strong>Research Note | Eventful Cities, Tourism Planning, Urban Strategy, and Destination Competitiveness</strong></p>
+
+    <p>Cities increasingly compete through culture, identity, visitor experience, and symbolic visibility—not only through infrastructure or traditional economic development. In our article, <em>Empowering Cities through Eventful City Planning: A Toolkit for Enhancing Destination Competitiveness</em>, Khalil Hajipoor, Sahand Lotfi, and I develop a practical planning toolkit for cities seeking to become more competitive tourism destinations through strategic event-based development. The article was published in <em>Tourism Planning &amp; Development</em> in 2024.</p>
+
+    <p>The central argument is that <strong>events should not be treated as isolated festivals, temporary spectacles, or one-time promotional tools</strong>. When properly planned, events can support long-term urban development, destination branding, social cohesion, cultural vitality, tourism growth, and residents’ quality of life. But when poorly planned, events can also intensify inequality, over-commercialize public space, disrupt residents’ everyday life, and produce benefits that are captured by only a narrow group of stakeholders.</p>
+
+    <p>This is why the paper asks a practical question: <strong>how can cities—especially cities in developing-country contexts—move toward becoming “eventful cities” in a strategic, inclusive, and sustainable way?</strong></p>
+
+    <h2>What is an eventful city?</h2>
+
+    <p>An eventful city is not simply a city that hosts many events. It is a city that uses events as part of a broader strategic process. Events become tools for place-making, urban regeneration, destination identity, tourism development, and public value. In this sense, the city should not merely “serve” events by providing space, infrastructure, and public resources. Rather, events should serve the city’s long-term goals.</p>
+
+    <p>The paper emphasizes that eventful city planning requires decisions across five major domains: <strong>the strategic position of events in the city’s vision</strong>, <strong>stakeholder relationships</strong>, <strong>event programming</strong>, <strong>marketing strategies</strong>, and <strong>monitoring outcomes and sustainability</strong>. These five domains form the foundation of the toolkit.</p>
+
+    <h2>Why this study matters</h2>
+
+    <p>Many cities want to use festivals, cultural programs, sports events, exhibitions, heritage events, and mega-events to attract tourists and strengthen their image. Yet many lack a structured framework for deciding which events to support, how to align events with city goals, how to involve stakeholders, how to evaluate outcomes, and how to avoid negative consequences.</p>
+
+    <p>The article responds to this gap by identifying <strong>Critical Success Factors</strong> for eventful city planning. These factors are the institutional, managerial, strategic, and operational conditions that cities need if they want events to contribute meaningfully to destination competitiveness.</p>
+
+    <h2>How we developed the toolkit</h2>
+
+    <p>The study uses a multi-stage methodology. First, we conducted a comprehensive literature review on eventful cities, destination competitiveness, event tourism, urban planning, and Critical Success Factors. Second, we analyzed global experiences from eventful cities, city event strategies, and mega-events. The paper examines experiences from cities such as Melbourne, Singapore, Edinburgh, Rotterdam, Barcelona, and Montreal, and reviews event strategies from cities including Edinburgh, Hutt City, Launceston, Portsmouth, Queensland, Nelson, and Warrnambool.</p>
+
+    <p>Third, we used the <strong>Fuzzy Delphi Method</strong> with a panel of 14 experts in event management, urban planning, and tourism. This method helped address uncertainty in expert judgment and build consensus around the most important Critical Success Factors. Experts evaluated potential factors using triangular fuzzy numbers, and consensus was reached when differences between rounds fell below the study’s threshold.</p>
+
+    <p>Finally, the study used expert input and literature-based analysis to develop executable strategies for each Critical Success Factor. The result is both a conceptual framework and a practical handout for cities seeking to enhance destination competitiveness through eventful city planning.</p>
+
+    <h2>The five Critical Success Factor domains</h2>
+
+    <p>The first domain is <strong>the strategic position of events in the city’s vision</strong>. Events need to be treated as part of long-term city, tourism, and regional development strategies. This requires forward-looking leadership, legal and organizational structures, and alignment between event programs and the city’s identity, priorities, and competitive positioning.</p>
+
+    <p>The second domain is <strong>stakeholder relationships</strong>. Eventful city planning depends on identifying stakeholders, clarifying their roles, and building long-term relationships among public agencies, private-sector actors, nonprofits, event organizers, community groups, media, volunteers, sponsors, and residents. The article emphasizes that stakeholder engagement should go beyond symbolic consultation. It should include coordination, training, support, communication, resource sharing, and fair distribution of event benefits.</p>
+
+    <p>The third domain is <strong>event programming and related destination resources</strong>. A city needs more than a scattered list of events. It needs a strategic event portfolio, a four-season event calendar, support for existing events, mechanisms for identifying new event opportunities, and a clear process for evaluating event proposals. Cities also need to assess their content resources, physical infrastructure, financial resources, and human resources.</p>
+
+    <p>The fourth domain is <strong>marketing strategy</strong>. Events should be aligned with the destination’s broader marketing strategy. This includes branding, digital marketing, media engagement, event calendars, conference and expo participation, pricing analysis, information and communication technologies, and integration of events with other tourism products.</p>
+
+    <p>The fifth domain is <strong>monitoring outcomes and sustainability</strong>. Cities need to evaluate the economic, social, cultural, environmental, and tourism-related outcomes of events. The toolkit recommends event evaluation systems, survey protocols, sustainability practices, green event training, environmental monitoring, and mechanisms for using data to improve future event planning.</p>
+
+    <h2>What the toolkit contributes</h2>
+
+    <p>The main contribution of this paper is that it moves the eventful city discussion from concept to implementation. Earlier research has often explained why events matter or how events affect cities. This article instead asks: <strong>What should city managers, planners, and tourism officials actually do if they want events to strengthen destination competitiveness?</strong></p>
+
+    <p>The toolkit provides an applied structure for answering that question. It connects theory with executive solutions. It identifies what cities should institutionalize, who should be involved, what resources should be assessed, how events should be marketed, and how outcomes should be monitored.</p>
+
+    <p>The practical handout in the paper visually organizes the eventful city planning process around drivers, inhibitors, principles, analytical questions, eventfulness process components, and expected heritage, social, economic, and tourism outcomes. It is intended as a usable planning guide rather than only a theoretical diagram.</p>
+
+    <h2>Why this matters for developing cities</h2>
+
+    <p>The paper is especially relevant for cities that have cultural, historical, social, or tourism potential but lack mature event governance systems. Many developing cities have strong cultural resources but weak coordination, fragmented stakeholder networks, limited funding structures, inadequate event infrastructure, and insufficient evaluation systems.</p>
+
+    <p>For these cities, becoming an eventful city is not about copying global festival cities or chasing mega-events. It is about building governance capacity. That means creating legal frameworks, event management structures, stakeholder networks, event calendars, data systems, funding mechanisms, marketing platforms, and sustainability standards.</p>
+
+    <h2>A critical view: events are not automatically good</h2>
+
+    <p>The article is careful not to romanticize events. Events can create visibility, tourism, identity, and economic activity. But they can also produce exclusion, displacement, commercialization, public-space disruption, inflated economic claims, and unequal benefit distribution. The paper therefore situates the toolkit within debates about “eventification,” where cities risk becoming spaces organized around continuous events rather than residents’ everyday needs.</p>
+
+    <p>The toolkit is designed to help reduce those risks by emphasizing stakeholder inclusion, sustainability, monitoring, fair benefit distribution, resident quality of life, and alignment with long-term city goals.</p>
+
+    <h2>Practical implications</h2>
+
+    <p>For city planners and tourism managers, the study suggests that event planning should be treated as a core part of urban governance. Cities need dedicated organizational structures, clear event policies, interdepartmental coordination, public-private-nonprofit collaboration, and transparent evaluation mechanisms.</p>
+
+    <p>For destination managers, the study shows that events can strengthen competitiveness only when they are connected to branding, visitor experience, cultural resources, tourism products, infrastructure, and market positioning.</p>
+
+    <p>For event organizers, the toolkit highlights the importance of working within a larger citywide strategy. Individual events may succeed on their own terms, but they create greater public value when they contribute to a coherent event portfolio and long-term destination development.</p>
+
+    <h2>Limitations</h2>
+
+    <p>This paper should be read as a toolkit and expert-informed planning framework, not as an impact evaluation of a completed eventful city program. The Critical Success Factors are based on literature review, analysis of global experiences, city event strategy documents, mega-event cases, and expert consensus through the Fuzzy Delphi Method. The study does not prove that applying the toolkit will automatically increase tourism revenue, resident well-being, or destination competitiveness in every context.</p>
+
+    <p>The authors also acknowledge that the toolkit may not be universally applicable without adaptation. Cities differ in culture, governance capacity, political structure, tourism markets, infrastructure, resources, and public expectations. Future research should test the toolkit in different regional and cultural settings and evaluate long-term outcomes after implementation.</p>
+
+    <p>The main contribution remains practical and policy-relevant: <strong>cities can use events more effectively when they treat eventfulness as a strategic planning process rather than a series of disconnected activities</strong>.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Jangjoo, S., Hajipoor, K., &amp; Lotfi, S. (2024). <em>Empowering cities through eventful city planning: A toolkit for enhancing destination competitiveness</em>. <strong>Tourism Planning &amp; Development</strong>. <a href="https://doi.org/10.1080/21568316.2024.2371835" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/21568316.2024.2371835</a></p>
+  `
+},
+```
+{
+  id: "summary-institutional-design-implementation-gaps",
+  title: "Diagnosing Institutional Design–Implementation Gaps: Making Institutional Change Visible",
+  date: "2026-04-08",
+  type: "paper-report",
+  typeLabel: "Research Note",
+  primaryArea: "methods",
+  areas: ["methods", "crf", "energy"],
+  summary: "A research note based on my in-press Policy Studies Journal article with Tian Tang, Laura Arpan, Elizabeth Lapan, David G. Webster, Paul Bitterman, John C. Little, and Amro M. Farid on diagnosing institutional design–implementation gaps.",
+  excerpt: "This research note explains a dual-layer SysML protocol for comparing rules-in-form and rules-in-use, identifying divergence nodes, and making gradual institutional change visible in complex governance systems.",
+  content: `
+    <p><strong>Research Note | Policy Process Methods, Institutional Analysis, Collaborative Governance, and Systems Modeling</strong></p>
+
+    <p>Why do formal rules often work differently in practice than they do on paper? In our article, <em>Diagnosing Institutional Design–Implementation Gaps: A Dual-Layer Systems Modeling Language Protocol for Visualizing Institutional Change Mechanisms</em>, accepted and in press at <em>Policy Studies Journal</em>, Tian Tang, Laura Arpan, Elizabeth Lapan, David G. Webster, Paul Bitterman, John C. Little, Amro M. Farid, and I develop a methodological protocol for diagnosing the gap between <strong>rules-in-form</strong> and <strong>rules-in-use</strong> in complex governance systems.</p>
+
+    <p>The central argument is methodological: <strong>institutional change is often difficult to observe because it occurs through small, repeated divergences between formal procedures and actual implementation routines</strong>. These divergences may not immediately appear as formal policy change, legal amendment, or organizational restructuring. Yet over time, they can produce meaningful institutional transformation through mechanisms such as drift, layering, conversion, and displacement.</p>
+
+    <h2>Why this paper matters</h2>
+
+    <p>Public policy scholars have long recognized that formal rules do not automatically govern practice. Laws, protocols, administrative procedures, and organizational charts may prescribe one process, while actors in real governance settings adapt, negotiate, bypass, reinterpret, or supplement those rules. This is especially common in polycentric and collaborative governance systems, where authority is distributed across multiple agencies, jurisdictions, technical committees, and stakeholder groups.</p>
+
+    <p>The problem is that these changes are hard to study systematically. Traditional qualitative narratives can describe what happened, but they often struggle to represent the full implementation architecture of a complex governance process: who acts, in what sequence, using what information, through which technical tools, and at which decision points. Our paper responds to this methodological problem by adapting <strong>Systems Modeling Language</strong>, or <strong>SysML</strong>, from systems engineering to institutional analysis.</p>
+
+    <h2>The core idea: two maps of the same governance process</h2>
+
+    <p>The paper introduces a <strong>dual-layer SysML protocol</strong>. The first layer maps the formal process: the rules, procedures, and responsibilities written into statutes, protocols, guidance documents, and official governance frameworks. We call this the <strong>rules-in-form</strong> layer. The second layer maps what actors actually do in practice: recurring routines, workarounds, informal negotiations, technical adaptations, and implementation shortcuts. We call this the <strong>rules-in-use</strong> layer.</p>
+
+    <p>The key methodological move is to overlay these two maps. Where the rules-in-use layer bypasses, supplements, parallels, redirects, or weakens the rules-in-form layer, the protocol identifies what we call <strong>divergence nodes</strong>. These are specific points in the governance process where formal design and practical implementation separate.</p>
+
+    <p>This matters because divergence nodes make institutional change visible. Instead of treating implementation gaps as vague or anecdotal, the method locates them in the process architecture itself.</p>
+
+    <h2>What the method shows</h2>
+
+    <p>The protocol helps classify divergence through four major mechanisms of gradual institutional change.</p>
+
+    <p><strong>Drift</strong> occurs when formal rules remain in place but become hollowed out, outdated, or only nominally followed. <strong>Layering</strong> occurs when actors add new informal routines or procedures on top of existing formal arrangements. <strong>Conversion</strong> occurs when existing formal rules or venues are redirected toward new purposes. <strong>Displacement</strong> occurs when alternative tools, venues, or procedures begin to substitute for the formal process.</p>
+
+    <p>The method is diagnostic rather than prescriptive. It does not automatically tell us whether a divergence is good or bad. Some informal adaptations may help a system function under difficult conditions. Others may weaken accountability, equity, transparency, or legitimacy. The contribution is to make these divergences inspectable, traceable, and open to empirical debate.</p>
+
+    <h2>The illustrative case: Chesapeake Bay watershed governance</h2>
+
+    <p>We demonstrate the protocol using the <strong>Chesapeake Bay Program</strong>, one of the most complex collaborative environmental governance systems in the United States. The paper focuses on the Best Management Practice verification and annual progress reporting workflow. This workflow is central because it connects jurisdictional implementation, technical modeling, water-quality accountability, and federal-state negotiations.</p>
+
+    <p>The formal model reconstructs the officially prescribed BMP verification process, including jurisdictional data preparation, data submission, central data warehousing, model ingestion, technical review, policy approval, and public dissemination. The paper’s <strong>Figure 1</strong> visualizes this formal workflow as a SysML activity diagram, showing actor swimlanes, action nodes, and information flows.</p>
+
+    <p>The rules-in-use overlay then maps recurring informal practices, including unofficial spreadsheet exchanges, preview loops, negotiated resubmissions, informal model adjustments, and the use of alternative modeling tools. The paper’s <strong>Figure 2</strong> overlays formal and informal practice, showing informal capability chains and institutional-change mechanisms across the BMP verification workflow.</p>
+
+    <h2>Main insight</h2>
+
+    <p>The analysis shows that implementation gaps in collaborative governance are not simply failures of compliance. They may reflect rational adaptation under conditions of technical complexity, resource constraints, reputational risk, and distributed authority. In the Chesapeake Bay Program, informal routines can help actors manage uncertainty and preserve collaboration. But they can also create asymmetries: actors with stronger technical capacity, better access to modeling expertise, or closer relationships with technical committees may be better positioned to use informal preview loops, negotiate resubmissions, or contest official model outputs.</p>
+
+    <p>This is one of the paper’s most important contributions: it shows how power can travel through technical routines. Data schemas, model parameters, verification procedures, reporting templates, and modeling tools are not neutral background infrastructure. They shape who can intervene, who can negotiate, and whose interpretation becomes operationally consequential.</p>
+
+    <h2>Contribution to institutional analysis</h2>
+
+    <p>This paper contributes to institutional analysis by connecting Ostrom’s distinction between rules-in-form and rules-in-use with historical institutionalist theories of gradual change. It also contributes methodologically by providing a replicable way to visualize implementation architecture. Rather than relying only on narrative description, the protocol represents actor responsibilities, workflow sequencing, decision points, information flows, and socio-technical artefacts in a single visual model.</p>
+
+    <p>The paper also clarifies its relationship to the Institutional Grammar and Institutional Grammar Tool. It does not replace statement-level institutional coding. Instead, it complements it. Institutional Grammar is especially useful for parsing institutional statements. The SysML protocol is useful for representing how those statements become implementation workflows and how those workflows diverge in practice.</p>
+
+    <h2>Practical implications</h2>
+
+    <p>For policymakers, program managers, and collaborative governance practitioners, the protocol offers a way to identify where formal implementation processes are vulnerable to drift, informal bypasses, technical opacity, or unequal capacity. This can support more targeted institutional redesign.</p>
+
+    <p>For example, if a divergence node appears around data submission, reform might require better version control, clearer audit trails, or more transparent documentation. If divergence appears around model review, reform might require broader technical access, clearer change-log disclosure, or more inclusive review procedures. If divergence appears around approval routines, reform might require strengthening deliberative transparency or clarifying decision authority.</p>
+
+    <p>The broader lesson is that implementation problems are often architectural. They are embedded in workflows, technical artefacts, and informal routines—not only in formal rules.</p>
+
+    <h2>Limitations</h2>
+
+    <p>This paper should be read as a methodological proof-of-concept, not as a full quantitative evaluation of the Chesapeake Bay Program. The analysis is qualitative and diagnostic. It does not calculate formal metrics of divergence, institutional performance, or network robustness. Hetero-Functional Graph Theory is discussed as a potential future extension, but the empirical demonstration centers on the SysML-based dual-layer protocol.</p>
+
+    <p>The model also abstracts a common architecture of the BMP verification workflow rather than capturing every jurisdiction’s full informal context. Individual jurisdictions may diverge in different ways depending on their goals, staff capacity, technical expertise, and political constraints. Future research can extend the protocol through more granular jurisdiction-level models, quantitative indicators, cross-case comparison, and integration with Institutional Grammar coding.</p>
+
+    <p>The main contribution is therefore precise: <strong>the paper provides a transparent and replicable method for making institutional design–implementation gaps visible, traceable, and analytically comparable</strong>.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Jangjoo, S., Tang, T., Arpan, L., Lapan, E., Webster, D. G., Bitterman, P., Little, J. C., &amp; Farid, A. M. (in press). <em>Diagnosing institutional design–implementation gaps: A dual-layer systems modeling language protocol for visualizing institutional change mechanisms</em>. <strong>Policy Studies Journal</strong>.</p>
+  `
+},
+
+  
+
   
 ];
