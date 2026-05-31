@@ -63,26 +63,90 @@ window.SJ_BLOG_POSTS = [
   },
 
   {
-    id: "summary-built-environment-wellbeing",
-    title: "Women’s Perceptions of Built Environment and Community Wellbeing",
-    date: "2026-01-02",
-    type: "paper-report",
-    typeLabel: "Paper Report",
-    primaryArea: "urban",
-    areas: ["urban", "methods"],
-    summary: "A public-facing report on my Cities article about satisfaction, sense of community, built environment, and community wellbeing.",
-    excerpt: "This report explains how built environment quality, satisfaction, and sense of community shape women’s perceptions of community wellbeing.",
-    doiUrl: "https://doi.org/10.1016/j.cities.2026.106871",
-    content: `
-      <p>This paper examines how women’s perceptions of the built environment relate to satisfaction, sense of community, and community wellbeing in residential apartment complexes.</p>
+  id: "summary-built-environment-wellbeing",
+  title: "Women, Apartment Complexes, and Community Wellbeing: Why Satisfaction and Sense of Community Matter",
+  date: "2026-02-25",
+  type: "paper-report",
+  typeLabel: "Research Note",
+  primaryArea: "urban",
+  areas: ["urban", "methods", "equity"],
+  summary: "A research note based on my Cities article with Sajad Askari and Amirhossein Doaee on how women’s perceptions of apartment-complex environments shape satisfaction, sense of community, and community wellbeing.",
+  excerpt: "This research note explains how security, comfort, cleanliness, and accessibility influence women’s residential satisfaction, which then strengthens sense of community and perceptions of collective wellbeing.",
+  doiUrl: "https://doi.org/10.1016/j.cities.2026.106871",
+  content: `
+    <p><strong>Research Note | Built Environment, Women’s Wellbeing, Sense of Community, and Residential Design</strong></p>
 
-      <h2>Main argument</h2>
-      <p>Built environment quality matters not only physically, but also socially and institutionally. It shapes satisfaction, sense of community, and perceptions of collective wellbeing.</p>
+    <p>How do women’s perceptions of apartment-complex environments shape their satisfaction, sense of community, and broader perceptions of community wellbeing? In our article, <em>The Role of Satisfaction and Sense of Community in Women’s Perceptions of the Built Environment and Community Wellbeing in Residential Apartment Complexes</em>, Sajad Askari, Amirhossein Doaee, and I examine this question through three residential apartment complexes in Shiraz, Iran. The central argument is that <strong>the built environment does not influence community wellbeing only through physical design; it works through women’s satisfaction and sense of community</strong>.</p>
 
-      <h2>Public-facing takeaway</h2>
-      <p>Housing and neighborhood environments influence wellbeing through more than design quality alone. They also shape social connection, trust, comfort, safety, and residents’ sense of belonging.</p>
-    `
-  },
+    <p>The study focuses on women because apartment complexes are not gender-neutral environments. In contexts shaped by patriarchal norms, caregiving responsibilities, and gendered mobility patterns, women often spend substantial time in or near residential environments. This makes the quality of shared spaces, safety, comfort, cleanliness, accessibility, and management especially important for their everyday experiences.</p>
+
+    <h2>Why this study matters</h2>
+
+    <p>High-density apartment living is expanding in many cities. These residential forms can help manage urban growth, reduce sprawl, and support more efficient infrastructure use. Yet dense apartment complexes can also create social isolation, discomfort, insecurity, or weak community ties when shared spaces are poorly designed or managed.</p>
+
+    <p>This paper asks a more specific question: <strong>when women perceive their apartment complex as safer, cleaner, more comfortable, and more accessible, does that translate into stronger community wellbeing?</strong> The answer is yes—but mostly through a sequence: better built-environment perceptions increase satisfaction; satisfaction strengthens sense of community; and sense of community improves perceptions of community wellbeing.</p>
+
+    <h2>What we studied</h2>
+
+    <p>The study examines four dimensions of perceived built-environment quality in apartment complexes: <strong>security</strong>, <strong>environmental and visual comfort</strong>, <strong>accessibility and permeability</strong>, and <strong>cleanliness and sanitation</strong>. These were modeled as predictors of women’s residential satisfaction. Satisfaction was then modeled as a predictor of sense of community, and sense of community was modeled as a predictor of two dimensions of community wellbeing: <strong>healthy practices</strong> and <strong>proficient leadership</strong>.</p>
+
+    <p>This structure is important because it treats community wellbeing as more than an individual feeling. It is a collective condition shaped by shared practices, social ties, and perceptions of leadership and management. In apartment complexes, community wellbeing depends not only on buildings and facilities, but also on whether residents feel satisfied, connected, and able to trust their shared environment.</p>
+
+    <h2>Case and method</h2>
+
+    <p>The study was conducted in <strong>three residential apartment complexes in Shiraz, Iran</strong>, selected to reflect variation in socio-economic status, design characteristics, and location. Data were collected between August and November 2022. The final valid sample included <strong>287 women residents</strong>. The study distributed 974 questionnaires, received 356 completed responses, and retained 287 valid cases after removing incomplete responses required for analysis.</p>
+
+    <p>The analysis used <strong>Partial Least Squares Structural Equation Modeling</strong> with bootstrapping. This method was appropriate because the study examined multiple latent constructs and tested direct and indirect pathways among built environment, satisfaction, sense of community, and community wellbeing. The measurement model showed acceptable reliability and validity, and all seven main hypotheses were supported.</p>
+
+    <h2>Main findings</h2>
+
+    <p>The first major finding is that <strong>all four built-environment factors significantly improved women’s satisfaction</strong>. Security had the strongest effect on satisfaction, followed by environmental and visual comfort, cleanliness and sanitation, and accessibility/permeability. The path coefficients were: security <strong>β = 0.257</strong>, environmental/visual comfort <strong>β = 0.241</strong>, cleanliness/sanitation <strong>β = 0.239</strong>, and accessibility/permeability <strong>β = 0.220</strong>.</p>
+
+    <p>The second major finding is that <strong>satisfaction strongly predicted sense of community</strong>. Women who were more satisfied with their apartment complex were more likely to report stronger belonging, emotional connection, membership, and social ties. The path coefficient from satisfaction to sense of community was <strong>β = 0.555</strong>.</p>
+
+    <p>The third major finding is that <strong>sense of community had the strongest effects on community wellbeing</strong>. It significantly predicted both healthy practices and proficient leadership, with path coefficients of <strong>β = 0.574</strong> and <strong>β = 0.613</strong>, respectively. This means that social connection was the strongest bridge between environmental satisfaction and broader community wellbeing.</p>
+
+    <h2>The key insight: the built environment works through social life</h2>
+
+    <p>The most important contribution of the paper is not simply that security, comfort, cleanliness, and accessibility matter. Many studies already show that physical environments influence satisfaction. The stronger contribution is that this study shows <strong>how</strong> those environmental qualities matter.</p>
+
+    <p>The built environment influenced community wellbeing primarily through <strong>satisfaction</strong> and <strong>sense of community</strong>, rather than only through direct physical effects. Satisfaction and sense of community functioned as key conduits linking women’s perceptions of apartment-complex environments to healthier communal practices and more favorable assessments of leadership.</p>
+
+    <p>This finding is theoretically important because it connects urban design, environmental psychology, feminist urban theory, and community wellbeing research. It suggests that improving the built environment is not only a technical design issue. It is also a social and governance issue.</p>
+
+    <h2>Why security matters most</h2>
+
+    <p>Across the model, <strong>security emerged as the most influential built-environment attribute</strong>. It had the strongest direct effect on satisfaction and the strongest indirect effects on sense of community and both community wellbeing outcomes.</p>
+
+    <p>This is consistent with the broader feminist urban planning argument that women’s use of shared spaces is shaped by perceived safety, visibility, cultural norms, and everyday mobility constraints. In apartment complexes, security is not limited to crime prevention. It includes whether women feel safe in shared spaces, whether entrances are monitored, whether strangers can be recognized, whether lighting is adequate, and whether communal areas feel socially comfortable.</p>
+
+    <p>The finding does not mean that accessibility, cleanliness, or aesthetics are unimportant. All were statistically significant. But in this specific context, security appears to operate as a threshold condition: without safety and comfort, other improvements may have weaker effects on satisfaction and community connection.</p>
+
+    <h2>Contribution to feminist urban theory</h2>
+
+    <p>This paper refines feminist urban theory by showing that women’s satisfaction can act as a <strong>gatekeeper</strong> between environmental conditions and community wellbeing. Where cultural norms constrain women’s mobility and public participation, the quality of semi-public residential spaces becomes especially consequential. Apartment courtyards, corridors, entrances, gathering areas, lighting, parking, cleanliness, and management practices are not minor design details. They shape whether women feel comfortable enough to use shared spaces and form social ties.</p>
+
+    <p>This matters because gender-neutral planning can miss the specific ways women experience residential environments. A design feature that seems ordinary from a general planning perspective—lighting, visibility, seating, maintenance, or access to gathering spaces—may be central to women’s everyday wellbeing and sense of belonging.</p>
+
+    <h2>Practical implications</h2>
+
+    <p>For planners, architects, housing managers, and resident boards, the findings point to a clear practical message: <strong>improving community wellbeing in apartment complexes requires both physical design improvements and social-management strategies</strong>.</p>
+
+    <p>Physical improvements should prioritize safety, lighting, entrance control, clean shared spaces, noise reduction, visual comfort, accessible walking paths, convenient parking, and usable gathering areas. But these changes should be paired with inclusive management, responsive leadership, and opportunities for residents—especially women—to participate in decisions affecting shared spaces.</p>
+
+    <p>For apartment-complex governance, the study suggests that leadership quality matters because residents evaluate community wellbeing partly through whether leadership feels responsive, capable, and supportive. Sense of community strengthens perceptions of proficient leadership, which means that better social ties may also improve how residents perceive management and collective decision-making.</p>
+
+    <h2>Limitations</h2>
+
+    <p>This study should be interpreted carefully. It is based on a cross-sectional survey of women in three apartment complexes in Shiraz, so it identifies statistically significant relationships but does not prove long-term causal effects. The study focuses only on women, which is theoretically appropriate for the research question, but future studies could compare women, men, children, older adults, and whole households. The findings are also context-specific and should be tested in other cities, housing types, and cultural settings.</p>
+
+    <p>Even with these limitations, the contribution is clear: <strong>gender-sensitive improvements to apartment-complex environments can support satisfaction, strengthen sense of community, and improve perceptions of collective wellbeing</strong>—but these benefits are most likely when physical design and inclusive management reinforce one another.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Jangjoo, S., Askari, S., &amp; Doaee, A. (2026). <em>The role of satisfaction and sense of community in women’s perceptions of the built environment and community wellbeing in residential apartment complexes</em>. <strong>Cities, 173</strong>, 106871. <a href="https://doi.org/10.1016/j.cities.2026.106871" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.cities.2026.106871</a></p>
+  `
+},
 
   {
   id: "summary-renewable-energy-ground-up",
