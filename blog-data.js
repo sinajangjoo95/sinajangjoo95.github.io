@@ -374,7 +374,83 @@ window.SJ_BLOG_POSTS = [
   `
 },
 
+{
+  id: "summary-event-led-regeneration-shiraz",
+  title: "Event-Led Regeneration and the Ritual-Religious Structure of Historic Shiraz",
+  date: "2022-01-01",
+  type: "paper-report",
+  typeLabel: "Research Note",
+  primaryArea: "urban",
+  areas: ["urban", "methods"],
+  summary: "A research note based on my Geography and Urban Space Development article with Sahand Lotfi, Mahsa Sholeh, Khalil Hajipoor, and Afrooz Fallah Manshadi on event-led regeneration in historic Shiraz.",
+  excerpt: "This research note explains how ritual, religious, and cultural events can help reconnect fragmented historic urban structures by linking public space, collective memory, and urban heritage.",
+  doiUrl: "http://dx.doi.org/10.22067/jgusd.2022.47725.01",
+  content: `
+    <p><strong>Research Note | Urban Regeneration, Eventfulness, Ritual Heritage, and Public Space</strong></p>
 
+    <p>How can a historic city reconnect spaces that have been physically fragmented by modernization while still preserving the cultural and ritual life that originally gave those spaces meaning? In our article, <em>Event-Led Regeneration in Reconnecting the Ritual-Religious Structure of Historic Cities: Case Study of the Inter-Connected Structure of Historic Shiraz</em>, Sahand Lotfi, Mahsa Sholeh, Khalil Hajipoor, Afrooz Fallah Manshadi, and I examine this question through the historical structure of Shiraz. The central argument is that <strong>urban regeneration should not focus only on physical restoration; it should also revive the cultural, ceremonial, and religious events that historically animated urban spaces and connected them to collective memory</strong>.</p>
+
+    <p>The paper is grounded in a simple but important idea: historic urban spaces are not only architectural containers. They are also stages for social life, ritual practices, public gatherings, religious ceremonies, collective memory, and civic identity. When modernization fragments historic fabrics, the damage is not only physical. It also weakens the relationship between spaces, events, meanings, and communities. In Shiraz, this rupture is especially important because the city’s historical structure has long been shaped by ritual-religious territoriality, religious places, bazaars, gardens, public spaces, and ceremonial routes.</p>
+
+    <h2>Why Shiraz matters</h2>
+
+    <p>Shiraz is one of Iran’s oldest continuously inhabited urban settlements and has a dense historical, cultural, religious, and spatial structure. The paper focuses on the <strong>historical interconnected structure of Shiraz</strong>, especially the north-south axis within the historical fabric. This area includes major religious, cultural, commercial, and public-space elements that historically supported public events and ritual life. The study treats this structure not only as a physical urban system, but also as a cultural and ceremonial system.</p>
+
+    <p>The article shows that the historic structure of Shiraz has served as a platform for political, social, religious, and ceremonial events across different periods. Congregational mosques, successive bazaars, multifunctional complexes, gardens, shrines, and public spaces each contributed to the continuity of events and social life. However, contemporary urban transformations—fragmentation of components, weakening of centers, removal or incapacity of historic spaces, and lack of coherence between modern development patterns and the traditional urban fabric—have reduced the ability of this structure to host and sustain meaningful events.</p>
+
+    <h2>What the study does</h2>
+
+    <p>This is an applied and developmental urban planning study using a descriptive-analytical approach. The research combines library research, document analysis, historical review, field observation, and on-site surveys. The fieldwork examined public spaces, urban corridors, focal points, visual axes, landmarks, and the relationship between religious-cultural events and their physical-spatial settings. The study also used the <strong>SOAR strategic model</strong> and the <strong>ANSOFF matrix</strong> to develop event-led regeneration strategies.</p>
+
+    <p>The paper does not claim to measure the full economic impact of events, nor does it test a completed regeneration intervention. Its contribution is strategic and conceptual: it develops a planning framework for using ceremonial, religious, and cultural events as catalysts for reconnecting historic urban structures.</p>
+
+    <h2>Key empirical insight</h2>
+
+    <p>One of the most important findings is that the study area is small in spatial terms but highly significant in event terms. Through monitoring urban events in Shiraz during 1398/2019–2020 using documentary sources, the study found that although the study area represented only about <strong>1% of Shiraz’s legal urban area</strong>, it hosted <strong>67% of the city’s events</strong>. Religious events accounted for approximately <strong>69%</strong> of events, while cultural events accounted for approximately <strong>23%</strong>. The distribution was also uneven: Shahcheragh hosted 65 recorded events, Hafez Hall hosted 26, and most other locations hosted fewer than ten. The study also found that 76% of events occurred in designated venues, while street-based events were more limited and often connected to religious mourning ceremonies or political processions.</p>
+
+    <p>This finding is important because it shows that Shiraz’s historic core still functions as a major event landscape, even though its spatial cohesion has weakened. In other words, the cultural and ritual “content” of the city has not disappeared. The problem is that the physical-spatial structure no longer fully supports the cultural and ceremonial life that continues to exist.</p>
+
+    <h2>Main argument</h2>
+
+    <p>The article argues that <strong>event-led regeneration can help reconnect the historical structure of Shiraz by linking physical spaces with ritual, religious, cultural, and social practices</strong>. This means that regeneration should not be reduced to façade improvement, isolated heritage conservation, or infrastructure upgrades. It should also ask: What events belong to this place? What collective memories are attached to this route, shrine, bazaar, garden, square, or mosque? How can contemporary planning support these events without turning them into artificial spectacles?</p>
+
+    <p>The study therefore frames events as tools for urban regeneration, but not in a superficial or purely promotional sense. Events are valuable because they can reactivate public spaces, strengthen social cohesion, support cultural continuity, create economic opportunities, and reconnect fragmented urban elements.</p>
+
+    <h2>Strategic framework</h2>
+
+    <p>Using the SOAR model and ANSOFF matrix, the article proposes strategies around two major objectives: <strong>regenerating the urban ritual structure</strong> and <strong>integrating ritual spaces into an eventful urban structure</strong>.</p>
+
+    <p>The first strategic direction is to develop a <strong>calendar and portfolio of ceremonial, religious, and cultural events</strong>. This includes planning event types, scales, organizational arrangements, participant groups, access patterns, transportation needs, and spatial requirements. A stronger event calendar would help connect events to specific places and times rather than allowing them to remain fragmented or irregular.</p>
+
+    <p>The second direction is to increase <strong>creative participation</strong>, especially among community groups and young people. The paper emphasizes indigenous arts, local associations, social groups, and stakeholder participation as part of event design and implementation. This matters because events can only support regeneration if they are socially embedded and not merely imposed from above.</p>
+
+    <p>The third direction is to increase the <strong>economic benefits of event hosting</strong>. This includes identifying financial resources, public and private support, employment opportunities, and economic activities connected to cultural and religious events. The article treats economic benefit as important, but not as the only purpose of event-led regeneration.</p>
+
+    <p>The fourth direction is to improve <strong>event infrastructure and venue quality</strong>. The study recommends reviewing event venues, upgrading infrastructure, improving open spaces, developing criteria for venue selection, and enhancing the identity and design quality of spaces used for events. This is especially important in a historic city where poorly planned interventions can damage heritage values rather than strengthen them.</p>
+
+    <h2>Contribution to urban regeneration research</h2>
+
+    <p>The paper contributes to urban regeneration literature by emphasizing the relationship between <strong>tangible heritage</strong> and <strong>intangible heritage</strong>. Historic buildings, streets, mosques, bazaars, gardens, and shrines are tangible urban elements. Rituals, ceremonies, religious gatherings, collective memories, and cultural events are intangible forms of heritage. The article argues that regeneration becomes more meaningful when it addresses both.</p>
+
+    <p>This is also where the study is analytically strongest: it criticizes regeneration approaches that focus too heavily on physical design while neglecting cultural content. In Shiraz, the problem is not simply that historic spaces need repair. The deeper issue is that the historical relationship between space, event, and collective memory has been weakened. Event-led regeneration offers a way to repair that relationship.</p>
+
+    <h2>Practical implications</h2>
+
+    <p>For planners and urban managers, the article suggests that historic-city regeneration should begin with a careful reading of the city’s cultural and ritual structure. Before designing new spaces or infrastructure, planners should identify the historical routes, ceremonial nodes, event venues, public spaces, religious places, and collective memories that already structure urban life.</p>
+
+    <p>For Shiraz, this means that event-led regeneration could support a broader revitalization program by reconnecting religious-cultural places, improving event infrastructure, strengthening public participation, coordinating event calendars, and designing public spaces that can host flexible ceremonial and cultural activities.</p>
+
+    <h2>Limitations</h2>
+
+    <p>This study should be read as a strategic planning and conceptual framework paper, not as a completed impact evaluation. It does not empirically test whether the proposed strategies increased tourism, economic activity, social cohesion, or resident satisfaction after implementation. The event monitoring is also tied to a specific period and set of documentary sources. Future research could build on this work through resident surveys, participant observation, spatial network analysis, visitor behavior studies, or evaluation of implemented event-led regeneration projects.</p>
+
+    <p>The main contribution is therefore not a claim that events alone can regenerate historic cities. Rather, the article shows that <strong>ritual, religious, and cultural events can become powerful catalysts when they are planned in relation to historical structure, public space, collective memory, and urban heritage</strong>.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Lotfi, S., Sholeh, M., Hajipoor, K., Jangjoo, S., &amp; Fallah Manshadi, A. (2022). <em>Event-led regeneration in reconnecting the ritual-religious structure of historic cities: Case study of the inter-connected structure of historic Shiraz</em>. <strong>Geography and Urban Space Development, 9</strong>(3), 171–193. <a href="http://dx.doi.org/10.22067/jgusd.2022.47725.01" target="_blank" rel="noopener noreferrer">http://dx.doi.org/10.22067/jgusd.2022.47725.01</a></p>
+  `
+},
 
   
 ];
