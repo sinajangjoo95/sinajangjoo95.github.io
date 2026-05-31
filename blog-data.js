@@ -7,6 +7,7 @@ window.SJ_BLOG_POSTS = [
     typeLabel: "Research Note",
     primaryArea: "crf",
     areas: ["crf"],
+    published: false,
     summary: "A short explanation of CRF as the politics of making an innovation governable before mature policy conflict fully exists.",
     excerpt: "This entry introduces Contested Rule Formation as an upstream governance concept focused on classification, jurisdiction, venue settlement, and procedural rules under institutional mismatch.",
     content: `
