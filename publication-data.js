@@ -154,7 +154,7 @@ window.SJ_PUBLICATIONS = [
   },
 
 {
-  title: "Historical Analysis of the Role of Bazaar on the Formation of Iranian Urban Forms; Case Study: Shiraz, Iran",
+  title: "The Bazaar as the Backbone of the Iranian City",
   year: "2019",
   status: "published",
   statusLabel: "Published",
