@@ -226,7 +226,7 @@ window.SJ_BLOG_POSTS = [
   areas: ["urban"],
   summary: "A paper report based on my Armanshahr Architecture & Urban Development article with Ali Reza Sadeghi and Mehdi Khakzand on the historical role of the bazaar in shaping Shiraz’s Iranian-Islamic urban form.",
   excerpt: "This research note explains how the bazaar functioned as a spatial backbone, movement corridor, social institution, and connector of religious, governmental, economic, and residential life in historical Shiraz.",
-  doiUrl: "https://doi.org/10.22034/AAUD.2019.89058",
+  doiUrl: "https://www.researchgate.net/publication/333917096_Historical_Analysis_of_the_Role_of_Bazaar_on_the_Formation_of_Iranian_Islamic_Urban_Form_Case_Study_Shiraz_Iran",
   content: `
     <p><strong>Research Note | Urban Form, Historical Urbanism, and Iranian-Islamic Cities</strong></p>
 
@@ -306,7 +306,7 @@ window.SJ_BLOG_POSTS = [
   areas: ["urban", "methods"],
   summary: "A paper report based on my Journal of Tourism and Development article with Khalil Hajipoor and Sahand Lotfi on eventful city planning, destination competitiveness, and strategic urban planning in Shiraz.",
   excerpt: "This research note explains how Shiraz can use events not as isolated activities, but as part of a long-term urban strategy for tourism competitiveness, cultural identity, stakeholder coordination, and public value.",
-  doiUrl: "https://doi.org/10.22034/jtd.2020.239083.2079",
+  doiUrl: "https://www.researchgate.net/publication/376646309_Providing_Eventful_City_Planning_Strategies_Based_on_the_Principles_of_Enhancement_of_Destination_Competitiveness_Case_Study",
   content: `
     <p><strong>Research Note | Eventful Cities, Destination Competitiveness, and Strategic Urban Planning</strong></p>
 
@@ -384,7 +384,7 @@ window.SJ_BLOG_POSTS = [
   areas: ["urban", "methods"],
   summary: "A paper report based on my Geography and Urban Space Development article with Sahand Lotfi, Mahsa Sholeh, Khalil Hajipoor, and Afrooz Fallah Manshadi on event-led regeneration in historic Shiraz.",
   excerpt: "This research note explains how ritual, religious, and cultural events can help reconnect fragmented historic urban structures by linking public space, collective memory, and urban heritage.",
-  doiUrl: "http://dx.doi.org/10.22067/jgusd.2022.47725.01",
+  doiUrl: "https://www.researchgate.net/publication/376645126_Event-led_Regeneration_to_Reconnect_the_Structure_of_Historic_Cities_Case_Study_Historical_Connected_Structure_of_Shiraz",
   content: `
     <p><strong>Research Note | Urban Regeneration, Eventfulness, Ritual Heritage, and Public Space</strong></p>
 
