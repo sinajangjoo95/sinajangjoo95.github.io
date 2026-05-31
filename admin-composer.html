@@ -315,6 +315,27 @@
       line-height: 1.65;
     }
 
+    .preview-author {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 12px 0;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .preview-author-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid #d6d6d6;
+      background: #555555;
+      object-fit: cover;
+      object-position: center;
+      box-sizing: border-box;
+    }
+
     .chip-row {
       display: flex;
       flex-wrap: wrap;
@@ -412,23 +433,23 @@
           <div class="divider"></div>
 
           <div class="form-block" style="margin-top: 0; padding-top: 0; border-top: 0;">
-  <h3>Edit Existing Blog Entry</h3>
-  <div class="field-grid">
-    <div class="field">
-      <label for="blog-existing-select">Load existing Blog entry</label>
-      <select id="blog-existing-select">
-        <option value="">Choose an existing Blog entry...</option>
-      </select>
-      <small>This loads the current entry into the form so you can revise it.</small>
-    </div>
+            <h3>Edit Existing Blog Entry</h3>
+            <div class="field-grid">
+              <div class="field">
+                <label for="blog-existing-select">Load existing Blog entry</label>
+                <select id="blog-existing-select">
+                  <option value="">Choose an existing Blog entry...</option>
+                </select>
+                <small>This loads the current entry into the form so you can revise it.</small>
+              </div>
 
-    <div class="field">
-      <label>&nbsp;</label>
-      <button class="small-button" type="button" id="load-blog-existing">Load Selected Blog Entry</button>
-      <small>After revising, copy the generated object and replace the old one in blog-data.js.</small>
-    </div>
-  </div>
-</div>
+              <div class="field">
+                <label>&nbsp;</label>
+                <button class="small-button" type="button" id="load-blog-existing">Load Selected Blog Entry</button>
+                <small>After revising, copy the generated object and replace the old one in blog-data.js.</small>
+              </div>
+            </div>
+          </div>
 
           <div class="field-grid">
             <div class="field">
@@ -458,13 +479,13 @@
             </div>
 
             <div class="field">
-  <label for="blog-published">Visibility</label>
-  <select id="blog-published">
-    <option value="true">Published / Visible</option>
-    <option value="false">Draft / Hidden</option>
-  </select>
-  <small>Draft entries are generated with published: false and will not appear publicly.</small>
-</div>
+              <label for="blog-published">Visibility</label>
+              <select id="blog-published">
+                <option value="true">Published / Visible</option>
+                <option value="false">Draft / Hidden</option>
+              </select>
+              <small>Draft entries are generated with published: false and will not appear publicly.</small>
+            </div>
 
             <div class="field">
               <label for="blog-primary-area">Primary Research Area</label>
@@ -477,6 +498,18 @@
                 <option value="urban">Urban Planning and Community Wellbeing</option>
                 <option value="none">Other</option>
               </select>
+            </div>
+
+            <div class="field">
+              <label for="blog-author-name">Author Name</label>
+              <input id="blog-author-name" type="text" placeholder="Sina Jangjoo">
+              <small>For existing posts, this defaults to Sina Jangjoo.</small>
+            </div>
+
+            <div class="field">
+              <label for="blog-author-image">Author Image Filename</label>
+              <input id="blog-author-image" type="text" placeholder="Jangjoo.png">
+              <small>Filename only. Upload the image to the images folder. Leave blank for a dark gray circle.</small>
             </div>
 
             <div class="field">
@@ -533,23 +566,23 @@
           <div class="divider"></div>
 
           <div class="form-block" style="margin-top: 0; padding-top: 0; border-top: 0;">
-  <h3>Edit Existing Publication Entry</h3>
-  <div class="field-grid">
-    <div class="field">
-      <label for="publication-existing-select">Load existing Publication entry</label>
-      <select id="publication-existing-select">
-        <option value="">Choose an existing Publication entry...</option>
-      </select>
-      <small>This loads the current publication into the form so you can revise it.</small>
-    </div>
+            <h3>Edit Existing Publication Entry</h3>
+            <div class="field-grid">
+              <div class="field">
+                <label for="publication-existing-select">Load existing Publication entry</label>
+                <select id="publication-existing-select">
+                  <option value="">Choose an existing Publication entry...</option>
+                </select>
+                <small>This loads the current publication into the form so you can revise it.</small>
+              </div>
 
-    <div class="field">
-      <label>&nbsp;</label>
-      <button class="small-button" type="button" id="load-publication-existing">Load Selected Publication Entry</button>
-      <small>After revising, copy the generated object and replace the old one in publication-data.js.</small>
-    </div>
-  </div>
-</div>
+              <div class="field">
+                <label>&nbsp;</label>
+                <button class="small-button" type="button" id="load-publication-existing">Load Selected Publication Entry</button>
+                <small>After revising, copy the generated object and replace the old one in publication-data.js.</small>
+              </div>
+            </div>
+          </div>
 
           <div class="field-grid">
             <div class="field">
@@ -574,13 +607,13 @@
             </div>
 
             <div class="field">
-  <label for="pub-published">Visibility</label>
-  <select id="pub-published">
-    <option value="true">Published / Visible</option>
-    <option value="false">Draft / Hidden</option>
-  </select>
-  <small>Draft publications are generated with published: false and will not appear publicly.</small>
-</div>
+              <label for="pub-published">Visibility</label>
+              <select id="pub-published">
+                <option value="true">Published / Visible</option>
+                <option value="false">Draft / Hidden</option>
+              </select>
+              <small>Draft publications are generated with published: false and will not appear publicly.</small>
+            </div>
 
             <div class="field">
               <label for="pub-primary-area">Primary Research Area</label>
@@ -718,6 +751,25 @@
     return document.getElementById(id);
   }
 
+  function getDefaultBlogAuthor() {
+    return {
+      name: (window.SJ_BLOG_DEFAULT_AUTHOR && window.SJ_BLOG_DEFAULT_AUTHOR.name) || "Sina Jangjoo",
+      image: (window.SJ_BLOG_DEFAULT_AUTHOR && window.SJ_BLOG_DEFAULT_AUTHOR.image) || "Jangjoo.png"
+    };
+  }
+
+  function cleanImageFileName(value) {
+    const raw = String(value || "").trim();
+
+    if (!raw) return "";
+
+    return raw
+      .replace(/^images[\\/]+/i, "")
+      .split(/[\\/]/)
+      .pop()
+      .trim();
+  }
+
   function getSelectedOptionLabel(selectEl) {
     const option = selectEl.options[selectEl.selectedIndex];
     return option ? option.dataset.label || option.textContent.trim() : "";
@@ -754,7 +806,7 @@
   }
 
   function setCheckedValues(containerId, values) {
-    const valueSet = new Set(values);
+    const valueSet = new Set(values || []);
     document.querySelectorAll(`#${containerId} input[type="checkbox"]`).forEach(input => {
       input.checked = valueSet.has(input.value);
     });
@@ -779,20 +831,6 @@
     return String(new Date().getFullYear());
   }
 
-  function updatePreview(type, title, subtitle, body, tags) {
-    const preview = $("preview-card");
-
-    preview.innerHTML = `
-      <span class="preview-type">${type || "Preview"}</span>
-      <h3>${escapeHTML(title || "Untitled entry")}</h3>
-      <p>${escapeHTML(subtitle || "No summary/citation provided yet.")}</p>
-      <p>${escapeHTML(body || "No excerpt/description provided yet.")}</p>
-      <div class="chip-row">
-        ${(tags || []).map(tag => `<span class="chip">${escapeHTML(areaLabels[tag] || tag)}</span>`).join("")}
-      </div>
-    `;
-  }
-
   function escapeHTML(value) {
     return String(value || "")
       .replaceAll("&", "&amp;")
@@ -802,165 +840,210 @@
       .replaceAll("'", "&#039;");
   }
 
+  function updatePreview(type, title, subtitle, body, tags, authorName = "", authorImage = "") {
+    const preview = $("preview-card");
+    const cleanImage = cleanImageFileName(authorImage);
+    const authorBlock = authorName || cleanImage
+      ? `
+        <div class="preview-author">
+          ${
+            cleanImage
+              ? `<img class="preview-author-avatar" src="images/${escapeHTML(cleanImage)}" alt="${escapeHTML(authorName || "Author")}" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"><span class="preview-author-avatar" aria-hidden="true" style="display:none;"></span>`
+              : `<span class="preview-author-avatar" aria-hidden="true"></span>`
+          }
+          <span>${escapeHTML(authorName || "Author")}</span>
+        </div>
+      `
+      : "";
+
+    preview.innerHTML = `
+      <span class="preview-type">${escapeHTML(type || "Preview")}</span>
+      <h3>${escapeHTML(title || "Untitled entry")}</h3>
+      ${authorBlock}
+      <p>${escapeHTML(subtitle || "No summary/citation provided yet.")}</p>
+      <p>${escapeHTML(body || "No excerpt/description provided yet.")}</p>
+      <div class="chip-row">
+        ${(tags || []).map(tag => `<span class="chip">${escapeHTML(areaLabels[tag] || tag)}</span>`).join("")}
+      </div>
+    `;
+  }
+
   function setOutput(value) {
     $("output-box").textContent = value;
     $("copy-status").textContent = "";
     $("copy-status").className = "status-line";
   }
 
-function generateBlogEntry() {
-  syncPrimaryToTags("blog-primary-area", "blog-area-tags");
+  function generateBlogEntry() {
+    syncPrimaryToTags("blog-primary-area", "blog-area-tags");
 
-  const title = $("blog-title").value.trim();
-  const id = $("blog-id").value.trim() || slugify(title);
-  const date = $("blog-date").value || todayString();
-  const type = $("blog-type").value;
-  const typeLabel = getSelectedOptionLabel($("blog-type"));
-  const isPublished = $("blog-published").value === "true";
-  const primaryArea = $("blog-primary-area").value || "none";
-  const areas = getCheckedValues("blog-area-tags");
-  const summary = $("blog-summary").value.trim();
-  const excerpt = $("blog-excerpt").value.trim();
-  const doiUrl = $("blog-doi").value.trim();
-  const content = $("blog-content").value.trim();
+    const defaultAuthor = getDefaultBlogAuthor();
+    const title = $("blog-title").value.trim();
+    const id = $("blog-id").value.trim() || slugify(title);
+    const date = $("blog-date").value || todayString();
+    const type = $("blog-type").value;
+    const typeLabel = getSelectedOptionLabel($("blog-type"));
+    const isPublished = $("blog-published").value === "true";
+    const primaryArea = $("blog-primary-area").value || "none";
+    const areas = getCheckedValues("blog-area-tags");
+    const authorName = $("blog-author-name").value.trim() || defaultAuthor.name;
+    const authorImage = cleanImageFileName($("blog-author-image").value);
+    const summary = $("blog-summary").value.trim();
+    const excerpt = $("blog-excerpt").value.trim();
+    const doiUrl = $("blog-doi").value.trim();
+    const content = $("blog-content").value.trim();
 
-  const lines = [
-    "{",
-    `  id: ${jsString(id)},`,
-    `  title: ${jsString(title)},`,
-    `  date: ${jsString(date)},`,
-    `  type: ${jsString(type)},`,
-    `  typeLabel: ${jsString(typeLabel)},`,
-    `  primaryArea: ${jsString(primaryArea)},`,
-    `  areas: ${jsArray(areas)},`
-  ];
+    const lines = [
+      "{",
+      `  id: ${jsString(id)},`,
+      `  title: ${jsString(title)},`,
+      `  date: ${jsString(date)},`,
+      `  type: ${jsString(type)},`,
+      `  typeLabel: ${jsString(typeLabel)},`,
+      `  primaryArea: ${jsString(primaryArea)},`,
+      `  areas: ${jsArray(areas)},`,
+      `  authorName: ${jsString(authorName)},`,
+      `  authorImage: ${jsString(authorImage)},`
+    ];
 
-  if (!isPublished) {
-    lines.push("  published: false,");
-  }
-
-  lines.push(
-    `  summary: ${jsString(summary)},`,
-    `  excerpt: ${jsString(excerpt)},`
-  );
-
-  if (doiUrl) {
-    lines.push(`  doiUrl: ${jsString(doiUrl)},`);
-  }
-
-  lines.push(
-    "  content: `",
-    escapeTemplateLiteral(content || "<p>Write the full entry here.</p>"),
-    "  `",
-    "},"
-  );
-
-  setOutput(lines.join("\n"));
-
-  const previewLabel = isPublished ? typeLabel : `${typeLabel} — Draft / Hidden`;
-  updatePreview(previewLabel, title, summary, excerpt, areas);
-}
-
-function generatePublicationEntry() {
-  syncPrimaryToTags("pub-primary-area", "pub-area-tags");
-
-  const title = $("pub-title").value.trim();
-  const year = $("pub-year").value.trim() || currentYear();
-  const status = $("pub-status").value;
-  const statusLabel = getSelectedOptionLabel($("pub-status"));
-  const isPublished = $("pub-published").value === "true";
-  const primaryArea = $("pub-primary-area").value || "none";
-  const areas = getCheckedValues("pub-area-tags");
-  const citation = $("pub-citation").value.trim();
-  const description = $("pub-description").value.trim();
-
-  const links = [];
-
-  if ($("pub-doi").value.trim()) {
-    links.push({ label: "DOI", url: $("pub-doi").value.trim() });
-  }
-
-  if ($("pub-ssrn").value.trim()) {
-    links.push({ label: "SSRN/DOI", url: $("pub-ssrn").value.trim() });
-  }
-
-  if ($("pub-pdf").value.trim()) {
-    links.push({ label: "PDF/Article", url: $("pub-pdf").value.trim() });
-  }
-
-  if ($("pub-other-link").value.trim()) {
-    links.push({
-      label: $("pub-other-label").value.trim() || "Link",
-      url: $("pub-other-link").value.trim()
-    });
-  }
-
-  const relatedPostId = $("pub-summary-post").value.trim();
-  const relatedLabel = $("pub-summary-label").value.trim() || "Paper Report";
-
-  const linkLines = links.length
-    ? [
-        "  links: [",
-        links.map(link => {
-          return `    {\n      label: ${jsString(link.label)},\n      url: ${jsString(link.url)}\n    }`;
-        }).join(",\n"),
-        "  ],"
-      ]
-    : ["  links: [],"];
-
-  const lines = [
-    "{",
-    `  title: ${jsString(title)},`,
-    `  year: ${jsString(year)},`,
-    `  status: ${jsString(status)},`,
-    `  statusLabel: ${jsString(statusLabel)},`,
-    `  primaryArea: ${jsString(primaryArea)},`,
-    `  areas: ${jsArray(areas)},`
-  ];
-
-  if (!isPublished) {
-    lines.push("  published: false,");
-  }
-
-  lines.push(
-    `  citation: ${jsString(citation)},`,
-    `  description: ${jsString(description)},`,
-    ...linkLines
-  );
-
-  if (relatedPostId) {
-    lines.push(`  summaryUrl: ${jsString("post.html?post=" + relatedPostId)},`);
-    lines.push(`  summaryLabel: ${jsString(relatedLabel)}`);
-  } else {
-    const last = lines[lines.length - 1];
-    if (last.endsWith(",")) {
-      lines[lines.length - 1] = last.slice(0, -1);
+    if (!isPublished) {
+      lines.push("  published: false,");
     }
+
+    lines.push(
+      `  summary: ${jsString(summary)},`,
+      `  excerpt: ${jsString(excerpt)},`
+    );
+
+    if (doiUrl) {
+      lines.push(`  doiUrl: ${jsString(doiUrl)},`);
+    }
+
+    lines.push(
+      "  content: `",
+      escapeTemplateLiteral(content || "<p>Write the full entry here.</p>"),
+      "  `",
+      "},"
+    );
+
+    setOutput(lines.join("\n"));
+
+    const previewLabel = isPublished ? typeLabel : `${typeLabel} — Draft / Hidden`;
+    updatePreview(previewLabel, title, summary, excerpt, areas, authorName, authorImage);
   }
 
-  lines.push("},");
+  function generatePublicationEntry() {
+    syncPrimaryToTags("pub-primary-area", "pub-area-tags");
 
-  setOutput(lines.join("\n"));
+    const title = $("pub-title").value.trim();
+    const year = $("pub-year").value.trim() || currentYear();
+    const status = $("pub-status").value;
+    const statusLabel = getSelectedOptionLabel($("pub-status"));
+    const isPublished = $("pub-published").value === "true";
+    const primaryArea = $("pub-primary-area").value || "none";
+    const areas = getCheckedValues("pub-area-tags");
+    const citation = $("pub-citation").value.trim();
+    const description = $("pub-description").value.trim();
 
-  const previewLabel = isPublished ? statusLabel : `${statusLabel} — Draft / Hidden`;
-  updatePreview(previewLabel, title, citation, description, areas);
-}
+    const links = [];
+
+    if ($("pub-doi").value.trim()) {
+      links.push({ label: "DOI", url: $("pub-doi").value.trim() });
+    }
+
+    if ($("pub-ssrn").value.trim()) {
+      links.push({ label: "SSRN/DOI", url: $("pub-ssrn").value.trim() });
+    }
+
+    if ($("pub-pdf").value.trim()) {
+      links.push({ label: "PDF/Article", url: $("pub-pdf").value.trim() });
+    }
+
+    if ($("pub-other-link").value.trim()) {
+      links.push({
+        label: $("pub-other-label").value.trim() || "Link",
+        url: $("pub-other-link").value.trim()
+      });
+    }
+
+    const relatedPostId = $("pub-summary-post").value.trim();
+    const relatedLabel = $("pub-summary-label").value.trim() || "Paper Report";
+
+    const linkLines = links.length
+      ? [
+          "  links: [",
+          links.map(link => {
+            return `    {\n      label: ${jsString(link.label)},\n      url: ${jsString(link.url)}\n    }`;
+          }).join(",\n"),
+          "  ],"
+        ]
+      : ["  links: [],"];
+
+    const lines = [
+      "{",
+      `  title: ${jsString(title)},`,
+      `  year: ${jsString(year)},`,
+      `  status: ${jsString(status)},`,
+      `  statusLabel: ${jsString(statusLabel)},`,
+      `  primaryArea: ${jsString(primaryArea)},`,
+      `  areas: ${jsArray(areas)},`
+    ];
+
+    if (!isPublished) {
+      lines.push("  published: false,");
+    }
+
+    lines.push(
+      `  citation: ${jsString(citation)},`,
+      `  description: ${jsString(description)},`,
+      ...linkLines
+    );
+
+    if (relatedPostId) {
+      lines.push(`  summaryUrl: ${jsString("post.html?post=" + relatedPostId)},`);
+      lines.push(`  summaryLabel: ${jsString(relatedLabel)}`);
+    } else {
+      const last = lines[lines.length - 1];
+      if (last.endsWith(",")) {
+        lines[lines.length - 1] = last.slice(0, -1);
+      }
+    }
+
+    lines.push("},");
+
+    setOutput(lines.join("\n"));
+
+    const previewLabel = isPublished ? statusLabel : `${statusLabel} — Draft / Hidden`;
+    updatePreview(previewLabel, title, citation, description, areas);
+  }
 
   function resetBlogForm() {
-    ["blog-title", "blog-id", "blog-summary", "blog-excerpt", "blog-doi", "blog-content"].forEach(id => {
+    const defaultAuthor = getDefaultBlogAuthor();
+
+    [
+      "blog-title",
+      "blog-id",
+      "blog-summary",
+      "blog-excerpt",
+      "blog-doi",
+      "blog-content"
+    ].forEach(id => {
       $(id).value = "";
     });
 
     $("blog-existing-select").value = "";
-delete $("blog-id").dataset.edited;
+    delete $("blog-id").dataset.edited;
 
     $("blog-date").value = todayString();
     $("blog-type").value = "research-note";
     $("blog-published").value = "true";
     $("blog-primary-area").value = "crf";
+    $("blog-author-name").value = defaultAuthor.name;
+    $("blog-author-image").value = defaultAuthor.image;
+
     setCheckedValues("blog-area-tags", []);
     setOutput("Your generated entry will appear here.");
-    updatePreview("Preview", "Your entry preview will appear here", "Fill out the form and generate an entry to preview the card content.", "", []);
+    updatePreview("Preview", "Your entry preview will appear here", "Fill out the form and generate an entry to preview the card content.", "", [], defaultAuthor.name, defaultAuthor.image);
   }
 
   function resetPublicationForm() {
@@ -1010,174 +1093,177 @@ delete $("blog-id").dataset.edited;
   }
 
   function populateExistingSelectors() {
-  const blogSelect = $("blog-existing-select");
-  const publicationSelect = $("publication-existing-select");
+    const blogSelect = $("blog-existing-select");
+    const publicationSelect = $("publication-existing-select");
 
-  const blogPosts = window.SJ_BLOG_POSTS || [];
-  const publications = window.SJ_PUBLICATIONS || [];
+    const blogPosts = window.SJ_BLOG_POSTS || [];
+    const publications = window.SJ_PUBLICATIONS || [];
 
-  blogSelect.innerHTML = `<option value="">Choose an existing Blog entry...</option>`;
-  publicationSelect.innerHTML = `<option value="">Choose an existing Publication entry...</option>`;
+    blogSelect.innerHTML = `<option value="">Choose an existing Blog entry...</option>`;
+    publicationSelect.innerHTML = `<option value="">Choose an existing Publication entry...</option>`;
 
-  blogPosts
-    .slice()
-    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
-    .forEach(post => {
-      const originalIndex = blogPosts.indexOf(post);
-      const status = post.published === false ? "Draft / Hidden" : "Visible";
-      const option = document.createElement("option");
+    blogPosts
+      .slice()
+      .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
+      .forEach(post => {
+        const originalIndex = blogPosts.indexOf(post);
+        const status = post.published === false ? "Draft / Hidden" : "Visible";
+        const option = document.createElement("option");
 
-      option.value = String(originalIndex);
-      option.textContent = `${post.title || "Untitled"} — ${post.date || "No date"} — ${status}`;
+        option.value = String(originalIndex);
+        option.textContent = `${post.title || "Untitled"} — ${post.date || "No date"} — ${status}`;
 
-      blogSelect.appendChild(option);
+        blogSelect.appendChild(option);
+      });
+
+    publications
+      .slice()
+      .sort((a, b) => Number(b.year || 0) - Number(a.year || 0))
+      .forEach(publication => {
+        const originalIndex = publications.indexOf(publication);
+        const status = publication.published === false ? "Draft / Hidden" : publication.statusLabel || publication.status || "No status";
+        const option = document.createElement("option");
+
+        option.value = String(originalIndex);
+        option.textContent = `${publication.title || "Untitled"} — ${publication.year || "No year"} — ${status}`;
+
+        publicationSelect.appendChild(option);
+      });
+  }
+
+  function loadExistingBlogEntry() {
+    const selectedIndex = $("blog-existing-select").value;
+
+    if (selectedIndex === "") {
+      $("copy-status").textContent = "Choose a Blog entry first.";
+      $("copy-status").className = "status-line bad";
+      return;
+    }
+
+    const defaultAuthor = getDefaultBlogAuthor();
+    const post = (window.SJ_BLOG_POSTS || [])[Number(selectedIndex)];
+
+    if (!post) {
+      $("copy-status").textContent = "Could not load that Blog entry.";
+      $("copy-status").className = "status-line bad";
+      return;
+    }
+
+    $("blog-title").value = post.title || "";
+    $("blog-id").value = post.id || "";
+    $("blog-id").dataset.edited = "true";
+    $("blog-date").value = post.date || todayString();
+    $("blog-type").value = post.type || "research-note";
+    $("blog-published").value = post.published === false ? "false" : "true";
+    $("blog-primary-area").value = post.primaryArea || "none";
+    $("blog-author-name").value = post.authorName || defaultAuthor.name;
+    $("blog-author-image").value = cleanImageFileName(post.authorImage || defaultAuthor.image);
+    $("blog-summary").value = post.summary || "";
+    $("blog-excerpt").value = post.excerpt || "";
+    $("blog-doi").value = post.doiUrl || "";
+    $("blog-content").value = String(post.content || "").trim();
+
+    setCheckedValues("blog-area-tags", post.areas || []);
+
+    generateBlogEntry();
+
+    $("copy-status").textContent = "Loaded existing Blog entry. Revise it, generate again, then replace the old object in blog-data.js.";
+    $("copy-status").className = "status-line good";
+  }
+
+  function extractRelatedPostId(summaryUrl) {
+    const value = String(summaryUrl || "");
+
+    if (!value) return "";
+
+    const match = value.match(/[?&]post=([^&]+)/);
+
+    if (!match) return "";
+
+    try {
+      return decodeURIComponent(match[1]);
+    } catch (error) {
+      return match[1];
+    }
+  }
+
+  function clearPublicationLinkFields() {
+    $("pub-doi").value = "";
+    $("pub-ssrn").value = "";
+    $("pub-pdf").value = "";
+    $("pub-other-link").value = "";
+    $("pub-other-label").value = "";
+  }
+
+  function loadPublicationLinks(publication) {
+    clearPublicationLinkFields();
+
+    const links = publication.links || [];
+
+    links.forEach(link => {
+      const label = String(link.label || "").toLowerCase();
+      const url = String(link.url || "");
+
+      if (!url) return;
+
+      if (label.includes("ssrn")) {
+        $("pub-ssrn").value = url;
+        return;
+      }
+
+      if (label === "doi" || label.includes("doi")) {
+        $("pub-doi").value = url;
+        return;
+      }
+
+      if (label.includes("pdf") || label.includes("article")) {
+        $("pub-pdf").value = url;
+        return;
+      }
+
+      if (!$("pub-other-link").value) {
+        $("pub-other-link").value = url;
+        $("pub-other-label").value = link.label || "Link";
+      }
     });
-
-  publications
-    .slice()
-    .sort((a, b) => Number(b.year || 0) - Number(a.year || 0))
-    .forEach(publication => {
-      const originalIndex = publications.indexOf(publication);
-      const status = publication.published === false ? "Draft / Hidden" : publication.statusLabel || publication.status || "No status";
-      const option = document.createElement("option");
-
-      option.value = String(originalIndex);
-      option.textContent = `${publication.title || "Untitled"} — ${publication.year || "No year"} — ${status}`;
-
-      publicationSelect.appendChild(option);
-    });
-}
-
-function loadExistingBlogEntry() {
-  const selectedIndex = $("blog-existing-select").value;
-
-  if (selectedIndex === "") {
-    $("copy-status").textContent = "Choose a Blog entry first.";
-    $("copy-status").className = "status-line bad";
-    return;
   }
 
-  const post = (window.SJ_BLOG_POSTS || [])[Number(selectedIndex)];
+  function loadExistingPublicationEntry() {
+    const selectedIndex = $("publication-existing-select").value;
 
-  if (!post) {
-    $("copy-status").textContent = "Could not load that Blog entry.";
-    $("copy-status").className = "status-line bad";
-    return;
-  }
-
-  $("blog-title").value = post.title || "";
-  $("blog-id").value = post.id || "";
-  $("blog-id").dataset.edited = "true";
-  $("blog-date").value = post.date || todayString();
-  $("blog-type").value = post.type || "research-note";
-  $("blog-published").value = post.published === false ? "false" : "true";
-  $("blog-primary-area").value = post.primaryArea || "none";
-  $("blog-summary").value = post.summary || "";
-  $("blog-excerpt").value = post.excerpt || "";
-  $("blog-doi").value = post.doiUrl || "";
-  $("blog-content").value = String(post.content || "").trim();
-
-  setCheckedValues("blog-area-tags", post.areas || []);
-
-  generateBlogEntry();
-
-  $("copy-status").textContent = "Loaded existing Blog entry. Revise it, generate again, then replace the old object in blog-data.js.";
-  $("copy-status").className = "status-line good";
-}
-
-function extractRelatedPostId(summaryUrl) {
-  const value = String(summaryUrl || "");
-
-  if (!value) return "";
-
-  const match = value.match(/[?&]post=([^&]+)/);
-
-  if (!match) return "";
-
-  try {
-    return decodeURIComponent(match[1]);
-  } catch (error) {
-    return match[1];
-  }
-}
-
-function clearPublicationLinkFields() {
-  $("pub-doi").value = "";
-  $("pub-ssrn").value = "";
-  $("pub-pdf").value = "";
-  $("pub-other-link").value = "";
-  $("pub-other-label").value = "";
-}
-
-function loadPublicationLinks(publication) {
-  clearPublicationLinkFields();
-
-  const links = publication.links || [];
-
-  links.forEach(link => {
-    const label = String(link.label || "").toLowerCase();
-    const url = String(link.url || "");
-
-    if (!url) return;
-
-    if (label.includes("ssrn")) {
-      $("pub-ssrn").value = url;
+    if (selectedIndex === "") {
+      $("copy-status").textContent = "Choose a Publication entry first.";
+      $("copy-status").className = "status-line bad";
       return;
     }
 
-    if (label === "doi" || label.includes("doi")) {
-      $("pub-doi").value = url;
+    const publication = (window.SJ_PUBLICATIONS || [])[Number(selectedIndex)];
+
+    if (!publication) {
+      $("copy-status").textContent = "Could not load that Publication entry.";
+      $("copy-status").className = "status-line bad";
       return;
     }
 
-    if (label.includes("pdf") || label.includes("article")) {
-      $("pub-pdf").value = url;
-      return;
-    }
+    $("pub-title").value = publication.title || "";
+    $("pub-year").value = publication.year || currentYear();
+    $("pub-status").value = publication.status || "working";
+    $("pub-published").value = publication.published === false ? "false" : "true";
+    $("pub-primary-area").value = publication.primaryArea || "none";
+    $("pub-citation").value = publication.citation || "";
+    $("pub-description").value = publication.description || "";
 
-    if (!$("pub-other-link").value) {
-      $("pub-other-link").value = url;
-      $("pub-other-label").value = link.label || "Link";
-    }
-  });
-}
+    setCheckedValues("pub-area-tags", publication.areas || []);
+    loadPublicationLinks(publication);
 
-function loadExistingPublicationEntry() {
-  const selectedIndex = $("publication-existing-select").value;
+    $("pub-summary-post").value = extractRelatedPostId(publication.summaryUrl);
+    $("pub-summary-label").value = publication.summaryLabel || "";
 
-  if (selectedIndex === "") {
-    $("copy-status").textContent = "Choose a Publication entry first.";
-    $("copy-status").className = "status-line bad";
-    return;
+    generatePublicationEntry();
+
+    $("copy-status").textContent = "Loaded existing Publication entry. Revise it, generate again, then replace the old object in publication-data.js.";
+    $("copy-status").className = "status-line good";
   }
-
-  const publication = (window.SJ_PUBLICATIONS || [])[Number(selectedIndex)];
-
-  if (!publication) {
-    $("copy-status").textContent = "Could not load that Publication entry.";
-    $("copy-status").className = "status-line bad";
-    return;
-  }
-
-  $("pub-title").value = publication.title || "";
-  $("pub-year").value = publication.year || currentYear();
-  $("pub-status").value = publication.status || "working";
-  $("pub-published").value = publication.published === false ? "false" : "true";
-  $("pub-primary-area").value = publication.primaryArea || "none";
-  $("pub-citation").value = publication.citation || "";
-  $("pub-description").value = publication.description || "";
-
-  setCheckedValues("pub-area-tags", publication.areas || []);
-  loadPublicationLinks(publication);
-
-  $("pub-summary-post").value = extractRelatedPostId(publication.summaryUrl);
-  $("pub-summary-label").value = publication.summaryLabel || "";
-
-  generatePublicationEntry();
-
-  $("copy-status").textContent = "Loaded existing Publication entry. Revise it, generate again, then replace the old object in publication-data.js.";
-  $("copy-status").className = "status-line good";
-}
 
   document.querySelectorAll(".tab-button").forEach(button => {
     button.addEventListener("click", () => {
@@ -1199,6 +1285,10 @@ function loadExistingPublicationEntry() {
     $("blog-id").dataset.edited = "true";
   });
 
+  $("blog-author-image").addEventListener("blur", () => {
+    $("blog-author-image").value = cleanImageFileName($("blog-author-image").value);
+  });
+
   $("blog-primary-area").addEventListener("change", () => {
     syncPrimaryToTags("blog-primary-area", "blog-area-tags");
   });
@@ -1207,18 +1297,18 @@ function loadExistingPublicationEntry() {
     syncPrimaryToTags("pub-primary-area", "pub-area-tags");
   });
 
-$("generate-blog").addEventListener("click", generateBlogEntry);
-$("generate-publication").addEventListener("click", generatePublicationEntry);
-$("reset-blog").addEventListener("click", resetBlogForm);
-$("reset-publication").addEventListener("click", resetPublicationForm);
-$("copy-output").addEventListener("click", copyOutput);
+  $("generate-blog").addEventListener("click", generateBlogEntry);
+  $("generate-publication").addEventListener("click", generatePublicationEntry);
+  $("reset-blog").addEventListener("click", resetBlogForm);
+  $("reset-publication").addEventListener("click", resetPublicationForm);
+  $("copy-output").addEventListener("click", copyOutput);
 
-$("load-blog-existing").addEventListener("click", loadExistingBlogEntry);
-$("load-publication-existing").addEventListener("click", loadExistingPublicationEntry);
+  $("load-blog-existing").addEventListener("click", loadExistingBlogEntry);
+  $("load-publication-existing").addEventListener("click", loadExistingPublicationEntry);
 
-populateExistingSelectors();
-resetBlogForm();
-resetPublicationForm();
+  populateExistingSelectors();
+  resetBlogForm();
+  resetPublicationForm();
 </script>
 
 </body>
