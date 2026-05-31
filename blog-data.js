@@ -215,4 +215,88 @@ window.SJ_BLOG_POSTS = [
     <p>Jangjoo, S., &amp; Tang, T. (2025). <em>Renewable energy transitions from the ground up: Building a framework for local action despite limited state support</em>. <strong>Cities, 158</strong>, 105737. <a href="https://doi.org/10.1016/j.cities.2025.105737" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.cities.2025.105737</a></p>
   `
 }
+
+{
+  id: "summary-bazaar-backbone-shiraz",
+  title: "The Bazaar as the Backbone of the Iranian City: A Historical Study of Shiraz",
+  date: "2019-01-01",
+  type: "paper-report",
+  typeLabel: "Research Note",
+  primaryArea: "urban",
+  areas: ["urban", "methods"],
+  summary: "A research note based on my Armanshahr Architecture & Urban Development article with Ali Reza Sadeghi and Mehdi Khakzand on the historical role of the bazaar in shaping Shiraz’s Iranian-Islamic urban form.",
+  excerpt: "This research note explains how the bazaar functioned as a spatial backbone, movement corridor, social institution, and connector of religious, governmental, economic, and residential life in historical Shiraz.",
+  doiUrl: "https://doi.org/10.22034/AAUD.2019.89058",
+  content: `
+    <p><strong>Research Note | Urban Form, Historical Urbanism, and Iranian-Islamic Cities</strong></p>
+
+    <p>What makes a city more than a collection of streets, buildings, and commercial spaces? In the historical Iranian city, the answer often begins with the bazaar. In our article, <em>Historical Analysis of the Role of Bazaar on the Formation of Iranian Islamic Urban Forms; Case Study: Shiraz, Iran</em>, Ali Reza Sadeghi, Mehdi Khakzand, and I examine how the bazaar shaped the physical, social, economic, and symbolic structure of Shiraz across major historical periods. The central argument is that the bazaar was not merely a marketplace. It functioned as a spatial backbone, a pedestrian network, a social institution, and a connector among the city’s major religious, governmental, economic, and residential elements.</p>
+
+    <p>The study begins from a broader question in urban history: <strong>how do specific urban elements organize the form and identity of a city over time?</strong> In Iranian-Islamic urbanism, the bazaar has historically been one of the main elements of the city’s structure, alongside the Jame Mosque, governmental centers, residential neighborhoods, street networks, walls, gates, and public spaces. The article positions the bazaar as a central feature of the Iranian-Islamic city because it historically concentrated commercial and manufacturing functions while also supporting social, political, religious, and civic interactions.</p>
+
+    <h2>Why Shiraz matters</h2>
+
+    <p>Shiraz provides a rich historical case because its urban form developed through successive political and cultural periods, including the Banu Umayyad and Abbasid eras, Saffarid, Buyid, Salghurid, Safavid, Zand, Qajar, and contemporary periods. Across these eras, the bazaar repeatedly served as a structuring axis linking the city’s main elements. Historical accounts from travelers and historians also describe Shiraz’s bazaars as orderly, active, and spatially connected to major gates, squares, mosques, and governmental areas.</p>
+
+    <p>The article uses a <strong>descriptive, historical, and comparative research design</strong>, relying on historical texts, visual documents, maps, and period-based analysis of the evolution of Shiraz’s urban bazaar. This is not a statistical or interview-based study. Its contribution is historical-interpretive: it reconstructs how the bazaar’s physical form, accessibility, function, and position changed over time and how those changes affected the broader form of the city.</p>
+
+    <h2>The bazaar as more than commerce</h2>
+
+    <p>A narrow reading of the bazaar would treat it as a site of trade. This article argues that such a reading is incomplete. Historically, the bazaar in Shiraz performed at least four overlapping roles.</p>
+
+    <p>First, it was an <strong>economic center</strong>, organizing production, exchange, guild activity, and regional commerce. Second, it was a <strong>movement corridor</strong>, often located along major access routes and connected to city gates and regional roads. Third, it was a <strong>social and civic space</strong>, where residents encountered one another, exchanged information, and participated in public life. Fourth, it was a <strong>spatial connector</strong>, linking mosques, governmental complexes, neighborhoods, squares, caravanserais, schools, and other urban institutions.</p>
+
+    <p>This multidimensional role is why the bazaar could function as the “backbone” of the city. It was not simply located inside the city; it helped produce the city’s spatial order.</p>
+
+    <h2>Historical evolution of Shiraz Bazaar</h2>
+
+    <p>The article traces the bazaar’s changing role across historical periods.</p>
+
+    <p>In the <strong>Banu Umayyad and Abbasid periods</strong>, the core of Shiraz Bazaar appears as a linear structure around the main connection axis toward Estakhr. In this early phase, the bazaar’s regional commercial role was central to Shiraz’s prosperity and growth.</p>
+
+    <p>During the <strong>Saffarid period</strong>, the bazaar became more formally integrated into the city’s structure. The relationship between the bazaar and the Jame Mosque became clearer, and the bazaar gained a stronger official position in the city’s urban hierarchy.</p>
+
+    <p>In the <strong>Buyid period</strong>, the city’s main cores were organized around the intersection of important axes. The bazaar developed as an enclosed and roofed space with small parcels and regular fabric, connected to the mosque and related to governmental and religious centers.</p>
+
+    <p>During the <strong>Salghurid period</strong>, the bazaar became especially important as a linking element. It connected religious-cultural and military-governmental areas and helped integrate different parts of the city. This period strengthened the bazaar’s role not only as a commercial axis but also as an urban connector among major activity nodes.</p>
+
+    <p>In the <strong>Safavid period</strong>, the city form became more complex, with important urban cores linked through bazaars, passages, Chaharsouqs, and a plaid-like network. The bazaar helped connect dense, enclosed commercial spaces with open urban spaces and larger institutional complexes. Its commercial role was strengthened through related functions such as caravanserais, schools, and other facilities.</p>
+
+    <p>The <strong>Zand period</strong> is especially significant for Shiraz. The bazaar became connected to major Zand-era complexes, including urban buildings organized through open, semi-open, and enclosed spaces. Accessibility relied on hierarchical movement through streets, bazaars, squares, and building complexes. In this period, the bazaar continued to act as a linking element in the city’s main structure.</p>
+
+    <p>In the <strong>Qajar period</strong>, the bazaar largely maintained its physical body, although broader trade routes and urban conditions began to shift. The construction of Bazaar Noe, also known as Mirza Yousefi Bazaar, is identified as one of the period’s specific works.</p>
+
+    <p>The major rupture occurs in the <strong>contemporary period, especially from the Pahlavi era onward</strong>. Modern streets, car-oriented access, commercial passages, shopping centers, and new development patterns weakened the bazaar’s historical position. Street construction damaged parts of the bazaar’s physical integrity, and the bazaar lost much of its former role as the main axis of commuting, access, and social-economic interaction.</p>
+
+    <h2>Main finding</h2>
+
+    <p>The study’s core finding is that the bazaar played a significant role in the formation of Shiraz’s urban form across nearly all historical periods examined. Its <strong>physical form</strong>, <strong>functions</strong>, <strong>activity patterns</strong>, and <strong>accessibility features</strong> shaped the city’s structure from the formation of Shiraz’s early urban nucleus through the pre-modern period. The major exception is the contemporary era, when modernization, street construction, automobile-oriented planning, shopping centers, and new commercial forms reduced the bazaar’s centrality.</p>
+
+    <p>The article therefore offers a historically grounded interpretation of urban transformation: Shiraz grew when economic stability, political order, and bazaar-centered spatial organization reinforced one another. Conversely, the weakening of the bazaar’s integrative role reflects broader transformations in the city’s social and physical structure.</p>
+
+    <h2>What this contributes</h2>
+
+    <p>This paper contributes to urban history and Iranian urban studies by showing that the bazaar should be understood as an <strong>urban institution embedded in physical form</strong>. It was simultaneously economic infrastructure, social space, cultural marker, and movement system. Its historical importance came from the way it connected people, activities, institutions, and spaces.</p>
+
+    <p>The paper also contributes to debates about modernization and urban continuity. It does not romanticize the bazaar as unchanged or timeless. Rather, it shows that the bazaar’s role changed across periods and was eventually weakened by modern planning interventions. This is important for contemporary urban conservation: preserving a bazaar is not only about preserving buildings. It is also about preserving relationships among movement, commerce, social interaction, public life, and historical identity.</p>
+
+    <h2>Practical implications for urban heritage</h2>
+
+    <p>For planners, urban designers, and heritage scholars, the case of Shiraz suggests that historic bazaars should be treated as <strong>structural urban systems</strong>, not isolated monuments. Conservation policies that focus only on architectural restoration may miss the deeper value of the bazaar as a connector of neighborhoods, public spaces, religious institutions, civic life, and economic activity.</p>
+
+    <p>In contemporary Shiraz, the challenge is not simply to protect the bazaar as a historic commercial corridor. The deeper challenge is to understand how its spatial logic, pedestrian structure, social role, and connection to the city’s historical fabric can remain meaningful in a modern metropolitan context.</p>
+
+    <h2>Limitations</h2>
+
+    <p>This article is best read as a historical and morphological analysis. It does not measure current user behavior, economic performance, or social interaction through contemporary fieldwork. It also does not provide a quantitative spatial analysis of pedestrian flows or commercial networks. Its strength lies in its historical-comparative reconstruction of the bazaar’s role in shaping Shiraz’s urban form over time. Future research could build on this work by using field observation, GIS-based spatial analysis, oral histories, or comparative studies of other Iranian cities.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Sadeghi, A. R., Khakzand, M., &amp; Jangjoo, S. (2019). <em>Historical analysis of the role of Bazaar on the formation of Iranian Islamic urban forms; Case study: Shiraz, Iran</em>. <strong>Armanshahr Architecture &amp; Urban Development, 12</strong>(26), 89–101. <a href="https://doi.org/10.22034/AAUD.2019.89058" target="_blank" rel="noopener noreferrer">https://doi.org/10.22034/AAUD.2019.89058</a></p>
+  `
+},
+
+
+
+  
 ];
