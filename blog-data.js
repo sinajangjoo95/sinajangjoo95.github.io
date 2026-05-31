@@ -29,7 +29,7 @@ window.SJ_BLOG_POSTS = [
   {
   id: "note-ai-readiness",
   title: "Why AI Readiness Is Not the Same as AI Adoption",
-  date: "2026-01-04",
+  date: "2026-05-31",
   type: "research-note",
   typeLabel: "Research Note",
   primaryArea: "ai",
@@ -56,7 +56,7 @@ window.SJ_BLOG_POSTS = [
 {
   id: "note-energy-justice",
   title: "Where Does Energy Justice Become a Rule?",
-  date: "2026-01-03",
+  date: "2026-03-03",
   type: "commentary",
   typeLabel: "Commentary",
   primaryArea: "energy",
