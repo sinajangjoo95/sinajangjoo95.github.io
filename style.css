@@ -1213,3 +1213,292 @@ main > section.light-block {
   min-width: 36px !important;
   max-width: 36px !important;
 }
+
+/* ==========================================================
+   MOBILE HERO + HEADER FIX
+   Keeps desktop composition unchanged.
+   Converts the fixed 1536px hero into a fluid mobile layout.
+   Paste at the very bottom of style.css.
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  /* ------------------------------
+     Header / navigation on mobile
+     ------------------------------ */
+
+  .sj-site-header {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .sj-header-inner {
+    width: calc(100% - 28px) !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 14px 0 10px !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    grid-template-areas:
+      "brand brand"
+      "cv cv"
+      "nav nav" !important;
+    column-gap: 14px !important;
+    row-gap: 12px !important;
+    align-items: center !important;
+  }
+
+  .sj-header-brand {
+    grid-area: brand !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+
+  .sj-logo {
+    height: 54px !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  .sj-vertical-divider {
+    height: 38px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .sj-brand-text {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .sj-brand-name {
+    font-size: 14px !important;
+    letter-spacing: 0.22em !important;
+    white-space: nowrap !important;
+  }
+
+  .sj-brand-subtitle {
+    margin-top: 9px !important;
+    font-size: 7.5px !important;
+    letter-spacing: 0.22em !important;
+    white-space: nowrap !important;
+  }
+
+  .sj-header-action {
+    grid-area: cv !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+  }
+
+  .sj-cv-button {
+    height: 42px !important;
+    min-width: 96px !important;
+    padding: 0 20px !important;
+    font-size: 14px !important;
+    border-radius: 6px !important;
+  }
+
+  .sj-main-navigation {
+    grid-area: nav !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    gap: 24px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    padding: 2px 0 6px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .sj-main-navigation::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .sj-nav-link {
+    height: 34px !important;
+    flex: 0 0 auto !important;
+    font-size: 14px !important;
+  }
+
+
+  /* ------------------------------
+     Mobile hero correction
+     ------------------------------ */
+
+  .hero {
+    height: auto !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    background-color: #f7f8f8 !important;
+    background-image: none !important;
+    border-bottom: 1px solid #efede8 !important;
+  }
+
+  .hero-inner {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .hero-inner::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(247, 248, 248, 0.96) 0%,
+        rgba(247, 248, 248, 0.90) 38%,
+        rgba(247, 248, 248, 0.82) 63%,
+        rgba(247, 248, 248, 0.96) 100%
+      ),
+      var(--hero-image) !important;
+
+    background-repeat: no-repeat !important;
+    background-size: 1040px auto !important;
+    background-position: 58% top !important;
+    opacity: 1 !important;
+  }
+
+  .hero-copy {
+    position: relative !important;
+    z-index: 2 !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 42px 22px 270px !important;
+  }
+
+  .hero-copy .eyebrow,
+  .eyebrow {
+    font-size: 11px !important;
+    letter-spacing: 0.28em !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hero-copy h1,
+  h1 {
+    font-size: clamp(2rem, 9vw, 2.55rem) !important;
+    line-height: 1.14 !important;
+    max-width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  .hero-copy p {
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.68 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .quote-card {
+    position: relative !important;
+    z-index: 3 !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: calc(100% - 28px) !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 106px !important;
+    margin: -225px 0 0 auto !important;
+    padding: 24px 22px 24px 62px !important;
+    border-radius: 28px 0 0 0 !important;
+    transform: none !important;
+  }
+
+  .quote-card .quote-mark {
+    left: 26px !important;
+    top: 18px !important;
+    font-size: 46px !important;
+  }
+
+  .quote-card p {
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+
+  .research-top {
+    padding-top: 44px !important;
+  }
+}
+
+
+/* Extra-small phones */
+@media (max-width: 480px) {
+
+  .sj-header-inner {
+    width: calc(100% - 24px) !important;
+  }
+
+  .sj-logo {
+    height: 48px !important;
+  }
+
+  .sj-brand-name {
+    font-size: 13px !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .sj-brand-subtitle {
+    font-size: 7px !important;
+    letter-spacing: 0.17em !important;
+  }
+
+  .sj-main-navigation {
+    gap: 21px !important;
+  }
+
+  .hero-copy {
+    padding: 38px 20px 250px !important;
+  }
+
+  .hero-copy h1,
+  h1 {
+    font-size: clamp(1.85rem, 9vw, 2.25rem) !important;
+  }
+
+  .hero-inner::before {
+    background-size: 940px auto !important;
+    background-position: 56% top !important;
+  }
+
+  .quote-card {
+    width: calc(100% - 20px) !important;
+    margin-top: -205px !important;
+  }
+}
