@@ -439,6 +439,15 @@
             </div>
 
             <div class="field">
+  <label for="blog-published">Visibility</label>
+  <select id="blog-published">
+    <option value="true">Published / Visible</option>
+    <option value="false">Draft / Hidden</option>
+  </select>
+  <small>Draft entries are generated with published: false and will not appear publicly.</small>
+</div>
+
+            <div class="field">
               <label for="blog-primary-area">Primary Research Area</label>
               <select id="blog-primary-area">
                 <option value="crf">Contested Rule Formation</option>
@@ -525,6 +534,15 @@
                 <option value="working" data-label="Working paper">Working paper</option>
               </select>
             </div>
+
+            <div class="field">
+  <label for="pub-published">Visibility</label>
+  <select id="pub-published">
+    <option value="true">Published / Visible</option>
+    <option value="false">Draft / Hidden</option>
+  </select>
+  <small>Draft publications are generated with published: false and will not appear publicly.</small>
+</div>
 
             <div class="field">
               <label for="pub-primary-area">Primary Research Area</label>
@@ -750,123 +768,143 @@
     $("copy-status").className = "status-line";
   }
 
-  function generateBlogEntry() {
-    syncPrimaryToTags("blog-primary-area", "blog-area-tags");
+function generateBlogEntry() {
+  syncPrimaryToTags("blog-primary-area", "blog-area-tags");
 
-    const title = $("blog-title").value.trim();
-    const id = $("blog-id").value.trim() || slugify(title);
-    const date = $("blog-date").value || todayString();
-    const type = $("blog-type").value;
-    const typeLabel = getSelectedOptionLabel($("blog-type"));
-    const primaryArea = $("blog-primary-area").value || "none";
-    const areas = getCheckedValues("blog-area-tags");
-    const summary = $("blog-summary").value.trim();
-    const excerpt = $("blog-excerpt").value.trim();
-    const doiUrl = $("blog-doi").value.trim();
-    const content = $("blog-content").value.trim();
+  const title = $("blog-title").value.trim();
+  const id = $("blog-id").value.trim() || slugify(title);
+  const date = $("blog-date").value || todayString();
+  const type = $("blog-type").value;
+  const typeLabel = getSelectedOptionLabel($("blog-type"));
+  const isPublished = $("blog-published").value === "true";
+  const primaryArea = $("blog-primary-area").value || "none";
+  const areas = getCheckedValues("blog-area-tags");
+  const summary = $("blog-summary").value.trim();
+  const excerpt = $("blog-excerpt").value.trim();
+  const doiUrl = $("blog-doi").value.trim();
+  const content = $("blog-content").value.trim();
 
-    const lines = [
-      "{",
-      `  id: ${jsString(id)},`,
-      `  title: ${jsString(title)},`,
-      `  date: ${jsString(date)},`,
-      `  type: ${jsString(type)},`,
-      `  typeLabel: ${jsString(typeLabel)},`,
-      `  primaryArea: ${jsString(primaryArea)},`,
-      `  areas: ${jsArray(areas)},`,
-      `  summary: ${jsString(summary)},`,
-      `  excerpt: ${jsString(excerpt)},`
-    ];
+  const lines = [
+    "{",
+    `  id: ${jsString(id)},`,
+    `  title: ${jsString(title)},`,
+    `  date: ${jsString(date)},`,
+    `  type: ${jsString(type)},`,
+    `  typeLabel: ${jsString(typeLabel)},`,
+    `  primaryArea: ${jsString(primaryArea)},`,
+    `  areas: ${jsArray(areas)},`
+  ];
 
-    if (doiUrl) {
-      lines.push(`  doiUrl: ${jsString(doiUrl)},`);
-    }
-
-    lines.push(
-      "  content: `",
-      escapeTemplateLiteral(content || "<p>Write the full entry here.</p>"),
-      "  `",
-      "},"
-    );
-
-    setOutput(lines.join("\n"));
-    updatePreview(typeLabel, title, summary, excerpt, areas);
+  if (!isPublished) {
+    lines.push("  published: false,");
   }
 
-  function generatePublicationEntry() {
-    syncPrimaryToTags("pub-primary-area", "pub-area-tags");
+  lines.push(
+    `  summary: ${jsString(summary)},`,
+    `  excerpt: ${jsString(excerpt)},`
+  );
 
-    const title = $("pub-title").value.trim();
-    const year = $("pub-year").value.trim() || currentYear();
-    const status = $("pub-status").value;
-    const statusLabel = getSelectedOptionLabel($("pub-status"));
-    const primaryArea = $("pub-primary-area").value || "none";
-    const areas = getCheckedValues("pub-area-tags");
-    const citation = $("pub-citation").value.trim();
-    const description = $("pub-description").value.trim();
-
-    const links = [];
-
-    if ($("pub-doi").value.trim()) {
-      links.push({ label: "DOI", url: $("pub-doi").value.trim() });
-    }
-
-    if ($("pub-ssrn").value.trim()) {
-      links.push({ label: "SSRN/DOI", url: $("pub-ssrn").value.trim() });
-    }
-
-    if ($("pub-pdf").value.trim()) {
-      links.push({ label: "PDF/Article", url: $("pub-pdf").value.trim() });
-    }
-
-    if ($("pub-other-link").value.trim()) {
-      links.push({
-        label: $("pub-other-label").value.trim() || "Link",
-        url: $("pub-other-link").value.trim()
-      });
-    }
-
-    const relatedPostId = $("pub-summary-post").value.trim();
-    const relatedLabel = $("pub-summary-label").value.trim() || "Paper Report";
-
-    const linkLines = links.length
-      ? [
-          "  links: [",
-          links.map(link => {
-            return `    {\n      label: ${jsString(link.label)},\n      url: ${jsString(link.url)}\n    }`;
-          }).join(",\n"),
-          "  ],"
-        ]
-      : ["  links: [],"];
-
-    const lines = [
-      "{",
-      `  title: ${jsString(title)},`,
-      `  year: ${jsString(year)},`,
-      `  status: ${jsString(status)},`,
-      `  statusLabel: ${jsString(statusLabel)},`,
-      `  primaryArea: ${jsString(primaryArea)},`,
-      `  areas: ${jsArray(areas)},`,
-      `  citation: ${jsString(citation)},`,
-      `  description: ${jsString(description)},`,
-      ...linkLines
-    ];
-
-    if (relatedPostId) {
-      lines.push(`  summaryUrl: ${jsString("post.html?post=" + relatedPostId)},`);
-      lines.push(`  summaryLabel: ${jsString(relatedLabel)}`);
-    } else {
-      const last = lines[lines.length - 1];
-      if (last.endsWith(",")) {
-        lines[lines.length - 1] = last.slice(0, -1);
-      }
-    }
-
-    lines.push("},");
-
-    setOutput(lines.join("\n"));
-    updatePreview(statusLabel, title, citation, description, areas);
+  if (doiUrl) {
+    lines.push(`  doiUrl: ${jsString(doiUrl)},`);
   }
+
+  lines.push(
+    "  content: `",
+    escapeTemplateLiteral(content || "<p>Write the full entry here.</p>"),
+    "  `",
+    "},"
+  );
+
+  setOutput(lines.join("\n"));
+
+  const previewLabel = isPublished ? typeLabel : `${typeLabel} — Draft / Hidden`;
+  updatePreview(previewLabel, title, summary, excerpt, areas);
+}
+
+function generatePublicationEntry() {
+  syncPrimaryToTags("pub-primary-area", "pub-area-tags");
+
+  const title = $("pub-title").value.trim();
+  const year = $("pub-year").value.trim() || currentYear();
+  const status = $("pub-status").value;
+  const statusLabel = getSelectedOptionLabel($("pub-status"));
+  const isPublished = $("pub-published").value === "true";
+  const primaryArea = $("pub-primary-area").value || "none";
+  const areas = getCheckedValues("pub-area-tags");
+  const citation = $("pub-citation").value.trim();
+  const description = $("pub-description").value.trim();
+
+  const links = [];
+
+  if ($("pub-doi").value.trim()) {
+    links.push({ label: "DOI", url: $("pub-doi").value.trim() });
+  }
+
+  if ($("pub-ssrn").value.trim()) {
+    links.push({ label: "SSRN/DOI", url: $("pub-ssrn").value.trim() });
+  }
+
+  if ($("pub-pdf").value.trim()) {
+    links.push({ label: "PDF/Article", url: $("pub-pdf").value.trim() });
+  }
+
+  if ($("pub-other-link").value.trim()) {
+    links.push({
+      label: $("pub-other-label").value.trim() || "Link",
+      url: $("pub-other-link").value.trim()
+    });
+  }
+
+  const relatedPostId = $("pub-summary-post").value.trim();
+  const relatedLabel = $("pub-summary-label").value.trim() || "Paper Report";
+
+  const linkLines = links.length
+    ? [
+        "  links: [",
+        links.map(link => {
+          return `    {\n      label: ${jsString(link.label)},\n      url: ${jsString(link.url)}\n    }`;
+        }).join(",\n"),
+        "  ],"
+      ]
+    : ["  links: [],"];
+
+  const lines = [
+    "{",
+    `  title: ${jsString(title)},`,
+    `  year: ${jsString(year)},`,
+    `  status: ${jsString(status)},`,
+    `  statusLabel: ${jsString(statusLabel)},`,
+    `  primaryArea: ${jsString(primaryArea)},`,
+    `  areas: ${jsArray(areas)},`
+  ];
+
+  if (!isPublished) {
+    lines.push("  published: false,");
+  }
+
+  lines.push(
+    `  citation: ${jsString(citation)},`,
+    `  description: ${jsString(description)},`,
+    ...linkLines
+  );
+
+  if (relatedPostId) {
+    lines.push(`  summaryUrl: ${jsString("post.html?post=" + relatedPostId)},`);
+    lines.push(`  summaryLabel: ${jsString(relatedLabel)}`);
+  } else {
+    const last = lines[lines.length - 1];
+    if (last.endsWith(",")) {
+      lines[lines.length - 1] = last.slice(0, -1);
+    }
+  }
+
+  lines.push("},");
+
+  setOutput(lines.join("\n"));
+
+  const previewLabel = isPublished ? statusLabel : `${statusLabel} — Draft / Hidden`;
+  updatePreview(previewLabel, title, citation, description, areas);
+}
 
   function resetBlogForm() {
     ["blog-title", "blog-id", "blog-summary", "blog-excerpt", "blog-doi", "blog-content"].forEach(id => {
@@ -875,6 +913,7 @@
 
     $("blog-date").value = todayString();
     $("blog-type").value = "research-note";
+    $("blog-published").value = "true";
     $("blog-primary-area").value = "crf";
     setCheckedValues("blog-area-tags", []);
     setOutput("Your generated entry will appear here.");
@@ -899,6 +938,7 @@
 
     $("pub-year").value = currentYear();
     $("pub-status").value = "working";
+    $("pub-published").value = "true";
     $("pub-primary-area").value = "ai";
     setCheckedValues("pub-area-tags", []);
     setOutput("Your generated entry will appear here.");
