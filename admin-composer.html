@@ -411,6 +411,25 @@
           <p class="status-line">Use this for research notes, commentaries, Paper Reports, and public media entries.</p>
           <div class="divider"></div>
 
+          <div class="form-block" style="margin-top: 0; padding-top: 0; border-top: 0;">
+  <h3>Edit Existing Blog Entry</h3>
+  <div class="field-grid">
+    <div class="field">
+      <label for="blog-existing-select">Load existing Blog entry</label>
+      <select id="blog-existing-select">
+        <option value="">Choose an existing Blog entry...</option>
+      </select>
+      <small>This loads the current entry into the form so you can revise it.</small>
+    </div>
+
+    <div class="field">
+      <label>&nbsp;</label>
+      <button class="small-button" type="button" id="load-blog-existing">Load Selected Blog Entry</button>
+      <small>After revising, copy the generated object and replace the old one in blog-data.js.</small>
+    </div>
+  </div>
+</div>
+
           <div class="field-grid">
             <div class="field">
               <label for="blog-title">Title</label>
@@ -512,6 +531,25 @@
           <h2>Publication Entry Composer</h2>
           <p class="status-line">Use this for published papers, in-press papers, R&Rs, dissertation chapters, and working papers.</p>
           <div class="divider"></div>
+
+          <div class="form-block" style="margin-top: 0; padding-top: 0; border-top: 0;">
+  <h3>Edit Existing Publication Entry</h3>
+  <div class="field-grid">
+    <div class="field">
+      <label for="publication-existing-select">Load existing Publication entry</label>
+      <select id="publication-existing-select">
+        <option value="">Choose an existing Publication entry...</option>
+      </select>
+      <small>This loads the current publication into the form so you can revise it.</small>
+    </div>
+
+    <div class="field">
+      <label>&nbsp;</label>
+      <button class="small-button" type="button" id="load-publication-existing">Load Selected Publication Entry</button>
+      <small>After revising, copy the generated object and replace the old one in publication-data.js.</small>
+    </div>
+  </div>
+</div>
 
           <div class="field-grid">
             <div class="field">
@@ -662,6 +700,8 @@
 
 <site-footer></site-footer>
 <script src="site-footer.js"></script>
+<script src="blog-data.js"></script>
+<script src="publication-data.js"></script>
 
 <script>
   const areaLabels = {
@@ -911,6 +951,9 @@ function generatePublicationEntry() {
       $(id).value = "";
     });
 
+    $("blog-existing-select").value = "";
+delete $("blog-id").dataset.edited;
+
     $("blog-date").value = todayString();
     $("blog-type").value = "research-note";
     $("blog-published").value = "true";
@@ -935,6 +978,8 @@ function generatePublicationEntry() {
     ].forEach(id => {
       $(id).value = "";
     });
+
+    $("publication-existing-select").value = "";
 
     $("pub-year").value = currentYear();
     $("pub-status").value = "working";
@@ -964,6 +1009,176 @@ function generatePublicationEntry() {
     }
   }
 
+  function populateExistingSelectors() {
+  const blogSelect = $("blog-existing-select");
+  const publicationSelect = $("publication-existing-select");
+
+  const blogPosts = window.SJ_BLOG_POSTS || [];
+  const publications = window.SJ_PUBLICATIONS || [];
+
+  blogSelect.innerHTML = `<option value="">Choose an existing Blog entry...</option>`;
+  publicationSelect.innerHTML = `<option value="">Choose an existing Publication entry...</option>`;
+
+  blogPosts
+    .slice()
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
+    .forEach(post => {
+      const originalIndex = blogPosts.indexOf(post);
+      const status = post.published === false ? "Draft / Hidden" : "Visible";
+      const option = document.createElement("option");
+
+      option.value = String(originalIndex);
+      option.textContent = `${post.title || "Untitled"} — ${post.date || "No date"} — ${status}`;
+
+      blogSelect.appendChild(option);
+    });
+
+  publications
+    .slice()
+    .sort((a, b) => Number(b.year || 0) - Number(a.year || 0))
+    .forEach(publication => {
+      const originalIndex = publications.indexOf(publication);
+      const status = publication.published === false ? "Draft / Hidden" : publication.statusLabel || publication.status || "No status";
+      const option = document.createElement("option");
+
+      option.value = String(originalIndex);
+      option.textContent = `${publication.title || "Untitled"} — ${publication.year || "No year"} — ${status}`;
+
+      publicationSelect.appendChild(option);
+    });
+}
+
+function loadExistingBlogEntry() {
+  const selectedIndex = $("blog-existing-select").value;
+
+  if (selectedIndex === "") {
+    $("copy-status").textContent = "Choose a Blog entry first.";
+    $("copy-status").className = "status-line bad";
+    return;
+  }
+
+  const post = (window.SJ_BLOG_POSTS || [])[Number(selectedIndex)];
+
+  if (!post) {
+    $("copy-status").textContent = "Could not load that Blog entry.";
+    $("copy-status").className = "status-line bad";
+    return;
+  }
+
+  $("blog-title").value = post.title || "";
+  $("blog-id").value = post.id || "";
+  $("blog-id").dataset.edited = "true";
+  $("blog-date").value = post.date || todayString();
+  $("blog-type").value = post.type || "research-note";
+  $("blog-published").value = post.published === false ? "false" : "true";
+  $("blog-primary-area").value = post.primaryArea || "none";
+  $("blog-summary").value = post.summary || "";
+  $("blog-excerpt").value = post.excerpt || "";
+  $("blog-doi").value = post.doiUrl || "";
+  $("blog-content").value = String(post.content || "").trim();
+
+  setCheckedValues("blog-area-tags", post.areas || []);
+
+  generateBlogEntry();
+
+  $("copy-status").textContent = "Loaded existing Blog entry. Revise it, generate again, then replace the old object in blog-data.js.";
+  $("copy-status").className = "status-line good";
+}
+
+function extractRelatedPostId(summaryUrl) {
+  const value = String(summaryUrl || "");
+
+  if (!value) return "";
+
+  const match = value.match(/[?&]post=([^&]+)/);
+
+  if (!match) return "";
+
+  try {
+    return decodeURIComponent(match[1]);
+  } catch (error) {
+    return match[1];
+  }
+}
+
+function clearPublicationLinkFields() {
+  $("pub-doi").value = "";
+  $("pub-ssrn").value = "";
+  $("pub-pdf").value = "";
+  $("pub-other-link").value = "";
+  $("pub-other-label").value = "";
+}
+
+function loadPublicationLinks(publication) {
+  clearPublicationLinkFields();
+
+  const links = publication.links || [];
+
+  links.forEach(link => {
+    const label = String(link.label || "").toLowerCase();
+    const url = String(link.url || "");
+
+    if (!url) return;
+
+    if (label.includes("ssrn")) {
+      $("pub-ssrn").value = url;
+      return;
+    }
+
+    if (label === "doi" || label.includes("doi")) {
+      $("pub-doi").value = url;
+      return;
+    }
+
+    if (label.includes("pdf") || label.includes("article")) {
+      $("pub-pdf").value = url;
+      return;
+    }
+
+    if (!$("pub-other-link").value) {
+      $("pub-other-link").value = url;
+      $("pub-other-label").value = link.label || "Link";
+    }
+  });
+}
+
+function loadExistingPublicationEntry() {
+  const selectedIndex = $("publication-existing-select").value;
+
+  if (selectedIndex === "") {
+    $("copy-status").textContent = "Choose a Publication entry first.";
+    $("copy-status").className = "status-line bad";
+    return;
+  }
+
+  const publication = (window.SJ_PUBLICATIONS || [])[Number(selectedIndex)];
+
+  if (!publication) {
+    $("copy-status").textContent = "Could not load that Publication entry.";
+    $("copy-status").className = "status-line bad";
+    return;
+  }
+
+  $("pub-title").value = publication.title || "";
+  $("pub-year").value = publication.year || currentYear();
+  $("pub-status").value = publication.status || "working";
+  $("pub-published").value = publication.published === false ? "false" : "true";
+  $("pub-primary-area").value = publication.primaryArea || "none";
+  $("pub-citation").value = publication.citation || "";
+  $("pub-description").value = publication.description || "";
+
+  setCheckedValues("pub-area-tags", publication.areas || []);
+  loadPublicationLinks(publication);
+
+  $("pub-summary-post").value = extractRelatedPostId(publication.summaryUrl);
+  $("pub-summary-label").value = publication.summaryLabel || "";
+
+  generatePublicationEntry();
+
+  $("copy-status").textContent = "Loaded existing Publication entry. Revise it, generate again, then replace the old object in publication-data.js.";
+  $("copy-status").className = "status-line good";
+}
+
   document.querySelectorAll(".tab-button").forEach(button => {
     button.addEventListener("click", () => {
       document.querySelectorAll(".tab-button").forEach(item => item.classList.remove("active"));
@@ -992,14 +1207,18 @@ function generatePublicationEntry() {
     syncPrimaryToTags("pub-primary-area", "pub-area-tags");
   });
 
-  $("generate-blog").addEventListener("click", generateBlogEntry);
-  $("generate-publication").addEventListener("click", generatePublicationEntry);
-  $("reset-blog").addEventListener("click", resetBlogForm);
-  $("reset-publication").addEventListener("click", resetPublicationForm);
-  $("copy-output").addEventListener("click", copyOutput);
+$("generate-blog").addEventListener("click", generateBlogEntry);
+$("generate-publication").addEventListener("click", generatePublicationEntry);
+$("reset-blog").addEventListener("click", resetBlogForm);
+$("reset-publication").addEventListener("click", resetPublicationForm);
+$("copy-output").addEventListener("click", copyOutput);
 
-  resetBlogForm();
-  $("pub-year").value = currentYear();
+$("load-blog-existing").addEventListener("click", loadExistingBlogEntry);
+$("load-publication-existing").addEventListener("click", loadExistingPublicationEntry);
+
+populateExistingSelectors();
+resetBlogForm();
+resetPublicationForm();
 </script>
 
 </body>
