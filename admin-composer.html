@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin Composer | Sina Jangjoo</title>
+  <meta name="description" content="Private content composer for Sina Jangjoo website entries.">
+
+  <script src="nav.js"></script>
+
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --text-main: #222222;
+      --text-body: #333333;
+      --text-muted: #5A5A5A;
+      --heading-main: #111111;
+
+      --accent-green: #123f36;
+      --accent-gold: #b58b47;
+      --accent-garnet: #782F40;
+      --accent-slate: #4A5C61;
+
+      --box-bg: #ffffff;
+      --soft-bg: #FAF8F4;
+      --soft-chip: #F1ECE4;
+      --soft-border: rgba(0, 0, 0, 0.10);
+      --box-radius: 10px;
+      --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.045);
+    }
+
+    body {
+      color: var(--text-body);
+      background: #ffffff;
+    }
+
+    .admin-wrap {
+      padding-top: 120px;
+      padding-bottom: 70px;
+    }
+
+    .admin-header {
+      max-width: 980px;
+      margin-bottom: 30px;
+    }
+
+    .admin-header p {
+      max-width: 920px;
+      color: var(--text-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin: 0 0 16px 0;
+    }
+
+    .security-note {
+      background: var(--soft-bg);
+      border-left: 4px solid var(--accent-green);
+      border-top: 1px solid rgba(18, 63, 54, 0.12);
+      border-right: 1px solid rgba(18, 63, 54, 0.12);
+      border-bottom: 1px solid rgba(18, 63, 54, 0.12);
+      border-radius: var(--box-radius);
+      padding: 18px 20px;
+      margin-top: 20px;
+      color: var(--text-body);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .security-note strong {
+      color: var(--accent-green);
+    }
+
+    .admin-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--box-bg);
+      border: 1px solid var(--soft-border);
+      border-radius: var(--box-radius);
+      box-shadow: var(--box-shadow);
+      padding: 24px;
+    }
+
+    .panel h2,
+    .panel h3 {
+      margin-top: 0;
+      color: var(--heading-main);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      line-height: 1.25;
+    }
+
+    .panel h2 {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+    }
+
+    .panel h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .tab-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .tab-button,
+    .small-button,
+    .copy-button {
+      border: 1px solid rgba(18, 63, 54, 0.18);
+      background: #ffffff;
+      color: var(--accent-green);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .tab-button:hover,
+    .tab-button.active,
+    .small-button:hover,
+    .copy-button:hover {
+      background: var(--accent-green);
+      color: #ffffff;
+      border-color: var(--accent-green);
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field-grid.full {
+      grid-template-columns: 1fr;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field label {
+      color: var(--heading-main);
+      font-size: 0.86rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .field small {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: 8px;
+      padding: 10px 11px;
+      color: var(--text-body);
+      background: #ffffff;
+      font: inherit;
+      line-height: 1.45;
+    }
+
+    textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    textarea.large {
+      min-height: 230px;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 0.92rem;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 3px solid rgba(181, 139, 71, 0.28);
+      border-color: rgba(181, 139, 71, 0.75);
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px 14px;
+      margin-top: 5px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-body);
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .check-item input {
+      width: auto;
+      margin: 0;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent-gold);
+      margin: 18px 0 22px;
+    }
+
+    .form-block {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .button-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .primary-button {
+      border: 1px solid var(--accent-green);
+      background: var(--accent-green);
+      color: #ffffff;
+      border-radius: 7px;
+      padding: 11px 15px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+
+    .primary-button:hover {
+      background: #0d3029;
+      transform: translateY(-1px);
+    }
+
+    .output-box {
+      width: 100%;
+      min-height: 470px;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfaf7;
+      color: #202523;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      white-space: pre;
+      overflow: auto;
+    }
+
+    .preview-card {
+      margin-top: 18px;
+      border: 1px solid var(--soft-border);
+      border-radius: var(--box-radius);
+      background: #ffffff;
+      box-shadow: var(--box-shadow);
+      padding: 20px;
+    }
+
+    .preview-type {
+      display: inline-block;
+      color: var(--accent-gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .preview-card h3 {
+      margin: 0 0 10px 0;
+      color: var(--heading-main);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 1.22rem;
+      line-height: 1.25;
+    }
+
+    .preview-card p {
+      margin: 0 0 10px 0;
+      color: var(--text-body);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: var(--soft-chip);
+      color: #4a4038;
+      padding: 6px 9px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .status-line {
+      margin-top: 10px;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .status-line.good {
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    .status-line.bad {
+      color: var(--accent-garnet);
+      font-weight: 700;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 1100px) {
+      .admin-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .output-box {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .admin-wrap {
+        padding-top: 80px;
+      }
+
+      .field-grid,
+      .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main-nav active-page=""></main-nav>
+
+<main>
+  <section class="section block admin-wrap">
+    <div class="admin-header">
+      <h1 class="section-title">Admin Composer</h1>
+      <div class="section-line"></div>
+
+      <p>This page helps you create clean entries for the Blog and Publications sections without manually writing JavaScript objects.</p>
+
+      <div class="security-note">
+        <strong>Security note:</strong> this page does not publish anything to the website. It only generates copy-ready code. A visitor who finds this page can fill the form, but cannot change your live website unless they also have access to your GitHub repository and can commit changes.
+      </div>
+    </div>
+
+    <div class="admin-layout">
+      <section class="panel">
+        <div class="tab-row" aria-label="Composer type">
+          <button class="tab-button active" type="button" data-target="blog-form">Blog Entry</button>
+          <button class="tab-button" type="button" data-target="publication-form">Publication Entry</button>
+        </div>
+
+        <div id="blog-form" class="form-section active">
+          <h2>Blog Entry Composer</h2>
+          <p class="status-line">Use this for research notes, commentaries, Paper Reports, and public media entries.</p>
+          <div class="divider"></div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="blog-title">Title</label>
+              <input id="blog-title" type="text" placeholder="AI Governance Is Institutional Governance">
+            </div>
+
+            <div class="field">
+              <label for="blog-id">Slug / ID</label>
+              <input id="blog-id" type="text" placeholder="ai-governance-is-institutional-governance">
+              <small>Auto-generated from title, but you can revise it.</small>
+            </div>
+
+            <div class="field">
+              <label for="blog-date">Date</label>
+              <input id="blog-date" type="date">
+            </div>
+
+            <div class="field">
+              <label for="blog-type">Type</label>
+              <select id="blog-type">
+                <option value="research-note" data-label="Research Note">Research Note</option>
+                <option value="paper-report" data-label="Paper Report">Paper Report</option>
+                <option value="commentary" data-label="Commentary">Commentary</option>
+                <option value="public-media" data-label="Public Media">Public Media</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="blog-primary-area">Primary Research Area</label>
+              <select id="blog-primary-area">
+                <option value="crf">Contested Rule Formation</option>
+                <option value="ai">AI and Emerging Technology Governance</option>
+                <option value="energy">Clean Energy Governance</option>
+                <option value="nonprofits">Civil Society and Nonprofits</option>
+                <option value="methods">Collaborative Governance and Methods</option>
+                <option value="urban">Urban Planning and Community Wellbeing</option>
+                <option value="none">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="blog-doi">DOI URL / External Article URL</label>
+              <input id="blog-doi" type="url" placeholder="https://doi.org/...">
+              <small>Optional. Useful for Paper Reports.</small>
+            </div>
+          </div>
+
+          <div class="form-block">
+            <h3>Research Area Tags</h3>
+            <div class="checkbox-grid" id="blog-area-tags">
+              <label class="check-item"><input type="checkbox" value="crf"> Contested Rule Formation</label>
+              <label class="check-item"><input type="checkbox" value="ai"> AI Governance</label>
+              <label class="check-item"><input type="checkbox" value="energy"> Clean Energy</label>
+              <label class="check-item"><input type="checkbox" value="nonprofits"> Nonprofits / Civil Society</label>
+              <label class="check-item"><input type="checkbox" value="methods"> Methods</label>
+              <label class="check-item"><input type="checkbox" value="urban"> Urban / Community Wellbeing</label>
+            </div>
+          </div>
+
+          <div class="form-block">
+            <div class="field-grid full">
+              <div class="field">
+                <label for="blog-summary">Summary</label>
+                <textarea id="blog-summary" placeholder="One short sentence that appears on the Blog card and post page."></textarea>
+              </div>
+
+              <div class="field">
+                <label for="blog-excerpt">Excerpt</label>
+                <textarea id="blog-excerpt" placeholder="Two or three sentences that appear on the Blog listing card."></textarea>
+              </div>
+
+              <div class="field">
+                <label for="blog-content">Full Content</label>
+                <textarea id="blog-content" class="large" placeholder="<p>Your full post starts here.</p>
+
+<h2>Section Title</h2>
+<p>Write the section here.</p>"></textarea>
+                <small>Use simple HTML: &lt;p&gt;paragraph&lt;/p&gt;, &lt;h2&gt;heading&lt;/h2&gt;, &lt;ul&gt;&lt;li&gt;item&lt;/li&gt;&lt;/ul&gt;.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button class="primary-button" type="button" id="generate-blog">Generate Blog Entry</button>
+            <button class="small-button" type="button" id="reset-blog">Reset Blog Form</button>
+          </div>
+        </div>
+
+        <div id="publication-form" class="form-section">
+          <h2>Publication Entry Composer</h2>
+          <p class="status-line">Use this for published papers, in-press papers, R&Rs, dissertation chapters, and working papers.</p>
+          <div class="divider"></div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="pub-title">Title</label>
+              <input id="pub-title" type="text" placeholder="Governing AI in a Multipolar World">
+            </div>
+
+            <div class="field">
+              <label for="pub-year">Year</label>
+              <input id="pub-year" type="number" min="1900" max="2100" placeholder="2026">
+            </div>
+
+            <div class="field">
+              <label for="pub-status">Status</label>
+              <select id="pub-status">
+                <option value="published" data-label="Published">Published</option>
+                <option value="inpress" data-label="In press">In press</option>
+                <option value="revision" data-label="R&amp;R">R&amp;R</option>
+                <option value="dissertation" data-label="Dissertation chapter">Dissertation chapter</option>
+                <option value="working" data-label="Working paper">Working paper</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="pub-primary-area">Primary Research Area</label>
+              <select id="pub-primary-area">
+                <option value="crf">Contested Rule Formation</option>
+                <option value="ai">AI and Emerging Technology Governance</option>
+                <option value="energy">Clean Energy Governance</option>
+                <option value="nonprofits">Civil Society and Nonprofits</option>
+                <option value="methods">Collaborative Governance and Methods</option>
+                <option value="urban">Urban Planning and Community Wellbeing</option>
+                <option value="none">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-block">
+            <h3>Research Area Tags</h3>
+            <div class="checkbox-grid" id="pub-area-tags">
+              <label class="check-item"><input type="checkbox" value="crf"> Contested Rule Formation</label>
+              <label class="check-item"><input type="checkbox" value="ai"> AI Governance</label>
+              <label class="check-item"><input type="checkbox" value="energy"> Clean Energy</label>
+              <label class="check-item"><input type="checkbox" value="nonprofits"> Nonprofits / Civil Society</label>
+              <label class="check-item"><input type="checkbox" value="methods"> Methods</label>
+              <label class="check-item"><input type="checkbox" value="urban"> Urban / Community Wellbeing</label>
+            </div>
+          </div>
+
+          <div class="form-block">
+            <div class="field-grid full">
+              <div class="field">
+                <label for="pub-citation">Citation</label>
+                <textarea id="pub-citation" placeholder="Jangjoo, S. (2026). Paper title. Journal Name."></textarea>
+              </div>
+
+              <div class="field">
+                <label for="pub-description">Description</label>
+                <textarea id="pub-description" placeholder="One or two sentences describing what this paper does."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-block">
+            <h3>Links</h3>
+            <div class="field-grid">
+              <div class="field">
+                <label for="pub-doi">DOI URL</label>
+                <input id="pub-doi" type="url" placeholder="https://doi.org/...">
+              </div>
+
+              <div class="field">
+                <label for="pub-ssrn">SSRN URL</label>
+                <input id="pub-ssrn" type="url" placeholder="https://dx.doi.org/...">
+              </div>
+
+              <div class="field">
+                <label for="pub-pdf">PDF / Article URL</label>
+                <input id="pub-pdf" type="url" placeholder="https://...">
+              </div>
+
+              <div class="field">
+                <label for="pub-other-link">Other Link URL</label>
+                <input id="pub-other-link" type="url" placeholder="https://...">
+              </div>
+
+              <div class="field">
+                <label for="pub-other-label">Other Link Label</label>
+                <input id="pub-other-label" type="text" placeholder="Journal page">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-block">
+            <h3>Related Blog / Paper Report</h3>
+            <div class="field-grid">
+              <div class="field">
+                <label for="pub-summary-post">Related Post ID</label>
+                <input id="pub-summary-post" type="text" placeholder="summary-renewable-energy-ground-up">
+                <small>Optional. This creates a button linking to post.html?post=...</small>
+              </div>
+
+              <div class="field">
+                <label for="pub-summary-label">Button Label</label>
+                <input id="pub-summary-label" type="text" placeholder="Paper Report">
+              </div>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button class="primary-button" type="button" id="generate-publication">Generate Publication Entry</button>
+            <button class="small-button" type="button" id="reset-publication">Reset Publication Form</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <h2>Generated Code</h2>
+        <p class="status-line">Copy the generated object and paste it into the correct data file.</p>
+
+        <div class="button-row">
+          <button class="copy-button" type="button" id="copy-output">Copy Generated Code</button>
+        </div>
+
+        <pre class="output-box" id="output-box">Your generated entry will appear here.</pre>
+
+        <p class="status-line" id="copy-status"></p>
+
+        <div class="preview-card" id="preview-card">
+          <span class="preview-type">Preview</span>
+          <h3>Your entry preview will appear here</h3>
+          <p>Fill out the form and generate an entry to preview the card content.</p>
+          <div class="chip-row"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<site-footer></site-footer>
+<script src="site-footer.js"></script>
+
+<script>
+  const areaLabels = {
+    crf: "CRF",
+    ai: "AI Governance",
+    energy: "Clean Energy",
+    nonprofits: "Nonprofits",
+    methods: "Methods",
+    urban: "Urban",
+    none: "Other"
+  };
+
+  function $(id) {
+    return document.getElementById(id);
+  }
+
+  function getSelectedOptionLabel(selectEl) {
+    const option = selectEl.options[selectEl.selectedIndex];
+    return option ? option.dataset.label || option.textContent.trim() : "";
+  }
+
+  function slugify(value) {
+    return String(value || "")
+      .toLowerCase()
+      .trim()
+      .replace(/&/g, "and")
+      .replace(/['’]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function jsString(value) {
+    return JSON.stringify(String(value || ""));
+  }
+
+  function jsArray(values) {
+    return `[${values.map(value => jsString(value)).join(", ")}]`;
+  }
+
+  function escapeTemplateLiteral(value) {
+    return String(value || "")
+      .replace(/\\/g, "\\\\")
+      .replace(/`/g, "\\`")
+      .replace(/\$\{/g, "\\${");
+  }
+
+  function getCheckedValues(containerId) {
+    return Array.from(document.querySelectorAll(`#${containerId} input[type="checkbox"]:checked`))
+      .map(input => input.value);
+  }
+
+  function setCheckedValues(containerId, values) {
+    const valueSet = new Set(values);
+    document.querySelectorAll(`#${containerId} input[type="checkbox"]`).forEach(input => {
+      input.checked = valueSet.has(input.value);
+    });
+  }
+
+  function syncPrimaryToTags(primaryId, tagsContainerId) {
+    const primary = $(primaryId).value;
+    if (primary && primary !== "none") {
+      const checkbox = document.querySelector(`#${tagsContainerId} input[value="${primary}"]`);
+      if (checkbox) checkbox.checked = true;
+    }
+  }
+
+  function todayString() {
+    const date = new Date();
+    const offset = date.getTimezoneOffset();
+    const local = new Date(date.getTime() - offset * 60 * 1000);
+    return local.toISOString().slice(0, 10);
+  }
+
+  function currentYear() {
+    return String(new Date().getFullYear());
+  }
+
+  function updatePreview(type, title, subtitle, body, tags) {
+    const preview = $("preview-card");
+
+    preview.innerHTML = `
+      <span class="preview-type">${type || "Preview"}</span>
+      <h3>${escapeHTML(title || "Untitled entry")}</h3>
+      <p>${escapeHTML(subtitle || "No summary/citation provided yet.")}</p>
+      <p>${escapeHTML(body || "No excerpt/description provided yet.")}</p>
+      <div class="chip-row">
+        ${(tags || []).map(tag => `<span class="chip">${escapeHTML(areaLabels[tag] || tag)}</span>`).join("")}
+      </div>
+    `;
+  }
+
+  function escapeHTML(value) {
+    return String(value || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function setOutput(value) {
+    $("output-box").textContent = value;
+    $("copy-status").textContent = "";
+    $("copy-status").className = "status-line";
+  }
+
+  function generateBlogEntry() {
+    syncPrimaryToTags("blog-primary-area", "blog-area-tags");
+
+    const title = $("blog-title").value.trim();
+    const id = $("blog-id").value.trim() || slugify(title);
+    const date = $("blog-date").value || todayString();
+    const type = $("blog-type").value;
+    const typeLabel = getSelectedOptionLabel($("blog-type"));
+    const primaryArea = $("blog-primary-area").value || "none";
+    const areas = getCheckedValues("blog-area-tags");
+    const summary = $("blog-summary").value.trim();
+    const excerpt = $("blog-excerpt").value.trim();
+    const doiUrl = $("blog-doi").value.trim();
+    const content = $("blog-content").value.trim();
+
+    const lines = [
+      "{",
+      `  id: ${jsString(id)},`,
+      `  title: ${jsString(title)},`,
+      `  date: ${jsString(date)},`,
+      `  type: ${jsString(type)},`,
+      `  typeLabel: ${jsString(typeLabel)},`,
+      `  primaryArea: ${jsString(primaryArea)},`,
+      `  areas: ${jsArray(areas)},`,
+      `  summary: ${jsString(summary)},`,
+      `  excerpt: ${jsString(excerpt)},`
+    ];
+
+    if (doiUrl) {
+      lines.push(`  doiUrl: ${jsString(doiUrl)},`);
+    }
+
+    lines.push(
+      "  content: `",
+      escapeTemplateLiteral(content || "<p>Write the full entry here.</p>"),
+      "  `",
+      "},"
+    );
+
+    setOutput(lines.join("\n"));
+    updatePreview(typeLabel, title, summary, excerpt, areas);
+  }
+
+  function generatePublicationEntry() {
+    syncPrimaryToTags("pub-primary-area", "pub-area-tags");
+
+    const title = $("pub-title").value.trim();
+    const year = $("pub-year").value.trim() || currentYear();
+    const status = $("pub-status").value;
+    const statusLabel = getSelectedOptionLabel($("pub-status"));
+    const primaryArea = $("pub-primary-area").value || "none";
+    const areas = getCheckedValues("pub-area-tags");
+    const citation = $("pub-citation").value.trim();
+    const description = $("pub-description").value.trim();
+
+    const links = [];
+
+    if ($("pub-doi").value.trim()) {
+      links.push({ label: "DOI", url: $("pub-doi").value.trim() });
+    }
+
+    if ($("pub-ssrn").value.trim()) {
+      links.push({ label: "SSRN/DOI", url: $("pub-ssrn").value.trim() });
+    }
+
+    if ($("pub-pdf").value.trim()) {
+      links.push({ label: "PDF/Article", url: $("pub-pdf").value.trim() });
+    }
+
+    if ($("pub-other-link").value.trim()) {
+      links.push({
+        label: $("pub-other-label").value.trim() || "Link",
+        url: $("pub-other-link").value.trim()
+      });
+    }
+
+    const relatedPostId = $("pub-summary-post").value.trim();
+    const relatedLabel = $("pub-summary-label").value.trim() || "Paper Report";
+
+    const linkLines = links.length
+      ? [
+          "  links: [",
+          links.map(link => {
+            return `    {\n      label: ${jsString(link.label)},\n      url: ${jsString(link.url)}\n    }`;
+          }).join(",\n"),
+          "  ],"
+        ]
+      : ["  links: [],"];
+
+    const lines = [
+      "{",
+      `  title: ${jsString(title)},`,
+      `  year: ${jsString(year)},`,
+      `  status: ${jsString(status)},`,
+      `  statusLabel: ${jsString(statusLabel)},`,
+      `  primaryArea: ${jsString(primaryArea)},`,
+      `  areas: ${jsArray(areas)},`,
+      `  citation: ${jsString(citation)},`,
+      `  description: ${jsString(description)},`,
+      ...linkLines
+    ];
+
+    if (relatedPostId) {
+      lines.push(`  summaryUrl: ${jsString("post.html?post=" + relatedPostId)},`);
+      lines.push(`  summaryLabel: ${jsString(relatedLabel)}`);
+    } else {
+      const last = lines[lines.length - 1];
+      if (last.endsWith(",")) {
+        lines[lines.length - 1] = last.slice(0, -1);
+      }
+    }
+
+    lines.push("},");
+
+    setOutput(lines.join("\n"));
+    updatePreview(statusLabel, title, citation, description, areas);
+  }
+
+  function resetBlogForm() {
+    ["blog-title", "blog-id", "blog-summary", "blog-excerpt", "blog-doi", "blog-content"].forEach(id => {
+      $(id).value = "";
+    });
+
+    $("blog-date").value = todayString();
+    $("blog-type").value = "research-note";
+    $("blog-primary-area").value = "crf";
+    setCheckedValues("blog-area-tags", []);
+    setOutput("Your generated entry will appear here.");
+    updatePreview("Preview", "Your entry preview will appear here", "Fill out the form and generate an entry to preview the card content.", "", []);
+  }
+
+  function resetPublicationForm() {
+    [
+      "pub-title",
+      "pub-citation",
+      "pub-description",
+      "pub-doi",
+      "pub-ssrn",
+      "pub-pdf",
+      "pub-other-link",
+      "pub-other-label",
+      "pub-summary-post",
+      "pub-summary-label"
+    ].forEach(id => {
+      $(id).value = "";
+    });
+
+    $("pub-year").value = currentYear();
+    $("pub-status").value = "working";
+    $("pub-primary-area").value = "ai";
+    setCheckedValues("pub-area-tags", []);
+    setOutput("Your generated entry will appear here.");
+    updatePreview("Preview", "Your entry preview will appear here", "Fill out the form and generate an entry to preview the card content.", "", []);
+  }
+
+  async function copyOutput() {
+    const text = $("output-box").textContent;
+
+    if (!text || text === "Your generated entry will appear here.") {
+      $("copy-status").textContent = "Generate an entry first.";
+      $("copy-status").className = "status-line bad";
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(text);
+      $("copy-status").textContent = "Copied. Paste it into blog-data.js or publication-data.js.";
+      $("copy-status").className = "status-line good";
+    } catch (error) {
+      $("copy-status").textContent = "Copy failed. Select the generated code manually and copy it.";
+      $("copy-status").className = "status-line bad";
+    }
+  }
+
+  document.querySelectorAll(".tab-button").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".tab-button").forEach(item => item.classList.remove("active"));
+      document.querySelectorAll(".form-section").forEach(section => section.classList.remove("active"));
+
+      button.classList.add("active");
+      $(button.dataset.target).classList.add("active");
+    });
+  });
+
+  $("blog-title").addEventListener("input", () => {
+    if (!$("blog-id").dataset.edited) {
+      $("blog-id").value = slugify($("blog-title").value);
+    }
+  });
+
+  $("blog-id").addEventListener("input", () => {
+    $("blog-id").dataset.edited = "true";
+  });
+
+  $("blog-primary-area").addEventListener("change", () => {
+    syncPrimaryToTags("blog-primary-area", "blog-area-tags");
+  });
+
+  $("pub-primary-area").addEventListener("change", () => {
+    syncPrimaryToTags("pub-primary-area", "pub-area-tags");
+  });
+
+  $("generate-blog").addEventListener("click", generateBlogEntry);
+  $("generate-publication").addEventListener("click", generatePublicationEntry);
+  $("reset-blog").addEventListener("click", resetBlogForm);
+  $("reset-publication").addEventListener("click", resetPublicationForm);
+  $("copy-output").addEventListener("click", copyOutput);
+
+  resetBlogForm();
+  $("pub-year").value = currentYear();
+</script>
+
+</body>
+</html>
