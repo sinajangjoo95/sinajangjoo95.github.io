@@ -1,5 +1,9 @@
 (function () {
-  const posts = () => (window.SJ_BLOG_POSTS || []).slice();
+  const allPosts = () => (window.SJ_BLOG_POSTS || []).slice();
+
+  const posts = () => {
+    return allPosts().filter(post => post.published !== false);
+  };
 
   const areaMeta = {
     crf: {
@@ -240,16 +244,16 @@
 
     if (!container) return;
 
-    const allPosts = posts();
+    const allVisiblePosts = posts();
 
     if (view === "year") {
-      const years = [...new Set(allPosts.map(getPostYear))]
+      const years = [...new Set(allVisiblePosts.map(getPostYear))]
         .filter(Boolean)
         .sort((a, b) => Number(b) - Number(a));
 
       container.innerHTML = years
         .map(year => {
-          const groupPosts = allPosts
+          const groupPosts = allVisiblePosts
             .filter(post => getPostYear(post) === year)
             .sort(latestSort);
 
@@ -267,7 +271,7 @@
 
       container.innerHTML = types
         .map(typeKey => {
-          const groupPosts = allPosts
+          const groupPosts = allVisiblePosts
             .filter(post => post.type === typeKey)
             .sort(latestSort);
 
@@ -285,7 +289,7 @@
 
       container.innerHTML = areas
         .map(areaKey => {
-          const groupPosts = allPosts
+          const groupPosts = allVisiblePosts
             .filter(post => (post.primaryArea || "none") === areaKey)
             .sort(latestSort);
 
@@ -297,7 +301,7 @@
       return;
     }
 
-    container.innerHTML = groupHTML("", allPosts.sort(latestSort));
+    container.innerHTML = groupHTML("", allVisiblePosts.sort(latestSort));
     scrollToHashWhenReady();
   }
 
@@ -331,7 +335,7 @@
         <article class="copy-card">
           <h1 class="section-title">Post Not Found</h1>
           <div class="section-line"></div>
-          <p>The requested blog entry could not be found.</p>
+          <p>The requested blog entry could not be found or is not currently published.</p>
           <p><a class="learn" href="blog.html">Return to Blog <span>→</span></a></p>
         </article>
       `;
