@@ -1082,13 +1082,13 @@ main > section.light-block {
   align-items: center !important;
   gap: 9px !important;
   margin: 0 0 14px 0 !important;
-  color: var(--muted) !important;
+  color: var(--text) !important;
   font-family: var(--sans) !important;
   font-size: 13px !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   line-height: 1.2 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
 }
 
 .author-avatar-wrap {
@@ -1124,13 +1124,13 @@ main > section.light-block {
 
 .author-name {
   display: inline-block !important;
-  color: var(--gold) !important;
+  color: var(--text) !important;
   font-family: var(--sans) !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.32em !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
   line-height: 1.2 !important;
-  text-transform: uppercase !important;
+  text-transform: none !important;
 }
 
 /* Home page: Latest from the Blog cards */
@@ -1191,6 +1191,7 @@ main > section.light-block {
 .post-article .author-name {
   color: var(--text) !important;
   font-size: 14px !important;
+  font-weight: 500 !important;
   letter-spacing: 0.01em !important;
   text-transform: none !important;
 }
