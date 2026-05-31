@@ -21,25 +21,31 @@ window.SJ_BLOG_POSTS = [
   },
 
   {
-    id: "note-ai-readiness",
-    title: "Why AI Readiness Is Not the Same as AI Adoption",
-    date: "2026-01-04",
-    type: "research-note",
-    typeLabel: "Research Note",
-    primaryArea: "ai",
-    areas: ["ai", "crf"],
-    summary: "A public-administration explanation of institutional readiness, venue settlement, and procedural governance for public-sector AI.",
-    excerpt: "This entry distinguishes AI adoption from AI readiness by focusing on the institutional conditions needed for accountable public-sector AI.",
-    content: `
-      <p>AI adoption means that a government has acquired or deployed an AI tool. AI readiness means something deeper: the government has the institutional capacity to classify, review, document, govern, and correct the use of that tool.</p>
+  id: "note-ai-readiness",
+  title: "Why AI Readiness Is Not the Same as AI Adoption",
+  date: "2026-01-04",
+  type: "research-note",
+  typeLabel: "Research Note",
+  primaryArea: "ai",
+  areas: ["ai", "crf"],
+  summary: "A public-administration explanation of institutional readiness, venue settlement, and procedural governance for public-sector AI.",
+  excerpt: "This entry distinguishes AI adoption from AI readiness by focusing on the institutional conditions needed for accountable public-sector AI.",
+  content: `
+    <p>AI adoption means that a public organization has acquired, tested, or deployed an AI system. AI readiness means something deeper: the organization has built the institutional conditions needed to classify, review, document, govern, and correct that system as public action.</p>
 
-      <h2>The difference</h2>
-      <p>A public organization can adopt AI without being institutionally ready for AI. Readiness requires authority structures, procurement standards, documentation rules, review procedures, and accountability mechanisms.</p>
+    <h2>The core distinction</h2>
+    <p>A government can adopt AI without being institutionally ready for AI. Adoption is about use. Readiness is about whether the AI system has become governable through clear authority, stable venues, procedural templates, procurement rules, documentation duties, and review mechanisms.</p>
 
-      <h2>Why public administration matters</h2>
-      <p>Public-sector AI governance is not only a technical question. It is also an institutional question involving authority, accountability, implementation capacity, public values, and procedural defensibility.</p>
-    `
-  },
+    <h2>Why readiness comes first</h2>
+    <p>Before governments can govern AI well, they must answer three prior questions: what kind of object the system is, who has authority over it, and where decisions about review, procurement, monitoring, and correction should be made. Without those settlements, AI governance remains fragmented, reactive, or symbolic.</p>
+
+    <h2>Readiness is not the same as accountability</h2>
+    <p>Institutional readiness is only a threshold. It makes AI design administratively possible, but it does not guarantee defensible governance. Stronger public-sector AI governance also requires transparency, contestability, human review, audit capacity, public justification, and correction when harms or errors appear.</p>
+
+    <h2>Why public administration matters</h2>
+    <p>Public-sector AI is not only a technical problem. It is an institutional problem involving authority, discretion, accountability, administrative burden, public values, and procedural fairness. The central question is not simply whether governments can use AI, but whether they can govern it in ways that are reviewable, correctable, and publicly defensible.</p>
+  `
+},
 
   {
     id: "note-energy-justice",
