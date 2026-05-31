@@ -82,7 +82,7 @@ window.SJ_PUBLICATIONS = [
     links: [
       {
         label: "DOI",
-        url: "https://doi.org/10.1080/21568316.2024.2371835"
+        url: "https://www.tandfonline.com/doi/full/10.1080/21568316.2024.2371835"
       }
     ],
     summaryUrl: "post.html?post=summary-empowering-cities-eventful-planning",
