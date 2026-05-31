@@ -1517,7 +1517,7 @@ main > section.light-block {
 
   .hero-copy h1 {
     font-size: clamp(1.85rem, 3.25vw, 2.55rem) !important;
-    line-height: 1.12 !important;
+    line-height: 1.2 !important;
     margin-top: 18px !important;
     margin-bottom: 16px !important;
   }
