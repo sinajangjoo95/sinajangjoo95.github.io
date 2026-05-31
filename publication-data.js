@@ -153,22 +153,22 @@ window.SJ_PUBLICATIONS = [
     ]
   },
 
-  {
-    title: "The Bazaar as the Backbone of the Iranian City",
-    year: "2019",
-    status: "published",
-    statusLabel: "Published",
-    primaryArea: "urban",
-    areas: ["urban"],
-    citation: "Sadeghi, A. R., Khakzand, M., & Jangjoo, S. (2019). Historical analysis of the role of Bazaar on the formation of Iranian Islamic urban forms; Case study: Shiraz, Iran. Armanshahr Architecture & Urban Development, 12(26), 89–101.",
-    description: "Analyzes the historical role of the bazaar as a spatial, social, economic, and symbolic backbone in the formation of Shiraz.",
-    links: [
-      {
-        label: "DOI",
-        url: "https://doi.org/10.22034/AAUD.2019.89058"
-      }
-    ]
-  },
+{
+  title: "Historical Analysis of the Role of Bazaar on the Formation of Iranian Urban Forms; Case Study: Shiraz, Iran",
+  year: "2019",
+  status: "published",
+  statusLabel: "Published",
+  primaryArea: "urban",
+  areas: ["urban"],
+  citation: "Sadeghi, A. R., Khakzand, M., & Jangjoo, S. (2019). Historical analysis of the role of Bazaar on the formation of Iranian Islamic urban forms; Case study: Shiraz, Iran. Armanshahr Architecture & Urban Development, 12(26), 89–101.",
+  description: "Analyzes the historical role of the bazaar as a spatial, social, economic, and symbolic backbone in the formation of the historic city of Shiraz in Iran.",
+  links: [
+    {
+      label: "DOI",
+      url: "https://www.researchgate.net/publication/333917096_Historical_Analysis_of_the_Role_of_Bazaar_on_the_Formation_of_Iranian_Islamic_Urban_Form_Case_Study_Shiraz_Iran"
+    }
+  ]
+},
 
   {
     title: "Book Review: Teaching the Procurement Life Cycle",
