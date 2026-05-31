@@ -1502,3 +1502,35 @@ main > section.light-block {
     margin-top: -205px !important;
   }
 }
+
+/* ==========================================================
+   DESKTOP HERO TEXT FIT FIX
+   Keeps the locked desktop hero image composition.
+   Only moves and tightens the text block.
+   ========================================================== */
+
+@media (min-width: 901px) {
+
+  .hero-copy {
+    top: 26px !important;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.85rem, 3.25vw, 2.55rem) !important;
+    line-height: 1.12 !important;
+    margin-top: 18px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-copy .gold-line,
+  .hero-copy + .gold-line,
+  .gold-line {
+    margin-bottom: 18px !important;
+  }
+
+  .hero-copy p {
+    font-size: 14px !important;
+    line-height: 1.52 !important;
+    margin-bottom: 12px !important;
+  }
+}
