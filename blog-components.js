@@ -7,7 +7,6 @@
 
   const areaMeta = {
     crf: {
-      published: false,
       label: "Contested Rule Formation and Institutional Mismatch",
       icon: "images/extracted_icon_2.png",
       order: 1
