@@ -120,7 +120,7 @@ window.SJ_PUBLICATIONS = [
   },
 
   {
-    title: "Event-Led Regeneration in Historic Shiraz",
+    title: "Event-Led Regeneration in the Inter-Connected Structure of Historic Shiraz",
     year: "2022",
     status: "published",
     statusLabel: "Published",
