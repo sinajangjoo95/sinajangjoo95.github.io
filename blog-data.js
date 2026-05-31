@@ -223,7 +223,7 @@ window.SJ_BLOG_POSTS = [
   type: "paper-report",
   typeLabel: "Research Note",
   primaryArea: "urban",
-  areas: ["urban", "methods"],
+  areas: ["urban"],
   summary: "A research note based on my Armanshahr Architecture & Urban Development article with Ali Reza Sadeghi and Mehdi Khakzand on the historical role of the bazaar in shaping Shiraz’s Iranian-Islamic urban form.",
   excerpt: "This research note explains how the bazaar functioned as a spatial backbone, movement corridor, social institution, and connector of religious, governmental, economic, and residential life in historical Shiraz.",
   doiUrl: "https://doi.org/10.22034/AAUD.2019.89058",
