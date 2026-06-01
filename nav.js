@@ -51,11 +51,11 @@ class MainNav extends HTMLElement {
 
           <nav class="sj-main-navigation" aria-label="Main navigation">
             <a href="index.html" class="sj-nav-link ${isActive("home")}">Home</a>
-            <a href="index.html#about" class="sj-nav-link ${isActive("about")}">About</a>
             <a href="research.html" class="sj-nav-link ${isActive("research")}">Research</a>
             <a href="publications.html" class="sj-nav-link ${isActive("publications")}">Publications</a>
             <a href="teaching.html" class="sj-nav-link ${isActive("teaching")}">Teaching</a>
             <a href="blog.html" class="sj-nav-link ${isActive("blog")}">Blog</a>
+            <a href="index.html#about" class="sj-nav-link ${isActive("about")}">About</a>
             <a href="index.html#contact" class="sj-nav-link ${isActive("contact")}">Contact</a>
           </nav>
 
