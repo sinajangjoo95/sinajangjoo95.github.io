@@ -676,5 +676,140 @@
   SJBlog.renderLatest("home-latest-posts", 3, "home");
 </script>
 
+<script>
+  (function () {
+    const carousels = document.querySelectorAll("[data-honors-carousel]");
+
+    carousels.forEach((carousel) => {
+      const track = carousel.querySelector(".honors-track");
+      const slides = Array.from(carousel.querySelectorAll(".honor-card"));
+      const dotsWrap = carousel.querySelector(".honors-dots");
+      const prevButton = document.querySelector(".honors-prev");
+      const nextButton = document.querySelector(".honors-next");
+
+      let index = 0;
+      let visibleCount = getVisibleCount();
+      let autoSlide = null;
+
+      function getVisibleCount() {
+        if (window.innerWidth <= 700) return 1;
+        if (window.innerWidth <= 1100) return 2;
+        return 4;
+      }
+
+      function getGap() {
+        const styles = window.getComputedStyle(track);
+        return parseFloat(styles.columnGap || styles.gap || 24);
+      }
+
+      function getSlideDistance() {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        return slideWidth + getGap();
+      }
+
+      function getMaxIndex() {
+        return Math.max(0, slides.length - visibleCount);
+      }
+
+      function buildDots() {
+        dotsWrap.innerHTML = "";
+        const totalDots = getMaxIndex() + 1;
+
+        for (let i = 0; i < totalDots; i++) {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "honors-dot";
+          dot.setAttribute("aria-label", "Go to honors slide " + (i + 1));
+          dot.addEventListener("click", () => {
+            index = i;
+            updateCarousel();
+            restartAutoSlide();
+          });
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        const dots = Array.from(dotsWrap.querySelectorAll(".honors-dot"));
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+
+      function updateCarousel() {
+        const maxIndex = getMaxIndex();
+
+        if (index > maxIndex) index = 0;
+        if (index < 0) index = maxIndex;
+
+        const distance = getSlideDistance();
+        track.style.transform = "translateX(" + (-index * distance) + "px)";
+        updateDots();
+      }
+
+      function nextSlide() {
+        index = index >= getMaxIndex() ? 0 : index + 1;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        index = index <= 0 ? getMaxIndex() : index - 1;
+        updateCarousel();
+      }
+
+      function startAutoSlide() {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) return;
+
+        stopAutoSlide();
+        autoSlide = window.setInterval(nextSlide, 3600);
+      }
+
+      function stopAutoSlide() {
+        if (autoSlide) {
+          window.clearInterval(autoSlide);
+          autoSlide = null;
+        }
+      }
+
+      function restartAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+      }
+
+      nextButton.addEventListener("click", () => {
+        nextSlide();
+        restartAutoSlide();
+      });
+
+      prevButton.addEventListener("click", () => {
+        prevSlide();
+        restartAutoSlide();
+      });
+
+      carousel.addEventListener("mouseenter", stopAutoSlide);
+      carousel.addEventListener("mouseleave", startAutoSlide);
+      carousel.addEventListener("focusin", stopAutoSlide);
+      carousel.addEventListener("focusout", startAutoSlide);
+
+      window.addEventListener("resize", () => {
+        const newVisibleCount = getVisibleCount();
+
+        if (newVisibleCount !== visibleCount) {
+          visibleCount = newVisibleCount;
+          index = 0;
+          buildDots();
+        }
+
+        updateCarousel();
+      });
+
+      buildDots();
+      updateCarousel();
+      startAutoSlide();
+    });
+  })();
+</script>
+
 </body>
 </html>
