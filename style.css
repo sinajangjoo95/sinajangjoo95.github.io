@@ -481,6 +481,19 @@ h1 {
   }
 }
 
+/* Keep manuscript dashboard spacing clean below the website navigation */
+.page {
+  padding-top: 48px;
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding-top: 32px;
+  }
+}
+
+
+
 
 
 
