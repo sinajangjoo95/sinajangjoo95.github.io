@@ -72,11 +72,6 @@
       background: var(--accent-gold);
     }
 
-    /*
-      Revised intro layout:
-      This makes the left paragraph start at the same vertical height
-      as the Manuscript Pipeline card on the right.
-    */
     #publications-header .publications-intro-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(420px, 0.88fr);
@@ -96,6 +91,12 @@
 
     #publications-header .pipeline-feature-card {
       align-self: start;
+    }
+
+    #publications-header .pipeline-feature-card p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      max-width: none;
     }
 
     .publication-controls {
