@@ -26,6 +26,107 @@ window.SJ_BLOG_POSTS = [
     `
   },
 
+{
+  id: "commentary-cities-can-act-govern-rulemaking",
+  title: "Cities Can Act, But Can They Govern? The Missing Rulemaking Question in Local Clean Energy Transitions",
+  date: "2026-04-10",
+  type: "commentary",
+  typeLabel: "Commentary",
+  primaryArea: "energy",
+  areas: ["energy", "crf", "nonprofits", "urban"],
+  summary: "A commentary on local clean energy transitions, rule location, nonprofit rulemaking capacity, and the limits of local action under constrained federalism.",
+  excerpt: "This entry revisits my Cities article with Tian Tang and argues that the next theoretical question is not only how cities act, but where clean-energy governance actually lands when binding authority remains elsewhere.",
+  doiUrl: "https://doi.org/10.1016/j.cities.2025.105737",
+  content: `
+    <p><strong>Commentary | Clean Energy Governance, Public Policy Theory, Federalism, and Energy Justice</strong></p>
+
+    <p>The article <em>Renewable Energy Transitions from the Ground Up: Building a Framework for Local Action Despite Limited State Support</em>, written with Tian Tang and published in <em>Cities</em>, asked a practical but theoretically important question: how can cities pursue ambitious renewable energy goals when state-level support is weak, absent, or politically opposed? The study examined 13 Florida cities committed to 100% renewable energy goals and adapted transition management to the U.S. federalist context, where local, state, and federal regimes often interact in fragmented and conflicting ways.</p>
+
+    <p>The paper’s central contribution was to show that local governments are not passive victims of unsupportive state regimes. Even in Florida, where the state lacked a renewable portfolio standard and had moved away from stronger renewable energy commitments, cities still used local authority, sustainability offices, municipal planning, nonprofit partnerships, regional collaboration, financing strategies, and community engagement to keep clean energy transition work alive.</p>
+
+    <p>But the paper also revealed a deeper problem that it could not fully solve. It showed that cities can act, but it could not fully explain <strong>where governing authority actually lands</strong> when state-level institutions retain control over the most consequential electricity-system rules. That unresolved question now motivates the next stage of my research.</p>
+
+    <h2>What the paper accomplished</h2>
+
+    <p>The <em>Cities</em> article did three important things.</p>
+
+    <p>First, it established Florida as a theoretically valuable case. Florida is highly exposed to climate risks, but the state has not provided the kind of strong renewable energy policy architecture found in many other clean-energy-leading states. This made Florida useful for studying how local governments act under adverse state conditions rather than under supportive multilevel policy alignment.</p>
+
+    <p>Second, the paper showed that cities can build local transition capacity through practical institutional work. Sustainability offices, mayoral and council leadership, local plans, municipal utilities, clean energy ordinances, regional collaborations, nonprofit support, and financing mechanisms all mattered. The paper therefore shifted attention away from a simple question—“Does the state support renewable energy?”—toward a more dynamic question: “What do local actors build when higher-level support is limited?”</p>
+
+    <p>Third, the paper identified nonprofits as more than advocates. It found that nonprofits provided technical assistance, helped connect cities to national and international networks, supported regional collaboration, assisted with federal funding opportunities, and helped local governments incorporate energy justice into planning and implementation.</p>
+
+    <p>These findings were important because they challenged the assumption that clean energy transition depends only on top-down mandates, state policy, or national incentives. The article showed that local governments and civil society actors can create meaningful progress even when the broader state regime is not aligned with their goals.</p>
+
+    <h2>Where the paper reached its limit</h2>
+
+    <p>The article pushed transition management as far as it reasonably could in this setting. It adapted a framework developed largely in European contexts to the more fragmented and conflictual terrain of U.S. federalism. It brought in polycentric governance to explain how multiple actors and venues can compensate for weak state support. It brought in just transition theory to show that energy justice can be embedded early in planning, rather than added later as an afterthought.</p>
+
+    <p>But transition management and polycentric governance were not designed to answer the most precise public administration question that emerged from the findings: <strong>when cities act under constrained authority, what kind of governance are they actually producing?</strong></p>
+
+    <p>The paper could show that Orlando, St. Petersburg, Tallahassee, Gainesville, Sarasota, Pinellas County, and other local actors were developing plans, building partnerships, using policy tools, and pursuing energy justice. But it could not fully distinguish between different kinds of governing capacity. A city resolution is not the same as a tariff. A sustainability plan is not the same as a commission order. A nonprofit program manual is not the same as a statutory mandate. A local equity commitment is not the same as a durable statewide rule.</p>
+
+    <p>That distinction is now central to my broader research agenda. The earlier article provided a comparative map of enabling factors and strategies across cities, but it left partially unresolved the public administration question of where relevant rulemaking occurs, what kinds of rules become durable, and what mechanisms explain the relocation, containment, or substitution of governing capacity across venues.</p>
+
+    <h2>The policy process gap</h2>
+
+    <p>The deeper theoretical gap is in policy process and public policy theory. Many theories are strong once the policy arena is already visible: once actors know what the problem is, which venue matters, what rules apply, and what kind of authority is at stake. But local clean energy governance under constrained federalism often begins before those conditions are settled.</p>
+
+    <p>In Florida, the issue is not simply that cities lack money or technical capacity. The deeper issue is that binding authority over electricity-system instruments is located elsewhere. Investor-owned utility rates, service terms, interconnection conditions, and key participation rules are largely controlled through state-centered venues. Meanwhile, state preemption narrows some local building-energy and fuel-choice tools. This means a city may adopt an ambitious clean energy goal while lacking direct authority over the instruments that most strongly shape feasibility, cost, access, and distributive outcomes.</p>
+
+    <p>That condition creates a theory problem. Existing transition frameworks can describe local experimentation and regime resistance. Polycentric governance can describe multiple centers of activity. Energy justice can evaluate distributional, procedural, and recognition concerns. But none of these frameworks, by themselves, fully explain how rulemaking moves across venues when the most binding rule locations are defended.</p>
+
+    <p>The next theoretical question is therefore no longer only how cities pursue renewable energy transitions. It becomes: <strong>where are the rules written, who writes them, what kinds of rules stabilize, and how durable are they?</strong></p>
+
+    <h2>Why “local action” is not enough as an analytic category</h2>
+
+    <p>One of the most important lessons from revisiting the <em>Cities</em> article is that “local action” is too broad. It can mean many different things: a plan, a resolution, a procurement rule, a municipal utility decision, a nonprofit program, a financing template, a partnership agreement, a public engagement process, or an ordinance. These are not equivalent forms of governance.</p>
+
+    <p>My ongoing work therefore treats rule location as a central empirical outcome. It follows statutes, regulatory orders, municipal instruments, procurement rules, program manuals, partnership documents, and other artifacts that structure eligibility, compliance, participation, and access. This makes it possible to distinguish aspirational commitments from rule-based governance.</p>
+
+    <p>This is the theoretical move that the <em>Cities</em> article pointed toward but did not yet make. The article showed that local actors were active. The next question is whether that activity becomes durable rulemaking, where it becomes durable, and what kinds of rule objects carry energy justice.</p>
+
+    <h2>Nonprofits as the clue</h2>
+
+    <p>The nonprofit finding in the <em>Cities</em> article was especially important. At the time, nonprofits appeared as advocates, information providers, consultants, coalition builders, and funding intermediaries. That was already a significant contribution. But the finding also points toward a more institutional question.</p>
+
+    <p>If nonprofits help design solar co-ops, loan programs, eligibility criteria, outreach protocols, documentation requirements, and participation procedures, they are not merely supporting implementation. They are helping write practical rules. These rules may not be formal state regulation, but they can still shape who participates, who is excluded, what documentation is required, how benefits are distributed, and how accountability is structured.</p>
+
+    <p>This insight shifts the analysis from nonprofit participation to nonprofit rule-making capacity. Under the mismatch between ambitious local targets and constrained formal authority, municipal-nonprofit venues may become central sites where commitments are operationalized through programs, procedures, and administrative routines, even when those venues cannot directly revise regime-core instruments.</p>
+
+    <h2>Energy justice as rule content</h2>
+
+    <p>The <em>Cities</em> article argued that Florida cities embedded energy justice principles into renewable energy planning and local programs. It identified recognition, procedural, and distributional justice in community engagement, local planning, targeted programs, and federal funding requirements.</p>
+
+    <p>The next question is sharper: <strong>where does energy justice become institutionally real?</strong></p>
+
+    <p>That question matters because justice language can appear in plans without becoming enforceable. It can appear in outreach without becoming durable. It can be embedded in a grant-funded program without being anchored in tariffs, statutes, or commission standards. The analytical challenge is therefore to examine whether equity commitments appear in upstream regime-core rules or downstream program rules.</p>
+
+    <p>The emerging answer is more cautious than the original article could provide: in constrained settings, energy justice often becomes real through downstream program templates—eligibility rules, targeting criteria, documentation requirements, consumer protections, reporting routines, and participation procedures. This can produce concrete benefits, but it is structurally vulnerable because program-level rules are easier to narrow, defund, or revise than statewide tariff or statutory obligations.</p>
+
+    <h2>From local action to rule location</h2>
+
+    <p>The <em>Cities</em> article should therefore be read as the foundation for a broader theoretical agenda, but also as the point where a new question became necessary.</p>
+
+    <p>It answered an enabling question: <strong>How do cities act despite limited state support?</strong></p>
+
+    <p>The next question is: <strong>What kind of governance does that action become when binding authority remains elsewhere?</strong></p>
+
+    <p>That shift matters. It moves the analysis from strategies to rule location; from collaboration to authority; from local capacity to institutional constraint; from energy justice commitments to energy justice rule content; and from transition pathways to the upstream formation of governable arenas.</p>
+
+    <p>The article tried its best within the tools it used. It adapted transition management, incorporated polycentric governance, and foregrounded justice in a difficult federalist setting. But its own findings exposed the limits of those tools. They showed that local clean energy governance cannot be fully understood by counting commitments, plans, partnerships, or enabling factors. It must be understood by tracing the rules that actually structure action.</p>
+
+    <p>That is where the next stage of the research begins.</p>
+
+    <p>The core question is not whether cities are active. The question is <strong>where governance actually lands</strong>: in state statutes and commission decisions, in municipal administrative routines, in procurement and program templates, in nonprofit-designed participation rules, or in fragile project-based arrangements that carry justice commitments without fully transforming the regime core.</p>
+
+    <h2>Suggested citation</h2>
+
+    <p>Jangjoo, S., &amp; Tang, T. (2025). <em>Renewable energy transitions from the ground up: Building a framework for local action despite limited state support</em>. <strong>Cities, 158</strong>, 105737. <a href="https://doi.org/10.1016/j.cities.2025.105737" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.cities.2025.105737</a></p>
+  `
+},
+
+  
   {
   id: "note-ai-readiness",
   title: "Why AI Readiness Is Not the Same as AI Adoption",
