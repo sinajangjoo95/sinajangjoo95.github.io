@@ -45,15 +45,14 @@
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at top left, rgba(180, 137, 69, 0.15), transparent 34rem),
-        linear-gradient(180deg, #fbf8f1 0%, var(--bg) 45%, #f1ece3 100%);
-      color: var(--ink);
-      font-family: var(--font-ui);
-      line-height: 1.55;
-    }
+    html,
+body {
+  margin: 0;
+  background: #ffffff !important;
+  color: var(--ink);
+  font-family: var(--font-ui);
+  line-height: 1.55;
+}
 
     a {
       color: inherit;
@@ -73,18 +72,21 @@
       margin-bottom: 24px;
     }
 
-    .hero-card,
-    .side-card,
-    .toolbar,
-    .section,
-    .paper-card,
-    .grant-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(221, 212, 200, 0.9);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-    }
-
+.hero-card,
+.side-card,
+.toolbar,
+.section,
+.paper-card,
+.grant-card {
+  background: #ffffff;
+  border: 1px solid rgba(221, 212, 200, 0.9);
+  box-shadow: var(--shadow);
+}
+    
+main,
+.page {
+  background: #ffffff !important;
+}
     .hero-card {
       border-radius: 28px;
       padding: 34px;
