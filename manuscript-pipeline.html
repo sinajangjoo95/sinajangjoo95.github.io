@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTLJDKC5LB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-QTLJDKC5LB");
+  </script>
+
+  <script src="nav.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Sina Jangjoo | Manuscript Pipeline Dashboard</title>
+  <meta name="description" content="Current working papers, R&R manuscripts, collaborators, target outlets, timeline, and manuscript pipeline status for Sina Jangjoo.">
+
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <link rel="stylesheet" href="style.css">
+
   <style>
     :root {
       --bg: #f6f3ee;
@@ -774,7 +791,10 @@
   </style>
 </head>
 <body>
-  <main class="page">
+
+<main-nav active-page="publications"></main-nav>
+
+<main class="page">
     <section class="hero" aria-label="Dashboard introduction">
       <div class="hero-card">
         <div class="eyebrow">Manuscript Pipeline Dashboard</div>
@@ -1658,8 +1678,12 @@
         </section>
       </div>
 
-  </main>
-  <script>
+</main>
+
+<site-footer></site-footer>
+<script src="site-footer.js"></script>
+
+<script>
     (function () {
       var activeFilter = "All";
       var sectionOrder = ["rr", "conference", "dissertation", "working", "concept"];
