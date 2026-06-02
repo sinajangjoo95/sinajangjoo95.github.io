@@ -7,7 +7,7 @@ window.SJ_BLOG_POSTS = [
   {
     id: "note-crf",
     title: "What Is Contested Rule Formation?",
-    date: "2026-01-05",
+    date: "2026-09-05",
     type: "research-note",
     typeLabel: "Research Note",
     primaryArea: "crf",
