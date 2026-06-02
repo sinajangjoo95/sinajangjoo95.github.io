@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sina Jangjoo | Manuscript Pipeline Dashboard</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --panel: #ffffff;
+      --ink: #18231f;
+      --muted: #68746e;
+      --line: #ddd4c8;
+      --green: #244f43;
+      --green-2: #326b5c;
+      --gold: #b48945;
+      --gold-soft: #f0e2c7;
+      --blue-soft: #eaf0f4;
+      --red-soft: #f6e5df;
+      --shadow: 0 14px 35px rgba(24, 35, 31, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font-main: Georgia, "Times New Roman", serif;
+      --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(180, 137, 69, 0.15), transparent 34rem),
+        linear-gradient(180deg, #fbf8f1 0%, var(--bg) 45%, #f1ece3 100%);
+      color: var(--ink);
+      font-family: var(--font-ui);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 34px 22px 70px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .hero-card,
+    .side-card,
+    .toolbar,
+    .section,
+    .paper-card,
+    .grant-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(221, 212, 200, 0.9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-card {
+      border-radius: 28px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: rgba(36, 79, 67, 0.08);
+      right: -70px;
+      bottom: -90px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 31px;
+      height: 2px;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    h1 {
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      margin: 0 0 20px;
+      max-width: 880px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .hero-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .note-pill,
+    .tag,
+    .mini-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .note-pill {
+      padding: 8px 12px;
+      background: #f8f3e8;
+      border: 1px solid #ead8b6;
+      color: #6a4c19;
+    }
+
+    .side-card {
+      border-radius: 28px;
+      padding: 24px;
+      display: grid;
+      align-content: start;
+      gap: 16px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: #fffdf8;
+    }
+
+    .metric strong {
+      display: block;
+      font-family: var(--font-main);
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      border-radius: 24px;
+      padding: 16px;
+      margin: 24px 0;
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) 220px;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .search-wrap {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 14px;
+    }
+
+    .search-wrap span {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    input,
+    select {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+      font: 600 14px var(--font-ui);
+    }
+
+    select {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fffdf8;
+      padding: 12px 14px;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .filters {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    button.filter {
+      border: 1px solid var(--line);
+      background: #fffdf8;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font: 800 12px var(--font-ui);
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    button.filter:hover,
+    button.filter.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .nav-panel {
+      position: sticky;
+      top: 142px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .section-link {
+      display: block;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 15px;
+      font-weight: 850;
+      color: var(--green);
+      box-shadow: 0 9px 20px rgba(24, 35, 31, 0.04);
+    }
+
+    .section-link small {
+      display: block;
+      color: var(--muted);
+      font-weight: 650;
+      margin-top: 2px;
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section {
+      border-radius: 28px;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 15px;
+    }
+
+    h2 {
+      font-family: var(--font-main);
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+
+    .section-header p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 14px;
+    }
+
+    .count-badge {
+      border-radius: 999px;
+      background: var(--green);
+      color: white;
+      padding: 8px 12px;
+      font-weight: 850;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .paper-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .paper-card {
+      border-radius: var(--radius);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 175px;
+      gap: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper-card.hidden {
+      display: none;
+    }
+
+    .paper-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: var(--gold);
+    }
+
+    .paper-card.rr::before { background: #244f43; }
+    .paper-card.conference::before { background: #77613a; }
+    .paper-card.dissertation::before { background: #4f6476; }
+    .paper-card.working::before { background: #8d735c; }
+    .paper-card.concept::before { background: #948d82; }
+
+    .paper-top {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 11px;
+    }
+
+    .rank {
+      min-width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #f4ead6;
+      color: #6a4c19;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .title-block {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    h3 {
+      margin: 0;
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 23px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--green);
+      background: #e9f0ed;
+      border: 1px solid #d4e3dd;
+      white-space: nowrap;
+    }
+
+    .status-pill.rr { background: #e8f0ec; color: #244f43; border-color: #cadfd6; }
+    .status-pill.conference { background: #f0eadb; color: #6a4c19; border-color: #e1d2ac; }
+    .status-pill.dissertation { background: var(--blue-soft); color: #40576b; border-color: #d6e1e8; }
+    .status-pill.working { background: #f4eee6; color: #765d45; border-color: #e5d6c6; }
+    .status-pill.concept { background: #efedea; color: #6f6a62; border-color: #dfd9d1; }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .meta {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 12px;
+      background: #fffdf9;
+      min-height: 82px;
+    }
+
+    .meta b {
+      display: block;
+      color: var(--green);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 5px;
+    }
+
+    .meta span,
+    .note-text {
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .note-text {
+      margin: 10px 0 0;
+      max-width: 820px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      background: #f7f1e6;
+      color: #6b5940;
+      border: 1px solid #e8dcc8;
+    }
+
+    .side-progress {
+      border-left: 1px solid var(--line);
+      padding-left: 18px;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .progress-number {
+      font-family: var(--font-main);
+      font-size: 42px;
+      line-height: 1;
+      color: var(--green);
+      letter-spacing: -0.04em;
+    }
+
+    .progress-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 850;
+    }
+
+    .bar {
+      height: 10px;
+      background: #ece4d8;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: var(--p);
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      border-radius: inherit;
+    }
+
+    .next-step {
+      font-size: 13px;
+      color: var(--muted);
+      border: 1px dashed #d8c6a8;
+      border-radius: 14px;
+      padding: 11px;
+      background: #fffaf0;
+    }
+
+    .grant-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grant-card {
+      border-radius: 20px;
+      padding: 18px;
+      min-height: 190px;
+      display: grid;
+      align-content: space-between;
+      gap: 14px;
+    }
+
+    .grant-card h3 {
+      font-size: 20px;
+    }
+
+    .grant-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .grant-amount {
+      font-family: var(--font-main);
+      color: var(--green);
+      font-size: 24px;
+    }
+
+    .legend {
+      display: grid;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px;
+      background: #fffdf8;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .legend b {
+      color: var(--ink);
+    }
+
+    .empty-state {
+      display: none;
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px dashed var(--line);
+      color: var(--muted);
+      background: #fffdf8;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .empty-state.show {
+      display: block;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 1050px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-panel {
+        position: static;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .paper-card {
+        grid-template-columns: 1fr;
+      }
+
+      .side-progress {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 14px;
+      }
+
+      .grant-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding-inline: 14px;
+      }
+
+      .hero-card,
+      .side-card,
+      .section {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+        position: static;
+      }
+
+      .metric-grid,
+      .meta-grid,
+      .form-grid,
+      .nav-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .paper-top {
+        display: grid;
+      }
+
+      .title-block {
+        display: grid;
+      }
+
+      h3 {
+        font-size: 21px;
+      }
+    }
+
+
+
+    .editor-panel {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(221, 212, 200, 0.95);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      margin: 0 0 24px;
+      overflow: hidden;
+    }
+
+    .editor-panel summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 22px;
+      color: var(--green);
+      font-weight: 900;
+      border-bottom: 1px solid transparent;
+    }
+
+    .editor-panel[open] summary { border-bottom-color: var(--line); }
+    .editor-panel summary::-webkit-details-marker { display: none; }
+    .editor-panel summary small { color: var(--muted); font-weight: 700; text-align: right; }
+
+    .editor-body { padding: 20px 22px 22px; display: grid; gap: 16px; }
+    .editor-actions, .form-actions, .card-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .card-actions { margin-top: 14px; }
+
+    .action-btn, .tiny-action {
+      border: 1px solid var(--line);
+      background: #fffdf8;
+      color: var(--green);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .action-btn { padding: 9px 13px; font: 850 12px var(--font-ui); }
+    .tiny-action { padding: 6px 9px; font: 850 11px var(--font-ui); }
+    .action-btn:hover, .tiny-action:hover { transform: translateY(-1px); box-shadow: 0 9px 18px rgba(24, 35, 31, 0.08); }
+    .action-btn.primary { background: var(--green); border-color: var(--green); color: white; }
+    .action-btn.gold { background: var(--gold-soft); border-color: #e0c693; color: #6a4c19; }
+    .action-btn.danger, .tiny-action.danger { background: #fff5f2; border-color: #e8c8be; color: #9a3a26; }
+    .action-btn.ghost { background: transparent; }
+
+    .editor-note { margin: 0; color: var(--muted); font-size: 13px; }
+    .editor-message { min-height: 20px; color: var(--green); font-weight: 800; font-size: 13px; }
+
+    .editor-form {
+      border: 1px solid var(--line);
+      background: #fffdf8;
+      border-radius: 22px;
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .editor-form[hidden] { display: none; }
+
+    .form-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+    .form-head h3 { margin: 0; font-family: var(--font-main); font-size: 28px; font-weight: 500; letter-spacing: -0.02em; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .editor-field { display: grid; gap: 6px; color: var(--muted); font-size: 12px; font-weight: 850; text-transform: uppercase; letter-spacing: 0.06em; }
+    .editor-field.full { grid-column: 1 / -1; }
+
+    .editor-field input, .editor-field select, .editor-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      padding: 11px 12px;
+      color: var(--ink);
+      font: 650 14px var(--font-ui);
+      resize: vertical;
+      min-height: 44px;
+    }
+    .editor-field textarea { min-height: 86px; line-height: 1.45; }
+
+    .data-status {
+      display: inline-flex;
+      width: max-content;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      background: #f8f3e8;
+      border: 1px solid #ead8b6;
+      color: #6a4c19;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    @media print {
+      body { background: white; }
+      .toolbar, .nav-panel, .editor-panel, .card-actions { display: none; }
+      .page { max-width: none; padding: 0; }
+      .layout, .hero { display: block; }
+      .paper-card, .section, .hero-card, .side-card, .grant-card { box-shadow: none; break-inside: avoid; }
+      .section { margin-bottom: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="Dashboard introduction">
+      <div class="hero-card">
+        <div class="eyebrow">Manuscript Pipeline Dashboard</div>
+        <h1>Working Papers, R&amp;Rs, Collaborators, Target Outlets, and Timeline</h1>
+        <p>
+          A single-page overview of active and near-active manuscripts. Progress bars are planning/readiness indicators based on the status information provided; they are not probabilities of journal acceptance. Items without specified journal targets are intentionally marked as TBD rather than inferred.
+        </p>
+        <div class="hero-note">
+          <span class="note-pill">Ordered by revision urgency and manuscript maturity</span>
+          <span class="note-pill">Searchable and filterable</span>
+          <span class="note-pill">Print-friendly</span>
+          <span class="note-pill">Editable with local save + export</span>
+        </div>
+      </div>
+
+      <aside class="side-card" aria-label="Dashboard summary metrics">
+        <div class="metric-grid">
+          <div class="metric"><strong id="metricRR">4</strong><span>R&amp;R papers</span></div>
+          <div class="metric"><strong id="metricWorking">19</strong><span>Working papers</span></div>
+          <div class="metric"><strong id="metricGrants">3</strong><span>Grant links</span></div>
+          <div class="metric"><strong id="metricCollab">—</strong><span>Collaborative items</span></div>
+        </div>
+        <div class="legend">
+          <div><b>Progress logic:</b> R&amp;R = advanced revision stage; conference submitted/proposal accepted = early public-facing development; presented dissertation/working papers = manuscript development stage; concept papers = early pipeline.</div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="toolbar" aria-label="Search and filters">
+      <label class="search-wrap" for="searchBox"><span>⌕</span><input id="searchBox" type="search" placeholder="Search by title, collaborator, venue, topic, or status..." /></label>
+      <select id="sortSelect" aria-label="Sort papers">
+        <option value="priority">Sort by priority order</option>
+        <option value="progress">Sort by progress</option>
+        <option value="status">Sort by status</option>
+        <option value="title">Sort by title</option>
+      </select>
+      <div class="filters" id="filters"></div>
+    </section>
+
+
+
+    <details class="editor-panel" id="editor">
+      <summary>
+        <span>Edit / Add Dashboard Items</span>
+        <small>Saved locally in this browser. Export a clean public HTML code file when you finish.</small>
+      </summary>
+      <div class="editor-body">
+        <div class="editor-actions">
+          <button class="action-btn primary" type="button" id="addPaperBtn">+ Add paper</button>
+          <button class="action-btn primary" type="button" id="addGrantBtn">+ Add grant</button>
+          <button class="action-btn gold" type="button" id="exportPublicHtmlBtn">Export public website HTML code</button>
+          <button class="action-btn gold" type="button" id="exportJsonBtn">Export data backup</button>
+          <button class="action-btn" type="button" id="downloadHtmlBtn">Save private editable HTML copy</button>
+          <button class="action-btn" type="button" id="importJsonBtn">Import data backup</button>
+          <button class="action-btn danger" type="button" id="resetDefaultsBtn">Reset to original data</button>
+          <input id="importFile" type="file" accept="application/json,.json" hidden />
+        </div>
+        <p class="editor-note">Use the small Edit buttons on each card to revise existing entries. Browser edits are private to this device. Use <strong>Export public website HTML code</strong> to download a .txt file containing the clean, non-editable HTML page for your website.</p>
+        <div class="data-status" id="dataStatus">Using built-in dashboard data</div>
+        <div class="editor-message" id="editorMessage" aria-live="polite"></div>
+
+        <form class="editor-form" id="entryForm" hidden>
+          <div class="form-head">
+            <div>
+              <h3 id="formTitle">Add item</h3>
+              <p class="editor-note" id="formSubtitle">Fill the fields you know. Leave unknown targets as TBD / not specified.</p>
+            </div>
+            <button class="action-btn ghost" type="button" id="cancelEditBtn">Close</button>
+          </div>
+
+          <input type="hidden" id="editType" />
+          <input type="hidden" id="editId" />
+
+          <div class="form-grid" id="paperFields">
+            <label class="editor-field full">Paper title<textarea id="paperTitle" required></textarea></label>
+            <label class="editor-field">Pipeline category
+              <select id="paperSection">
+                <option value="rr">R&amp;R</option>
+                <option value="conference">Conference / Proposal</option>
+                <option value="dissertation">Dissertation / Near-Journal</option>
+                <option value="working">Active Working</option>
+                <option value="concept">Concept / Early Pipeline</option>
+              </select>
+            </label>
+            <label class="editor-field">Status<input id="paperStatus" placeholder="R&amp;R, Working paper, Presented, Submitted..." /></label>
+            <label class="editor-field">Priority order<input id="paperRank" type="number" min="1" step="1" /></label>
+            <label class="editor-field">Progress / readiness %<input id="paperProgress" type="number" min="0" max="100" step="1" /></label>
+            <label class="editor-field full">Collaborators<textarea id="paperCollaborators" placeholder="Sina Jangjoo; Dr. Tang; ..."></textarea></label>
+            <label class="editor-field">Your role<input id="paperRole" placeholder="Lead / solo author, Coauthor, First author..." /></label>
+            <label class="editor-field">Target journal / outlet<input id="paperTarget" placeholder="Policy Studies Journal, NVSQ, TBD / not specified..." /></label>
+            <label class="editor-field full">Timeline / stage evidence<textarea id="paperTimeline" placeholder="Submitted May 2026; presented at ASPA 2026; R&amp;R received..."></textarea></label>
+            <textarea id="paperNext" hidden></textarea>
+            <label class="editor-field full">Tags<input id="paperTags" placeholder="AI Governance, Nonprofit, Energy, R&amp;R" /></label>
+          </div>
+
+          <div class="form-grid" id="grantFields" hidden>
+            <label class="editor-field full">Grant / sponsored project title<textarea id="grantTitle" required></textarea></label>
+            <label class="editor-field">Sponsor<input id="grantSponsor" /></label>
+            <label class="editor-field">Amount<input id="grantAmount" placeholder="$311,127" /></label>
+            <label class="editor-field">Year<input id="grantYear" placeholder="2026" /></label>
+            <label class="editor-field">Role<input id="grantRole" placeholder="Collaborator, PI, Co-PI..." /></label>
+            <label class="editor-field full">Note<textarea id="grantNote"></textarea></label>
+          </div>
+
+          <div class="form-actions">
+            <button class="action-btn primary" type="submit" id="saveEntryBtn">Save item</button>
+            <button class="action-btn" type="button" id="clearFormBtn">Clear form</button>
+          </div>
+        </form>
+      </div>
+    </details>
+
+    <section class="layout">
+      <nav class="nav-panel" aria-label="Page sections">
+        <a class="section-link" href="#rr">R&amp;R Papers <small>closest to journal decision</small></a>
+        <a class="section-link" href="#conference">Conference / Proposal Stage <small>submitted or accepted externally</small></a>
+        <a class="section-link" href="#dissertation">Dissertation / Near-Journal Papers <small>already presented or chapter-based</small></a>
+        <a class="section-link" href="#working">Active Working Papers <small>collaborative and solo projects</small></a>
+        <a class="section-link" href="#concept">Concept / Early Pipeline <small>ideas needing target selection</small></a>
+        <a class="section-link" href="#grants">Sponsored Research Context <small>related grant infrastructure</small></a>
+        <a class="section-link" href="#editor">Edit / Add Items <small>private local editor</small></a>
+      </nav>
+
+      <div class="content">
+        <section class="section" id="rr">
+          <div class="section-header">
+            <div>
+              <h2>Revise &amp; Resubmit Papers</h2>
+              <p>Highest-priority manuscripts because they already have journal decisions and should be managed through revision memos, response letters, and targeted resubmission timelines.</p>
+            </div>
+            <span class="count-badge" data-count-for="rr">0 items</span>
+          </div>
+          <div class="paper-grid" data-section="rr"></div>
+          <div class="empty-state" data-empty-for="rr">No R&amp;R papers match the current filters.</div>
+        </section>
+
+        <section class="section" id="conference">
+          <div class="section-header">
+            <div>
+              <h2>Conference / Proposal Stage</h2>
+              <p>Projects already accepted to, submitted to, or developed through major conferences. These are not journal submissions unless a target journal is listed.</p>
+            </div>
+            <span class="count-badge" data-count-for="conference">0 items</span>
+          </div>
+          <div class="paper-grid" data-section="conference"></div>
+          <div class="empty-state" data-empty-for="conference">No conference-stage papers match the current filters.</div>
+        </section>
+
+        <section class="section" id="dissertation">
+          <div class="section-header">
+            <div>
+              <h2>Dissertation / Near-Journal Papers</h2>
+              <p>Manuscripts with dissertation-chapter status or previous conference exposure. These are usually the next best candidates for journal targeting.</p>
+            </div>
+            <span class="count-badge" data-count-for="dissertation">0 items</span>
+          </div>
+          <div class="paper-grid" data-section="dissertation"></div>
+          <div class="empty-state" data-empty-for="dissertation">No dissertation-stage papers match the current filters.</div>
+        </section>
+
+        <section class="section" id="working">
+          <div class="section-header">
+            <div>
+              <h2>Active Working Papers</h2>
+              <p>Projects with identifiable collaborators, methods, or substantive direction but without a specified journal target in the current list.</p>
+            </div>
+            <span class="count-badge" data-count-for="working">0 items</span>
+          </div>
+          <div class="paper-grid" data-section="working"></div>
+          <div class="empty-state" data-empty-for="working">No active working papers match the current filters.</div>
+        </section>
+
+        <section class="section" id="concept">
+          <div class="section-header">
+            <div>
+              <h2>Concept / Early Pipeline</h2>
+              <p>Early-stage manuscripts that need scoping, target-journal selection, and a sharper timeline before entering the main writing pipeline.</p>
+            </div>
+            <span class="count-badge" data-count-for="concept">0 items</span>
+          </div>
+          <div class="paper-grid" data-section="concept"></div>
+          <div class="empty-state" data-empty-for="concept">No concept-stage papers match the current filters.</div>
+        </section>
+
+        <section class="section" id="grants">
+          <div class="section-header">
+            <div>
+              <h2>Sponsored Research Context</h2>
+              <p>Grants and sponsored projects connected to the broader research agenda. Role is shown as collaborator based on the CV text provided.</p>
+            </div>
+            <span class="count-badge">3 grants</span>
+          </div>
+          <div class="grant-grid" id="grantGrid"></div>
+        </section>
+      </div>
+    </section>
+
+    <p class="footer">Prepared as a self-contained editable HTML dashboard. Changes are saved in your browser; use “Export public website HTML code” for the clean version you can paste into your website.</p>
+  </main>
+
+  <script>
+    const papers = [
+      {
+        rank: 1,
+        section: "rr",
+        status: "R&R",
+        progress: 78,
+        title: "Institutional Voids and Public Opposition: Evidence from the Siting of Wind Energy Infrastructure",
+        collaborators: "X. Gao; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Policy Studies Journal",
+        timeline: "Submitted March 2026; R&R; presented at APPAM 2025.",
+        next: "Prepare revision strategy, response-to-reviewers memo, and theory/evidence alignment for the institutional voids framing.",
+        tags: ["R&R", "Energy", "Institutional Voids", "Public Opposition", "Policy Process"]
+      },
+      {
+        rank: 2,
+        section: "rr",
+        status: "R&R",
+        progress: 76,
+        title: "A System-of-Systems Convergence Paradigm for Societal Challenges of the Anthropocene",
+        collaborators: "M. S. Harris; M. M. Naderi; E. Ghorbanichemazkati; Sina Jangjoo; E. Lapan; S. A. Hosseini; A. M. Farid; additional coauthors",
+        role: "Coauthor",
+        target: "Earth's Future",
+        timeline: "Submitted January 2026; R&R; arXiv version available.",
+        next: "Coordinate revisions around convergence contribution, systems framing, and cross-disciplinary claims.",
+        tags: ["R&R", "Systems", "Anthropocene", "Convergence", "Governance"]
+      },
+      {
+        rank: 3,
+        section: "rr",
+        status: "R&R",
+        progress: 74,
+        title: "Civil Society After Disasters",
+        collaborators: "D. Berlan; M. Denis-Luque; Y. Sun; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Nonprofit and Voluntary Sector Quarterly",
+        timeline: "Submitted November 2024; R&R.",
+        next: "Revise nonprofit/civil society contribution, clarify disaster governance mechanisms, and update response letter.",
+        tags: ["R&R", "Nonprofit", "Civil Society", "Disasters", "Governance"]
+      },
+      {
+        rank: 4,
+        section: "rr",
+        status: "R&R",
+        progress: 72,
+        title: "Women’s Intragroup Differences in Urban Green Space Soundscape Appraisal: Evidence from a Corridor Park in Shiraz, Iran",
+        collaborators: "A. R. Sadeghi; A. Alishahi; N. Panahi; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Journal of Environmental Management",
+        timeline: "Submitted May 2026; R&R.",
+        next: "Tighten measurement, subgroup interpretation, environmental-management contribution, and reviewer-response structure.",
+        tags: ["R&R", "Urban", "Women", "Green Space", "Soundscape", "Iran"]
+      },
+      {
+        rank: 5,
+        section: "conference",
+        status: "Proposal accepted",
+        progress: 34,
+        title: "When Are Governments Institutionally Ready for Public-Sector AI? Classification, Venue Settlement, and Procedural Governance",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Proposal accepted to PMRC 2026.",
+        next: "Convert proposal into full manuscript architecture; define cases/data; select a PA/public management journal target.",
+        tags: ["AI Governance", "Public Sector AI", "Institutional Readiness", "Procedural Governance", "PMRC 2026"]
+      },
+      {
+        rank: 6,
+        section: "conference",
+        status: "Conference submitted",
+        progress: 31,
+        title: "Visible Public Disruption and Accountability Lag in Embodied Autonomous-System Governance",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Submitted to APPAM 2026.",
+        next: "Clarify contribution around visibility, accountability lag, and embodied autonomous systems; prepare conference-paper version.",
+        tags: ["Autonomous Systems", "Accountability", "Public Disruption", "Governance", "APPAM 2026"]
+      },
+      {
+        rank: 7,
+        section: "conference",
+        status: "Conference submitted",
+        progress: 31,
+        title: "Who Makes AI Infrastructure Governable? Nonprofits, Data Centers, and Contested Rule Formation in Local Communities",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Submitted to ARNOVA 2026.",
+        next: "Specify nonprofit/intermediary roles, data-center governance venues, and local rule-formation evidence.",
+        tags: ["AI Infrastructure", "Nonprofits", "Data Centers", "Local Governance", "ARNOVA 2026"]
+      },
+      {
+        rank: 8,
+        section: "conference",
+        status: "Presented",
+        progress: 42,
+        title: "The Attention Budget of Collaborative Governance Regimes: How Boundary Infrastructure Punctuates the Administrative Agenda",
+        collaborators: "E. Lapan; L. Arpan; T. Tang; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Journal target TBD / not specified",
+        timeline: "Presented at ASPA 2026.",
+        next: "Move from conference paper to journal manuscript; sharpen boundary infrastructure and attention-budget mechanism.",
+        tags: ["Collaborative Governance", "Boundary Infrastructure", "Agenda Setting", "ASPA 2026"]
+      },
+      {
+        rank: 9,
+        section: "conference",
+        status: "Presented",
+        progress: 40,
+        title: "Beyond First Impressions: How Fit and Compensation Discrepancies Shape Turnover Intentions Among Nonprofit Leaders in Small Human Service Nonprofits",
+        collaborators: "Dr. Azevedo; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Journal target TBD / not specified",
+        timeline: "Presented at ASPA 2026.",
+        next: "Finalize model specification, position contribution to nonprofit HR/management, and separate from related turnover project if needed.",
+        tags: ["Nonprofit", "Turnover", "Person-Organization Fit", "Compensation", "ASPA 2026"]
+      },
+      {
+        rank: 10,
+        section: "conference",
+        status: "Proposal accepted",
+        progress: 30,
+        title: "Governing AI in a Multipolar World: Ethical Risks, Institutional Mismatch, and Contested Rule Formation in the Global AI Transition",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Proposal accepted to PMRC 2025.",
+        next: "Decide whether this remains a standalone global AI paper or becomes the comparative/theory extension of the PSJ contested rule formation article.",
+        tags: ["AI Governance", "Global Governance", "Institutional Mismatch", "Ethics", "PMRC 2025"]
+      },
+      {
+        rank: 11,
+        section: "conference",
+        status: "Presented",
+        progress: 36,
+        title: "Translating Performance Between Funders and Nonprofits",
+        collaborators: "D. Berlan; M. VanLandingham; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Journal target TBD / not specified",
+        timeline: "Presented at ARNOVA 2024.",
+        next: "Clarify empirical contribution and target a nonprofit/public management outlet after determining whether additional data are needed.",
+        tags: ["Nonprofit", "Performance", "Funders", "Accountability", "ARNOVA 2024"]
+      },
+      {
+        rank: 12,
+        section: "conference",
+        status: "Presented / working project",
+        progress: 34,
+        title: "Are Small Nonprofits Stepping Stones or Springboards? A Multi-Dimensional Study of Turnover Intentions and Perceived Fit Discrepancy",
+        collaborators: "Dr. Azevedo; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Journal target TBD / not specified",
+        timeline: "Presented at ARNOVA 2024; working project.",
+        next: "Decide relationship with the ASPA 2026 turnover manuscript; avoid duplicate contribution and define the stronger publishable paper.",
+        tags: ["Nonprofit", "Turnover", "Fit Discrepancy", "Human Services", "ARNOVA 2024"]
+      },
+      {
+        rank: 13,
+        section: "conference",
+        status: "Presented",
+        progress: 32,
+        title: "Immigration Policy, Institutions, Precarity, and Wellbeing of Citizen Spouses in Mixed-Status Families",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Presented at SECoPA 2024.",
+        next: "Update framing after Administration & Society review trajectory; clarify whether this is a revised version or a new extension.",
+        tags: ["Immigration Policy", "Institutions", "Precarity", "Mixed-Status Families", "SECoPA 2024"]
+      },
+      {
+        rank: 14,
+        section: "dissertation",
+        status: "Presented / dissertation chapter",
+        progress: 58,
+        title: "Nonprofits as Shadow Rule-Makers under Constrained Polycentricity: Local Clean Energy Governance in Florida",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Presented at ARNOVA 2025; Dissertation Chapter 2.",
+        next: "Convert dissertation chapter into a journal manuscript; clarify nonprofit rule-making mechanism and target nonprofit/energy governance outlets.",
+        tags: ["Dissertation", "Nonprofit", "Clean Energy", "Polycentricity", "Florida"]
+      },
+      {
+        rank: 15,
+        section: "dissertation",
+        status: "Presented / dissertation chapter",
+        progress: 56,
+        title: "Peripheral Rule-System Stabilization under Constrained Polycentricity: Local Energy Transition Governance and Justice in Preemptive Florida",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Presented at ASPA 2025; Dissertation Chapter 3.",
+        next: "Position contribution around constrained polycentricity, preemption, justice, and local energy-transition governance.",
+        tags: ["Dissertation", "Energy Justice", "Polycentricity", "Preemption", "Florida"]
+      },
+      {
+        rank: 16,
+        section: "working",
+        status: "Working paper",
+        progress: 26,
+        title: "Administrative Capacity and the Absorption of Local Solar Technical Assistance: Evidence from SolSmart",
+        collaborators: "T. Tang; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Journal target TBD / not specified",
+        timeline: "Working paper; timeline not specified.",
+        next: "Define dataset, outcome measure for absorption, and target contribution to local administrative capacity and technical-assistance literatures.",
+        tags: ["Solar", "Technical Assistance", "Administrative Capacity", "SolSmart", "Local Government"]
+      },
+      {
+        rank: 17,
+        section: "working",
+        status: "Working paper",
+        progress: 24,
+        title: "Can Technical Assistance Make Governments Ready for AI? Lessons from Solar Governance for Public-Sector AI",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Working paper; timeline not specified.",
+        next: "Clarify comparative bridge from solar technical assistance to AI readiness; decide whether it complements or competes with the PMRC 2026 AI-readiness paper.",
+        tags: ["AI Governance", "Technical Assistance", "Solar Governance", "Administrative Capacity"]
+      },
+      {
+        rank: 18,
+        section: "working",
+        status: "Working paper",
+        progress: 23,
+        title: "When All-Age Is Not One Template: Older Women’s Public-Space Criteria and Measurement Portability in Shiraz, Iran",
+        collaborators: "A. R. Sadeghi; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Journal target TBD / not specified",
+        timeline: "Working paper; timeline not specified.",
+        next: "Build contribution around measurement portability, age-friendly urbanism, and gendered public-space criteria.",
+        tags: ["Urban", "Older Women", "Measurement", "Public Space", "Iran"]
+      },
+      {
+        rank: 19,
+        section: "working",
+        status: "Working paper",
+        progress: 22,
+        title: "From Advocacy to Action: Nonprofits and the Evolution of Collaborative Water Governance in Oregon",
+        collaborators: "Dr. Gao; Dr. Liu; Sina Jangjoo",
+        role: "Coauthor",
+        target: "Journal target TBD / not specified",
+        timeline: "Working paper; timeline not specified.",
+        next: "Clarify case evidence, nonprofit role typology, and relationship to collaborative water governance theory.",
+        tags: ["Nonprofit", "Water Governance", "Oregon", "Collaborative Governance"]
+      },
+      {
+        rank: 20,
+        section: "working",
+        status: "Working paper",
+        progress: 20,
+        title: "From Classroom Experimentation to Institutional Settlement: Making AI Governable in Public Affairs Education",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Working paper; timeline not specified.",
+        next: "Decide whether the target is PA pedagogy, AI governance, or public affairs education; collect classroom/policy evidence if needed.",
+        tags: ["AI Governance", "Public Affairs Education", "Teaching", "Institutional Settlement"]
+      },
+      {
+        rank: 21,
+        section: "concept",
+        status: "Concept paper",
+        progress: 18,
+        title: "Institutional Voids and Digital Disruption: A Comparative Theory of Traditional versus Platform-Based Nonprofits",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Concept/working paper; timeline not specified.",
+        next: "Develop theoretical distinction between traditional and platform-based nonprofit forms; decide if this is theory-building or empirical comparison.",
+        tags: ["Nonprofit", "Digital Disruption", "Institutional Voids", "Theory"]
+      },
+      {
+        rank: 22,
+        section: "concept",
+        status: "Concept paper",
+        progress: 16,
+        title: "Invisible Front-Line Faculty: Emotional Labor, Immigration Precarity, and Intersectional Inequity among International PhD Instructors of Record in Public Administration and Nonprofit Management",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Supported by ARNOVA Teaching Section Research Grant Award.",
+        next: "Define data collection plan, ethics/IRB needs, and whether target is PA education, nonprofit education, or higher-education labor.",
+        tags: ["Teaching", "International PhD Students", "Emotional Labor", "Precarity", "ARNOVA Grant"]
+      },
+      {
+        rank: 23,
+        section: "concept",
+        status: "Concept paper",
+        progress: 14,
+        title: "From Smart City to Metaverse Urbanism: Critical Pathways and Contestations in Digital Urban Governance",
+        collaborators: "Sina Jangjoo",
+        role: "Lead / solo author",
+        target: "Journal target TBD / not specified",
+        timeline: "Concept/working paper; timeline not specified.",
+        next: "Specify whether this is a critical review, conceptual framework, or empirical urban-governance study.",
+        tags: ["Urban Governance", "Smart Cities", "Metaverse", "Digital Governance"]
+      }
+    ];
+
+    const grants = [
+      {
+        title: "Convergent Anthropocene Systems (Anthems) – A System-of-Systems Paradigm",
+        sponsor: "National Science Foundation",
+        amount: "$3.6 million",
+        year: "2024",
+        role: "Collaborator",
+        note: "Chesapeake Bay Program Governance Decision Support System Modeling."
+      },
+      {
+        title: "EPA Greenhouse Gas Reduction Fund Solar for All Grant",
+        sponsor: "U.S. Environmental Protection Agency via subcontract with The Nature Conservancy",
+        amount: "$311,127",
+        year: "2024",
+        role: "Collaborator",
+        note: "Supports the clean-energy and solar-governance research agenda."
+      },
+      {
+        title: "Assessing the Potential for Transactive Energy Communities in Rural New Hampshire",
+        sponsor: "National Science Foundation",
+        amount: "$1.7 million",
+        year: "2025",
+        role: "Collaborator",
+        note: "Connected to energy governance, technical capacity, and rural energy systems."
+      }
+    ];
+
+    const filters = [
+      "All",
+      "R&R",
+      "AI Governance",
+      "Energy",
+      "Nonprofit",
+      "Urban",
+      "Dissertation",
+      "Collaborative Governance",
+      "Teaching",
+      "Technical Assistance"
+    ];
+
+    const sectionNames = {
+      rr: "R&R",
+      conference: "Conference / Proposal",
+      dissertation: "Dissertation / Near-Journal",
+      working: "Active Working",
+      concept: "Concept"
+    };
+
+    const sectionOrder = ["rr", "conference", "dissertation", "working", "concept"];
+    const searchBox = document.getElementById("searchBox");
+    const sortSelect = document.getElementById("sortSelect");
+    const filtersEl = document.getElementById("filters");
+    const grantGrid = document.getElementById("grantGrid");
+    let activeFilter = "All";
+
+    function makePaperCard(paper) {
+      const safeTitle = paper.title.replace(/"/g, "&quot;");
+      return `
+        <article class="paper-card ${paper.section}" data-search="${[paper.title, paper.collaborators, paper.target, paper.timeline, paper.status, paper.tags.join(" ")].join(" ").toLowerCase()}" data-tags="${paper.tags.join("|").toLowerCase()}" data-section-kind="${paper.section}">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#${paper.rank}</span>
+                <div>
+                  <h3>${safeTitle}</h3>
+                  <p class="note-text">${paper.role}</p>
+                </div>
+              </div>
+              <span class="status-pill ${paper.section}">${paper.status}</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>${paper.collaborators}</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>${paper.target}</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>${paper.timeline}</span></div>
+              <div class="meta"><b>Pipeline category</b><span>${sectionNames[paper.section]}</span></div>
+            </div>
+
+            <div class="tags">${paper.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">${paper.progress}%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress ${paper.progress} percent" style="--p: ${paper.progress}%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      `;
+    }
+
+    function makeGrantCard(grant) {
+      return `
+        <article class="grant-card">
+          <div>
+            <span class="mini-badge note-pill">${grant.role} · ${grant.year}</span>
+            <h3>${grant.title}</h3>
+            <p class="grant-meta"><strong>${grant.sponsor}</strong></p>
+            <p class="grant-meta">${grant.note}</p>
+          </div>
+          <div class="grant-amount">${grant.amount}</div>
+        </article>
+      `;
+    }
+
+    function buildFilters() {
+      filtersEl.innerHTML = filters.map(filter => `<button class="filter ${filter === activeFilter ? "active" : ""}" type="button" data-filter="${filter}">${filter}</button>`).join("");
+      filtersEl.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.filter;
+          buildFilters();
+          render();
+        });
+      });
+    }
+
+    function sortPapers(list) {
+      const sort = sortSelect.value;
+      return [...list].sort((a, b) => {
+        if (sort === "progress") return b.progress - a.progress || a.rank - b.rank;
+        if (sort === "status") return a.status.localeCompare(b.status) || a.rank - b.rank;
+        if (sort === "title") return a.title.localeCompare(b.title);
+        return a.rank - b.rank;
+      });
+    }
+
+    function passesFilter(paper, query) {
+      const haystack = [paper.title, paper.collaborators, paper.target, paper.timeline, paper.status, paper.tags.join(" "), paper.next].join(" ").toLowerCase();
+      const filterMatch = activeFilter === "All" || paper.tags.map(t => t.toLowerCase()).includes(activeFilter.toLowerCase()) || paper.status.toLowerCase().includes(activeFilter.toLowerCase());
+      const queryMatch = !query || haystack.includes(query);
+      return filterMatch && queryMatch;
+    }
+
+    function render() {
+      const query = searchBox.value.trim().toLowerCase();
+      const visible = sortPapers(papers).filter(paper => passesFilter(paper, query));
+
+      sectionOrder.forEach(section => {
+        const container = document.querySelector(`[data-section="${section}"]`);
+        const items = visible.filter(paper => paper.section === section);
+        container.innerHTML = items.map(makePaperCard).join("");
+        document.querySelector(`[data-count-for="${section}"]`).textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+        document.querySelector(`[data-empty-for="${section}"]`).classList.toggle("show", items.length === 0);
+      });
+
+      const collaborativeCount = papers.filter(p => !p.collaborators.toLowerCase().includes("lead / solo") && !p.collaborators.toLowerCase().includes("sina jangjoo") ? true : p.collaborators.split(";").length > 1 || p.collaborators.includes("Dr.") || p.collaborators.includes("additional")).length;
+      document.getElementById("metricRR").textContent = papers.filter(p => p.section === "rr").length;
+      document.getElementById("metricWorking").textContent = papers.filter(p => p.section !== "rr").length;
+      document.getElementById("metricGrants").textContent = grants.length;
+      document.getElementById("metricCollab").textContent = collaborativeCount;
+    }
+
+    grantGrid.innerHTML = grants.map(makeGrantCard).join("");
+    buildFilters();
+    render();
+    searchBox.addEventListener("input", render);
+    sortSelect.addEventListener("change", render);
+  </script>
+
+  <script>
+    // Editable layer for the offline manuscript dashboard.
+    const EDIT_STORAGE_KEY = "sina_manuscript_pipeline_dashboard_v2";
+
+    function esc(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function slugify(text) {
+      return String(text || "item").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 64) || "item";
+    }
+
+    function makeEditableId(prefix, seed) {
+      return `${prefix}-${slugify(seed)}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
+    }
+
+    function normalizePaper(paper, index) {
+      const title = String(paper.title || "Untitled manuscript").trim();
+      return {
+        id: paper.id || `paper-${slugify(title)}-${paper.rank || index + 1}`,
+        rank: Number.isFinite(Number(paper.rank)) ? Number(paper.rank) : index + 1,
+        section: sectionOrder.includes(paper.section) ? paper.section : "working",
+        status: String(paper.status || "Working paper"),
+        progress: Math.max(0, Math.min(100, Number.isFinite(Number(paper.progress)) ? Number(paper.progress) : 0)),
+        title,
+        collaborators: String(paper.collaborators || "Sina Jangjoo"),
+        role: String(paper.role || "Lead / solo author"),
+        target: String(paper.target || "Journal target TBD / not specified"),
+        timeline: String(paper.timeline || "Timeline not specified."),
+        next: String(paper.next || ""),
+        tags: Array.isArray(paper.tags) ? paper.tags.map(t => String(t).trim()).filter(Boolean) : String(paper.tags || "").split(",").map(t => t.trim()).filter(Boolean)
+      };
+    }
+
+    function normalizeGrant(grant, index) {
+      const title = String(grant.title || "Untitled sponsored project").trim();
+      return {
+        id: grant.id || `grant-${slugify(title)}-${grant.year || index + 1}`,
+        title,
+        sponsor: String(grant.sponsor || "Sponsor not specified"),
+        amount: String(grant.amount || "Amount not specified"),
+        year: String(grant.year || "Year not specified"),
+        role: String(grant.role || "Collaborator"),
+        note: String(grant.note || "")
+      };
+    }
+
+    function normalizeAllData() {
+      papers.splice(0, papers.length, ...papers.map(normalizePaper).sort((a, b) => a.rank - b.rank || a.title.localeCompare(b.title)));
+      grants.splice(0, grants.length, ...grants.map(normalizeGrant));
+    }
+
+    const originalPapers = JSON.parse(JSON.stringify(papers));
+    const originalGrants = JSON.parse(JSON.stringify(grants));
+    const dataStatus = document.getElementById("dataStatus");
+    const editorMessage = document.getElementById("editorMessage");
+    const entryForm = document.getElementById("entryForm");
+    const importFile = document.getElementById("importFile");
+
+    makePaperCard = function(paper) {
+      return `
+        <article class="paper-card ${esc(paper.section)}" data-search="${esc([paper.title, paper.collaborators, paper.target, paper.timeline, paper.status, paper.tags.join(" ")].join(" ").toLowerCase())}" data-tags="${esc(paper.tags.join("|").toLowerCase())}" data-section-kind="${esc(paper.section)}">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#${esc(paper.rank)}</span>
+                <div>
+                  <h3>${esc(paper.title)}</h3>
+                  <p class="note-text">${esc(paper.role)}</p>
+                </div>
+              </div>
+              <span class="status-pill ${esc(paper.section)}">${esc(paper.status)}</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>${esc(paper.collaborators)}</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>${esc(paper.target)}</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>${esc(paper.timeline)}</span></div>
+              <div class="meta"><b>Pipeline category</b><span>${esc(sectionNames[paper.section])}</span></div>
+            </div>
+
+            <div class="tags">${paper.tags.map(tag => `<span class="tag">${esc(tag)}</span>`).join("")}</div>
+            <div class="card-actions">
+              <button class="tiny-action" type="button" data-edit-paper="${esc(paper.id)}">Edit</button>
+              <button class="tiny-action danger" type="button" data-delete-paper="${esc(paper.id)}">Delete</button>
+            </div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">${esc(paper.progress)}%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress ${esc(paper.progress)} percent" style="--p: ${esc(paper.progress)}%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      `;
+    };
+
+    makeGrantCard = function(grant) {
+      return `
+        <article class="grant-card">
+          <div>
+            <span class="mini-badge note-pill">${esc(grant.role)} · ${esc(grant.year)}</span>
+            <h3>${esc(grant.title)}</h3>
+            <p class="grant-meta"><strong>${esc(grant.sponsor)}</strong></p>
+            <p class="grant-meta">${esc(grant.note)}</p>
+            <div class="card-actions">
+              <button class="tiny-action" type="button" data-edit-grant="${esc(grant.id)}">Edit</button>
+              <button class="tiny-action danger" type="button" data-delete-grant="${esc(grant.id)}">Delete</button>
+            </div>
+          </div>
+          <div class="grant-amount">${esc(grant.amount)}</div>
+        </article>
+      `;
+    };
+
+    function setEditorMessage(message) {
+      editorMessage.textContent = message || "";
+      if (message) clearTimeout(setEditorMessage.timer);
+      if (message) setEditorMessage.timer = setTimeout(() => editorMessage.textContent = "", 4800);
+    }
+
+    function renderGrantsEditable() {
+      grantGrid.innerHTML = grants.map(makeGrantCard).join("");
+      const badge = document.querySelector("#grants .count-badge");
+      if (badge) badge.textContent = `${grants.length} grant${grants.length === 1 ? "" : "s"}`;
+      document.getElementById("metricGrants").textContent = grants.length;
+    }
+
+    function renderEverything() {
+      normalizeAllData();
+      render();
+      renderGrantsEditable();
+    }
+
+    function saveEditableState(message = "Saved in this browser.") {
+      const payload = { version: 2, updatedAt: new Date().toISOString(), papers, grants };
+      localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(payload));
+      dataStatus.textContent = `Using locally saved edits · last saved: ${new Date(payload.updatedAt).toLocaleString()}`;
+      setEditorMessage(message);
+      renderEverything();
+    }
+
+    function loadEditableState() {
+      normalizeAllData();
+      try {
+        const stored = JSON.parse(localStorage.getItem(EDIT_STORAGE_KEY) || "null");
+        if (stored && Array.isArray(stored.papers) && Array.isArray(stored.grants)) {
+          papers.splice(0, papers.length, ...stored.papers.map(normalizePaper));
+          grants.splice(0, grants.length, ...stored.grants.map(normalizeGrant));
+          dataStatus.textContent = `Using locally saved edits · last saved: ${stored.updatedAt ? new Date(stored.updatedAt).toLocaleString() : "unknown time"}`;
+        }
+      } catch (error) {
+        console.warn("Could not load saved edits", error);
+      }
+      renderEverything();
+    }
+
+    function nextRankEditable() {
+      return papers.length ? Math.max(...papers.map(p => Number(p.rank) || 0)) + 1 : 1;
+    }
+
+    function openPaperForm(id = null) {
+      const paper = id ? papers.find(p => p.id === id) : null;
+      document.getElementById("editor").open = true;
+      entryForm.hidden = false;
+      paperFields.hidden = false;
+      grantFields.hidden = true;
+      editType.value = "paper";
+      editId.value = paper?.id || "";
+      formTitle.textContent = paper ? "Edit paper" : "Add paper";
+      formSubtitle.textContent = "Update status, collaborators, target outlet, timeline, tags, and progress.";
+      paperTitle.value = paper?.title || "";
+      paperSection.value = paper?.section || "working";
+      paperStatus.value = paper?.status || "Working paper";
+      paperRank.value = paper?.rank || nextRankEditable();
+      paperProgress.value = paper?.progress ?? 20;
+      paperCollaborators.value = paper?.collaborators || "Sina Jangjoo";
+      paperRole.value = paper?.role || "Lead / solo author";
+      paperTarget.value = paper?.target || "Journal target TBD / not specified";
+      paperTimeline.value = paper?.timeline || "Timeline not specified.";
+      paperNext.value = paper?.next || "";
+      paperTags.value = (paper?.tags || []).join(", ");
+      entryForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function openGrantForm(id = null) {
+      const grant = id ? grants.find(g => g.id === id) : null;
+      document.getElementById("editor").open = true;
+      entryForm.hidden = false;
+      paperFields.hidden = true;
+      grantFields.hidden = false;
+      editType.value = "grant";
+      editId.value = grant?.id || "";
+      formTitle.textContent = grant ? "Edit grant" : "Add grant";
+      formSubtitle.textContent = "Update sponsored research context. Role can be Collaborator now and PI/Co-PI for future grants.";
+      grantTitle.value = grant?.title || "";
+      grantSponsor.value = grant?.sponsor || "";
+      grantAmount.value = grant?.amount || "";
+      grantYear.value = grant?.year || new Date().getFullYear();
+      grantRole.value = grant?.role || "Collaborator";
+      grantNote.value = grant?.note || "";
+      entryForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function closeEditableForm() {
+      entryForm.hidden = true;
+      editType.value = "";
+      editId.value = "";
+    }
+
+    function saveEditableForm(event) {
+      event.preventDefault();
+      const type = editType.value;
+      const id = editId.value;
+      if (type === "paper") {
+        const title = paperTitle.value.trim();
+        if (!title) return setEditorMessage("Paper title is required.");
+        const item = normalizePaper({
+          id: id || makeEditableId("paper", title),
+          rank: Number(paperRank.value) || nextRankEditable(),
+          section: paperSection.value,
+          status: paperStatus.value.trim() || "Working paper",
+          progress: Number(paperProgress.value) || 0,
+          title,
+          collaborators: paperCollaborators.value.trim() || "Sina Jangjoo",
+          role: paperRole.value.trim() || "Lead / solo author",
+          target: paperTarget.value.trim() || "Journal target TBD / not specified",
+          timeline: paperTimeline.value.trim() || "Timeline not specified.",
+          next: paperNext.value.trim() || "",
+          tags: paperTags.value.split(",").map(t => t.trim()).filter(Boolean)
+        }, papers.length);
+        if (id) papers.splice(papers.findIndex(p => p.id === id), 1, item);
+        else papers.push(item);
+        saveEditableState(id ? "Paper updated." : "New paper added.");
+        closeEditableForm();
+        return;
+      }
+      if (type === "grant") {
+        const title = grantTitle.value.trim();
+        if (!title) return setEditorMessage("Grant title is required.");
+        const item = normalizeGrant({
+          id: id || makeEditableId("grant", title),
+          title,
+          sponsor: grantSponsor.value.trim() || "Sponsor not specified",
+          amount: grantAmount.value.trim() || "Amount not specified",
+          year: grantYear.value.trim() || "Year not specified",
+          role: grantRole.value.trim() || "Collaborator",
+          note: grantNote.value.trim()
+        }, grants.length);
+        if (id) grants.splice(grants.findIndex(g => g.id === id), 1, item);
+        else grants.push(item);
+        saveEditableState(id ? "Grant updated." : "New grant added.");
+        closeEditableForm();
+      }
+    }
+
+    function deleteEditablePaper(id) {
+      const paper = papers.find(p => p.id === id);
+      if (!paper || !confirm(`Delete this paper?\n\n${paper.title}`)) return;
+      papers.splice(papers.findIndex(p => p.id === id), 1);
+      saveEditableState("Paper deleted.");
+    }
+
+    function deleteEditableGrant(id) {
+      const grant = grants.find(g => g.id === id);
+      if (!grant || !confirm(`Delete this grant?\n\n${grant.title}`)) return;
+      grants.splice(grants.findIndex(g => g.id === id), 1);
+      saveEditableState("Grant deleted.");
+    }
+
+    function downloadBlob(content, filename, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportEditableJson() {
+      downloadBlob(JSON.stringify({ version: 2, exportedAt: new Date().toISOString(), papers, grants }, null, 2), "manuscript-pipeline-dashboard-data.json", "application/json");
+      setEditorMessage("Data backup exported as JSON.");
+    }
+
+
+    function publicPaperCard(paper) {
+      const safeSection = esc(paper.section);
+      const searchText = [paper.title, paper.collaborators, paper.target, paper.timeline, paper.status, paper.tags.join(" ")].join(" ").toLowerCase();
+      return `
+        <article class="paper-card ${safeSection}" data-search="${esc(searchText)}" data-tags="${esc(paper.tags.join("|").toLowerCase())}" data-section-kind="${safeSection}" data-rank="${esc(paper.rank)}" data-progress="${esc(paper.progress)}" data-title="${esc(String(paper.title).toLowerCase())}" data-status="${esc(String(paper.status).toLowerCase())}">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#${esc(paper.rank)}</span>
+                <div>
+                  <h3>${esc(paper.title)}</h3>
+                  <p class="note-text">${esc(paper.role)}</p>
+                </div>
+              </div>
+              <span class="status-pill ${safeSection}">${esc(paper.status)}</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>${esc(paper.collaborators)}</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>${esc(paper.target)}</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>${esc(paper.timeline)}</span></div>
+              <div class="meta"><b>Pipeline category</b><span>${esc(sectionNames[paper.section] || paper.section)}</span></div>
+            </div>
+
+            <div class="tags">${paper.tags.map(tag => `<span class="tag">${esc(tag)}</span>`).join("")}</div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">${esc(paper.progress)}%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress ${esc(paper.progress)} percent" style="--p: ${esc(paper.progress)}%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      `;
+    }
+
+    function publicGrantCard(grant) {
+      return `
+        <article class="grant-card">
+          <div>
+            <span class="mini-badge note-pill">${esc(grant.role)} · ${esc(grant.year)}</span>
+            <h3>${esc(grant.title)}</h3>
+            <p class="grant-meta"><strong>${esc(grant.sponsor)}</strong></p>
+            <p class="grant-meta">${esc(grant.note)}</p>
+          </div>
+          <div class="grant-amount">${esc(grant.amount)}</div>
+        </article>
+      `;
+    }
+
+    function publicSectionHtml(id, heading, description, emptyText) {
+      const items = [...papers].filter(p => p.section === id).sort((a, b) => a.rank - b.rank || a.title.localeCompare(b.title));
+      return `
+        <section class="section" id="${esc(id)}">
+          <div class="section-header">
+            <div>
+              <h2>${esc(heading)}</h2>
+              <p>${esc(description)}</p>
+            </div>
+            <span class="count-badge" data-count-for="${esc(id)}">${items.length} item${items.length === 1 ? "" : "s"}</span>
+          </div>
+          <div class="paper-grid" data-section="${esc(id)}">${items.map(publicPaperCard).join("")}</div>
+          <div class="empty-state" data-empty-for="${esc(id)}">${esc(emptyText)}</div>
+        </section>`;
+    }
+
+    function generatePublicWebsiteHtml() {
+      normalizeAllData();
+      const css = document.querySelector("style").textContent;
+      const filtersHtml = filters.map(filter => `<button class="filter ${filter === "All" ? "active" : ""}" type="button" data-filter="${esc(filter)}">${esc(filter)}</button>`).join("");
+      const grantsHtml = grants.map(publicGrantCard).join("");
+      const collaborativeCount = papers.filter(p => {
+        const collaborators = String(p.collaborators || "");
+        return collaborators.split(";").length > 1 || collaborators.includes("Dr.") || collaborators.toLowerCase().includes("additional") || (!collaborators.toLowerCase().includes("sina jangjoo") && collaborators.trim().length > 0);
+      }).length;
+      const generatedOn = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+      const publicScript = `
+    (function () {
+      var activeFilter = "All";
+      var sectionOrder = ["rr", "conference", "dissertation", "working", "concept"];
+      var searchBox = document.getElementById("searchBox");
+      var sortSelect = document.getElementById("sortSelect");
+      var filterButtons = Array.prototype.slice.call(document.querySelectorAll(".filter"));
+
+      function sortCards() {
+        var sort = sortSelect.value;
+        sectionOrder.forEach(function (section) {
+          var grid = document.querySelector('[data-section="' + section + '"]');
+          if (!grid) return;
+          var cards = Array.prototype.slice.call(grid.querySelectorAll(".paper-card"));
+          cards.sort(function (a, b) {
+            if (sort === "progress") return Number(b.dataset.progress || 0) - Number(a.dataset.progress || 0) || Number(a.dataset.rank || 0) - Number(b.dataset.rank || 0);
+            if (sort === "status") return String(a.dataset.status || "").localeCompare(String(b.dataset.status || "")) || Number(a.dataset.rank || 0) - Number(b.dataset.rank || 0);
+            if (sort === "title") return String(a.dataset.title || "").localeCompare(String(b.dataset.title || ""));
+            return Number(a.dataset.rank || 0) - Number(b.dataset.rank || 0);
+          });
+          cards.forEach(function (card) { grid.appendChild(card); });
+        });
+      }
+
+      function render() {
+        var query = (searchBox.value || "").trim().toLowerCase();
+        var cards = Array.prototype.slice.call(document.querySelectorAll(".paper-card"));
+        cards.forEach(function (card) {
+          var haystack = String(card.dataset.search || "");
+          var tags = String(card.dataset.tags || "");
+          var status = String(card.dataset.status || "");
+          var matchesFilter = activeFilter === "All" || tags.split("|").indexOf(activeFilter.toLowerCase()) !== -1 || status.indexOf(activeFilter.toLowerCase()) !== -1;
+          var matchesQuery = !query || haystack.indexOf(query) !== -1;
+          card.hidden = !(matchesFilter && matchesQuery);
+        });
+        sectionOrder.forEach(function (section) {
+          var visible = Array.prototype.slice.call(document.querySelectorAll('.paper-card[data-section-kind="' + section + '"]')).filter(function (card) { return !card.hidden; });
+          var count = document.querySelector('[data-count-for="' + section + '"]');
+          var empty = document.querySelector('[data-empty-for="' + section + '"]');
+          if (count) count.textContent = visible.length + " item" + (visible.length === 1 ? "" : "s");
+          if (empty) empty.classList.toggle("show", visible.length === 0);
+        });
+      }
+
+      filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          activeFilter = button.dataset.filter || "All";
+          filterButtons.forEach(function (b) { b.classList.toggle("active", b === button); });
+          render();
+        });
+      });
+      if (searchBox) searchBox.addEventListener("input", render);
+      if (sortSelect) sortSelect.addEventListener("change", function () { sortCards(); render(); });
+      sortCards();
+      render();
+    })();`;
+
+      return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sina Jangjoo | Manuscript Pipeline Dashboard</title>
+  <style>${css}</style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="Dashboard introduction">
+      <div class="hero-card">
+        <div class="eyebrow">Manuscript Pipeline Dashboard</div>
+        <h1>Working Papers, R&amp;Rs, Collaborators, Target Outlets, and Timeline</h1>
+        <p>A single-page overview of active and near-active manuscripts. Progress bars are planning/readiness indicators based on the status information provided; they are not probabilities of journal acceptance. Items without specified journal targets are intentionally marked as TBD rather than inferred.</p>
+        <div class="hero-note">
+          <span class="note-pill">Ordered by revision urgency and manuscript maturity</span>
+          <span class="note-pill">Searchable and filterable</span>
+          <span class="note-pill">Print-friendly</span>
+          <span class="note-pill">Generated ${esc(generatedOn)}</span>
+        </div>
+      </div>
+      <aside class="side-card" aria-label="Dashboard summary metrics">
+        <div class="metric-grid">
+          <div class="metric"><strong id="metricRR">${papers.filter(p => p.section === "rr").length}</strong><span>R&amp;R papers</span></div>
+          <div class="metric"><strong id="metricWorking">${papers.filter(p => p.section !== "rr").length}</strong><span>Working papers</span></div>
+          <div class="metric"><strong id="metricGrants">${grants.length}</strong><span>Grant links</span></div>
+          <div class="metric"><strong id="metricCollab">${collaborativeCount}</strong><span>Collaborative items</span></div>
+        </div>
+        <div class="legend">
+          <div><b>Progress logic:</b> R&amp;R = advanced revision stage; conference submitted/proposal accepted = early public-facing development; presented dissertation/working papers = manuscript development stage; concept papers = early pipeline.</div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="toolbar" aria-label="Search and filters">
+      <label class="search-wrap" for="searchBox"><span>⌕</span><input id="searchBox" type="search" placeholder="Search by title, collaborator, venue, topic, or status..." /></label>
+      <select id="sortSelect" aria-label="Sort papers">
+        <option value="priority">Sort by priority order</option>
+        <option value="progress">Sort by progress</option>
+        <option value="status">Sort by status</option>
+        <option value="title">Sort by title</option>
+      </select>
+      <div class="filters" id="filters">${filtersHtml}</div>
+    </section>
+
+    <section class="layout">
+      <nav class="nav-panel" aria-label="Page sections">
+        <a class="section-link" href="#rr">R&amp;R Papers <small>closest to journal decision</small></a>
+        <a class="section-link" href="#conference">Conference / Proposal Stage <small>submitted or accepted externally</small></a>
+        <a class="section-link" href="#dissertation">Dissertation / Near-Journal Papers <small>already presented or chapter-based</small></a>
+        <a class="section-link" href="#working">Active Working Papers <small>collaborative and solo projects</small></a>
+        <a class="section-link" href="#concept">Concept / Early Pipeline <small>ideas needing target selection</small></a>
+        <a class="section-link" href="#grants">Sponsored Research Context <small>related grant infrastructure</small></a>
+      </nav>
+
+      <div class="content">
+        ${publicSectionHtml("rr", "Revise & Resubmit Papers", "Highest-priority manuscripts because they already have journal decisions and should be managed through revision memos, response letters, and targeted resubmission timelines.", "No R&R papers match the current filters.")}
+        ${publicSectionHtml("conference", "Conference / Proposal Stage", "Projects already accepted to, submitted to, or developed through major conferences. These are not journal submissions unless a target journal is listed.", "No conference-stage papers match the current filters.")}
+        ${publicSectionHtml("dissertation", "Dissertation / Near-Journal Papers", "Manuscripts with dissertation-chapter status or previous conference exposure. These are usually the next best candidates for journal targeting.", "No dissertation-stage papers match the current filters.")}
+        ${publicSectionHtml("working", "Active Working Papers", "Projects with identifiable collaborators, methods, or substantive direction but without a specified journal target in the current list.", "No active working papers match the current filters.")}
+        ${publicSectionHtml("concept", "Concept / Early Pipeline", "Early-stage manuscripts that need scoping, target-journal selection, and a sharper timeline before entering the main writing pipeline.", "No concept-stage papers match the current filters.")}
+
+        <section class="section" id="grants">
+          <div class="section-header">
+            <div>
+              <h2>Sponsored Research Context</h2>
+              <p>Grants and sponsored projects connected to the broader research agenda. Role is shown as collaborator based on the CV text provided.</p>
+            </div>
+            <span class="count-badge">${grants.length} grant${grants.length === 1 ? "" : "s"}</span>
+          </div>
+          <div class="grant-grid" id="grantGrid">${grantsHtml}</div>
+        </section>
+      </div>
+    </section>
+
+    <p class="footer">Prepared as a self-contained public manuscript pipeline page for Sina Jangjoo.</p>
+  </main>
+  <script>${publicScript}<\/script>
+</body>
+</html>`;
+    }
+
+    function exportPublicWebsiteHtmlCode() {
+      const html = generatePublicWebsiteHtml();
+      downloadBlob(html, "manuscript-pipeline-public-html-code.txt", "text/plain;charset=utf-8");
+      setEditorMessage("Clean public website HTML code exported as a .txt file.");
+    }
+
+    function downloadEditableHtml() {
+      const source = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const updated = source
+        .replace(/const papers = \[[\s\S]*?\];\n\n    const grants = \[[\s\S]*?\];/, `const papers = ${JSON.stringify(papers, null, 6)};\n\n    const grants = ${JSON.stringify(grants, null, 6)};`)
+        .replace(/localStorage\.setItem\(EDIT_STORAGE_KEY, JSON\.stringify\(payload\)\);/, "localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(payload));");
+      downloadBlob(updated, "manuscript_pipeline_dashboard_edited.html", "text/html");
+      setEditorMessage("Updated standalone HTML downloaded.");
+    }
+
+    function importEditableJson(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const payload = JSON.parse(reader.result);
+          if (!Array.isArray(payload.papers) || !Array.isArray(payload.grants)) throw new Error("The JSON file must include papers and grants arrays.");
+          papers.splice(0, papers.length, ...payload.papers.map(normalizePaper));
+          grants.splice(0, grants.length, ...payload.grants.map(normalizeGrant));
+          saveEditableState("Imported data backup and saved it in this browser.");
+        } catch (error) {
+          setEditorMessage(`Import failed: ${error.message}`);
+        } finally {
+          importFile.value = "";
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function resetEditableDefaults() {
+      if (!confirm("Reset the dashboard to the original built-in data? This removes local browser edits for this file.")) return;
+      papers.splice(0, papers.length, ...originalPapers.map(normalizePaper));
+      grants.splice(0, grants.length, ...originalGrants.map(normalizeGrant));
+      localStorage.removeItem(EDIT_STORAGE_KEY);
+      dataStatus.textContent = "Using built-in dashboard data";
+      closeEditableForm();
+      setEditorMessage("Reset to original dashboard data.");
+      renderEverything();
+    }
+
+    addPaperBtn.addEventListener("click", () => openPaperForm());
+    addGrantBtn.addEventListener("click", () => openGrantForm());
+    cancelEditBtn.addEventListener("click", closeEditableForm);
+    clearFormBtn.addEventListener("click", () => editType.value === "grant" ? openGrantForm() : openPaperForm());
+    exportPublicHtmlBtn.addEventListener("click", exportPublicWebsiteHtmlCode);
+    exportJsonBtn.addEventListener("click", exportEditableJson);
+    downloadHtmlBtn.addEventListener("click", downloadEditableHtml);
+    importJsonBtn.addEventListener("click", () => importFile.click());
+    resetDefaultsBtn.addEventListener("click", resetEditableDefaults);
+    importFile.addEventListener("change", () => importFile.files[0] && importEditableJson(importFile.files[0]));
+    entryForm.addEventListener("submit", saveEditableForm);
+
+    document.addEventListener("click", event => {
+      const editPaperId = event.target.getAttribute("data-edit-paper");
+      const deletePaperId = event.target.getAttribute("data-delete-paper");
+      const editGrantId = event.target.getAttribute("data-edit-grant");
+      const deleteGrantId = event.target.getAttribute("data-delete-grant");
+      if (editPaperId) openPaperForm(editPaperId);
+      if (deletePaperId) deleteEditablePaper(deletePaperId);
+      if (editGrantId) openGrantForm(editGrantId);
+      if (deleteGrantId) deleteEditableGrant(deleteGrantId);
+    });
+
+    loadEditableState();
+  </script>
+
+</body>
+</html>
