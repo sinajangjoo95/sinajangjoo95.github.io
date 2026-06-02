@@ -779,23 +779,20 @@
       <div class="hero-card">
         <div class="eyebrow">Manuscript Pipeline Dashboard</div>
         <h1>Working Papers, R&amp;Rs, Collaborators, Target Outlets, and Timeline</h1>
-        <p>
-          A single-page overview of active and near-active manuscripts. Progress bars are planning/readiness indicators based on the status information provided; they are not probabilities of journal acceptance. Items without specified journal targets are intentionally marked as TBD rather than inferred.
-        </p>
+        <p>A single-page overview of active and near-active manuscripts. Progress bars are planning/readiness indicators based on the status information provided; they are not probabilities of journal acceptance. Items without specified journal targets are intentionally marked as TBD rather than inferred.</p>
         <div class="hero-note">
           <span class="note-pill">Ordered by revision urgency and manuscript maturity</span>
           <span class="note-pill">Searchable and filterable</span>
           <span class="note-pill">Print-friendly</span>
-          <span class="note-pill">Editable with local save + export</span>
+          <span class="note-pill">Generated June 2, 2026</span>
         </div>
       </div>
-
       <aside class="side-card" aria-label="Dashboard summary metrics">
         <div class="metric-grid">
           <div class="metric"><strong id="metricRR">4</strong><span>R&amp;R papers</span></div>
           <div class="metric"><strong id="metricWorking">19</strong><span>Working papers</span></div>
           <div class="metric"><strong id="metricGrants">3</strong><span>Grant links</span></div>
-          <div class="metric"><strong id="metricCollab">—</strong><span>Collaborative items</span></div>
+          <div class="metric"><strong id="metricCollab">11</strong><span>Collaborative items</span></div>
         </div>
         <div class="legend">
           <div><b>Progress logic:</b> R&amp;R = advanced revision stage; conference submitted/proposal accepted = early public-facing development; presented dissertation/working papers = manuscript development stage; concept papers = early pipeline.</div>
@@ -811,81 +808,8 @@
         <option value="status">Sort by status</option>
         <option value="title">Sort by title</option>
       </select>
-      <div class="filters" id="filters"></div>
+      <div class="filters" id="filters"><button class="filter active" type="button" data-filter="All">All</button><button class="filter " type="button" data-filter="R&amp;R">R&amp;R</button><button class="filter " type="button" data-filter="AI Governance">AI Governance</button><button class="filter " type="button" data-filter="Energy">Energy</button><button class="filter " type="button" data-filter="Nonprofit">Nonprofit</button><button class="filter " type="button" data-filter="Urban">Urban</button><button class="filter " type="button" data-filter="Dissertation">Dissertation</button><button class="filter " type="button" data-filter="Collaborative Governance">Collaborative Governance</button><button class="filter " type="button" data-filter="Teaching">Teaching</button><button class="filter " type="button" data-filter="Technical Assistance">Technical Assistance</button></div>
     </section>
-
-
-
-    <details class="editor-panel" id="editor">
-      <summary>
-        <span>Edit / Add Dashboard Items</span>
-        <small>Saved locally in this browser. Export a clean public HTML code file when you finish.</small>
-      </summary>
-      <div class="editor-body">
-        <div class="editor-actions">
-          <button class="action-btn primary" type="button" id="addPaperBtn">+ Add paper</button>
-          <button class="action-btn primary" type="button" id="addGrantBtn">+ Add grant</button>
-          <button class="action-btn gold" type="button" id="exportPublicHtmlBtn">Export public website HTML code</button>
-          <button class="action-btn gold" type="button" id="exportJsonBtn">Export data backup</button>
-          <button class="action-btn" type="button" id="downloadHtmlBtn">Save private editable HTML copy</button>
-          <button class="action-btn" type="button" id="importJsonBtn">Import data backup</button>
-          <button class="action-btn danger" type="button" id="resetDefaultsBtn">Reset to original data</button>
-          <input id="importFile" type="file" accept="application/json,.json" hidden />
-        </div>
-        <p class="editor-note">Use the small Edit buttons on each card to revise existing entries. Browser edits are private to this device. Use <strong>Export public website HTML code</strong> to download a .txt file containing the clean, non-editable HTML page for your website.</p>
-        <div class="data-status" id="dataStatus">Using built-in dashboard data</div>
-        <div class="editor-message" id="editorMessage" aria-live="polite"></div>
-
-        <form class="editor-form" id="entryForm" hidden>
-          <div class="form-head">
-            <div>
-              <h3 id="formTitle">Add item</h3>
-              <p class="editor-note" id="formSubtitle">Fill the fields you know. Leave unknown targets as TBD / not specified.</p>
-            </div>
-            <button class="action-btn ghost" type="button" id="cancelEditBtn">Close</button>
-          </div>
-
-          <input type="hidden" id="editType" />
-          <input type="hidden" id="editId" />
-
-          <div class="form-grid" id="paperFields">
-            <label class="editor-field full">Paper title<textarea id="paperTitle" required></textarea></label>
-            <label class="editor-field">Pipeline category
-              <select id="paperSection">
-                <option value="rr">R&amp;R</option>
-                <option value="conference">Conference / Proposal</option>
-                <option value="dissertation">Dissertation / Near-Journal</option>
-                <option value="working">Active Working</option>
-                <option value="concept">Concept / Early Pipeline</option>
-              </select>
-            </label>
-            <label class="editor-field">Status<input id="paperStatus" placeholder="R&amp;R, Working paper, Presented, Submitted..." /></label>
-            <label class="editor-field">Priority order<input id="paperRank" type="number" min="1" step="1" /></label>
-            <label class="editor-field">Progress / readiness %<input id="paperProgress" type="number" min="0" max="100" step="1" /></label>
-            <label class="editor-field full">Collaborators<textarea id="paperCollaborators" placeholder="Sina Jangjoo; Dr. Tang; ..."></textarea></label>
-            <label class="editor-field">Your role<input id="paperRole" placeholder="Lead / solo author, Coauthor, First author..." /></label>
-            <label class="editor-field">Target journal / outlet<input id="paperTarget" placeholder="Policy Studies Journal, NVSQ, TBD / not specified..." /></label>
-            <label class="editor-field full">Timeline / stage evidence<textarea id="paperTimeline" placeholder="Submitted May 2026; presented at ASPA 2026; R&amp;R received..."></textarea></label>
-            <textarea id="paperNext" hidden></textarea>
-            <label class="editor-field full">Tags<input id="paperTags" placeholder="AI Governance, Nonprofit, Energy, R&amp;R" /></label>
-          </div>
-
-          <div class="form-grid" id="grantFields" hidden>
-            <label class="editor-field full">Grant / sponsored project title<textarea id="grantTitle" required></textarea></label>
-            <label class="editor-field">Sponsor<input id="grantSponsor" /></label>
-            <label class="editor-field">Amount<input id="grantAmount" placeholder="$311,127" /></label>
-            <label class="editor-field">Year<input id="grantYear" placeholder="2026" /></label>
-            <label class="editor-field">Role<input id="grantRole" placeholder="Collaborator, PI, Co-PI..." /></label>
-            <label class="editor-field full">Note<textarea id="grantNote"></textarea></label>
-          </div>
-
-          <div class="form-actions">
-            <button class="action-btn primary" type="submit" id="saveEntryBtn">Save item</button>
-            <button class="action-btn" type="button" id="clearFormBtn">Clear form</button>
-          </div>
-        </form>
-      </div>
-    </details>
 
     <section class="layout">
       <nav class="nav-panel" aria-label="Page sections">
@@ -895,67 +819,803 @@
         <a class="section-link" href="#working">Active Working Papers <small>collaborative and solo projects</small></a>
         <a class="section-link" href="#concept">Concept / Early Pipeline <small>ideas needing target selection</small></a>
         <a class="section-link" href="#grants">Sponsored Research Context <small>related grant infrastructure</small></a>
-        <a class="section-link" href="#editor">Edit / Add Items <small>private local editor</small></a>
       </nav>
 
       <div class="content">
+        
         <section class="section" id="rr">
           <div class="section-header">
             <div>
               <h2>Revise &amp; Resubmit Papers</h2>
               <p>Highest-priority manuscripts because they already have journal decisions and should be managed through revision memos, response letters, and targeted resubmission timelines.</p>
             </div>
-            <span class="count-badge" data-count-for="rr">0 items</span>
+            <span class="count-badge" data-count-for="rr">4 items</span>
           </div>
-          <div class="paper-grid" data-section="rr"></div>
+          <div class="paper-grid" data-section="rr">
+        <article class="paper-card rr" data-search="institutional voids and public opposition: evidence from the siting of wind energy infrastructure x. gao; sina jangjoo policy studies journal submitted march 2026; r&amp;r; presented at appam 2025. r&amp;r r&amp;r energy institutional voids public opposition policy process" data-tags="r&amp;r|energy|institutional voids|public opposition|policy process" data-section-kind="rr" data-rank="1" data-progress="78" data-title="institutional voids and public opposition: evidence from the siting of wind energy infrastructure" data-status="r&amp;r">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#1</span>
+                <div>
+                  <h3>Institutional Voids and Public Opposition: Evidence from the Siting of Wind Energy Infrastructure</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill rr">R&amp;R</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>X. Gao; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Policy Studies Journal</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Submitted March 2026; R&amp;R; presented at APPAM 2025.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>R&amp;R</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">R&amp;R</span><span class="tag">Energy</span><span class="tag">Institutional Voids</span><span class="tag">Public Opposition</span><span class="tag">Policy Process</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">78%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 78 percent" style="--p: 78%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card rr" data-search="a system-of-systems convergence paradigm for societal challenges of the anthropocene m. s. harris; m. m. naderi; e. ghorbanichemazkati; sina jangjoo; e. lapan; s. a. hosseini; a. m. farid; additional coauthors earth&#039;s future submitted january 2026; r&amp;r; arxiv version available. r&amp;r r&amp;r systems anthropocene convergence governance" data-tags="r&amp;r|systems|anthropocene|convergence|governance" data-section-kind="rr" data-rank="2" data-progress="76" data-title="a system-of-systems convergence paradigm for societal challenges of the anthropocene" data-status="r&amp;r">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#2</span>
+                <div>
+                  <h3>A System-of-Systems Convergence Paradigm for Societal Challenges of the Anthropocene</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill rr">R&amp;R</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>M. S. Harris; M. M. Naderi; E. Ghorbanichemazkati; Sina Jangjoo; E. Lapan; S. A. Hosseini; A. M. Farid; additional coauthors</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Earth&#039;s Future</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Submitted January 2026; R&amp;R; arXiv version available.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>R&amp;R</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">R&amp;R</span><span class="tag">Systems</span><span class="tag">Anthropocene</span><span class="tag">Convergence</span><span class="tag">Governance</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">76%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 76 percent" style="--p: 76%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card rr" data-search="civil society after disasters d. berlan; m. denis-luque; y. sun; sina jangjoo nonprofit and voluntary sector quarterly submitted november 2024; r&amp;r. r&amp;r r&amp;r nonprofit civil society disasters governance" data-tags="r&amp;r|nonprofit|civil society|disasters|governance" data-section-kind="rr" data-rank="3" data-progress="74" data-title="civil society after disasters" data-status="r&amp;r">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#3</span>
+                <div>
+                  <h3>Civil Society After Disasters</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill rr">R&amp;R</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>D. Berlan; M. Denis-Luque; Y. Sun; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Nonprofit and Voluntary Sector Quarterly</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Submitted November 2024; R&amp;R.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>R&amp;R</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">R&amp;R</span><span class="tag">Nonprofit</span><span class="tag">Civil Society</span><span class="tag">Disasters</span><span class="tag">Governance</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">74%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 74 percent" style="--p: 74%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card rr" data-search="women’s intragroup differences in urban green space soundscape appraisal: evidence from a corridor park in shiraz, iran a. r. sadeghi; a. alishahi; n. panahi; sina jangjoo journal of environmental management submitted may 2026; r&amp;r. r&amp;r r&amp;r urban women green space soundscape iran" data-tags="r&amp;r|urban|women|green space|soundscape|iran" data-section-kind="rr" data-rank="4" data-progress="72" data-title="women’s intragroup differences in urban green space soundscape appraisal: evidence from a corridor park in shiraz, iran" data-status="r&amp;r">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#4</span>
+                <div>
+                  <h3>Women’s Intragroup Differences in Urban Green Space Soundscape Appraisal: Evidence from a Corridor Park in Shiraz, Iran</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill rr">R&amp;R</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>A. R. Sadeghi; A. Alishahi; N. Panahi; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal of Environmental Management</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Submitted May 2026; R&amp;R.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>R&amp;R</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">R&amp;R</span><span class="tag">Urban</span><span class="tag">Women</span><span class="tag">Green Space</span><span class="tag">Soundscape</span><span class="tag">Iran</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">72%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 72 percent" style="--p: 72%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      </div>
           <div class="empty-state" data-empty-for="rr">No R&amp;R papers match the current filters.</div>
         </section>
-
+        
         <section class="section" id="conference">
           <div class="section-header">
             <div>
               <h2>Conference / Proposal Stage</h2>
               <p>Projects already accepted to, submitted to, or developed through major conferences. These are not journal submissions unless a target journal is listed.</p>
             </div>
-            <span class="count-badge" data-count-for="conference">0 items</span>
+            <span class="count-badge" data-count-for="conference">9 items</span>
           </div>
-          <div class="paper-grid" data-section="conference"></div>
+          <div class="paper-grid" data-section="conference">
+        <article class="paper-card conference" data-search="when are governments institutionally ready for public-sector ai? classification, venue settlement, and procedural governance sina jangjoo journal target tbd / not specified proposal accepted to pmrc 2026. proposal accepted ai governance public sector ai institutional readiness procedural governance pmrc 2026" data-tags="ai governance|public sector ai|institutional readiness|procedural governance|pmrc 2026" data-section-kind="conference" data-rank="5" data-progress="34" data-title="when are governments institutionally ready for public-sector ai? classification, venue settlement, and procedural governance" data-status="proposal accepted">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#5</span>
+                <div>
+                  <h3>When Are Governments Institutionally Ready for Public-Sector AI? Classification, Venue Settlement, and Procedural Governance</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Proposal accepted</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Proposal accepted to PMRC 2026.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">AI Governance</span><span class="tag">Public Sector AI</span><span class="tag">Institutional Readiness</span><span class="tag">Procedural Governance</span><span class="tag">PMRC 2026</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">34%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 34 percent" style="--p: 34%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card conference" data-search="visible public disruption and accountability lag in embodied autonomous-system governance sina jangjoo journal target tbd / not specified submitted to appam 2026. conference submitted autonomous systems accountability public disruption governance appam 2026" data-tags="autonomous systems|accountability|public disruption|governance|appam 2026" data-section-kind="conference" data-rank="6" data-progress="31" data-title="visible public disruption and accountability lag in embodied autonomous-system governance" data-status="conference submitted">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#6</span>
+                <div>
+                  <h3>Visible Public Disruption and Accountability Lag in Embodied Autonomous-System Governance</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Conference submitted</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Submitted to APPAM 2026.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Autonomous Systems</span><span class="tag">Accountability</span><span class="tag">Public Disruption</span><span class="tag">Governance</span><span class="tag">APPAM 2026</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">31%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 31 percent" style="--p: 31%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card conference" data-search="who makes ai infrastructure governable? nonprofits, data centers, and contested rule formation in local communities sina jangjoo journal target tbd / not specified submitted to arnova 2026. conference submitted ai infrastructure nonprofits data centers local governance arnova 2026" data-tags="ai infrastructure|nonprofits|data centers|local governance|arnova 2026" data-section-kind="conference" data-rank="7" data-progress="31" data-title="who makes ai infrastructure governable? nonprofits, data centers, and contested rule formation in local communities" data-status="conference submitted">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#7</span>
+                <div>
+                  <h3>Who Makes AI Infrastructure Governable? Nonprofits, Data Centers, and Contested Rule Formation in Local Communities</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Conference submitted</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Submitted to ARNOVA 2026.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">AI Infrastructure</span><span class="tag">Nonprofits</span><span class="tag">Data Centers</span><span class="tag">Local Governance</span><span class="tag">ARNOVA 2026</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">31%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 31 percent" style="--p: 31%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card conference" data-search="the attention budget of collaborative governance regimes: how boundary infrastructure punctuates the administrative agenda e. lapan; l. arpan; t. tang; sina jangjoo journal target tbd / not specified presented at aspa 2026. presented collaborative governance boundary infrastructure agenda setting aspa 2026" data-tags="collaborative governance|boundary infrastructure|agenda setting|aspa 2026" data-section-kind="conference" data-rank="8" data-progress="42" data-title="the attention budget of collaborative governance regimes: how boundary infrastructure punctuates the administrative agenda" data-status="presented">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#8</span>
+                <div>
+                  <h3>The Attention Budget of Collaborative Governance Regimes: How Boundary Infrastructure Punctuates the Administrative Agenda</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Presented</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>E. Lapan; L. Arpan; T. Tang; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Presented at ASPA 2026.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Collaborative Governance</span><span class="tag">Boundary Infrastructure</span><span class="tag">Agenda Setting</span><span class="tag">ASPA 2026</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">42%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 42 percent" style="--p: 42%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card conference" data-search="beyond first impressions: how fit and compensation discrepancies shape turnover intentions among nonprofit leaders in small human service nonprofits dr. azevedo; sina jangjoo journal target tbd / not specified presented at aspa 2026. presented nonprofit turnover person-organization fit compensation aspa 2026" data-tags="nonprofit|turnover|person-organization fit|compensation|aspa 2026" data-section-kind="conference" data-rank="9" data-progress="40" data-title="beyond first impressions: how fit and compensation discrepancies shape turnover intentions among nonprofit leaders in small human service nonprofits" data-status="presented">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#9</span>
+                <div>
+                  <h3>Beyond First Impressions: How Fit and Compensation Discrepancies Shape Turnover Intentions Among Nonprofit Leaders in Small Human Service Nonprofits</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Presented</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Dr. Azevedo; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Presented at ASPA 2026.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Nonprofit</span><span class="tag">Turnover</span><span class="tag">Person-Organization Fit</span><span class="tag">Compensation</span><span class="tag">ASPA 2026</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">40%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 40 percent" style="--p: 40%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card conference" data-search="governing ai in a multipolar world: ethical risks, institutional mismatch, and contested rule formation in the global ai transition sina jangjoo journal target tbd / not specified proposal accepted to pmrc 2025. proposal accepted ai governance global governance institutional mismatch ethics pmrc 2025" data-tags="ai governance|global governance|institutional mismatch|ethics|pmrc 2025" data-section-kind="conference" data-rank="10" data-progress="30" data-title="governing ai in a multipolar world: ethical risks, institutional mismatch, and contested rule formation in the global ai transition" data-status="proposal accepted">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#10</span>
+                <div>
+                  <h3>Governing AI in a Multipolar World: Ethical Risks, Institutional Mismatch, and Contested Rule Formation in the Global AI Transition</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Proposal accepted</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Proposal accepted to PMRC 2025.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">AI Governance</span><span class="tag">Global Governance</span><span class="tag">Institutional Mismatch</span><span class="tag">Ethics</span><span class="tag">PMRC 2025</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">30%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 30 percent" style="--p: 30%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card conference" data-search="translating performance between funders and nonprofits d. berlan; m. vanlandingham; sina jangjoo journal target tbd / not specified presented at arnova 2024. presented nonprofit performance funders accountability arnova 2024" data-tags="nonprofit|performance|funders|accountability|arnova 2024" data-section-kind="conference" data-rank="11" data-progress="36" data-title="translating performance between funders and nonprofits" data-status="presented">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#11</span>
+                <div>
+                  <h3>Translating Performance Between Funders and Nonprofits</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Presented</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>D. Berlan; M. VanLandingham; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Presented at ARNOVA 2024.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Nonprofit</span><span class="tag">Performance</span><span class="tag">Funders</span><span class="tag">Accountability</span><span class="tag">ARNOVA 2024</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">36%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 36 percent" style="--p: 36%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card conference" data-search="are small nonprofits stepping stones or springboards? a multi-dimensional study of turnover intentions and perceived fit discrepancy dr. azevedo; sina jangjoo journal target tbd / not specified presented at arnova 2024; working project. presented / working project nonprofit turnover fit discrepancy human services arnova 2024" data-tags="nonprofit|turnover|fit discrepancy|human services|arnova 2024" data-section-kind="conference" data-rank="12" data-progress="34" data-title="are small nonprofits stepping stones or springboards? a multi-dimensional study of turnover intentions and perceived fit discrepancy" data-status="presented / working project">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#12</span>
+                <div>
+                  <h3>Are Small Nonprofits Stepping Stones or Springboards? A Multi-Dimensional Study of Turnover Intentions and Perceived Fit Discrepancy</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Presented / working project</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Dr. Azevedo; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Presented at ARNOVA 2024; working project.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Nonprofit</span><span class="tag">Turnover</span><span class="tag">Fit Discrepancy</span><span class="tag">Human Services</span><span class="tag">ARNOVA 2024</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">34%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 34 percent" style="--p: 34%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card conference" data-search="immigration policy, institutions, precarity, and wellbeing of citizen spouses in mixed-status families sina jangjoo journal target tbd / not specified presented at secopa 2024. presented immigration policy institutions precarity mixed-status families secopa 2024" data-tags="immigration policy|institutions|precarity|mixed-status families|secopa 2024" data-section-kind="conference" data-rank="13" data-progress="32" data-title="immigration policy, institutions, precarity, and wellbeing of citizen spouses in mixed-status families" data-status="presented">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#13</span>
+                <div>
+                  <h3>Immigration Policy, Institutions, Precarity, and Wellbeing of Citizen Spouses in Mixed-Status Families</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill conference">Presented</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Presented at SECoPA 2024.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Conference / Proposal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Immigration Policy</span><span class="tag">Institutions</span><span class="tag">Precarity</span><span class="tag">Mixed-Status Families</span><span class="tag">SECoPA 2024</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">32%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 32 percent" style="--p: 32%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      </div>
           <div class="empty-state" data-empty-for="conference">No conference-stage papers match the current filters.</div>
         </section>
-
+        
         <section class="section" id="dissertation">
           <div class="section-header">
             <div>
               <h2>Dissertation / Near-Journal Papers</h2>
               <p>Manuscripts with dissertation-chapter status or previous conference exposure. These are usually the next best candidates for journal targeting.</p>
             </div>
-            <span class="count-badge" data-count-for="dissertation">0 items</span>
+            <span class="count-badge" data-count-for="dissertation">2 items</span>
           </div>
-          <div class="paper-grid" data-section="dissertation"></div>
+          <div class="paper-grid" data-section="dissertation">
+        <article class="paper-card dissertation" data-search="nonprofits as shadow rule-makers under constrained polycentricity: local clean energy governance in florida sina jangjoo journal target tbd / not specified presented at arnova 2025; dissertation chapter 2. presented / dissertation chapter dissertation nonprofit clean energy polycentricity florida" data-tags="dissertation|nonprofit|clean energy|polycentricity|florida" data-section-kind="dissertation" data-rank="14" data-progress="58" data-title="nonprofits as shadow rule-makers under constrained polycentricity: local clean energy governance in florida" data-status="presented / dissertation chapter">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#14</span>
+                <div>
+                  <h3>Nonprofits as Shadow Rule-Makers under Constrained Polycentricity: Local Clean Energy Governance in Florida</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill dissertation">Presented / dissertation chapter</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Presented at ARNOVA 2025; Dissertation Chapter 2.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Dissertation / Near-Journal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Dissertation</span><span class="tag">Nonprofit</span><span class="tag">Clean Energy</span><span class="tag">Polycentricity</span><span class="tag">Florida</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">58%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 58 percent" style="--p: 58%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card dissertation" data-search="peripheral rule-system stabilization under constrained polycentricity: local energy transition governance and justice in preemptive florida sina jangjoo journal target tbd / not specified presented at aspa 2025; dissertation chapter 3. presented / dissertation chapter dissertation energy justice polycentricity preemption florida" data-tags="dissertation|energy justice|polycentricity|preemption|florida" data-section-kind="dissertation" data-rank="15" data-progress="56" data-title="peripheral rule-system stabilization under constrained polycentricity: local energy transition governance and justice in preemptive florida" data-status="presented / dissertation chapter">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#15</span>
+                <div>
+                  <h3>Peripheral Rule-System Stabilization under Constrained Polycentricity: Local Energy Transition Governance and Justice in Preemptive Florida</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill dissertation">Presented / dissertation chapter</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Presented at ASPA 2025; Dissertation Chapter 3.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Dissertation / Near-Journal</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Dissertation</span><span class="tag">Energy Justice</span><span class="tag">Polycentricity</span><span class="tag">Preemption</span><span class="tag">Florida</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">56%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 56 percent" style="--p: 56%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      </div>
           <div class="empty-state" data-empty-for="dissertation">No dissertation-stage papers match the current filters.</div>
         </section>
-
+        
         <section class="section" id="working">
           <div class="section-header">
             <div>
               <h2>Active Working Papers</h2>
               <p>Projects with identifiable collaborators, methods, or substantive direction but without a specified journal target in the current list.</p>
             </div>
-            <span class="count-badge" data-count-for="working">0 items</span>
+            <span class="count-badge" data-count-for="working">5 items</span>
           </div>
-          <div class="paper-grid" data-section="working"></div>
+          <div class="paper-grid" data-section="working">
+        <article class="paper-card working" data-search="administrative capacity and the absorption of local solar technical assistance: evidence from solsmart t. tang; sina jangjoo journal target tbd / not specified working paper; timeline not specified. working paper solar technical assistance administrative capacity solsmart local government" data-tags="solar|technical assistance|administrative capacity|solsmart|local government" data-section-kind="working" data-rank="16" data-progress="26" data-title="administrative capacity and the absorption of local solar technical assistance: evidence from solsmart" data-status="working paper">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#16</span>
+                <div>
+                  <h3>Administrative Capacity and the Absorption of Local Solar Technical Assistance: Evidence from SolSmart</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill working">Working paper</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>T. Tang; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Working paper; timeline not specified.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Active Working</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Solar</span><span class="tag">Technical Assistance</span><span class="tag">Administrative Capacity</span><span class="tag">SolSmart</span><span class="tag">Local Government</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">26%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 26 percent" style="--p: 26%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card working" data-search="can technical assistance make governments ready for ai? lessons from solar governance for public-sector ai sina jangjoo journal target tbd / not specified working paper; timeline not specified. working paper ai governance technical assistance solar governance administrative capacity" data-tags="ai governance|technical assistance|solar governance|administrative capacity" data-section-kind="working" data-rank="17" data-progress="24" data-title="can technical assistance make governments ready for ai? lessons from solar governance for public-sector ai" data-status="working paper">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#17</span>
+                <div>
+                  <h3>Can Technical Assistance Make Governments Ready for AI? Lessons from Solar Governance for Public-Sector AI</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill working">Working paper</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Working paper; timeline not specified.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Active Working</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">AI Governance</span><span class="tag">Technical Assistance</span><span class="tag">Solar Governance</span><span class="tag">Administrative Capacity</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">24%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 24 percent" style="--p: 24%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card working" data-search="when all-age is not one template: older women’s public-space criteria and measurement portability in shiraz, iran a. r. sadeghi; sina jangjoo journal target tbd / not specified working paper; timeline not specified. working paper urban older women measurement public space iran" data-tags="urban|older women|measurement|public space|iran" data-section-kind="working" data-rank="18" data-progress="23" data-title="when all-age is not one template: older women’s public-space criteria and measurement portability in shiraz, iran" data-status="working paper">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#18</span>
+                <div>
+                  <h3>When All-Age Is Not One Template: Older Women’s Public-Space Criteria and Measurement Portability in Shiraz, Iran</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill working">Working paper</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>A. R. Sadeghi; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Working paper; timeline not specified.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Active Working</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Urban</span><span class="tag">Older Women</span><span class="tag">Measurement</span><span class="tag">Public Space</span><span class="tag">Iran</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">23%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 23 percent" style="--p: 23%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card working" data-search="from advocacy to action: nonprofits and the evolution of collaborative water governance in oregon dr. gao; dr. liu; sina jangjoo journal target tbd / not specified working paper; timeline not specified. working paper nonprofit water governance oregon collaborative governance" data-tags="nonprofit|water governance|oregon|collaborative governance" data-section-kind="working" data-rank="19" data-progress="22" data-title="from advocacy to action: nonprofits and the evolution of collaborative water governance in oregon" data-status="working paper">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#19</span>
+                <div>
+                  <h3>From Advocacy to Action: Nonprofits and the Evolution of Collaborative Water Governance in Oregon</h3>
+                  <p class="note-text">Coauthor</p>
+                </div>
+              </div>
+              <span class="status-pill working">Working paper</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Dr. Gao; Dr. Liu; Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Working paper; timeline not specified.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Active Working</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Nonprofit</span><span class="tag">Water Governance</span><span class="tag">Oregon</span><span class="tag">Collaborative Governance</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">22%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 22 percent" style="--p: 22%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card working" data-search="from classroom experimentation to institutional settlement: making ai governable in public affairs education sina jangjoo journal target tbd / not specified working paper; timeline not specified. working paper ai governance public affairs education teaching institutional settlement" data-tags="ai governance|public affairs education|teaching|institutional settlement" data-section-kind="working" data-rank="20" data-progress="20" data-title="from classroom experimentation to institutional settlement: making ai governable in public affairs education" data-status="working paper">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#20</span>
+                <div>
+                  <h3>From Classroom Experimentation to Institutional Settlement: Making AI Governable in Public Affairs Education</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill working">Working paper</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Working paper; timeline not specified.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Active Working</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">AI Governance</span><span class="tag">Public Affairs Education</span><span class="tag">Teaching</span><span class="tag">Institutional Settlement</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">20%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 20 percent" style="--p: 20%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      </div>
           <div class="empty-state" data-empty-for="working">No active working papers match the current filters.</div>
         </section>
-
+        
         <section class="section" id="concept">
           <div class="section-header">
             <div>
               <h2>Concept / Early Pipeline</h2>
               <p>Early-stage manuscripts that need scoping, target-journal selection, and a sharper timeline before entering the main writing pipeline.</p>
             </div>
-            <span class="count-badge" data-count-for="concept">0 items</span>
+            <span class="count-badge" data-count-for="concept">3 items</span>
           </div>
-          <div class="paper-grid" data-section="concept"></div>
+          <div class="paper-grid" data-section="concept">
+        <article class="paper-card concept" data-search="institutional voids and digital disruption: a comparative theory of traditional versus platform-based nonprofits sina jangjoo journal target tbd / not specified concept/working paper; timeline not specified. concept paper nonprofit digital disruption institutional voids theory" data-tags="nonprofit|digital disruption|institutional voids|theory" data-section-kind="concept" data-rank="21" data-progress="18" data-title="institutional voids and digital disruption: a comparative theory of traditional versus platform-based nonprofits" data-status="concept paper">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#21</span>
+                <div>
+                  <h3>Institutional Voids and Digital Disruption: A Comparative Theory of Traditional versus Platform-Based Nonprofits</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill concept">Concept paper</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Concept/working paper; timeline not specified.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Concept</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Nonprofit</span><span class="tag">Digital Disruption</span><span class="tag">Institutional Voids</span><span class="tag">Theory</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">18%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 18 percent" style="--p: 18%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card concept" data-search="invisible front-line faculty: emotional labor, immigration precarity, and intersectional inequity among international phd instructors of record in public administration and nonprofit management sina jangjoo journal target tbd / not specified supported by arnova teaching section research grant award. concept paper teaching international phd students emotional labor precarity arnova grant" data-tags="teaching|international phd students|emotional labor|precarity|arnova grant" data-section-kind="concept" data-rank="22" data-progress="16" data-title="invisible front-line faculty: emotional labor, immigration precarity, and intersectional inequity among international phd instructors of record in public administration and nonprofit management" data-status="concept paper">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#22</span>
+                <div>
+                  <h3>Invisible Front-Line Faculty: Emotional Labor, Immigration Precarity, and Intersectional Inequity among International PhD Instructors of Record in Public Administration and Nonprofit Management</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill concept">Concept paper</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Supported by ARNOVA Teaching Section Research Grant Award.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Concept</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Teaching</span><span class="tag">International PhD Students</span><span class="tag">Emotional Labor</span><span class="tag">Precarity</span><span class="tag">ARNOVA Grant</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">16%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 16 percent" style="--p: 16%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      
+        <article class="paper-card concept" data-search="from smart city to metaverse urbanism: critical pathways and contestations in digital urban governance sina jangjoo journal target tbd / not specified concept/working paper; timeline not specified. concept paper urban governance smart cities metaverse digital governance" data-tags="urban governance|smart cities|metaverse|digital governance" data-section-kind="concept" data-rank="23" data-progress="14" data-title="from smart city to metaverse urbanism: critical pathways and contestations in digital urban governance" data-status="concept paper">
+          <div>
+            <div class="paper-top">
+              <div class="title-block">
+                <span class="rank">#23</span>
+                <div>
+                  <h3>From Smart City to Metaverse Urbanism: Critical Pathways and Contestations in Digital Urban Governance</h3>
+                  <p class="note-text">Lead / solo author</p>
+                </div>
+              </div>
+              <span class="status-pill concept">Concept paper</span>
+            </div>
+
+            <div class="meta-grid">
+              <div class="meta"><b>Collaborators</b><span>Sina Jangjoo</span></div>
+              <div class="meta"><b>Target journal / outlet</b><span>Journal target TBD / not specified</span></div>
+              <div class="meta"><b>Timeline / stage evidence</b><span>Concept/working paper; timeline not specified.</span></div>
+              <div class="meta"><b>Pipeline category</b><span>Concept</span></div>
+            </div>
+
+            <div class="tags"><span class="tag">Urban Governance</span><span class="tag">Smart Cities</span><span class="tag">Metaverse</span><span class="tag">Digital Governance</span></div>
+          </div>
+          <aside class="side-progress">
+            <div>
+              <div class="progress-number">14%</div>
+              <div class="progress-label">Planning readiness</div>
+            </div>
+            <div class="bar" aria-label="Progress 14 percent" style="--p: 14%;"><span></span></div>
+            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
+          </aside>
+        </article>
+      </div>
           <div class="empty-state" data-empty-for="concept">No concept-stage papers match the current filters.</div>
         </section>
 
@@ -967,851 +1627,44 @@
             </div>
             <span class="count-badge">3 grants</span>
           </div>
-          <div class="grant-grid" id="grantGrid"></div>
+          <div class="grant-grid" id="grantGrid">
+        <article class="grant-card">
+          <div>
+            <span class="mini-badge note-pill">Collaborator · 2024</span>
+            <h3>Convergent Anthropocene Systems (Anthems) – A System-of-Systems Paradigm</h3>
+            <p class="grant-meta"><strong>National Science Foundation</strong></p>
+            <p class="grant-meta">Chesapeake Bay Program Governance Decision Support System Modeling.</p>
+          </div>
+          <div class="grant-amount">$3.6 million</div>
+        </article>
+      
+        <article class="grant-card">
+          <div>
+            <span class="mini-badge note-pill">Collaborator · 2024</span>
+            <h3>EPA Greenhouse Gas Reduction Fund Solar for All Grant</h3>
+            <p class="grant-meta"><strong>U.S. Environmental Protection Agency via subcontract with The Nature Conservancy</strong></p>
+            <p class="grant-meta">Supports the clean-energy and solar-governance research agenda.</p>
+          </div>
+          <div class="grant-amount">$311,127</div>
+        </article>
+      
+        <article class="grant-card">
+          <div>
+            <span class="mini-badge note-pill">Collaborator · 2025</span>
+            <h3>Assessing the Potential for Transactive Energy Communities in Rural New Hampshire</h3>
+            <p class="grant-meta"><strong>National Science Foundation</strong></p>
+            <p class="grant-meta">Connected to energy governance, technical capacity, and rural energy systems.</p>
+          </div>
+          <div class="grant-amount">$1.7 million</div>
+        </article>
+      </div>
         </section>
       </div>
     </section>
 
-    <p class="footer">Prepared as a self-contained editable HTML dashboard. Changes are saved in your browser; use “Export public website HTML code” for the clean version you can paste into your website.</p>
+    <p class="footer">Prepared as a self-contained public manuscript pipeline page for Sina Jangjoo.</p>
   </main>
-
   <script>
-    const papers = [
-      {
-        rank: 1,
-        section: "rr",
-        status: "R&R",
-        progress: 78,
-        title: "Institutional Voids and Public Opposition: Evidence from the Siting of Wind Energy Infrastructure",
-        collaborators: "X. Gao; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Policy Studies Journal",
-        timeline: "Submitted March 2026; R&R; presented at APPAM 2025.",
-        next: "Prepare revision strategy, response-to-reviewers memo, and theory/evidence alignment for the institutional voids framing.",
-        tags: ["R&R", "Energy", "Institutional Voids", "Public Opposition", "Policy Process"]
-      },
-      {
-        rank: 2,
-        section: "rr",
-        status: "R&R",
-        progress: 76,
-        title: "A System-of-Systems Convergence Paradigm for Societal Challenges of the Anthropocene",
-        collaborators: "M. S. Harris; M. M. Naderi; E. Ghorbanichemazkati; Sina Jangjoo; E. Lapan; S. A. Hosseini; A. M. Farid; additional coauthors",
-        role: "Coauthor",
-        target: "Earth's Future",
-        timeline: "Submitted January 2026; R&R; arXiv version available.",
-        next: "Coordinate revisions around convergence contribution, systems framing, and cross-disciplinary claims.",
-        tags: ["R&R", "Systems", "Anthropocene", "Convergence", "Governance"]
-      },
-      {
-        rank: 3,
-        section: "rr",
-        status: "R&R",
-        progress: 74,
-        title: "Civil Society After Disasters",
-        collaborators: "D. Berlan; M. Denis-Luque; Y. Sun; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Nonprofit and Voluntary Sector Quarterly",
-        timeline: "Submitted November 2024; R&R.",
-        next: "Revise nonprofit/civil society contribution, clarify disaster governance mechanisms, and update response letter.",
-        tags: ["R&R", "Nonprofit", "Civil Society", "Disasters", "Governance"]
-      },
-      {
-        rank: 4,
-        section: "rr",
-        status: "R&R",
-        progress: 72,
-        title: "Women’s Intragroup Differences in Urban Green Space Soundscape Appraisal: Evidence from a Corridor Park in Shiraz, Iran",
-        collaborators: "A. R. Sadeghi; A. Alishahi; N. Panahi; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Journal of Environmental Management",
-        timeline: "Submitted May 2026; R&R.",
-        next: "Tighten measurement, subgroup interpretation, environmental-management contribution, and reviewer-response structure.",
-        tags: ["R&R", "Urban", "Women", "Green Space", "Soundscape", "Iran"]
-      },
-      {
-        rank: 5,
-        section: "conference",
-        status: "Proposal accepted",
-        progress: 34,
-        title: "When Are Governments Institutionally Ready for Public-Sector AI? Classification, Venue Settlement, and Procedural Governance",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Proposal accepted to PMRC 2026.",
-        next: "Convert proposal into full manuscript architecture; define cases/data; select a PA/public management journal target.",
-        tags: ["AI Governance", "Public Sector AI", "Institutional Readiness", "Procedural Governance", "PMRC 2026"]
-      },
-      {
-        rank: 6,
-        section: "conference",
-        status: "Conference submitted",
-        progress: 31,
-        title: "Visible Public Disruption and Accountability Lag in Embodied Autonomous-System Governance",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Submitted to APPAM 2026.",
-        next: "Clarify contribution around visibility, accountability lag, and embodied autonomous systems; prepare conference-paper version.",
-        tags: ["Autonomous Systems", "Accountability", "Public Disruption", "Governance", "APPAM 2026"]
-      },
-      {
-        rank: 7,
-        section: "conference",
-        status: "Conference submitted",
-        progress: 31,
-        title: "Who Makes AI Infrastructure Governable? Nonprofits, Data Centers, and Contested Rule Formation in Local Communities",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Submitted to ARNOVA 2026.",
-        next: "Specify nonprofit/intermediary roles, data-center governance venues, and local rule-formation evidence.",
-        tags: ["AI Infrastructure", "Nonprofits", "Data Centers", "Local Governance", "ARNOVA 2026"]
-      },
-      {
-        rank: 8,
-        section: "conference",
-        status: "Presented",
-        progress: 42,
-        title: "The Attention Budget of Collaborative Governance Regimes: How Boundary Infrastructure Punctuates the Administrative Agenda",
-        collaborators: "E. Lapan; L. Arpan; T. Tang; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Journal target TBD / not specified",
-        timeline: "Presented at ASPA 2026.",
-        next: "Move from conference paper to journal manuscript; sharpen boundary infrastructure and attention-budget mechanism.",
-        tags: ["Collaborative Governance", "Boundary Infrastructure", "Agenda Setting", "ASPA 2026"]
-      },
-      {
-        rank: 9,
-        section: "conference",
-        status: "Presented",
-        progress: 40,
-        title: "Beyond First Impressions: How Fit and Compensation Discrepancies Shape Turnover Intentions Among Nonprofit Leaders in Small Human Service Nonprofits",
-        collaborators: "Dr. Azevedo; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Journal target TBD / not specified",
-        timeline: "Presented at ASPA 2026.",
-        next: "Finalize model specification, position contribution to nonprofit HR/management, and separate from related turnover project if needed.",
-        tags: ["Nonprofit", "Turnover", "Person-Organization Fit", "Compensation", "ASPA 2026"]
-      },
-      {
-        rank: 10,
-        section: "conference",
-        status: "Proposal accepted",
-        progress: 30,
-        title: "Governing AI in a Multipolar World: Ethical Risks, Institutional Mismatch, and Contested Rule Formation in the Global AI Transition",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Proposal accepted to PMRC 2025.",
-        next: "Decide whether this remains a standalone global AI paper or becomes the comparative/theory extension of the PSJ contested rule formation article.",
-        tags: ["AI Governance", "Global Governance", "Institutional Mismatch", "Ethics", "PMRC 2025"]
-      },
-      {
-        rank: 11,
-        section: "conference",
-        status: "Presented",
-        progress: 36,
-        title: "Translating Performance Between Funders and Nonprofits",
-        collaborators: "D. Berlan; M. VanLandingham; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Journal target TBD / not specified",
-        timeline: "Presented at ARNOVA 2024.",
-        next: "Clarify empirical contribution and target a nonprofit/public management outlet after determining whether additional data are needed.",
-        tags: ["Nonprofit", "Performance", "Funders", "Accountability", "ARNOVA 2024"]
-      },
-      {
-        rank: 12,
-        section: "conference",
-        status: "Presented / working project",
-        progress: 34,
-        title: "Are Small Nonprofits Stepping Stones or Springboards? A Multi-Dimensional Study of Turnover Intentions and Perceived Fit Discrepancy",
-        collaborators: "Dr. Azevedo; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Journal target TBD / not specified",
-        timeline: "Presented at ARNOVA 2024; working project.",
-        next: "Decide relationship with the ASPA 2026 turnover manuscript; avoid duplicate contribution and define the stronger publishable paper.",
-        tags: ["Nonprofit", "Turnover", "Fit Discrepancy", "Human Services", "ARNOVA 2024"]
-      },
-      {
-        rank: 13,
-        section: "conference",
-        status: "Presented",
-        progress: 32,
-        title: "Immigration Policy, Institutions, Precarity, and Wellbeing of Citizen Spouses in Mixed-Status Families",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Presented at SECoPA 2024.",
-        next: "Update framing after Administration & Society review trajectory; clarify whether this is a revised version or a new extension.",
-        tags: ["Immigration Policy", "Institutions", "Precarity", "Mixed-Status Families", "SECoPA 2024"]
-      },
-      {
-        rank: 14,
-        section: "dissertation",
-        status: "Presented / dissertation chapter",
-        progress: 58,
-        title: "Nonprofits as Shadow Rule-Makers under Constrained Polycentricity: Local Clean Energy Governance in Florida",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Presented at ARNOVA 2025; Dissertation Chapter 2.",
-        next: "Convert dissertation chapter into a journal manuscript; clarify nonprofit rule-making mechanism and target nonprofit/energy governance outlets.",
-        tags: ["Dissertation", "Nonprofit", "Clean Energy", "Polycentricity", "Florida"]
-      },
-      {
-        rank: 15,
-        section: "dissertation",
-        status: "Presented / dissertation chapter",
-        progress: 56,
-        title: "Peripheral Rule-System Stabilization under Constrained Polycentricity: Local Energy Transition Governance and Justice in Preemptive Florida",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Presented at ASPA 2025; Dissertation Chapter 3.",
-        next: "Position contribution around constrained polycentricity, preemption, justice, and local energy-transition governance.",
-        tags: ["Dissertation", "Energy Justice", "Polycentricity", "Preemption", "Florida"]
-      },
-      {
-        rank: 16,
-        section: "working",
-        status: "Working paper",
-        progress: 26,
-        title: "Administrative Capacity and the Absorption of Local Solar Technical Assistance: Evidence from SolSmart",
-        collaborators: "T. Tang; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Journal target TBD / not specified",
-        timeline: "Working paper; timeline not specified.",
-        next: "Define dataset, outcome measure for absorption, and target contribution to local administrative capacity and technical-assistance literatures.",
-        tags: ["Solar", "Technical Assistance", "Administrative Capacity", "SolSmart", "Local Government"]
-      },
-      {
-        rank: 17,
-        section: "working",
-        status: "Working paper",
-        progress: 24,
-        title: "Can Technical Assistance Make Governments Ready for AI? Lessons from Solar Governance for Public-Sector AI",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Working paper; timeline not specified.",
-        next: "Clarify comparative bridge from solar technical assistance to AI readiness; decide whether it complements or competes with the PMRC 2026 AI-readiness paper.",
-        tags: ["AI Governance", "Technical Assistance", "Solar Governance", "Administrative Capacity"]
-      },
-      {
-        rank: 18,
-        section: "working",
-        status: "Working paper",
-        progress: 23,
-        title: "When All-Age Is Not One Template: Older Women’s Public-Space Criteria and Measurement Portability in Shiraz, Iran",
-        collaborators: "A. R. Sadeghi; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Journal target TBD / not specified",
-        timeline: "Working paper; timeline not specified.",
-        next: "Build contribution around measurement portability, age-friendly urbanism, and gendered public-space criteria.",
-        tags: ["Urban", "Older Women", "Measurement", "Public Space", "Iran"]
-      },
-      {
-        rank: 19,
-        section: "working",
-        status: "Working paper",
-        progress: 22,
-        title: "From Advocacy to Action: Nonprofits and the Evolution of Collaborative Water Governance in Oregon",
-        collaborators: "Dr. Gao; Dr. Liu; Sina Jangjoo",
-        role: "Coauthor",
-        target: "Journal target TBD / not specified",
-        timeline: "Working paper; timeline not specified.",
-        next: "Clarify case evidence, nonprofit role typology, and relationship to collaborative water governance theory.",
-        tags: ["Nonprofit", "Water Governance", "Oregon", "Collaborative Governance"]
-      },
-      {
-        rank: 20,
-        section: "working",
-        status: "Working paper",
-        progress: 20,
-        title: "From Classroom Experimentation to Institutional Settlement: Making AI Governable in Public Affairs Education",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Working paper; timeline not specified.",
-        next: "Decide whether the target is PA pedagogy, AI governance, or public affairs education; collect classroom/policy evidence if needed.",
-        tags: ["AI Governance", "Public Affairs Education", "Teaching", "Institutional Settlement"]
-      },
-      {
-        rank: 21,
-        section: "concept",
-        status: "Concept paper",
-        progress: 18,
-        title: "Institutional Voids and Digital Disruption: A Comparative Theory of Traditional versus Platform-Based Nonprofits",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Concept/working paper; timeline not specified.",
-        next: "Develop theoretical distinction between traditional and platform-based nonprofit forms; decide if this is theory-building or empirical comparison.",
-        tags: ["Nonprofit", "Digital Disruption", "Institutional Voids", "Theory"]
-      },
-      {
-        rank: 22,
-        section: "concept",
-        status: "Concept paper",
-        progress: 16,
-        title: "Invisible Front-Line Faculty: Emotional Labor, Immigration Precarity, and Intersectional Inequity among International PhD Instructors of Record in Public Administration and Nonprofit Management",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Supported by ARNOVA Teaching Section Research Grant Award.",
-        next: "Define data collection plan, ethics/IRB needs, and whether target is PA education, nonprofit education, or higher-education labor.",
-        tags: ["Teaching", "International PhD Students", "Emotional Labor", "Precarity", "ARNOVA Grant"]
-      },
-      {
-        rank: 23,
-        section: "concept",
-        status: "Concept paper",
-        progress: 14,
-        title: "From Smart City to Metaverse Urbanism: Critical Pathways and Contestations in Digital Urban Governance",
-        collaborators: "Sina Jangjoo",
-        role: "Lead / solo author",
-        target: "Journal target TBD / not specified",
-        timeline: "Concept/working paper; timeline not specified.",
-        next: "Specify whether this is a critical review, conceptual framework, or empirical urban-governance study.",
-        tags: ["Urban Governance", "Smart Cities", "Metaverse", "Digital Governance"]
-      }
-    ];
-
-    const grants = [
-      {
-        title: "Convergent Anthropocene Systems (Anthems) – A System-of-Systems Paradigm",
-        sponsor: "National Science Foundation",
-        amount: "$3.6 million",
-        year: "2024",
-        role: "Collaborator",
-        note: "Chesapeake Bay Program Governance Decision Support System Modeling."
-      },
-      {
-        title: "EPA Greenhouse Gas Reduction Fund Solar for All Grant",
-        sponsor: "U.S. Environmental Protection Agency via subcontract with The Nature Conservancy",
-        amount: "$311,127",
-        year: "2024",
-        role: "Collaborator",
-        note: "Supports the clean-energy and solar-governance research agenda."
-      },
-      {
-        title: "Assessing the Potential for Transactive Energy Communities in Rural New Hampshire",
-        sponsor: "National Science Foundation",
-        amount: "$1.7 million",
-        year: "2025",
-        role: "Collaborator",
-        note: "Connected to energy governance, technical capacity, and rural energy systems."
-      }
-    ];
-
-    const filters = [
-      "All",
-      "R&R",
-      "AI Governance",
-      "Energy",
-      "Nonprofit",
-      "Urban",
-      "Dissertation",
-      "Collaborative Governance",
-      "Teaching",
-      "Technical Assistance"
-    ];
-
-    const sectionNames = {
-      rr: "R&R",
-      conference: "Conference / Proposal",
-      dissertation: "Dissertation / Near-Journal",
-      working: "Active Working",
-      concept: "Concept"
-    };
-
-    const sectionOrder = ["rr", "conference", "dissertation", "working", "concept"];
-    const searchBox = document.getElementById("searchBox");
-    const sortSelect = document.getElementById("sortSelect");
-    const filtersEl = document.getElementById("filters");
-    const grantGrid = document.getElementById("grantGrid");
-    let activeFilter = "All";
-
-    function makePaperCard(paper) {
-      const safeTitle = paper.title.replace(/"/g, "&quot;");
-      return `
-        <article class="paper-card ${paper.section}" data-search="${[paper.title, paper.collaborators, paper.target, paper.timeline, paper.status, paper.tags.join(" ")].join(" ").toLowerCase()}" data-tags="${paper.tags.join("|").toLowerCase()}" data-section-kind="${paper.section}">
-          <div>
-            <div class="paper-top">
-              <div class="title-block">
-                <span class="rank">#${paper.rank}</span>
-                <div>
-                  <h3>${safeTitle}</h3>
-                  <p class="note-text">${paper.role}</p>
-                </div>
-              </div>
-              <span class="status-pill ${paper.section}">${paper.status}</span>
-            </div>
-
-            <div class="meta-grid">
-              <div class="meta"><b>Collaborators</b><span>${paper.collaborators}</span></div>
-              <div class="meta"><b>Target journal / outlet</b><span>${paper.target}</span></div>
-              <div class="meta"><b>Timeline / stage evidence</b><span>${paper.timeline}</span></div>
-              <div class="meta"><b>Pipeline category</b><span>${sectionNames[paper.section]}</span></div>
-            </div>
-
-            <div class="tags">${paper.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
-          </div>
-          <aside class="side-progress">
-            <div>
-              <div class="progress-number">${paper.progress}%</div>
-              <div class="progress-label">Planning readiness</div>
-            </div>
-            <div class="bar" aria-label="Progress ${paper.progress} percent" style="--p: ${paper.progress}%;"><span></span></div>
-            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
-          </aside>
-        </article>
-      `;
-    }
-
-    function makeGrantCard(grant) {
-      return `
-        <article class="grant-card">
-          <div>
-            <span class="mini-badge note-pill">${grant.role} · ${grant.year}</span>
-            <h3>${grant.title}</h3>
-            <p class="grant-meta"><strong>${grant.sponsor}</strong></p>
-            <p class="grant-meta">${grant.note}</p>
-          </div>
-          <div class="grant-amount">${grant.amount}</div>
-        </article>
-      `;
-    }
-
-    function buildFilters() {
-      filtersEl.innerHTML = filters.map(filter => `<button class="filter ${filter === activeFilter ? "active" : ""}" type="button" data-filter="${filter}">${filter}</button>`).join("");
-      filtersEl.querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", () => {
-          activeFilter = button.dataset.filter;
-          buildFilters();
-          render();
-        });
-      });
-    }
-
-    function sortPapers(list) {
-      const sort = sortSelect.value;
-      return [...list].sort((a, b) => {
-        if (sort === "progress") return b.progress - a.progress || a.rank - b.rank;
-        if (sort === "status") return a.status.localeCompare(b.status) || a.rank - b.rank;
-        if (sort === "title") return a.title.localeCompare(b.title);
-        return a.rank - b.rank;
-      });
-    }
-
-    function passesFilter(paper, query) {
-      const haystack = [paper.title, paper.collaborators, paper.target, paper.timeline, paper.status, paper.tags.join(" "), paper.next].join(" ").toLowerCase();
-      const filterMatch = activeFilter === "All" || paper.tags.map(t => t.toLowerCase()).includes(activeFilter.toLowerCase()) || paper.status.toLowerCase().includes(activeFilter.toLowerCase());
-      const queryMatch = !query || haystack.includes(query);
-      return filterMatch && queryMatch;
-    }
-
-    function render() {
-      const query = searchBox.value.trim().toLowerCase();
-      const visible = sortPapers(papers).filter(paper => passesFilter(paper, query));
-
-      sectionOrder.forEach(section => {
-        const container = document.querySelector(`[data-section="${section}"]`);
-        const items = visible.filter(paper => paper.section === section);
-        container.innerHTML = items.map(makePaperCard).join("");
-        document.querySelector(`[data-count-for="${section}"]`).textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
-        document.querySelector(`[data-empty-for="${section}"]`).classList.toggle("show", items.length === 0);
-      });
-
-      const collaborativeCount = papers.filter(p => !p.collaborators.toLowerCase().includes("lead / solo") && !p.collaborators.toLowerCase().includes("sina jangjoo") ? true : p.collaborators.split(";").length > 1 || p.collaborators.includes("Dr.") || p.collaborators.includes("additional")).length;
-      document.getElementById("metricRR").textContent = papers.filter(p => p.section === "rr").length;
-      document.getElementById("metricWorking").textContent = papers.filter(p => p.section !== "rr").length;
-      document.getElementById("metricGrants").textContent = grants.length;
-      document.getElementById("metricCollab").textContent = collaborativeCount;
-    }
-
-    grantGrid.innerHTML = grants.map(makeGrantCard).join("");
-    buildFilters();
-    render();
-    searchBox.addEventListener("input", render);
-    sortSelect.addEventListener("change", render);
-  </script>
-
-  <script>
-    // Editable layer for the offline manuscript dashboard.
-    const EDIT_STORAGE_KEY = "sina_manuscript_pipeline_dashboard_v2";
-
-    function esc(value) {
-      return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
-    function slugify(text) {
-      return String(text || "item").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 64) || "item";
-    }
-
-    function makeEditableId(prefix, seed) {
-      return `${prefix}-${slugify(seed)}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
-    }
-
-    function normalizePaper(paper, index) {
-      const title = String(paper.title || "Untitled manuscript").trim();
-      return {
-        id: paper.id || `paper-${slugify(title)}-${paper.rank || index + 1}`,
-        rank: Number.isFinite(Number(paper.rank)) ? Number(paper.rank) : index + 1,
-        section: sectionOrder.includes(paper.section) ? paper.section : "working",
-        status: String(paper.status || "Working paper"),
-        progress: Math.max(0, Math.min(100, Number.isFinite(Number(paper.progress)) ? Number(paper.progress) : 0)),
-        title,
-        collaborators: String(paper.collaborators || "Sina Jangjoo"),
-        role: String(paper.role || "Lead / solo author"),
-        target: String(paper.target || "Journal target TBD / not specified"),
-        timeline: String(paper.timeline || "Timeline not specified."),
-        next: String(paper.next || ""),
-        tags: Array.isArray(paper.tags) ? paper.tags.map(t => String(t).trim()).filter(Boolean) : String(paper.tags || "").split(",").map(t => t.trim()).filter(Boolean)
-      };
-    }
-
-    function normalizeGrant(grant, index) {
-      const title = String(grant.title || "Untitled sponsored project").trim();
-      return {
-        id: grant.id || `grant-${slugify(title)}-${grant.year || index + 1}`,
-        title,
-        sponsor: String(grant.sponsor || "Sponsor not specified"),
-        amount: String(grant.amount || "Amount not specified"),
-        year: String(grant.year || "Year not specified"),
-        role: String(grant.role || "Collaborator"),
-        note: String(grant.note || "")
-      };
-    }
-
-    function normalizeAllData() {
-      papers.splice(0, papers.length, ...papers.map(normalizePaper).sort((a, b) => a.rank - b.rank || a.title.localeCompare(b.title)));
-      grants.splice(0, grants.length, ...grants.map(normalizeGrant));
-    }
-
-    const originalPapers = JSON.parse(JSON.stringify(papers));
-    const originalGrants = JSON.parse(JSON.stringify(grants));
-    const dataStatus = document.getElementById("dataStatus");
-    const editorMessage = document.getElementById("editorMessage");
-    const entryForm = document.getElementById("entryForm");
-    const importFile = document.getElementById("importFile");
-
-    makePaperCard = function(paper) {
-      return `
-        <article class="paper-card ${esc(paper.section)}" data-search="${esc([paper.title, paper.collaborators, paper.target, paper.timeline, paper.status, paper.tags.join(" ")].join(" ").toLowerCase())}" data-tags="${esc(paper.tags.join("|").toLowerCase())}" data-section-kind="${esc(paper.section)}">
-          <div>
-            <div class="paper-top">
-              <div class="title-block">
-                <span class="rank">#${esc(paper.rank)}</span>
-                <div>
-                  <h3>${esc(paper.title)}</h3>
-                  <p class="note-text">${esc(paper.role)}</p>
-                </div>
-              </div>
-              <span class="status-pill ${esc(paper.section)}">${esc(paper.status)}</span>
-            </div>
-
-            <div class="meta-grid">
-              <div class="meta"><b>Collaborators</b><span>${esc(paper.collaborators)}</span></div>
-              <div class="meta"><b>Target journal / outlet</b><span>${esc(paper.target)}</span></div>
-              <div class="meta"><b>Timeline / stage evidence</b><span>${esc(paper.timeline)}</span></div>
-              <div class="meta"><b>Pipeline category</b><span>${esc(sectionNames[paper.section])}</span></div>
-            </div>
-
-            <div class="tags">${paper.tags.map(tag => `<span class="tag">${esc(tag)}</span>`).join("")}</div>
-            <div class="card-actions">
-              <button class="tiny-action" type="button" data-edit-paper="${esc(paper.id)}">Edit</button>
-              <button class="tiny-action danger" type="button" data-delete-paper="${esc(paper.id)}">Delete</button>
-            </div>
-          </div>
-          <aside class="side-progress">
-            <div>
-              <div class="progress-number">${esc(paper.progress)}%</div>
-              <div class="progress-label">Planning readiness</div>
-            </div>
-            <div class="bar" aria-label="Progress ${esc(paper.progress)} percent" style="--p: ${esc(paper.progress)}%;"><span></span></div>
-            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
-          </aside>
-        </article>
-      `;
-    };
-
-    makeGrantCard = function(grant) {
-      return `
-        <article class="grant-card">
-          <div>
-            <span class="mini-badge note-pill">${esc(grant.role)} · ${esc(grant.year)}</span>
-            <h3>${esc(grant.title)}</h3>
-            <p class="grant-meta"><strong>${esc(grant.sponsor)}</strong></p>
-            <p class="grant-meta">${esc(grant.note)}</p>
-            <div class="card-actions">
-              <button class="tiny-action" type="button" data-edit-grant="${esc(grant.id)}">Edit</button>
-              <button class="tiny-action danger" type="button" data-delete-grant="${esc(grant.id)}">Delete</button>
-            </div>
-          </div>
-          <div class="grant-amount">${esc(grant.amount)}</div>
-        </article>
-      `;
-    };
-
-    function setEditorMessage(message) {
-      editorMessage.textContent = message || "";
-      if (message) clearTimeout(setEditorMessage.timer);
-      if (message) setEditorMessage.timer = setTimeout(() => editorMessage.textContent = "", 4800);
-    }
-
-    function renderGrantsEditable() {
-      grantGrid.innerHTML = grants.map(makeGrantCard).join("");
-      const badge = document.querySelector("#grants .count-badge");
-      if (badge) badge.textContent = `${grants.length} grant${grants.length === 1 ? "" : "s"}`;
-      document.getElementById("metricGrants").textContent = grants.length;
-    }
-
-    function renderEverything() {
-      normalizeAllData();
-      render();
-      renderGrantsEditable();
-    }
-
-    function saveEditableState(message = "Saved in this browser.") {
-      const payload = { version: 2, updatedAt: new Date().toISOString(), papers, grants };
-      localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(payload));
-      dataStatus.textContent = `Using locally saved edits · last saved: ${new Date(payload.updatedAt).toLocaleString()}`;
-      setEditorMessage(message);
-      renderEverything();
-    }
-
-    function loadEditableState() {
-      normalizeAllData();
-      try {
-        const stored = JSON.parse(localStorage.getItem(EDIT_STORAGE_KEY) || "null");
-        if (stored && Array.isArray(stored.papers) && Array.isArray(stored.grants)) {
-          papers.splice(0, papers.length, ...stored.papers.map(normalizePaper));
-          grants.splice(0, grants.length, ...stored.grants.map(normalizeGrant));
-          dataStatus.textContent = `Using locally saved edits · last saved: ${stored.updatedAt ? new Date(stored.updatedAt).toLocaleString() : "unknown time"}`;
-        }
-      } catch (error) {
-        console.warn("Could not load saved edits", error);
-      }
-      renderEverything();
-    }
-
-    function nextRankEditable() {
-      return papers.length ? Math.max(...papers.map(p => Number(p.rank) || 0)) + 1 : 1;
-    }
-
-    function openPaperForm(id = null) {
-      const paper = id ? papers.find(p => p.id === id) : null;
-      document.getElementById("editor").open = true;
-      entryForm.hidden = false;
-      paperFields.hidden = false;
-      grantFields.hidden = true;
-      editType.value = "paper";
-      editId.value = paper?.id || "";
-      formTitle.textContent = paper ? "Edit paper" : "Add paper";
-      formSubtitle.textContent = "Update status, collaborators, target outlet, timeline, tags, and progress.";
-      paperTitle.value = paper?.title || "";
-      paperSection.value = paper?.section || "working";
-      paperStatus.value = paper?.status || "Working paper";
-      paperRank.value = paper?.rank || nextRankEditable();
-      paperProgress.value = paper?.progress ?? 20;
-      paperCollaborators.value = paper?.collaborators || "Sina Jangjoo";
-      paperRole.value = paper?.role || "Lead / solo author";
-      paperTarget.value = paper?.target || "Journal target TBD / not specified";
-      paperTimeline.value = paper?.timeline || "Timeline not specified.";
-      paperNext.value = paper?.next || "";
-      paperTags.value = (paper?.tags || []).join(", ");
-      entryForm.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    function openGrantForm(id = null) {
-      const grant = id ? grants.find(g => g.id === id) : null;
-      document.getElementById("editor").open = true;
-      entryForm.hidden = false;
-      paperFields.hidden = true;
-      grantFields.hidden = false;
-      editType.value = "grant";
-      editId.value = grant?.id || "";
-      formTitle.textContent = grant ? "Edit grant" : "Add grant";
-      formSubtitle.textContent = "Update sponsored research context. Role can be Collaborator now and PI/Co-PI for future grants.";
-      grantTitle.value = grant?.title || "";
-      grantSponsor.value = grant?.sponsor || "";
-      grantAmount.value = grant?.amount || "";
-      grantYear.value = grant?.year || new Date().getFullYear();
-      grantRole.value = grant?.role || "Collaborator";
-      grantNote.value = grant?.note || "";
-      entryForm.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    function closeEditableForm() {
-      entryForm.hidden = true;
-      editType.value = "";
-      editId.value = "";
-    }
-
-    function saveEditableForm(event) {
-      event.preventDefault();
-      const type = editType.value;
-      const id = editId.value;
-      if (type === "paper") {
-        const title = paperTitle.value.trim();
-        if (!title) return setEditorMessage("Paper title is required.");
-        const item = normalizePaper({
-          id: id || makeEditableId("paper", title),
-          rank: Number(paperRank.value) || nextRankEditable(),
-          section: paperSection.value,
-          status: paperStatus.value.trim() || "Working paper",
-          progress: Number(paperProgress.value) || 0,
-          title,
-          collaborators: paperCollaborators.value.trim() || "Sina Jangjoo",
-          role: paperRole.value.trim() || "Lead / solo author",
-          target: paperTarget.value.trim() || "Journal target TBD / not specified",
-          timeline: paperTimeline.value.trim() || "Timeline not specified.",
-          next: paperNext.value.trim() || "",
-          tags: paperTags.value.split(",").map(t => t.trim()).filter(Boolean)
-        }, papers.length);
-        if (id) papers.splice(papers.findIndex(p => p.id === id), 1, item);
-        else papers.push(item);
-        saveEditableState(id ? "Paper updated." : "New paper added.");
-        closeEditableForm();
-        return;
-      }
-      if (type === "grant") {
-        const title = grantTitle.value.trim();
-        if (!title) return setEditorMessage("Grant title is required.");
-        const item = normalizeGrant({
-          id: id || makeEditableId("grant", title),
-          title,
-          sponsor: grantSponsor.value.trim() || "Sponsor not specified",
-          amount: grantAmount.value.trim() || "Amount not specified",
-          year: grantYear.value.trim() || "Year not specified",
-          role: grantRole.value.trim() || "Collaborator",
-          note: grantNote.value.trim()
-        }, grants.length);
-        if (id) grants.splice(grants.findIndex(g => g.id === id), 1, item);
-        else grants.push(item);
-        saveEditableState(id ? "Grant updated." : "New grant added.");
-        closeEditableForm();
-      }
-    }
-
-    function deleteEditablePaper(id) {
-      const paper = papers.find(p => p.id === id);
-      if (!paper || !confirm(`Delete this paper?\n\n${paper.title}`)) return;
-      papers.splice(papers.findIndex(p => p.id === id), 1);
-      saveEditableState("Paper deleted.");
-    }
-
-    function deleteEditableGrant(id) {
-      const grant = grants.find(g => g.id === id);
-      if (!grant || !confirm(`Delete this grant?\n\n${grant.title}`)) return;
-      grants.splice(grants.findIndex(g => g.id === id), 1);
-      saveEditableState("Grant deleted.");
-    }
-
-    function downloadBlob(content, filename, type) {
-      const blob = new Blob([content], { type });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      URL.revokeObjectURL(url);
-    }
-
-    function exportEditableJson() {
-      downloadBlob(JSON.stringify({ version: 2, exportedAt: new Date().toISOString(), papers, grants }, null, 2), "manuscript-pipeline-dashboard-data.json", "application/json");
-      setEditorMessage("Data backup exported as JSON.");
-    }
-
-
-    function publicPaperCard(paper) {
-      const safeSection = esc(paper.section);
-      const searchText = [paper.title, paper.collaborators, paper.target, paper.timeline, paper.status, paper.tags.join(" ")].join(" ").toLowerCase();
-      return `
-        <article class="paper-card ${safeSection}" data-search="${esc(searchText)}" data-tags="${esc(paper.tags.join("|").toLowerCase())}" data-section-kind="${safeSection}" data-rank="${esc(paper.rank)}" data-progress="${esc(paper.progress)}" data-title="${esc(String(paper.title).toLowerCase())}" data-status="${esc(String(paper.status).toLowerCase())}">
-          <div>
-            <div class="paper-top">
-              <div class="title-block">
-                <span class="rank">#${esc(paper.rank)}</span>
-                <div>
-                  <h3>${esc(paper.title)}</h3>
-                  <p class="note-text">${esc(paper.role)}</p>
-                </div>
-              </div>
-              <span class="status-pill ${safeSection}">${esc(paper.status)}</span>
-            </div>
-
-            <div class="meta-grid">
-              <div class="meta"><b>Collaborators</b><span>${esc(paper.collaborators)}</span></div>
-              <div class="meta"><b>Target journal / outlet</b><span>${esc(paper.target)}</span></div>
-              <div class="meta"><b>Timeline / stage evidence</b><span>${esc(paper.timeline)}</span></div>
-              <div class="meta"><b>Pipeline category</b><span>${esc(sectionNames[paper.section] || paper.section)}</span></div>
-            </div>
-
-            <div class="tags">${paper.tags.map(tag => `<span class="tag">${esc(tag)}</span>`).join("")}</div>
-          </div>
-          <aside class="side-progress">
-            <div>
-              <div class="progress-number">${esc(paper.progress)}%</div>
-              <div class="progress-label">Planning readiness</div>
-            </div>
-            <div class="bar" aria-label="Progress ${esc(paper.progress)} percent" style="--p: ${esc(paper.progress)}%;"><span></span></div>
-            <div class="next-step">This is a management score based on current status, not a publication prediction.</div>
-          </aside>
-        </article>
-      `;
-    }
-
-    function publicGrantCard(grant) {
-      return `
-        <article class="grant-card">
-          <div>
-            <span class="mini-badge note-pill">${esc(grant.role)} · ${esc(grant.year)}</span>
-            <h3>${esc(grant.title)}</h3>
-            <p class="grant-meta"><strong>${esc(grant.sponsor)}</strong></p>
-            <p class="grant-meta">${esc(grant.note)}</p>
-          </div>
-          <div class="grant-amount">${esc(grant.amount)}</div>
-        </article>
-      `;
-    }
-
-    function publicSectionHtml(id, heading, description, emptyText) {
-      const items = [...papers].filter(p => p.section === id).sort((a, b) => a.rank - b.rank || a.title.localeCompare(b.title));
-      return `
-        <section class="section" id="${esc(id)}">
-          <div class="section-header">
-            <div>
-              <h2>${esc(heading)}</h2>
-              <p>${esc(description)}</p>
-            </div>
-            <span class="count-badge" data-count-for="${esc(id)}">${items.length} item${items.length === 1 ? "" : "s"}</span>
-          </div>
-          <div class="paper-grid" data-section="${esc(id)}">${items.map(publicPaperCard).join("")}</div>
-          <div class="empty-state" data-empty-for="${esc(id)}">${esc(emptyText)}</div>
-        </section>`;
-    }
-
-    function generatePublicWebsiteHtml() {
-      normalizeAllData();
-      const css = document.querySelector("style").textContent;
-      const filtersHtml = filters.map(filter => `<button class="filter ${filter === "All" ? "active" : ""}" type="button" data-filter="${esc(filter)}">${esc(filter)}</button>`).join("");
-      const grantsHtml = grants.map(publicGrantCard).join("");
-      const collaborativeCount = papers.filter(p => {
-        const collaborators = String(p.collaborators || "");
-        return collaborators.split(";").length > 1 || collaborators.includes("Dr.") || collaborators.toLowerCase().includes("additional") || (!collaborators.toLowerCase().includes("sina jangjoo") && collaborators.trim().length > 0);
-      }).length;
-      const generatedOn = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
-      const publicScript = `
     (function () {
       var activeFilter = "All";
       var sectionOrder = ["rr", "conference", "dissertation", "working", "concept"];
@@ -1866,160 +1719,6 @@
       if (sortSelect) sortSelect.addEventListener("change", function () { sortCards(); render(); });
       sortCards();
       render();
-    })();`;
-
-      return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sina Jangjoo | Manuscript Pipeline Dashboard</title>
-  <style>${css}</style>
-</head>
-<body>
-  <main class="page">
-    <section class="hero" aria-label="Dashboard introduction">
-      <div class="hero-card">
-        <div class="eyebrow">Manuscript Pipeline Dashboard</div>
-        <h1>Working Papers, R&amp;Rs, Collaborators, Target Outlets, and Timeline</h1>
-        <p>A single-page overview of active and near-active manuscripts. Progress bars are planning/readiness indicators based on the status information provided; they are not probabilities of journal acceptance. Items without specified journal targets are intentionally marked as TBD rather than inferred.</p>
-        <div class="hero-note">
-          <span class="note-pill">Ordered by revision urgency and manuscript maturity</span>
-          <span class="note-pill">Searchable and filterable</span>
-          <span class="note-pill">Print-friendly</span>
-          <span class="note-pill">Generated ${esc(generatedOn)}</span>
-        </div>
-      </div>
-      <aside class="side-card" aria-label="Dashboard summary metrics">
-        <div class="metric-grid">
-          <div class="metric"><strong id="metricRR">${papers.filter(p => p.section === "rr").length}</strong><span>R&amp;R papers</span></div>
-          <div class="metric"><strong id="metricWorking">${papers.filter(p => p.section !== "rr").length}</strong><span>Working papers</span></div>
-          <div class="metric"><strong id="metricGrants">${grants.length}</strong><span>Grant links</span></div>
-          <div class="metric"><strong id="metricCollab">${collaborativeCount}</strong><span>Collaborative items</span></div>
-        </div>
-        <div class="legend">
-          <div><b>Progress logic:</b> R&amp;R = advanced revision stage; conference submitted/proposal accepted = early public-facing development; presented dissertation/working papers = manuscript development stage; concept papers = early pipeline.</div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="toolbar" aria-label="Search and filters">
-      <label class="search-wrap" for="searchBox"><span>⌕</span><input id="searchBox" type="search" placeholder="Search by title, collaborator, venue, topic, or status..." /></label>
-      <select id="sortSelect" aria-label="Sort papers">
-        <option value="priority">Sort by priority order</option>
-        <option value="progress">Sort by progress</option>
-        <option value="status">Sort by status</option>
-        <option value="title">Sort by title</option>
-      </select>
-      <div class="filters" id="filters">${filtersHtml}</div>
-    </section>
-
-    <section class="layout">
-      <nav class="nav-panel" aria-label="Page sections">
-        <a class="section-link" href="#rr">R&amp;R Papers <small>closest to journal decision</small></a>
-        <a class="section-link" href="#conference">Conference / Proposal Stage <small>submitted or accepted externally</small></a>
-        <a class="section-link" href="#dissertation">Dissertation / Near-Journal Papers <small>already presented or chapter-based</small></a>
-        <a class="section-link" href="#working">Active Working Papers <small>collaborative and solo projects</small></a>
-        <a class="section-link" href="#concept">Concept / Early Pipeline <small>ideas needing target selection</small></a>
-        <a class="section-link" href="#grants">Sponsored Research Context <small>related grant infrastructure</small></a>
-      </nav>
-
-      <div class="content">
-        ${publicSectionHtml("rr", "Revise & Resubmit Papers", "Highest-priority manuscripts because they already have journal decisions and should be managed through revision memos, response letters, and targeted resubmission timelines.", "No R&R papers match the current filters.")}
-        ${publicSectionHtml("conference", "Conference / Proposal Stage", "Projects already accepted to, submitted to, or developed through major conferences. These are not journal submissions unless a target journal is listed.", "No conference-stage papers match the current filters.")}
-        ${publicSectionHtml("dissertation", "Dissertation / Near-Journal Papers", "Manuscripts with dissertation-chapter status or previous conference exposure. These are usually the next best candidates for journal targeting.", "No dissertation-stage papers match the current filters.")}
-        ${publicSectionHtml("working", "Active Working Papers", "Projects with identifiable collaborators, methods, or substantive direction but without a specified journal target in the current list.", "No active working papers match the current filters.")}
-        ${publicSectionHtml("concept", "Concept / Early Pipeline", "Early-stage manuscripts that need scoping, target-journal selection, and a sharper timeline before entering the main writing pipeline.", "No concept-stage papers match the current filters.")}
-
-        <section class="section" id="grants">
-          <div class="section-header">
-            <div>
-              <h2>Sponsored Research Context</h2>
-              <p>Grants and sponsored projects connected to the broader research agenda. Role is shown as collaborator based on the CV text provided.</p>
-            </div>
-            <span class="count-badge">${grants.length} grant${grants.length === 1 ? "" : "s"}</span>
-          </div>
-          <div class="grant-grid" id="grantGrid">${grantsHtml}</div>
-        </section>
-      </div>
-    </section>
-
-    <p class="footer">Prepared as a self-contained public manuscript pipeline page for Sina Jangjoo.</p>
-  </main>
-  <script>${publicScript}<\/script>
-</body>
-</html>`;
-    }
-
-    function exportPublicWebsiteHtmlCode() {
-      const html = generatePublicWebsiteHtml();
-      downloadBlob(html, "manuscript-pipeline-public-html-code.txt", "text/plain;charset=utf-8");
-      setEditorMessage("Clean public website HTML code exported as a .txt file.");
-    }
-
-    function downloadEditableHtml() {
-      const source = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-      const updated = source
-        .replace(/const papers = \[[\s\S]*?\];\n\n    const grants = \[[\s\S]*?\];/, `const papers = ${JSON.stringify(papers, null, 6)};\n\n    const grants = ${JSON.stringify(grants, null, 6)};`)
-        .replace(/localStorage\.setItem\(EDIT_STORAGE_KEY, JSON\.stringify\(payload\)\);/, "localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(payload));");
-      downloadBlob(updated, "manuscript_pipeline_dashboard_edited.html", "text/html");
-      setEditorMessage("Updated standalone HTML downloaded.");
-    }
-
-    function importEditableJson(file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const payload = JSON.parse(reader.result);
-          if (!Array.isArray(payload.papers) || !Array.isArray(payload.grants)) throw new Error("The JSON file must include papers and grants arrays.");
-          papers.splice(0, papers.length, ...payload.papers.map(normalizePaper));
-          grants.splice(0, grants.length, ...payload.grants.map(normalizeGrant));
-          saveEditableState("Imported data backup and saved it in this browser.");
-        } catch (error) {
-          setEditorMessage(`Import failed: ${error.message}`);
-        } finally {
-          importFile.value = "";
-        }
-      };
-      reader.readAsText(file);
-    }
-
-    function resetEditableDefaults() {
-      if (!confirm("Reset the dashboard to the original built-in data? This removes local browser edits for this file.")) return;
-      papers.splice(0, papers.length, ...originalPapers.map(normalizePaper));
-      grants.splice(0, grants.length, ...originalGrants.map(normalizeGrant));
-      localStorage.removeItem(EDIT_STORAGE_KEY);
-      dataStatus.textContent = "Using built-in dashboard data";
-      closeEditableForm();
-      setEditorMessage("Reset to original dashboard data.");
-      renderEverything();
-    }
-
-    addPaperBtn.addEventListener("click", () => openPaperForm());
-    addGrantBtn.addEventListener("click", () => openGrantForm());
-    cancelEditBtn.addEventListener("click", closeEditableForm);
-    clearFormBtn.addEventListener("click", () => editType.value === "grant" ? openGrantForm() : openPaperForm());
-    exportPublicHtmlBtn.addEventListener("click", exportPublicWebsiteHtmlCode);
-    exportJsonBtn.addEventListener("click", exportEditableJson);
-    downloadHtmlBtn.addEventListener("click", downloadEditableHtml);
-    importJsonBtn.addEventListener("click", () => importFile.click());
-    resetDefaultsBtn.addEventListener("click", resetEditableDefaults);
-    importFile.addEventListener("change", () => importFile.files[0] && importEditableJson(importFile.files[0]));
-    entryForm.addEventListener("submit", saveEditableForm);
-
-    document.addEventListener("click", event => {
-      const editPaperId = event.target.getAttribute("data-edit-paper");
-      const deletePaperId = event.target.getAttribute("data-delete-paper");
-      const editGrantId = event.target.getAttribute("data-edit-grant");
-      const deleteGrantId = event.target.getAttribute("data-delete-grant");
-      if (editPaperId) openPaperForm(editPaperId);
-      if (deletePaperId) deleteEditablePaper(deletePaperId);
-      if (editGrantId) openGrantForm(editGrantId);
-      if (deleteGrantId) deleteEditableGrant(deleteGrantId);
-    });
-
-    loadEditableState();
-  </script>
-
+    })();</script>
 </body>
 </html>
